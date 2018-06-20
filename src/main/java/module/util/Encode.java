@@ -1,6 +1,8 @@
 package module.util;
 
+import lombok.Data;
 import module.manager.ldap.TopicEntry;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,14 +10,20 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * 主题树编码，从数据库取出记录格式为TopicEntity，编码成ipv6的格式（分配100位）
+ * 主题树编码，从数据库取出记录格式为TopicEntity，编码成ipv6的格式（分配82位）
  * 层序遍历主题树，为每一层分配log2N位，剩余补0
  *
  * @author caoming
  */
+@Data
+@Component
 public class Encode {
     //主题树层次对应的编码
     private Map<Integer, Map<String, String>> map4tree;
+    //订阅主题与对应编码的映射
+    private Map<String, String> notifyTopic2code;
+    //系统消息与对应编码的映射
+    private Map<String, String> sysTopic2code;
 
     public Map encodePerLevel(List<TopicEntry> list) {
         Map<String, String> map4level = new HashMap<>();

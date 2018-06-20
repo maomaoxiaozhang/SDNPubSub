@@ -3,11 +3,16 @@ package info.msg;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import module.controller.ospf.State;
 
 import java.io.Serializable;
 
+/**
+ * 通过Hello消息探测邻居，同时在Hello消息中封装了LSA内容
+ * 通过Hello消息进行心跳维护、定时交换LSA
+ */
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Hello implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -29,4 +34,10 @@ public class Hello implements Serializable{
 
     //Hello消息失效时间
     private long reHelloPeriod;
+
+    //Hello消息的状态
+    private State state = State.down;
+
+    //Hello消息中包含LSA信息
+    private LSA lsa;
 }

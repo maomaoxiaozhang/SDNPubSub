@@ -9,6 +9,10 @@ import subscribe.Client;
 import subscribe.RTPpacket;
 import sun.misc.BASE64Decoder;
 
+/**
+ * 客户端ws处理程序
+ * 对应的是wsn层ws处理程序
+ */
 @WebService(endpointInterface= "module.wsn.INotificationProcess",
 		serviceName="INotificationProcess")
 public class NotificationProcessImpl implements INotificationProcess{
