@@ -45,11 +45,11 @@ public class HelloReceiver implements Runnable {
 
         @Override
         public void run() {
-            for (Switch swt : controller.getOutSwitches().values()) {
-                for (String out : swt.getPorts()) {
-                    if (!out.equals("LOCAL")) {
-                        re_hello.setEndBorderSwtId(swt.getId());
-                        re_hello.setEndOutPort(out);
+//            for (Switch swt : controller.getOutSwitches().values()) {
+//                for (String out : swt.getPorts()) {
+//                    if (!out.equals("LOCAL")) {
+//                        re_hello.setEndBorderSwtId(swt.getId());
+//                        re_hello.setEndOutPort(out);
 //                        re_hello.setLsa();
 
                         System.out.println("收到来自" + re_hello.getStartGroup() + "的Hello消息");
@@ -72,9 +72,9 @@ public class HelloReceiver implements Runnable {
 //                        //删除这条回复流表，准备下次发送
 //                        RouteUtil.delRouteFlows(rs);
                     }
-                }
-            }
-        }
+  //              }
+//            }
+//        }
     }
 
     private class OnFinalHello implements Runnable {

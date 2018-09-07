@@ -1,6 +1,6 @@
 package info.device;
 
-import info.msg.LSA;
+import info.msg.LSDB;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -18,16 +18,41 @@ public class Controller {
     @Value("${GroupController:10.108.166.14}")
     private String GroupController;
 
+    @Value("${adminName:G1}")
+    private String adminName;
+
     //本地集群名
     @Value("${localGroupName:G1}")
     private String localGroupName;
 
-    //key是swtId，本集群所有拥有对外端口的swt的集合
-    @Value("${outSwitches}")
-    private Map<String, Switch> outSwitches;
+    //本地集群地址
+    @Value("10.108.166.57")
+    private String localAddr;
 
-    //链路状态数据库，key是groupName，当前网络中所有集群的连接情况
-    private Map<String, LSA> LSDB;
+    @Value("30001")
+    private int portToAdmin;
+
+    @Value("30002")
+    private int sysPort;
+
+    @Value("30003")
+    private int notifyPort;
+
+    @Value("FF0E:0000:0000:0000:0001:2345:6789:ABCD")
+    private String sysV6Addr;
+
+    @Value("FF01:0000:0000:0000:0001:2345:6789:ABCD")
+    private String notifyV6Addr;
+
+    //本地交换机，key是swtId
+    @Value("${switches}")
+    private Map<String, Switch> switches;
+
+    //拥有对外端口的交换机，key是集群，value是对应的swtId
+    @Value("${outSwitches}")
+    private Map<String, String> outSwitches;
+
+    private LSDB lsdb;
 
     //存储邻居集群控制器信息，key为集群名称，value为集群控制器信息
     private Map<String, Controller> neighbors;

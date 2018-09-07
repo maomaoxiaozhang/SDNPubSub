@@ -1,5 +1,6 @@
 package module.manager.ldap;
 
+import module.manager.ldap.WsnPolicyMsg;
 import org.w3c.dom.Document;
 
 /**

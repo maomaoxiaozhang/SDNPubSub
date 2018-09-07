@@ -31,7 +31,7 @@ public class wsnLayer {
     public static void main(String[] args) {
         wsnLayer wsn = getInstance();
         NotificationProcessImpl implementor = new NotificationProcessImpl();// 消息处理逻辑
-        Endpoint endpint = Endpoint.publish(receiveAddr, implementor);// 开启接收服务
+        Endpoint endpoint = Endpoint.publish(receiveAddr, implementor);// 开启接收服务
     }
 
     /**

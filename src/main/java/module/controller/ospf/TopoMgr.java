@@ -22,8 +22,8 @@ public class TopoMgr extends TimerTask{
     @Override
     public void run() {
         System.out.println("开始心跳任务");
-        for (Switch swt : controller.getOutSwitches().values()) {
-            for (String out : swt.getPorts()) {
+//        for (Switch swt : controller.getOutSwitches().values()) {
+//            for (String out : swt.getPorts()) {
 //                if (!out.equals("LOCAL")) {
 //                    LSA lsa = new LSA();
 //                    lsa.setUpdateTime(System.currentTimeMillis());
@@ -52,7 +52,7 @@ public class TopoMgr extends TimerTask{
 //						}*/
 //                }
             }
-        }
+//        }
         //定时检测邻居集群的代表是否还在线
 //        for (Group g : allGroups.values()) {
 //            if (!g.groupName.equals(localGroupName) && System.currentTimeMillis() - g.updateTime > nbrGrpExpiration) {
@@ -65,7 +65,7 @@ public class TopoMgr extends TimerTask{
 //                RouteUtil.reCalRoutes();
 //            }
 //        }
-    }
+//    }
 
     private void sendHello(String out, String swtId) {
 //        Hello hello = new Hello();
