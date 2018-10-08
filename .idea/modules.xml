@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/..//Manager.iml" filepath="$PROJECT_DIR$/..//Manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDNPubSub.iml" filepath="$PROJECT_DIR$/SDNPubSub.iml" />
     </modules>
   </component>
