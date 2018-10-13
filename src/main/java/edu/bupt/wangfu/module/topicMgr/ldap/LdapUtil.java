@@ -1,5 +1,7 @@
 package edu.bupt.wangfu.module.topicMgr.ldap;
 
+import edu.bupt.wangfu.module.topicTreeMgr.topicTree.TopicTreeEntry;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.LinkedList;
@@ -146,7 +148,7 @@ public class LdapUtil {
     /**
      * 包装方法
      * @param path	OpenLDAP中条目的路径，如："ou=subTopic,ou=topic"
-     * @return	完整的OpenLDAP路径，如："ou=subTopic,ou=topic,dc=wsn,dc=com"
+     * @return	完整的OpenLDAP路径，如："ou=subTopic,ou=topic,dc=wsnMgr,dc=com"
      */
     public String wrapper(String path, String _wrapper){
         return path + "," + _wrapper;
@@ -174,17 +176,60 @@ public class LdapUtil {
         while(!queue.isEmpty()){
             TopicEntry temp = queue.poll();
             List<TopicEntry> list = getSubLevel(temp);
-            System.out.println(temp);
             if(!list.isEmpty()){
                 for(int i=0;i<list.size();i++){
                     childrens.add(list.get(i));
                     queue.offer(list.get(i));
-                    System.out.print(list.get(i) + "\t");
                 }
             }
-            System.out.println("\n");
         }
         return childrens;
+    }
+
+
+    /**
+     * 返回给定条目及其所有子条目
+     * @param te
+     *          给定条目的路径
+     * @return	将给定条目及其所有子条目存储在列表中返回
+     * @throws NamingException
+     */
+    public List<TopicTreeEntry> getAllChildrens(TopicEntry te) throws NamingException{
+        List<TopicTreeEntry> result = new LinkedList<>();
+        List<TopicEntry> childrens = new ArrayList<>();
+        //将当前条目加入到列表中
+        TopicEntry root = new TopicEntry();
+        root.setTopicName(getTopicString(te.getTopicPath().split(",")[0]));
+        Attributes attrs = ctx.getAttributes(te.getTopicPath());
+        root.setTopicCode(attrs.get("description").toString().split(": ")[1]);
+        root.setTopicPath(te.getTopicPath());
+        childrens.add(root);
+        TopicTreeEntry entryRoot = convert(root);
+        result.add(entryRoot);
+        //将当前条目的所有子条目按层添加到列表中
+        Queue<TopicEntry> queue = new LinkedList<>();
+        Queue<TopicTreeEntry> entryQueue = new LinkedList<>();
+        queue.offer(root);
+        entryQueue.offer(entryRoot);
+        while(!queue.isEmpty()){
+            TopicEntry temp = queue.poll();
+            TopicTreeEntry entryTemp = entryQueue.poll();
+            List<TopicTreeEntry> childList = new LinkedList<>();
+            List<TopicEntry> list = getSubLevel(temp);
+            if(!list.isEmpty()){
+                for(int i=0;i<list.size();i++){
+                    childrens.add(list.get(i));
+                    queue.offer(list.get(i));
+                    TopicTreeEntry topicTreeEntry = convert(list.get(i));
+                    topicTreeEntry.setParent(entryTemp);
+                    childList.add(topicTreeEntry);
+                    entryQueue.offer(topicTreeEntry);
+                    result.add(topicTreeEntry);
+                }
+            }
+            entryTemp.childList = childList;
+        }
+        return result;
     }
 
     /**
@@ -211,6 +256,16 @@ public class LdapUtil {
             sub.add(_te);
         }
         return sub;
+    }
+
+    /**
+     * 实现 TopicEntry 和 TopicTreeEntry 之间的转换
+     * @return
+     */
+    public TopicTreeEntry convert(TopicEntry entry) {
+        TopicTreeEntry result = new TopicTreeEntry();
+        result.setTopic(entry.getTopicName());
+        return result;
     }
 
     /**

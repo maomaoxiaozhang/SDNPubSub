@@ -1,7 +1,7 @@
 package edu.bupt.wangfu.role.user.subscribe;
 
-import edu.bupt.wangfu.module.wsn.NotificationProcessImpl;
-import edu.bupt.wangfu.module.wsn.SendWSNCommand;
+import edu.bupt.wangfu.module.wsnMgr.util.soap.NotificationProcessImpl;
+import edu.bupt.wangfu.module.wsnMgr.util.soap.SendWSNCommand;
 
 import javax.xml.ws.Endpoint;
 
@@ -11,9 +11,9 @@ import javax.xml.ws.Endpoint;
  */
 public class Trans {
 	private static final String receiveAddr = "http://10.108.166.14:9016/wsn-subscribe";
-	private static final String sendAddr = "http://10.108.166.14:9018/wsn-core-subscriber";
+//	private static final String sendAddr = "http://10.108.166.14:9018/wsn-core-subscriber";
 	private static final String wsnAddr = "http://10.108.166.14:9010/wsn-core";
-	private static final String sendTopic = "all:today";
+//	private static final String sendTopic = "all:today";
 	private static final String receiveTopic = "all:Test2";
 //	public static SendWSNCommandWSSyn send = new SendWSNCommandWSSyn(sendAddr, wsnAddr);
 	public static SendWSNCommand receive = new SendWSNCommand(receiveAddr, wsnAddr);

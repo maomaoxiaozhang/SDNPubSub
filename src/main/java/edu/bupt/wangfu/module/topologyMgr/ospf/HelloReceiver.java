@@ -4,13 +4,15 @@ import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.device.Switch;
 import edu.bupt.wangfu.info.message.system.HelloMsg;
 import edu.bupt.wangfu.info.message.system.LsaMsg;
+import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.topologyMgr.TopoMgr;
+import edu.bupt.wangfu.module.topologyMgr.util.BuildTopology;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import static edu.bupt.wangfu.module.util.Constant.*;
-import static edu.bupt.wangfu.module.topologyMgr.util.BuildTopology.*;
 
 /**
  * 监听Hello消息，被动接受来自其他集群的连接建立请求
@@ -21,11 +23,22 @@ public class HelloReceiver implements Runnable {
     private Controller controller;
 
     @Autowired
-    TopoMgr topoMgr;
+    @Lazy
+    private TopoMgr topoMgr;
+
+    @Autowired
+    TopicTreeMgr topicTreeMgr;
 
     @Override
     public void run() {
-
+        //持续监听，等待Hello消息
+        while (true) {
+            int sysPort = controller.getSysPort();
+            String address = controller.getLocalAddr();
+            MultiHandler handler = new MultiHandler(sysPort, address);
+            HelloMsg msg = (HelloMsg) handler.v6Receive();
+            onMsgReceive(msg);
+        }
     }
 
     /**
@@ -34,21 +47,27 @@ public class HelloReceiver implements Runnable {
      * @param msg
      */
     public void onMsgReceive(HelloMsg msg) {
-        //第一次握手，收到 Hello 消息，返回 ReHello
-        if (msg.getEndGroup().equals(null) && msg.getState() == State.down) {
-            if (isValid(msg.getSendTime(), HELLO)) {
-                new Thread(new OnHelloClass(msg)).start();
+        if (msg.getStartGroup() != null && !msg.getStartGroup().equals(controller.getLocalGroupName())) {
+            //第一次握手，收到 Hello 消息，返回 ReHello
+            if (msg.getEndGroup() == null && msg.getState() == State.down) {
+                System.out.println("收到 Hello 消息，第一次握手~~");
+                if (isValid(msg.getSendTime(), HELLO)) {
+                    new Thread(new OnHelloClass(msg)).start();
+                }
+            }else if (msg.getEndGroup().equals(controller.getLocalGroupName()) && msg.getState() == State.init) {
+                //第二次握手，收到 ReHello 消息，返回 FinalHello，本地保存邻居集群信息
+                if (isValid(msg.getSendTime(), RE_HELLO)) {
+                    System.out.println("收到 ReHello 消息，第二次握手！！");
+                    update(msg);
+                    new Thread(new OnReHelloClass(msg)).start();
+                }
+            }else if (msg.getEndGroup().equals(controller.getLocalGroupName()) && msg.getState() == State.two_way) {
+                System.out.println("收到 FinalHello 消息，第三次握手=。=");
+                //第三次握手，收到 FinalHello 消息，本地保存邻居集群信息
+                topoMgr.getLsdb().getLSDB().put(msg.getLocalGroupName(), msg.getLsa());
+                if (msg.getLsa() != null)
+                    BuildTopology.add(msg.getLsa(), topoMgr.getNodes());
             }
-        }else if (msg.getEndGroup().equals(controller.getLocalGroupName()) && msg.getState() == State.init) {
-            //第二次握手，收到 ReHello 消息，返回 FinalHello，本地保存邻居集群信息
-            if (isValid(msg.getSendTime(), RE_HELLO)) {
-                update(msg);
-                new Thread(new OnReHelloClass(msg)).start();
-            }
-        }else if (msg.getEndGroup().equals(controller.getLocalGroupName()) && msg.getState() == State.two_way) {
-            //第三次握手，收到 FinalHello 消息，本地保存邻居集群信息
-            topoMgr.getLsdb().getLSDB().put(msg.getLocalGroupName(), msg.getLsa());
-            add(msg.getLsa(), topoMgr.getNodes());
         }
     }
 
@@ -63,7 +82,8 @@ public class HelloReceiver implements Runnable {
             re_hello = new HelloMsg();
             re_hello.setStartGroup(controller.getLocalGroupName());
             re_hello.setEndGroup(msg.getStartGroup());
-            re_hello.setLsa(topoMgr.getLsdb().getLSDB().get(controller.getLocalGroupName()));
+            if (topoMgr.getLsdb() != null)
+                re_hello.setLsa(topoMgr.getLsdb().getLSDB().get(controller.getLocalGroupName()));
             re_hello.setState(State.init);
         }
 
@@ -78,7 +98,8 @@ public class HelloReceiver implements Runnable {
                     System.out.println("下发从本地交换机到" + swt.getId() + "交换机的" + out + "端口的ReHello消息流表");
 
                     //把re_hello发送到每一个outPort，中间的时延保证对面有足够的时间反应第一条收到的信息
-                    MultiHandler handler = new MultiHandler("re_hello", SYSTEM);
+//                    MultiHandler handler = new MultiHandler("re_hello", SYSTEM, controller, topicTreeMgr);
+                    MultiHandler handler = new MultiHandler(controller.getSysPort(), controller.getLocalAddr());
                     re_hello.setSendTime(System.currentTimeMillis());
                     handler.v6Send(re_hello);
                     System.out.println("通过" + swt.getId() + "交换机的" + out + "端口发送ReHello消息");
@@ -136,7 +157,8 @@ public class HelloReceiver implements Runnable {
 
             for (Switch swt : controller.getOutSwitches().values()) {
                 for (String out : swt.getOutPorts().values()) {
-                    MultiHandler handler = new MultiHandler("re_hello", SYSTEM);
+//                    MultiHandler handler = new MultiHandler("re_hello", SYSTEM, controller, topicTreeMgr);
+                    MultiHandler handler = new MultiHandler(controller.getSysPort(), controller.getLocalAddr());
                     final_hello.setSendTime(System.currentTimeMillis());
                     handler.v6Send(final_hello);
                     System.out.println("通过" + swt.getId() + "交换机的" + out + "端口发送FinalHello消息");
@@ -175,12 +197,16 @@ public class HelloReceiver implements Runnable {
      */
     public void update(HelloMsg msg) {
         String neiGroupName = msg.getLocalGroupName();
-        LsaMsg neiLsa = msg.getLsa();
         int distance = DISTANCE;
-        neiLsa.getDist2NbrGrps().put(controller.getLocalGroupName(), distance);
+        LsaMsg neiLsa = msg.getLsa();
+        if (neiLsa != null) {
+            neiLsa.getDist2NbrGrps().put(controller.getLocalGroupName(), distance);
+            BuildTopology.add(msg.getLsa(), topoMgr.getNodes());
+        }
         topoMgr.getLsdb().getLSDB().put(neiGroupName, neiLsa);
         LsaMsg localLsa = topoMgr.getLsdb().getLSDB().get(controller.getLocalGroupName());
-        localLsa.getDist2NbrGrps().put(neiGroupName, distance);
-        add(msg.getLsa(), topoMgr.getNodes());
+        if (localLsa != null) {
+            localLsa.getDist2NbrGrps().put(neiGroupName, distance);
+        }
     }
 }

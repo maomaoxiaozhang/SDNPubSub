@@ -26,7 +26,7 @@ public class FlowUtil {
         Set<Flow> topicFlowSet;
         //将route路径中的每一段flow都添加到set中，保证后面不用重复下发，控制flowcount
         Map<String, Set<Flow>> notifyFlows = controller.getNotifyFlows();
-        if (notifyFlows.get(topic) != null) {
+        if (notifyFlows != null && notifyFlows.get(topic) != null) {
             topicFlowSet = notifyFlows.get(topic);
             for (Flow flow : topicFlowSet) {
                 if (flow.getSwtId().equals(swtId)
@@ -64,7 +64,7 @@ public class FlowUtil {
             case ADMIN:
                 v6Addr = controller.getAdminV6Addr();
                 break;
-            case NOTIFY:
+            case WSN:
                 v6Addr = EncodeUtil.getEncodeEntry(topic, encodeTopicTree).getEncode();
                 break;
             default:

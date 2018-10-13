@@ -86,14 +86,14 @@ public class Client {
     int statHighSeqNb;          //Highest sequence number received in session
 
     public FrameSynchronizer fsynch;
-    
-    /*
-     * 客户端不能为单例模式
-     * 此处不能使用懒加载模式
-     */
-    public static Client getInstance() {
-    	return new Client();
-    }
+//
+//    /*
+//     * 客户端不能为单例模式
+//     * 此处不能使用懒加载模式
+//     */
+//    public static Client getInstance() {
+//    	return new Client();
+//    }
     
    
     //--------------------------
@@ -171,7 +171,7 @@ public class Client {
     public static void main(String argv[]) throws Exception {
     	if (argv.length != 0)
     		fileName = argv[0];
-    	getInstance();        
+    	new Client();
     }
 
 

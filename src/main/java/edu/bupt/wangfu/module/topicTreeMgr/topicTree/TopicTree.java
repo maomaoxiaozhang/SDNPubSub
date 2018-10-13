@@ -1,6 +1,7 @@
 package edu.bupt.wangfu.module.topicTreeMgr.topicTree;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -14,7 +15,8 @@ import java.util.List;
  */
 
 @Data
+@Component
 public class TopicTree {
-    private List<TopicEntry> nodes;
-    private TopicEntry root;
+    private List<TopicTreeEntry> nodes;
+    private TopicTreeEntry root;
 }

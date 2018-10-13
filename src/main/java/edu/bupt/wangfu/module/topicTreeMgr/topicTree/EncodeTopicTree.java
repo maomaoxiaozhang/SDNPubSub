@@ -1,7 +1,9 @@
 package edu.bupt.wangfu.module.topicTreeMgr.topicTree;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -14,7 +16,41 @@ import java.util.List;
  */
 
 @Data
-public class EncodeTopicTree {
-    private List<EncodeTopicEntry> nodes;
-    private EncodeTopicEntry root;
+@Component
+public class EncodeTopicTree implements Serializable{
+    private static final long serialVersionUID = 1L;
+
+    //所有节点集合
+    private List<EncodeTopicTreeEntry> nodes;
+
+    //根节点
+    private EncodeTopicTreeEntry root;
+
+    /**
+     * 根据主题返回对应的编码
+     * @param topic
+     * @return
+     */
+    public String getEncode(String topic) {
+        for (EncodeTopicTreeEntry entry : nodes) {
+            if (entry.getTopic().equals(topic)) {
+                return entry.getEncode();
+            }
+        }
+        return "";
+    }
+
+    /**
+     * 根据主题返回对应的地址
+     * @param topic
+     * @return
+     */
+    public String getAddress(String topic) {
+        for (EncodeTopicTreeEntry entry : nodes) {
+            if (entry.getTopic().equals(topic)) {
+                return entry.getAddress();
+            }
+        }
+        return "";
+    }
 }

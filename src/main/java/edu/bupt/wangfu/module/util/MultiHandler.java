@@ -18,14 +18,14 @@ import java.net.Inet6Address;
 import java.net.MulticastSocket;
 
 /**
- * 控制器消息传输方法
+ * 提供消息的传输与接收方法
  *
  * <p>
  *     集群控制器间传输方式，通过v6组播：
- *         controller <----> controller
+ *         controller <——> controller
  *
  *     集群控制器与客户端（wsn层）通过ws进行通信：
- *         controller <----> wsn <----> user
+ *         controller <——> wsnMgr <——> user
  * </p>
  *
  * <p>
@@ -37,36 +37,43 @@ import java.net.MulticastSocket;
  *
  * @see TopicTreeMgr
  */
-@Component
 public class MultiHandler {
 	private int port;
 	//形如FF01:0000:0000:0000:0001:2345:6789:abcd，128bit
 	private String v6addr;
 
-	@Autowired
-    private TopicTreeMgr topicTreeMgr;
+//	@Autowired
+//    private TopicTreeMgr topicTreeMgr;
 
-	@Autowired
-    private Controller controller;
+//	@Autowired
+//    private Controller controller;
 
-	public MultiHandler(String topic, String topicType) {
-	    switch (topicType) {
-            case SYSTEM:
-                port = controller.getSysPort();
-                v6addr = controller.getSysV6Addr();
-                break;
-            case ADMIN:
-                port = controller.getAdminPort();
-                v6addr = controller.getAdminV6Addr();
-                break;
-            case NOTIFY:
-                port = controller.getNotifyPort();
-                v6addr = EncodeUtil.getEncodeEntry(topic, topicTreeMgr.getEncodeTopicTree()).getEncode();
-                break;
-            default:
-                break;
-        }
+	public MultiHandler() {
 	}
+
+	public MultiHandler(int port, String v6addr) {
+		this.port = port;
+		this.v6addr = v6addr;
+	}
+
+//	public MultiHandler(String topic, String topicType, Controller controller, TopicTreeMgr topicTreeMgr) {
+//	    switch (topicType) {
+//            case SYSTEM:
+//                port = controller.getSysPort();
+//                v6addr = controller.getSysV6Addr();
+//                break;
+//            case ADMIN:
+//                port = controller.getAdminPort();
+//                v6addr = controller.getAdminV6Addr();
+//                break;
+//            case WSN:
+//                port = controller.getWsnPort();
+//                v6addr = EncodeUtil.getEncodeEntry(topic, topicTreeMgr.getEncodeTopicTree()).getEncode();
+//                break;
+//            default:
+//                break;
+//        }
+//	}
 
 	public Object v6Receive() {
 		try {
@@ -105,6 +112,7 @@ public class MultiHandler {
 			//这里的端口没有用，最终转发还是看流表
 			DatagramPacket datagramPacket = new DatagramPacket(msg, msg.length, inetAddress, port);
 			MulticastSocket multicastSocket = new MulticastSocket();
+			multicastSocket.joinGroup(inetAddress);
 			multicastSocket.send(datagramPacket);//发送数据包
 			multicastSocket.close();
 		} catch (Exception exception) {

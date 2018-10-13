@@ -1,9 +1,11 @@
 package edu.bupt.wangfu.info.device;
 
+import com.sun.istack.internal.Nullable;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,7 +28,7 @@ public class Controller {
     private String localGroupName;
 
     //本地集群地址
-    @Value("10.108.166.57")
+    @Value("${localAddr:FF0E:0000:0000:0000:0001:2345:6792:abcd}")
     private String localAddr;
 
     @Value("30001")
@@ -36,20 +38,30 @@ public class Controller {
     private int sysPort;
 
     @Value("30003")
-    private int notifyPort;
+    private int wsnPort;
 
-    @Value("FF0E:0000:0000:0000:0001:2345:6789:ABCD")
-    private String sysV6Addr;
+    @Value("30004")
+    private int topicPort;
 
-    @Value("FF01:0000:0000:0000:0001:2345:6789:ABCD")
+
+    @Value("${adminV6Addr:FF0E:0000:0000:0000:0001:2345:6789:ABCD}")
     private String adminV6Addr;
 
+    @Value("${sysV6Addr:FF0E:0000:0000:0000:0001:2345:6790:ABCD}")
+    private String sysV6Addr;
+
+    @Value("${sysV6Addr:FF0E:0000:0000:0000:0001:2345:6791:ABCD}")
+    private String wsnV6Addr;
+
+    @Value("${wsnAddr:http://10.108.166.14:9010/wsn-core}")
+    private String wsnAddr;
+
     //本地交换机，key是swtId
-    @Value("${switches}")
+    @Value("${switches:#{null}}")
     private Map<String, Switch> switches;
 
     //本地拥有对外端口的交换机，key是交换机id，value是对应的交换机
-    @Value("${outSwitches}")
+    @Value("${outSwitches:#{null}}")
     private Map<String, Switch> outSwitches;
 
 //    private LsdbMsg lsdb;
@@ -85,7 +97,7 @@ public class Controller {
     private int flowCount;
 
     //保存本地下发的流表，key -- 订阅的主题，value -- 该主题对应的所有流表
-    private Map<String, Set<Flow>> notifyFlows;
+    private Map<String, Set<Flow>> notifyFlows = new HashMap<>();
 
     //控制器所在交换机id
     @Value("${localSwtId:139329991887403}")

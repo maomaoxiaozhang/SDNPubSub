@@ -13,9 +13,7 @@ import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
-public class HelloMsg extends SysMessage implements Serializable{
-    private static final long serialVersionUID = 1L;
-
+public class HelloMsg extends SysMessage{
     //Hello消息发送集群
     private String startGroup;
     //Hello消息接收集群
@@ -38,5 +36,5 @@ public class HelloMsg extends SysMessage implements Serializable{
     private State state = State.down;
 
     //Hello消息中包含LSA信息
-    private LsaMsg lsa;
+    private LsaMsg lsa = new LsaMsg();
 }

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@ComponentScan(basePackages = {"edu.bupt.wangfu"})
+@ComponentScan(basePackages = {"edu.bupt.wangfu.*"})
 @PropertySource("classpath:/controller.properties")
 public class ControllerConfig {
 

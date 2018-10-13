@@ -1,6 +1,7 @@
 package edu.bupt.wangfu.info.message.system;
 import lombok.Data;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -9,6 +10,6 @@ import java.util.Map;
 @Data
 public class LsdbMsg extends SysMessage{
 
-    //保存本地收到的lsa消息，key -- 集群名，value -- lsa
-    private Map<String, LsaMsg> LSDB;
+    //保存本地收到的lsa消息，key —— 集群名，value —— lsa
+    private Map<String, LsaMsg> LSDB = new HashMap<>();
 }

@@ -3,6 +3,7 @@ package edu.bupt.wangfu.info.message.system;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -18,8 +19,8 @@ public class LsaMsg extends SysMessage{
 
     private String v6Addr;
 
-    //与邻居集群的距离，key -- 邻居集群名，value -- 与邻居集群的距离
-    private Map<String, Integer> dist2NbrGrps;
+    //与邻居集群的距离，key —— 邻居集群名，value —— 与邻居集群的距离
+    private Map<String, Integer> dist2NbrGrps = new HashMap<>();
 
     // 丢失集群，若无丢失则为空
     private ArrayList<String> lostGroup;

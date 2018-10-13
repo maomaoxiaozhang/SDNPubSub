@@ -1,13 +1,11 @@
 package edu.bupt.wangfu.module.topologyMgr;
 
 import edu.bupt.wangfu.info.device.Controller;
-import edu.bupt.wangfu.info.device.Flow;
 import edu.bupt.wangfu.info.device.Switch;
 import edu.bupt.wangfu.info.message.system.HelloMsg;
 import edu.bupt.wangfu.info.message.system.LsdbMsg;
 import edu.bupt.wangfu.module.routeMgr.RouteMgr;
 import edu.bupt.wangfu.module.routeMgr.util.Node;
-import edu.bupt.wangfu.module.routeMgr.util.RouteUtil;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import lombok.Data;
@@ -15,12 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import edu.bupt.wangfu.module.topologyMgr.ospf.*;
 
-import static edu.bupt.wangfu.module.util.Constant.LOCAL;
-import static edu.bupt.wangfu.module.util.Constant.SYSTEM;
-
-import java.util.List;
-import java.util.Set;
-import java.util.TimerTask;
+import java.util.*;
 
 /**
  * <p>
@@ -60,12 +53,12 @@ import java.util.TimerTask;
 
 @Component
 @Data
-public class TopoMgr extends TimerTask{
+public class TopoMgr{
     @Autowired
     private Controller controller;
 
     //保存全局LSDB
-    private LsdbMsg lsdb;
+    private LsdbMsg lsdb = new LsdbMsg();
 
     //保存全局节点信息
     private Set<Node> nodes;
@@ -76,18 +69,44 @@ public class TopoMgr extends TimerTask{
     @Autowired
     RouteMgr routeMgr;
 
-    @Override
-    public void run() {
+    @Autowired
+    HelloReceiver helloReceiver;
+
+    public void start() {
         System.out.println("开始 OSPF 拓扑发现");
+        new Thread(helloReceiver, "拓扑发现").start();
+
+        //测试使用，添加虚拟交换机
+        Switch sw = new Switch();
+        sw.setId("139329991887403");
+        sw.setAddress("FF0E:0000:0000:0000:0001:2345:6791:ABCD");
+        Map<String, String> ports = new HashMap<String, String>() {
+            {
+                put("1", "1");
+                put("2", "2");
+            }
+        };
+        sw.setPorts(ports.keySet());
+        sw.setOutPorts(ports);
+        controller.setOutSwitches(new HashMap<String, Switch>(){
+            {
+                put("sw", sw);
+            }
+        });
+
+
         for (Switch swt : controller.getOutSwitches().values()) {
             for (String out : swt.getOutPorts().values()) {
-                List<String> path = RouteUtil.calRoute(swt.getId(), swt.getId(), controller.getSwitches());
-                List<String> inRehello = RouteUtil.calRoute(swt.getId(), controller.getLocalSwtId(), controller.getSwitches());
-                List<String> outHello = RouteUtil.calRoute(controller.getLocalSwtId(), swt.getId(), controller.getSwitches());
-                List<Flow> ctl2out = RouteUtil.downInGrpRtFlows(outHello, LOCAL, out, "hello", SYSTEM, controller,
-                        topicTreeMgr.getEncodeTopicTree(), routeMgr.getAllEdges());
-                List<Flow> out2ctl = RouteUtil.downInGrpRtFlows(inRehello, out, LOCAL, "re_hello", SYSTEM, controller,
-                        topicTreeMgr.getEncodeTopicTree(), routeMgr.getAllEdges());
+//                List<String> path = RouteUtil.calRoute(swt.getId(), swt.getId(), controller.getSwitches());
+//                List<String> inRehello = RouteUtil.calRoute(swt.getId(), controller.getLocalSwtId(), controller.getSwitches());
+//                List<String> outHello = RouteUtil.calRoute(controller.getLocalSwtId(), swt.getId(), controller.getSwitches());
+
+                //缺少sdn环节，暂不使用
+//                List<Flow> ctl2out = RouteUtil.downInGrpRtFlows(outHello, LOCAL, out, "hello", SYSTEM, controller,
+//                        topicTreeMgr.getEncodeTopicTree(), routeMgr.getAllEdges());
+//                List<Flow> out2ctl = RouteUtil.downInGrpRtFlows(inRehello, out, LOCAL, "re_hello", SYSTEM, controller,
+//                        topicTreeMgr.getEncodeTopicTree(), routeMgr.getAllEdges());
+
                 sendHello(out, swt.getId());
 
                 System.out.println("向交换机" + swt.getId() + "通过" + out + "端口发送Hello消息");
@@ -99,13 +118,23 @@ public class TopoMgr extends TimerTask{
         }
     }
 
+    /**
+     * 发送 Hello 消息
+     * @param out
+     *          交换机出端口
+     * @param swtId
+     *          交换机id
+     */
     private void sendHello(String out, String swtId) {
         HelloMsg hello = new HelloMsg();
-        MultiHandler handler = new MultiHandler("hello", SYSTEM);
+//        MultiHandler handler = new MultiHandler("hello", SYSTEM, controller, topicTreeMgr);
+        MultiHandler handler = new MultiHandler(controller.getSysPort(), controller.getLocalAddr());
         hello.setStartGroup(controller.getLocalGroupName());
         hello.setEndGroup(null);
         hello.setStartBorderSwtId(swtId);
-        hello.setState(State.init);
+        hello.setStartOutPort(out);
+        hello.setState(State.down);
+        hello.setSendTime(System.currentTimeMillis());
         handler.v6Send(hello);
     }
 }

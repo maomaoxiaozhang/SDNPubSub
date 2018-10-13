@@ -2,8 +2,12 @@ package edu.bupt.wangfu.info.message.admin;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public abstract class AdminMessage {
+public abstract class AdminMessage implements Serializable{
+    private static final long serialVersionUID = 1L;
+
     //消息序号
     private Long id;
 
