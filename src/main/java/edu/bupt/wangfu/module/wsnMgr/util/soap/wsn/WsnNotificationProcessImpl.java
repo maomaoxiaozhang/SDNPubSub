@@ -39,11 +39,12 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
         String topic = splitString("<wsnt:TopicExpression Dialect=\"http://docs.oasis-open.org/wsn/t-1/TopicExpression/Simple\">",
                 "</wsnt:TopicExpression>", notification).trim();
         String address = splitString("<wsnt:SubscriberAddress>", "</wsnt:SubscriberAddress>", notification);
-        System.out.println("endpoint: " + endpoint + "\t" + "topicName: " + topic + "\t" + "address: " + address);
         User user = new User();
         user.setAddress(address);
-        wsnMgr.updateSubPubMap(user, topic);
-        send2controller(topic, user);
+        String encodeAddress = wsnMgr.updateSubPubMap(user, topic);
+        if (encodeAddress != null && !encodeAddress.equals("")) {
+            send2controller(topic, user, encodeAddress);
+        }
     }
 
     /**
@@ -51,11 +52,13 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
      * @param topic
      * @param user
      */
-    public void send2controller(String topic, User user) {
+    public void send2controller(String topic, User user, String encodeAddress) {
         SubPubMsg subPubMsg = new SubPubMsg();
+        subPubMsg.setGroup(controller.getLocalGroupName());
         subPubMsg.setTopic(topic);
         subPubMsg.setType(SUBSCRIBE);
         subPubMsg.setUser(user);
+        subPubMsg.setEncodeAddress(encodeAddress);
         subPubMsg.setSendTime(System.currentTimeMillis());
         int wsnPort = controller.getWsnPort();
         String address = controller.getLocalAddr();

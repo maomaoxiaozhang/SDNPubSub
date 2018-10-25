@@ -1,11 +1,12 @@
 package edu.bupt.wangfu.info.device;
 
-import com.sun.istack.internal.Nullable;
+import edu.bupt.wangfu.module.routeMgr.util.Edge;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ import java.util.Set;
 @Data
 @Component
 public class Controller {
-    @Value("${GroupController:10.108.166.14}")
+    @Value("${GroupControllerAddr:192.168.10.100}")
     private String GroupControllerAddr;
 
     @Value("${adminName:G1}")
@@ -27,22 +28,12 @@ public class Controller {
     @Value("${localGroupName:G1}")
     private String localGroupName;
 
+    @Value("${role:controller}")
+    private String role;
+
     //本地集群地址
     @Value("${localAddr:FF0E:0000:0000:0000:0001:2345:6792:abcd}")
     private String localAddr;
-
-    @Value("30001")
-    private int adminPort;
-
-    @Value("30002")
-    private int sysPort;
-
-    @Value("30003")
-    private int wsnPort;
-
-    @Value("30004")
-    private int topicPort;
-
 
     @Value("${adminV6Addr:FF0E:0000:0000:0000:0001:2345:6789:ABCD}")
     private String adminV6Addr;
@@ -53,8 +44,24 @@ public class Controller {
     @Value("${sysV6Addr:FF0E:0000:0000:0000:0001:2345:6791:ABCD}")
     private String wsnV6Addr;
 
-    @Value("${wsnAddr:http://10.108.166.14:9010/wsn-core}")
+    @Value("${wsnAddr:http://192.168.10.100:9010/wsn-core}")
     private String wsnAddr;
+
+    @Value("${adminPort:30001}")
+    private int adminPort;
+
+    @Value("${sysPort:30002}")
+    private int sysPort;
+
+    @Value("${wsnPort:30003}")
+    private int wsnPort;
+
+    @Value("${topicPort:30004}")
+    private int topicPort;
+
+    //控制器的主机在交换机上的连接端口
+    @Value("${switchPort:5}")
+    private int switchPort;
 
     //本地交换机，key是swtId
     @Value("${switches:#{null}}")
@@ -102,4 +109,10 @@ public class Controller {
     //控制器所在交换机id
     @Value("${localSwtId:139329991887403}")
     private String localSwtId;
+
+    //存储集群内的交换机连接情况
+    private Edge[] edges;
+
+    //保存交换机与邻居的端口对应情况，key——集群名，value——与之相接的交换机端口列表
+    private Map<String, List<String>> port2nei = new HashMap<>();
 }

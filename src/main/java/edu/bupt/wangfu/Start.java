@@ -21,18 +21,15 @@ import java.util.Timer;
 public class Start {
     public static void main(String[] args) throws UnknownHostException {
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(ControllerConfig.class);
-        TopicTreeMgr topicTreeMgr = (TopicTreeMgr) context.getBean("topicTreeMgr");
-        topicTreeMgr.buildTopicTree();
-        System.out.println(topicTreeMgr.getEncodeTopicTree());
+//        ApplicationContext context = new AnnotationConfigApplicationContext(ControllerConfig.class);
+//        TopicTreeMgr topicTreeMgr = (TopicTreeMgr) context.getBean("topicTreeMgr");
+//        topicTreeMgr.buildTopicTree();
+//        System.out.println(topicTreeMgr.getEncodeTopicTree());
 //        TopoMgr topoMgr = (TopoMgr) context.getBean("topoMgr");
 //        topoMgr.start();
 
-        //FF0E:0000:0000:0000:0001:2345:6792:abcd
-//        String address = "ff0e:0190:0000:0000:0000:0000:0000:0000";
-//        for (int i = 0; i < 20; i++) {
-//            System.out.println(parseByte2HexStr(s.getBytes()));
-//        }
+        String str = "1234";
+        System.out.println(str.substring(0, 4));
     }
 
 }

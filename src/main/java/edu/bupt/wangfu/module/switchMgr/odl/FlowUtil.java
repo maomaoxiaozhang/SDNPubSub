@@ -39,8 +39,7 @@ public class FlowUtil {
         } else {
             topicFlowSet = new HashSet<>();
         }
-        //之前没生成过这条流表，需要重新生成
-        // 非outport flood流表
+        //之前没生成过这条流表，需要重新生成，非outport flood流表
         Map<String, Switch> switchMap = controller.getSwitches();
         if (out.equals("flood-in-grp")) {
             if (switchMap.get(swtId).getNeighbors().keySet().isEmpty()) {
@@ -55,7 +54,6 @@ public class FlowUtil {
                 out = out.substring(1);
             }
         }
-
         String v6Addr = null;
         switch (topicType) {
             case SYSTEM:
@@ -65,15 +63,13 @@ public class FlowUtil {
                 v6Addr = controller.getAdminV6Addr();
                 break;
             case WSN:
-                v6Addr = EncodeUtil.getEncodeEntry(topic, encodeTopicTree).getEncode();
+                v6Addr = EncodeUtil.getEncodeEntry(topic, encodeTopicTree).getAddress();
                 break;
             default:
                 break;
         }
-
         int flowCount = controller.getFlowCount();
         controller.setFlowCount(++flowCount);
-
         Flow flow = new Flow();
         flow.setSwtId(swtId);
         flow.setIn(in);
@@ -86,59 +82,82 @@ public class FlowUtil {
         //生成后，将其添加到notifyFlows里，以备后面调用查看
         topicFlowSet.add(flow);
         notifyFlows.put(topic, topicFlowSet);
-
         return flow;
     }
 
+//    /**
+//     * 下发流表
+//     * @param controller
+//     * @param flow
+//     * @param action
+//     */
+//    public static void downFlow(Controller controller, Flow flow, String action, OvsProcess ovsProcess) {
+//        if (flow == null || flow.getOut().equals("")) {
+//            return;
+//        }
+//        String swtId = controller.getLocalSwtId();
+//        Switch swt = controller.getSwitches().get(swtId);
+//        //这里还要考虑下发到具体哪个流表里，看要执行的动作是 更新流表项 还是 添加新流表项
+//        // action == "add" "update"
+//        //RestProcess.doClientPost(controller, flow.swtId, flow.toStringOutput());
+//        // 如果是更新的流表，先查看已下发的出端口，然后将新的端口添加进去
+//        if (action.equals("update")) {
+//            String dumpResult = ovsProcess.dumpFlows(controller, flow.getSwtId(), flow.toStringDelete());
+//            if (dumpResult.split("\n").length < 2) {
+//                ovsProcess.addFlow(controller, flow.getSwtId(), flow.toString());
+//            } else {
+//                String outPort = "";
+//                for (int i = 1; i < dumpResult.split("\n").length; i++) {
+//                    String singleFlow = dumpResult.split("\n")[i];
+//                    singleFlow = singleFlow.substring(singleFlow.indexOf("actions="));
+//                    singleFlow = singleFlow.substring(singleFlow.indexOf("=") + 1);
+//                    ArrayList<String> list = new ArrayList<>();
+//                    for (int j = 0; j < singleFlow.split(",").length; j++) {
+//                        if (singleFlow.split(",")[j].equals("LOCAL") && !list.contains("LOCAL"))
+//                            list.add("LOCAL");
+//                        if (singleFlow.split(",")[j].contains(":")) {
+//                            String str = singleFlow.split(",")[j].split(":")[1];
+//                            if (!list.contains(str) && !flow.getOut().equals(str))
+//                                list.add(str);
+//                        }
+//                    }
+//                    if (!list.contains(flow.getOut()))
+//                        list.add(flow.getOut());
+//                    for (String s : list)
+//                        outPort += ("," + s);
+//                }
+//                if (outPort.length() > 1)
+//                    outPort = outPort.substring(1);
+//                flow.setOut(outPort);
+//                ovsProcess.addFlow(controller, flow.getSwtId(), flow.toString());
+//            }
+////			System.out.println("update flow \"" + flow.toStringOutput() + "\" complete");
+//        } else if (action.equals("add")) {//把旧流表覆盖掉
+//            ovsProcess.addFlow(controller, flow.getSwtId(), flow.toString());
+////			System.out.println("add flow \"" + flow.toStringOutput() + "\" complete");
+//        }
+//    }
 
-
-    /**
-     * 下发流表
-     * @param controller
-     * @param flow
-     * @param action
-     */
-    public static void downFlow(Controller controller, Flow flow, String action) {
+    public static void downFlow(Flow flow, String action, OvsProcess ovsProcess) {
         if (flow == null || flow.getOut().equals("")) {
             return;
         }
-        //这里还要考虑下发到具体哪个流表里，看要执行的动作是 更新流表项 还是 添加新流表项
-        // action == "add" "update"
-        //RestProcess.doClientPost(controller, flow.swtId, flow.toStringOutput());
-        if (action.equals("update")) { // 如果是更新的流表，先查看已下发的出端口，然后将新的端口添加进去
-            String dumpResult = OvsProcess.dumpFlows(controller, flow.getSwtId(), flow.toStringDelete());
-            if (dumpResult.split("\n").length < 2) {
-                OvsProcess.addFlow(controller, flow.getSwtId(), flow.toStringOutput());
-            } else {
-                String outPort = "";
-                for (int i = 1; i < dumpResult.split("\n").length; i++) {
-                    String singleFlow = dumpResult.split("\n")[i];
-                    singleFlow = singleFlow.substring(singleFlow.indexOf("actions="));
-                    singleFlow = singleFlow.substring(singleFlow.indexOf("=") + 1);
-                    ArrayList<String> list = new ArrayList<>();
-                    for (int j = 0; j < singleFlow.split(",").length; j++) {
-                        if (singleFlow.split(",")[j].equals("LOCAL") && !list.contains("LOCAL"))
-                            list.add("LOCAL");
-                        if (singleFlow.split(",")[j].contains(":")) {
-                            String str = singleFlow.split(",")[j].split(":")[1];
-                            if (!list.contains(str) && !flow.getOut().equals(str))
-                                list.add(str);
-                        }
-                    }
-                    if (!list.contains(flow.getOut()))
-                        list.add(flow.getOut());
-                    for (String s : list)
-                        outPort += ("," + s);
-                }
-                if (outPort.length() > 1)
-                    outPort = outPort.substring(1);
-                flow.setOut(outPort);
-                OvsProcess.addFlow(controller, flow.getSwtId(), flow.toStringOutput());
-            }
-//			System.out.println("update flow \"" + flow.toStringOutput() + "\" complete");
-        } else if (action.equals("add")) {//把旧流表覆盖掉
-            OvsProcess.addFlow(controller, flow.getSwtId(), flow.toStringOutput());
-//			System.out.println("add flow \"" + flow.toStringOutput() + "\" complete");
+        switch (action) {
+            case ADD:
+                ovsProcess.addFlow(flow.toStringOutput());
+                break;
+            case DELETE:
+                ovsProcess.deleteFlows(flow.toStringDelete());
+                break;
+            case DUMP:
+                ovsProcess.dumpFlows();
+                break;
+            default:
+                break;
         }
+    }
+
+    public static void deleteFlow(Flow flow, OvsProcess ovsProcess) {
+        ovsProcess.deleteFlows(flow.toStringDelete());
     }
 }

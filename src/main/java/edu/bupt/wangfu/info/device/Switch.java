@@ -24,7 +24,9 @@ public class Switch extends DevInfo{
 
     private double load;
     private String userName;
+    //交换机地址
     private String address;
+    //交换机登录密码
     private String password;
 
     //端口对应的队列集合

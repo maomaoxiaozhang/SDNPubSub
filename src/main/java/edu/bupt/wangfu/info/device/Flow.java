@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static edu.bupt.wangfu.module.util.Constant.TABLE_ID;
+
 /**
  * 流表项信息
  *
@@ -57,8 +59,7 @@ public class Flow {
     }
 
     public String toStringDelete() {
-        if (in == null)
-            return String.format("table=%s,dl_type=%s,ipv6_dst=%s", table_id, "0x86DD", v6);
-        return String.format("table=%s,dl_type=%s,in_port=%s,ipv6_dst=%s", table_id, "0x86DD", in, v6);
+        //ovs-ofctl del-flows br0 in_port=%s,dl_type=0x86DD,ipv6_dst=%s,out_port=%s
+        return String.format("table=%s,dl_type=%s,in_port=%s,ipv6_dst=%s,out_port=%s", TABLE_ID, "0x86DD", in, v6, out);
     }
 }

@@ -1,12 +1,17 @@
 package edu.bupt.wangfu.module.topologyMgr;
 
 import edu.bupt.wangfu.info.device.Controller;
+import edu.bupt.wangfu.info.device.Flow;
 import edu.bupt.wangfu.info.device.Switch;
 import edu.bupt.wangfu.info.message.system.HelloMsg;
-import edu.bupt.wangfu.info.message.system.LsdbMsg;
 import edu.bupt.wangfu.module.routeMgr.RouteMgr;
+import edu.bupt.wangfu.module.routeMgr.util.BuildTopology;
 import edu.bupt.wangfu.module.routeMgr.util.Node;
+import edu.bupt.wangfu.module.routeMgr.util.RouteUtil;
+import edu.bupt.wangfu.module.switchMgr.odl.OvsProcess;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
+import edu.bupt.wangfu.module.topologyMgr.util.Lsa;
+import edu.bupt.wangfu.module.topologyMgr.util.Lsdb;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +19,8 @@ import org.springframework.stereotype.Component;
 import edu.bupt.wangfu.module.topologyMgr.ospf.*;
 
 import java.util.*;
+
+import static edu.bupt.wangfu.module.util.Constant.*;
 
 /**
  * <p>
@@ -58,10 +65,11 @@ public class TopoMgr{
     private Controller controller;
 
     //保存全局LSDB
-    private LsdbMsg lsdb = new LsdbMsg();
+    @Autowired
+    private Lsdb lsdb;
 
-    //保存全局节点信息
-    private Set<Node> nodes;
+    @Autowired
+    private Lsa localLsa;
 
     @Autowired
     TopicTreeMgr topicTreeMgr;
@@ -72,48 +80,29 @@ public class TopoMgr{
     @Autowired
     HelloReceiver helloReceiver;
 
+    @Autowired
+    OvsProcess ovsProcess;
+
     public void start() {
-        System.out.println("开始 OSPF 拓扑发现");
+        preStart();
         new Thread(helloReceiver, "拓扑发现").start();
+        HeartTask heartTask = new HeartTask();
+        new Timer().schedule(heartTask, 100, 200000);
+    }
 
-        //测试使用，添加虚拟交换机
-        Switch sw = new Switch();
-        sw.setId("139329991887403");
-        sw.setAddress("FF0E:0000:0000:0000:0001:2345:6791:ABCD");
-        Map<String, String> ports = new HashMap<String, String>() {
-            {
-                put("1", "1");
-                put("2", "2");
-            }
-        };
-        sw.setPorts(ports.keySet());
-        sw.setOutPorts(ports);
-        controller.setOutSwitches(new HashMap<String, Switch>(){
-            {
-                put("sw", sw);
-            }
-        });
+    //心跳任务，定时向所有对外端口发送hello消息
+    public class HeartTask extends TimerTask{
 
-
-        for (Switch swt : controller.getOutSwitches().values()) {
-            for (String out : swt.getOutPorts().values()) {
-//                List<String> path = RouteUtil.calRoute(swt.getId(), swt.getId(), controller.getSwitches());
-//                List<String> inRehello = RouteUtil.calRoute(swt.getId(), controller.getLocalSwtId(), controller.getSwitches());
-//                List<String> outHello = RouteUtil.calRoute(controller.getLocalSwtId(), swt.getId(), controller.getSwitches());
-
-                //缺少sdn环节，暂不使用
-//                List<Flow> ctl2out = RouteUtil.downInGrpRtFlows(outHello, LOCAL, out, "hello", SYSTEM, controller,
-//                        topicTreeMgr.getEncodeTopicTree(), routeMgr.getAllEdges());
-//                List<Flow> out2ctl = RouteUtil.downInGrpRtFlows(inRehello, out, LOCAL, "re_hello", SYSTEM, controller,
-//                        topicTreeMgr.getEncodeTopicTree(), routeMgr.getAllEdges());
-
-                sendHello(out, swt.getId());
-
-                System.out.println("向交换机" + swt.getId() + "通过" + out + "端口发送Hello消息");
-                //删除这次握手的流表，准备下次的
-//                RouteUtil.delRouteFlows(ctl2out);
-//                RouteUtil.delRouteFlows(out2ctl);
-                System.out.println("删除从" + swt.getId() + "交换机的" + out + "端口发出Hello消息的流表");
+        @Override
+        public void run() {
+            for (Switch swt : controller.getOutSwitches().values()) {
+                for (String out : swt.getOutPorts().values()) {
+                    Flow flow = RouteUtil.downSysRtFlows(controller, controller.getLocalSwtId(),
+                            String.valueOf(controller.getSwitchPort()), out, controller.getSysV6Addr(), ovsProcess);
+                    sendHello(out, swt.getId());
+                    //Hello 消息需删除对应流表
+                    RouteUtil.delRouteFlow(flow, ovsProcess);
+                }
             }
         }
     }
@@ -127,14 +116,38 @@ public class TopoMgr{
      */
     private void sendHello(String out, String swtId) {
         HelloMsg hello = new HelloMsg();
-//        MultiHandler handler = new MultiHandler("hello", SYSTEM, controller, topicTreeMgr);
-        MultiHandler handler = new MultiHandler(controller.getSysPort(), controller.getLocalAddr());
+        MultiHandler handler = new MultiHandler(controller.getSysPort(), controller.getSysV6Addr());
         hello.setStartGroup(controller.getLocalGroupName());
         hello.setEndGroup(null);
         hello.setStartBorderSwtId(swtId);
+        hello.setEndBorderSwtId(null);
         hello.setStartOutPort(out);
+        hello.setEndOutPort(null);
+        hello.setLsa(localLsa);
         hello.setState(State.down);
+        hello.setType(HELLO);
+        hello.setRole(controller.getRole());
         hello.setSendTime(System.currentTimeMillis());
         handler.v6Send(hello);
+    }
+
+    /**
+     * 1. 预处理，将自己信息保存为node 节点形式
+     * 2. 更新localLsa
+     */
+    private void preStart() {
+        //将本地信息生成对应的node 节点
+        Node node = BuildTopology.build(controller.getLocalGroupName());
+        routeMgr.getAllNodes().add(node);
+        if (controller.getRole().equals(ADMIN)) {
+            Node root = BuildTopology.find(controller.getLocalGroupName(), routeMgr.getAllNodes());
+            routeMgr.setRoot(root);
+        }
+
+        //保存至localLsa、lsdb
+        localLsa.setGroupName(controller.getLocalGroupName());
+        localLsa.setAddress(controller.getSysV6Addr());
+        localLsa.setPort(controller.getSysPort());
+        lsdb.getLSDB().put(controller.getLocalGroupName(), localLsa);
     }
 }

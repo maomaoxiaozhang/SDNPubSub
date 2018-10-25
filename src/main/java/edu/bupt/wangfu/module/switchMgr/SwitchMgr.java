@@ -21,5 +21,4 @@ import java.util.Set;
 @Data
 public class SwitchMgr {
 
-
 }

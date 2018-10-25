@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class EncodeTopicTree implements Serializable{
     private static final long serialVersionUID = 1L;
 
     //所有节点集合
-    private List<EncodeTopicTreeEntry> nodes;
+    private List<EncodeTopicTreeEntry> nodes = new LinkedList<>();
 
     //根节点
     private EncodeTopicTreeEntry root;

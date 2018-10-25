@@ -38,7 +38,7 @@ public class EncodeUtil {
                 entry.setTopic(nodes.get(i).getTopic());
                 String encode = prefix + "0" + convert(i);
                 entry.setEncode(encode);
-                entry.setAddress(getAddress(encode));
+                entry.setAddress(binary2v6(getAddress(encode)));
                 entry.setEncodeParent(encodeRoot);
                 encodeNodes.add(entry);
             }
@@ -95,9 +95,18 @@ public class EncodeUtil {
         String scope = "1110";
         String type = "00";
         String length = Integer.toBinaryString(encode.length());
+        String rest = getRest(length);
         String suffix = getSuffix(encode);
-        address = prefix + flags + scope + type + length + encode + suffix;
+        address = prefix + flags + scope + type + rest + length + encode + suffix;
         return address;
+    }
+
+    public static String getRest(String length) {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 7; i > length.length(); i--) {
+            sb.append("0");
+        }
+        return sb.toString();
     }
 
     public static String getSuffix(String encode) {
@@ -116,11 +125,11 @@ public class EncodeUtil {
     public static String binary2v6(String address) {
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < address.length(); i+=4) {
-            String subString = address.substring(i, i+4);
-            result.append(parseByte2HexStr(subString));
-            if ((i+1)%16 == 0 && i != 127) {
+            if (i%16 == 0 && i != 0) {
                 result.append(":");
             }
+            String subString = address.substring(i, i+4);
+            result.append(parseByte2HexStr(subString));
         }
         return result.toString();
     }
