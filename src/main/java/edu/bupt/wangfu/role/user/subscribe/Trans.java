@@ -10,9 +10,9 @@ import javax.xml.ws.Endpoint;
  * subscribe-address-topic
  */
 public class Trans {
-	private static final String receiveAddr = "http://192.168.10.100:9016/wsn-subscribe";
-//	private static final String sendAddr = "http://192.168.10.100:9018/wsn-core-subscriber";
-	private static final String wsnAddr = "http://192.168.10.100:9010/wsn-core";
+	private static final String receiveAddr = "http://192.168.10.101:9016/wsn-subscribe";
+//	private static final String sendAddr = "http://192.168.10.101:9018/wsn-core-subscriber";
+	private static final String wsnAddr = "http://192.168.10.101:9010/wsn-core";
 //	private static final String sendTopic = "all:today";
 	private static final String receiveTopic = "spark";
 //	public static SendWSNCommandWSSyn send = new SendWSNCommandWSSyn(sendAddr, wsnAddr);

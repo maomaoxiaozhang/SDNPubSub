@@ -50,7 +50,7 @@ public class WsnMgr {
     @Autowired
     Controller controller;
 
-    private static final String wsnAddr = "http://192.168.10.100:9010/wsn-core";
+    private static final String wsnAddr = "http://192.168.10.101:9010/wsn-core";
 
     public void start() {
         new Thread(wsnReceive, "wsnReceive监听").start();

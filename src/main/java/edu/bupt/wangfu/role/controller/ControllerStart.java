@@ -81,8 +81,8 @@ public class ControllerStart {
 
     public void start() {
         init.init();
-//        //测试期间，激活ldap
-//        topicTreeMgr.buildTopicTree();
+        //测试期间，激活ldap
+        topicTreeMgr.buildTopicTree();
         new Timer().schedule(new TopicTask(), 1000, 15000);
         new Thread(adminListener, "adminListener").start();
         topoMgr.start();

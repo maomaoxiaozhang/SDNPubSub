@@ -58,5 +58,5 @@ public class Constant {
 
     public static final String SWITCH_ADDRESS = "192.168.10.11";
 
-    public static final String LOCAL_ADDRESS = "192.168.10.100";
+    public static final String LOCAL_ADDRESS = "192.168.10.101";
 }

@@ -101,7 +101,7 @@ public class TopoMgr{
                             String.valueOf(controller.getSwitchPort()), out, controller.getSysV6Addr(), ovsProcess);
                     sendHello(out, swt.getId());
                     //Hello 消息需删除对应流表
-                    RouteUtil.delRouteFlow(flow, ovsProcess);
+//                    RouteUtil.delRouteFlow(flow, ovsProcess);
                 }
             }
         }

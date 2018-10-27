@@ -1,9 +1,6 @@
 package edu.bupt.wangfu.module.routeMgr.algorithm;
 
-import edu.bupt.wangfu.module.routeMgr.util.Degree;
-import edu.bupt.wangfu.module.routeMgr.util.Edge;
-import edu.bupt.wangfu.module.routeMgr.util.Neighbor;
-import edu.bupt.wangfu.module.routeMgr.util.Node;
+import edu.bupt.wangfu.module.routeMgr.util.*;
 
 import java.util.*;
 
@@ -150,9 +147,9 @@ public class Steiner {
         for(Edge ed : g){
             Node startNode = ed.getStartNode();
             Node endNode = ed.getEndNode();
-            Set<Node> temp = dijkstra.dijkstra(startNode, endNode, allNodes);
-            for(Node no : temp){
-                G2.add(no);
+            List<String> temp = dijkstra.dijkstra(startNode, endNode, allNodes);
+            for(String no : temp){
+                G2.add(BuildTopology.find(no, allNodes));
             }
         }
 
@@ -193,7 +190,7 @@ public class Steiner {
     //将Node转换为数组中的序号
     public static int calSeq(Neighbor ne, Node[] all){
         for(int i = 0; i < all.length; i++){
-            if(all[i] == ne.node){
+            if(all[i].getName().equals(ne.getName())){
                 return i;
             }
         }

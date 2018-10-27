@@ -124,6 +124,7 @@ public class WsnListener implements Runnable{
                     }
                     Node node = BuildTopology.find(controller.getLocalGroupName(), routeMgr.getAllNodes());
                     subNodes.add(node);
+                    routeMgr.getAllSubNodes().put(topic, subNodes);
 
                     //下发主题路径
                     RouteUtil.downTopicRtFlows(routeMgr.getAllNodes(), routeMgr.getAllSubNodes().get(topic),

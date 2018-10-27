@@ -45,16 +45,29 @@ public class BuildTopology {
         Map<String, Integer> neighbors = lsa.getDist2NbrGrps();
         for (String group : neighbors.keySet()) {
             int distance = neighbors.get(group);
+
             Node other = find(group, nodes);
             Neighbor neighbor = new Neighbor();
-            neighbor.setNode(other);
+            neighbor.setName(other.getName());
             neighbor.setDistance(distance);
+            node.getNeighbors().add(neighbor);
+
+            neighbor = new Neighbor();
+            neighbor.setName(node.getName());
+            neighbor.setDistance(distance);
+            other.getNeighbors().add(neighbor);
+
             Edge edge = new Edge();
             edge.setStartNode(node);
             edge.setEndNode(other);
             edge.setLength(distance);
             edges.add(edge);
-            node.getNeighbors().add(neighbor);
+
+            edge = new Edge();
+            edge.setStartNode(other);
+            edge.setEndNode(node);
+            edge.setLength(distance);
+            edges.add(edge);
         }
         nodes.add(node);
         return nodes;

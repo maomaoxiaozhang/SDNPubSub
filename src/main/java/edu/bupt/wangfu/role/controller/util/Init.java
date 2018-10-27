@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+import static edu.bupt.wangfu.module.util.Constant.PRIORITY;
 import static edu.bupt.wangfu.module.util.Constant.SWITCH_ADDRESS;
 
 /**
@@ -29,8 +30,8 @@ public class Init {
     public void init() {
         //测试使用，添加虚拟交换机
         Switch sw = new Switch();
-//        sw.setId("8888888");
-        sw.setId("66666666666");
+        sw.setId("8888888");
+//        sw.setId("66666666666");
         sw.setAddress(SWITCH_ADDRESS);
         sw.setUserName("admin");
         sw.setPassword("pica8");
@@ -48,10 +49,10 @@ public class Init {
         sw.setPorts(ports.keySet());
         Map<String, String> outPorts = new HashMap<String, String>() {
             {
-//                put("1", "1");
+                put("1", "1");
 //                put("2", "2");
-                put("4", "4");
-                put("6", "6");
+//                put("4", "4");
+//                put("6", "6");
             }
         };
         sw.setOutPorts(outPorts);
@@ -72,8 +73,8 @@ public class Init {
         int swtPort = controller.getSwitchPort();
         for (Switch swt : controller.getOutSwitches().values()) {
             for (String port : swt.getOutPorts().values()) {
-                ovsProcess.addFlow(String.format("in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%d",
-                        port, controller.getSysV6Addr(), swtPort));
+                ovsProcess.addFlow(String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%d",
+                        PRIORITY, port, controller.getSysV6Addr(), swtPort));
             }
         }
     }

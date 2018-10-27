@@ -72,7 +72,7 @@ public class RouteMgr {
         int distance = 0;
         Dijkstra dijkstra = new Dijkstra();
         for (Node pubNode : pubNodes) {
-            int temp = dijkstra.dijkstra(pubNode, subNodes);
+            int temp = dijkstra.dijkstra(pubNode, subNodes, allNodes);
             if (result == null || temp < distance) {
                 result = pubNode;
                 distance = temp;
@@ -141,7 +141,7 @@ public class RouteMgr {
         for (Neighbor neighbor : neighborList) {
             if (neighbor.getDistance() < min) {
                 min = neighbor.getDistance();
-                groupName = neighbor.node.getName();
+                groupName = neighbor.getName();
             }
         }
         if (!groupName.equals("")) {

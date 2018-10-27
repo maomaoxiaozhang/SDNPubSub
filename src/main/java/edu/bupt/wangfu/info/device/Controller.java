@@ -18,7 +18,7 @@ import java.util.Set;
 @Data
 @Component
 public class Controller {
-    @Value("${GroupControllerAddr:192.168.10.100}")
+    @Value("${GroupControllerAddr:192.168.10.101}")
     private String GroupControllerAddr;
 
     @Value("${adminName:G1}")
@@ -44,7 +44,7 @@ public class Controller {
     @Value("${sysV6Addr:FF0E:0000:0000:0000:0001:2345:6791:ABCD}")
     private String wsnV6Addr;
 
-    @Value("${wsnAddr:http://192.168.10.100:9010/wsn-core}")
+    @Value("${wsnAddr:http://192.168.10.101:9010/wsn-core}")
     private String wsnAddr;
 
     @Value("${adminPort:30001}")
