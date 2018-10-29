@@ -26,6 +26,7 @@ public class Switch extends DevInfo{
     private String userName;
     private String address;
     private String password;
+    private Map<String,Host> hosts;
 
     //端口对应的队列集合
     private Map<Integer, List<Queue>> queues;
