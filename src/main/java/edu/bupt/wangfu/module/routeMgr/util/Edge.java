@@ -8,7 +8,10 @@ public class Edge implements Comparable{
 	private int length;
 	private Node startNode;
 	private Node endNode;
-	
+
+	public Edge() {
+	}
+
 	public Edge(Node startNode, Node endNode, int length) {
 		// TODO Auto-generated constructor stub
 		this.startNode = startNode;

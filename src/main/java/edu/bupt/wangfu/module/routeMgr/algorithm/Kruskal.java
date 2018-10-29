@@ -11,9 +11,9 @@ public class Kruskal {
     //返回订阅节点的最小生成树构成的边
     public static Set<Edge> KRUSKAL(Set<Node> select, Set<Edge> e) {
         //存储最小生成树的边
-        Set<Edge> g = new TreeSet<Edge>();
+        Set<Edge> g = new TreeSet<>();
         //初始时，每个顶点自成一个连通分量
-        ArrayList<HashSet> sets = new ArrayList<HashSet>();
+        ArrayList<HashSet> sets = new ArrayList<>();
         for (Node node : select) {
             HashSet set = new HashSet();
             //存储节点的值
@@ -39,7 +39,9 @@ public class Kruskal {
             }
             if (loca_1 == loca_2) {
                 //属于一个连通分量，舍去这条边
-            } else {
+            } else if ((loca_1 == -1 && loca_2 != -2) || (loca_1 != -1 && loca_2 == -2)){
+                g.add(ed);
+            } else{
                 System.out.println("选择边：" + edgeStart + "  ->  " + edgeFinish + "  长度为：" + edgeValue);
                 HashSet set_1 = new HashSet();
                 set_1 = sets.get(loca_1);

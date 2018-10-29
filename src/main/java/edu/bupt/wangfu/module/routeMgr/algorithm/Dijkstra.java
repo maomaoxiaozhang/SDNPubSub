@@ -2,6 +2,7 @@ package edu.bupt.wangfu.module.routeMgr.algorithm;
 
 import edu.bupt.wangfu.info.device.DevInfo;
 import edu.bupt.wangfu.info.device.Switch;
+import edu.bupt.wangfu.module.routeMgr.util.BuildTopology;
 import edu.bupt.wangfu.module.routeMgr.util.Neighbor;
 import edu.bupt.wangfu.module.routeMgr.util.Node;
 
@@ -15,70 +16,68 @@ import static java.lang.Integer.MAX_VALUE;
  * @author caoming
  */
 public class Dijkstra {
+    //未加入节点
     private TreeMap<String, Node> open = new TreeMap<>();
+    //已加入节点
     private TreeMap<String, Node> close = new TreeMap<>();
-    private ArrayList<String> goal = new ArrayList<>();
+    //想要计算的节点
     private ArrayList<String> reach = new ArrayList<>();
     // 封装路径信息
-    private Map<String, String> pathInfo = new HashMap<String, String>();
-    private Map<String, Integer> path = new HashMap<String, Integer>();
-    private int MAX_CHILDREN = 4;
-    private String groupName;
+    private Map<String, String> pathInfo = new HashMap<>();
+    private Map<String, Integer> path = new HashMap<>();
 
     /**
      * dijkstra 通用算法，用于计算单源与所有节点的最短路径
+     * 用于生成管理路径
      *
-     * @param start
+     * @param root
      *         起始节点
      */
-    public void dijkstra(Node start) {
-        path.put(start.getName(), new Integer(0));
-        pathInfo.put(start.getName(), start.getName());
-        boolean cal = true;
-        while (!reach.isEmpty() || cal) {
-            ArrayList<Neighbor> neighbor = null;
-            int shstl = MAX_VALUE;
-            Node shstn = null;
-            String father = "";
-            for (Node reached : close.values()) {
-                neighbor = reached.getNeighbors();
-                if(neighbor.isEmpty()) {
-                    continue;
-                }
-                for (Neighbor nbr : neighbor) {
-                    if (open.containsKey(nbr.node.getName())) {// 如果子节点在open中
-                        Integer newCompute = path.get(reached.getName())
-                                + nbr.distance;
-                        if (shstl > newCompute) {// 之前设置的距离大于新计算出来的距离
-                            shstl = newCompute;
-                            shstn = nbr.node;
-                            father = reached.getName();
-                        }
+    public static Map dijkstra(Node root, Set<Node> nodes) {
+        Map<String, List<String>> temp = new HashMap<>();
+        Map<String, Integer> length = new HashMap<>();
+        Map<String, List<String>> adminPath = new HashMap<>();
+        List<String> path = new LinkedList<>();
+        path.add(root.getName());
+        adminPath.put(root.getName(), path);
+        Set<Node> fir = new HashSet<>();
+        Set<Node> sec = new HashSet<>();
+        fir.add(root);
+        sec.addAll(nodes);
+        sec.remove(root);
+        for (Node node : sec) {
+            if (root.getNeighbors().contains(node)) {
+                for (int i = 0; i < root.getNeighbors().size(); i++) {
+                    if (root.getNeighbors().get(i).getName().equals(node.getName())) {
+                        length.put(node.getName(), root.getNeighbors().get(i).distance);
+                        break;
                     }
                 }
-            }
-            if(shstn == null) {
-                break;
-            }
-            close.put(shstn.getName(), shstn);
-            open.remove(shstn.getName());
-            pathInfo.put(shstn.getName(), father);
-            path.put(shstn.getName(), shstl);
-            Node fa = close.get(father);
-            int sum = fa.getSum()+1;
-            fa.setSum(sum);
-            if (reach.contains(shstn.getName())) {
-                reach.remove(shstn.getName());
-            }
-            //若fa节点所能容纳的goal集合内的孩子已经达到上限，则在close中
-            // 删除fa以及以它为上一跳的节点，重新放入open中
-            if (sum >= MAX_CHILDREN) {
-                close.remove(fa.getName());
-                if(fa.getName().equals(groupName)) {
-                    cal = false;
-                }
+                path = temp.get(root.getName());
+                path.add(root.getName());
+                temp.put(node.getName(), path);
+            }else {
+                length.put(node.getName(), Integer.MAX_VALUE);
             }
         }
+        while (!sec.isEmpty()) {
+            int min = Integer.MAX_VALUE;
+            Node loc = null;
+            for (Node node : sec) {
+                int len = length.get(node.getName());
+                if (len < min) {
+                    min = len;
+                    loc = node;
+                }
+            }
+            root = loc;
+            fir.add(root);
+            sec.remove(root);
+            path = new LinkedList<>(temp.get(root.getName()));
+            path.add(root.getName());
+            adminPath.put(root.getName(), path);
+        }
+        return adminPath;
     }
 
     /**
@@ -91,13 +90,13 @@ public class Dijkstra {
      * @return
      *          当前发布节点与所有订阅节点的距离之和
      */
-    public int dijkstra(Node start, List<Node> subNodes) {
+    public int dijkstra(Node start, List<Node> subNodes, Set<Node> allNodes) {
         int result = 0;
         path.put(start.getName(), new Integer(0));
         pathInfo.put(start.getName(), start.getName());
         boolean cal = true;
         while (!reach.isEmpty() || cal) {
-            ArrayList<Neighbor> neighbor = null;
+            List<Neighbor> neighbor = null;
             int shstl = MAX_VALUE;
             Node shstn = null;
             String father = "";
@@ -108,13 +107,13 @@ public class Dijkstra {
                 }
                 for (Neighbor nbr : neighbor) {
                     // 如果子节点在open中
-                    if (open.containsKey(nbr.node.getName())) {
+                    if (open.containsKey(nbr.getName())) {
                         Integer newCompute = path.get(reached.getName())
                                 + nbr.distance;
                         // 之前设置的距离大于新计算出来的距离
                         if (shstl > newCompute) {
                             shstl = newCompute;
-                            shstn = nbr.node;
+                            shstn = BuildTopology.find(nbr.getName(), allNodes);
                             father = reached.getName();
                         }
                     }
@@ -135,28 +134,20 @@ public class Dijkstra {
             if (reach.contains(shstn.getName())) {
                 reach.remove(shstn.getName());
             }
-            //若fa节点所能容纳的goal集合内的孩子已经达到上限，则在close中
-            // 删除fa以及以它为上一跳的节点，重新放入open中
-            if (sum >= MAX_CHILDREN) {
-                close.remove(fa.getName());
-                if(fa.getName().equals(groupName)) {
-                    cal = false;
-                }
-            }
         }
         return result;
     }
 
-    public Set<Node> dijkstra(Node startNode, Node endNode, Set<Node> allNodes){
+    public List<String> dijkstra(Node startNode, Node endNode, Set<Node> allNodes){
         Set<Node> op = new HashSet<>();
+        op.addAll(allNodes);
         Set<Node> close = new HashSet<>();
-        op = allNodes;
         op.remove(startNode);
         close.add(endNode);
         //distance存储当前节点到目标节点的距离
-        Map<String, Integer> distance = new HashMap<String, Integer>();
+        Map<String, Integer> distance = new HashMap<>();
         //path存储当前节点到达目标节点经过的节点信息
-        Map<String, ArrayList<String>> path = new HashMap<String, ArrayList<String>>();
+        Map<String, ArrayList<String>> path = new HashMap<>();
 
         //初始化distance，不相邻则为-1
         for (Node no : op) {
@@ -164,12 +155,11 @@ public class Dijkstra {
         }
         //设置path信息
         for (Neighbor ne : startNode.getNeighbors()) {
-            if(allNodes.contains(ne.node)){
-                distance.put(ne.node.getName(), ne.distance);
-                path.put(ne.node.getName(), null);
+            if(allNodes.contains(BuildTopology.find(ne.getName(), allNodes))){
+                distance.put(ne.getName(), ne.distance);
+                path.put(ne.getName(), null);
             }
         }
-
         Node nearest = startNode;
         while(nearest != endNode){
             nearest = getNearestNode(distance, op);
@@ -184,8 +174,8 @@ public class Dijkstra {
                 //dis_3存储当前节点到nearest的距离
                 int dis_3 = -1;
                 for(Neighbor ne : nearest.getNeighbors()){
-                    if(ne.node.getName().equals(no.getName())){
-                        dis_3 = ne.node.getSum();
+                    if(ne.getName().equals(no.getName())){
+                        dis_3 = BuildTopology.find(ne.getName(), allNodes).getSum();
                         break;
                     }
                 }
@@ -197,7 +187,7 @@ public class Dijkstra {
                     //更新之
                     distance.put(no.getName(), dis_1 + dis_3);
                     ArrayList<String> temp_1 = path.get(nearest.getName());
-                    ArrayList<String> temp = new ArrayList<String>();
+                    ArrayList<String> temp = new ArrayList<>();
                     if (!(temp_1 == null)) {
                         temp.addAll(temp_1);
                     }
@@ -206,8 +196,7 @@ public class Dijkstra {
                 }
             }
         }
-
-        return null;
+        return path.get(endNode.getName()) == null ? new LinkedList<>() : path.get(endNode.getName());
     }
 
     //返回最近节点

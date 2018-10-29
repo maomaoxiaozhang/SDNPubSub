@@ -1,10 +1,9 @@
 package edu.bupt.wangfu.info.message.system;
 
+import edu.bupt.wangfu.module.topologyMgr.util.Lsa;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import edu.bupt.wangfu.module.topologyMgr.ospf.State;
-
-import java.io.Serializable;
 
 /**
  * 通过Hello消息探测邻居，同时在Hello消息中封装了LSA内容
@@ -29,12 +28,15 @@ public class HelloMsg extends SysMessage{
     //消息接收方进端口
     private String endOutPort;
 
-    //Hello消息失效时间
-    private long reHelloPeriod;
-
     //Hello消息的状态
     private State state = State.down;
 
     //Hello消息中包含LSA信息
-    private LsaMsg lsa = new LsaMsg();
+    private Lsa lsa;
+
+    //类型：拓扑发现、心跳、发布订阅更新
+    private String type;
+
+    //角色，分为控制器、管理员
+    private String role;
 }

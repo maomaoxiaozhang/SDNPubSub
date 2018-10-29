@@ -15,8 +15,8 @@ public class MessageReceiver implements Runnable{
     @Override
     public void run() {
         System.out.println("监听新主题：" + topic + "\t地址：" + address);
-        MultiHandler handler = new MultiHandler(topicPort, address);
         while (true) {
+            MultiHandler handler = new MultiHandler(topicPort, address);
             Object msg = handler.v6Receive();
             onMsgReceive(msg);
         }

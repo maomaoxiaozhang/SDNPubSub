@@ -2,8 +2,12 @@ package edu.bupt.wangfu.module.switchMgr.odl;
 
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import edu.bupt.wangfu.info.device.Controller;
+import edu.bupt.wangfu.info.device.Switch;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,34 +15,66 @@ import java.util.Properties;
 
 /**
  *  与交换机建立session通道，对交换机进行管理
+ *
+ *  <p>
+ *      添加流表：
+ *      ovs-ofctl add-flow br0 priority=50,in_port=all,dl_type=0x86DD,ipv6_dst=FF0E:0000:0000:0000:0001:2345:6790:ABCD/128,actions=output:2
+ *      删除流表：
+ *      ovs-ofctl del-flows br0 in_port=all,dl_type=0x86DD,ipv6_dst=FF0E:0000:0000:0000:0001:2345:6790:ABCD/128,out_port=1
+ *      查看流表：
+ *      ovs-ofctl dump-flows br0
+ *
+ *      一般表达式：
+ *          添加：
+ *              ovs-ofctl add-flow br0 priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s,actions=output:%s
+ *          删除：
+ *              ovs-ofctl del-flows br0 in_port=%s,dl_type=0x86DD,ipv6_dst=%s,out_port=%s
+ *          查看：
+ *              ovs-ofctl dump-flows br0
+ *  </p>
  */
+@Component
 public class OvsProcess {
-    private static OvsProcess ovsProcess;
-    private static Session session;
+    @Autowired
+    Controller controller;
 
-    public OvsProcess(String swchUser, String swchAddr, String swchPwd) {
+    private Session session;
+    private ChannelExec channel;
+
+    public void init() {
         try {
-            JSch jSchIn = new JSch();
-            session = jSchIn.getSession(swchUser, swchAddr, 22);
-            session.setPassword(swchPwd);
-            Properties configin = new Properties();
-            configin.put("StrictHostKeyChecking", "no");
-            session.setConfig(configin);
+            Switch localSwitch = controller.getSwitches().get(controller.getLocalSwtId());
+            String userName = localSwitch.getUserName();
+            String host = localSwitch.getAddress();
+            String password = localSwitch.getPassword();
+            JSch jsch = new JSch();
+            session = jsch.getSession(userName, host, 22);
+            session.setPassword(password);
+            Properties config = new Properties();
+            config.put("StrictHostKeyChecking", "no");
+            session.setConfig(config);
             session.connect();
-        }catch (Exception e) { e.printStackTrace(); }
+        } catch (JSchException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static synchronized String remoteExecuteCommand(String cmd) {
-        cmd = cmd.trim();
+    /**
+     * 指定用户名、交换机ip、密码，建立session连接，下发 openflow 指令
+     * @param cmd
+     * @return
+     */
+    public synchronized String remoteExecuteCommand(String cmd) {
         StringBuilder sb = new StringBuilder();
-        ChannelExec channel = null;
         try {
-            if (!cmd.startsWith("/ovs/bin/"))
+            cmd = cmd.trim();
+            if (!cmd.startsWith("/ovs/bin/")) {
                 cmd = "/ovs/bin/" + cmd;
+            }
+            System.out.println("cmd下发流表：" + cmd);
             channel = (ChannelExec) session.openChannel("exec");
             channel.setCommand(cmd);
             channel.connect();
-
             BufferedReader in = new BufferedReader(new InputStreamReader(channel.getInputStream()));
             String msg;
             while ((msg = in.readLine()) != null) {
@@ -53,41 +89,36 @@ public class OvsProcess {
         return sb.toString();
     }
 
-    public static void addFlow(String body) {
-        String cmd =  body;
+    public void addFlow(String body) {
+        String cmd = "ovs-ofctl add-flow br0 " + body;
         remoteExecuteCommand(cmd);
     }
 
-    public static void addFlow(Controller ctrl, String tpid, String body) {
+    public void addFlow(Controller ctrl, String tpid, String body) {
 //        String brName = RestProcess.getBrNameByTpid(ctrl, tpid);
 //        String cmd = "ovs-ofctl add-flow " + brName + " " + body;
 //
 //        remoteExcuteCommand(cmd);
 
-        String cmd =  body;
+        String cmd = "ovs-ofctl add-flow br0 " + body;
         remoteExecuteCommand(cmd);
     }
 
-    public static void deleteFlows(String body) {
+    public void deleteFlows(String body) {
         String cmd = "ovs-ofctl del-flows br0 " + body;
         remoteExecuteCommand(cmd);
     }
 
-    public static String dumpFlows(String body) {
-        String cmd = "ovs-ofctl dump-flows br0 " + body;
+    //查看下发的所有流表
+    public String dumpFlows() {
+        String cmd = "ovs-ofctl dump-flow br0 ";
         return remoteExecuteCommand(cmd);
     }
 
-    public static String dumpFlows(Controller ctrl, String tpid, String body) {
+    public String dumpFlows(Controller ctrl, String tpid, String body) {
 //        String brName = RestProcess.getBrNameByTpid(ctrl, tpid);
 //        String cmd = "ovs-ofctl dump-flows " + brName + " " + body;
-        String cmd = "ovs-ofctl dump-flows br0 " + body;
+        String cmd = "ovs-ofctl dump-flow br0 " + body;
         return remoteExecuteCommand(cmd);
-    }
-
-    public static void main(String[] args) {
-        String cmd = "/ovs/bin/ovs-appctl qos/show ge-1/1/5 && /ovs/bin/ovs-ofctl dump-flows br0";
-        //String cmd2 = "ovs-appctl qos/show ge-1/1/5";
-        System.out.println(remoteExecuteCommand(cmd));
     }
 }

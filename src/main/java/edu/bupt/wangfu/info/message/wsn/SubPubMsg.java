@@ -12,11 +12,17 @@ import lombok.Data;
  */
 @Data
 public class SubPubMsg extends WsnMessage {
+    //当前集群
+    private String group;
+
     //消息类型，包括发布、订阅、取消发布、取消订阅
     private String type;
 
     //主题
     private String topic;
+
+    //主题编码地址
+    private String encodeAddress;
 
     //用户
     private User user;

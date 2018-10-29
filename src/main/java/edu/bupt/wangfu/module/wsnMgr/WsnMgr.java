@@ -39,10 +39,7 @@ public class WsnMgr {
     LocalSubPub localSubPub = new LocalSubPub();
 
     //编码主题树，接收自控制器
-//    EncodeTopicTree encodeTopicTree = new EncodeTopicTree();
-    //测试期间，激活ldap
-    @Autowired
-    EncodeTopicTree encodeTopicTree;
+    EncodeTopicTree encodeTopicTree = new EncodeTopicTree();
 
     @Autowired
     WsnReceive wsnReceive;
@@ -53,7 +50,7 @@ public class WsnMgr {
     @Autowired
     Controller controller;
 
-    private static final String wsnAddr = "http://10.108.166.14:9010/wsn-core";
+    private static final String wsnAddr = "http://192.168.10.101:9010/wsn-core";
 
     public void start() {
         new Thread(wsnReceive, "wsnReceive监听").start();
@@ -64,23 +61,31 @@ public class WsnMgr {
      * 根据用户信息更新本地订阅表
      * 每一个新增订阅都需要添加新的监听
      */
-    public void updateSubPubMap(User user, String topic) {
+    public String updateSubPubMap(User user, String topic) {
         Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
-        if (isNewSub(topic, localSubMap)) {
-            MessageReceiver messageReceiver = new MessageReceiver();
-            messageReceiver.setTopic(topic);
-            messageReceiver.setTopicPort(controller.getTopicPort());
-            messageReceiver.setAddress(encodeTopicTree.getAddress(topic));
-            new Thread(messageReceiver, topic + "Listener").start();
+        String address = encodeTopicTree.getAddress(topic);
+        if (address == null || address.equals("")) {
+            System.out.println("主题 " + topic + " 对应的编码不存在，订阅失败！");
+        }else {
+            if (isNewSub(topic, localSubMap)) {
+                MessageReceiver messageReceiver = new MessageReceiver();
+                messageReceiver.setTopic(topic);
+                messageReceiver.setTopicPort(controller.getTopicPort());
+                messageReceiver.setAddress(address);
+                new Thread(messageReceiver, topic + "Listener").start();
+            }else {
+                System.out.println(topic + " 该主题已监听，请勿重复订阅");
+            }
+            List<String> subList = localSubMap.get(user);
+            if (subList == null) {
+                subList = new LinkedList<>();
+            }
+            if (!subList.contains(topic)) {
+                subList.add(topic);
+            }
+            localSubMap.put(user, subList);
         }
-        List<String> subList = localSubMap.get(user);
-        if (subList == null) {
-            subList = new LinkedList<>();
-        }
-        if (!subList.contains(topic)) {
-            subList.add(topic);
-        }
-        localSubMap.put(user, subList);
+        return address;
     }
 
     /**

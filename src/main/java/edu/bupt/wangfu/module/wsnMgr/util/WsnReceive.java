@@ -34,10 +34,9 @@ public class WsnReceive implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("wsnMgr start~~");
+        int wsnPort = controller.getWsnPort();
+        String address = controller.getWsnV6Addr();
         while (true) {
-            int wsnPort = controller.getWsnPort();
-            String address = controller.getWsnV6Addr();
             MultiHandler handler = new MultiHandler(wsnPort, address);
             Object msg = handler.v6Receive();
             onMsgReceive(msg);
@@ -49,6 +48,7 @@ public class WsnReceive implements Runnable{
      * @param msg
      */
     public void onMsgReceive(Object msg) {
+        System.out.println("wsnReceive 收到消息");
         if (msg instanceof WsnMessage) {
             if (msg instanceof TopicEncodeMsg) {
                 TopicEncodeMsg encodeMsg = (TopicEncodeMsg) msg;

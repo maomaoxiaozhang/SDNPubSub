@@ -1,14 +1,8 @@
 package edu.bupt.wangfu.module.routeMgr.algorithm;
 
-import edu.bupt.wangfu.module.routeMgr.util.Degree;
-import edu.bupt.wangfu.module.routeMgr.util.Edge;
-import edu.bupt.wangfu.module.routeMgr.util.Neighbor;
-import edu.bupt.wangfu.module.routeMgr.util.Node;
+import edu.bupt.wangfu.module.routeMgr.util.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * <p>
@@ -101,7 +95,7 @@ public class Steiner {
         return temp;
     }
 
-    public static void steiner(Set<Node> allNodes, Set<Node> select){
+    public static Set<Edge> steiner(Set<Node> allNodes, Set<Node> select){
         int max = Integer.MAX_VALUE;
         int dist[][] = new int[allNodes.size()][allNodes.size()];
         Dijkstra dijkstra = new Dijkstra();
@@ -118,7 +112,7 @@ public class Steiner {
         }
         Node[] all = allNodes.toArray(new Node[allNodes.size()]);
         for(int i = 0; i < all.length; i++){
-            ArrayList<Neighbor> neighbors = all[i].getNeighbors();
+            List<Neighbor> neighbors = all[i].getNeighbors();
             for(Neighbor ne : neighbors){
                 int seq = calSeq(ne, all);
                 dist[i][seq] = ne.distance;
@@ -148,14 +142,14 @@ public class Steiner {
         //g为最小生成树的边集合
         Set<Edge> g = Kruskal.KRUSKAL(select, e);
         //G2为最小生成树经过的节点集合
-        Set<Node> G2 = new HashSet<Node>();
+        Set<Node> G2 = new HashSet<>();
         //将最小生成树的边起始点和终止点取出，计算最短路径经过的节点，加入G2中
         for(Edge ed : g){
             Node startNode = ed.getStartNode();
             Node endNode = ed.getEndNode();
-            Set<Node> temp = dijkstra.dijkstra(startNode, endNode, allNodes);
-            for(Node no : temp){
-                G2.add(no);
+            List<String> temp = dijkstra.dijkstra(startNode, endNode, allNodes);
+            for(String no : temp){
+                G2.add(BuildTopology.find(no, allNodes));
             }
         }
 
@@ -164,7 +158,7 @@ public class Steiner {
         //g2为新的最小生成树的边集合
         Set<Edge> g2 = Kruskal.KRUSKAL(select, e);
         //G3为采用的节点集合
-        Set<Node> G3 = new HashSet<Node>();
+        Set<Node> G3 = new HashSet<>();
         for(Edge ed : g2){
             Node startNode = ed.getStartNode();
             Node endNode = ed.getEndNode();
@@ -174,23 +168,35 @@ public class Steiner {
 
         /*		第四步，删除度为1的顶点*/
 
-        for(Node no : G3){
-            int de = Degree.DEGREE(no, g2);
-            if(de == 1){
-                G3.remove(no);
+        Iterator<Node> nodeIterator = G3.iterator();
+        while (nodeIterator.hasNext()) {
+            Node no = nodeIterator.next();
+            if (!select.contains(no)) {
+                int de = Degree.DEGREE(no, g2);
+                if(de == 1){
+                    nodeIterator.remove();
+                    Iterator<Edge> edgeIterator = g2.iterator();
+                    while (edgeIterator.hasNext()){
+                        Edge edge = edgeIterator.next();
+                        if (edge.getStartNode().getName().equals(no.getName()) ||
+                                edge.getEndNode().getName().equals(no.getName())) {
+                            edgeIterator.remove();
+                        }
+                    }
+                }
             }
         }
+        return g2;
     }
 
     //将Node转换为数组中的序号
     public static int calSeq(Neighbor ne, Node[] all){
         for(int i = 0; i < all.length; i++){
-            if(all[i] == ne.node){
+            if(all[i].getName().equals(ne.getName())){
                 return i;
             }
         }
         //不存在
         return -1;
     }
-
 }
