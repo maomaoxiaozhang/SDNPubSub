@@ -171,15 +171,17 @@ public class Steiner {
         Iterator<Node> nodeIterator = G3.iterator();
         while (nodeIterator.hasNext()) {
             Node no = nodeIterator.next();
-            int de = Degree.DEGREE(no, g2);
-            if(de == 1){
-                nodeIterator.remove();
-                Iterator<Edge> edgeIterator = g2.iterator();
-                while (edgeIterator.hasNext()){
-                    Edge edge = edgeIterator.next();
-                    if (edge.getStartNode().getName().equals(no.getName()) ||
-                            edge.getEndNode().getName().equals(no.getName())) {
-                        edgeIterator.remove();
+            if (!select.contains(no)) {
+                int de = Degree.DEGREE(no, g2);
+                if(de == 1){
+                    nodeIterator.remove();
+                    Iterator<Edge> edgeIterator = g2.iterator();
+                    while (edgeIterator.hasNext()){
+                        Edge edge = edgeIterator.next();
+                        if (edge.getStartNode().getName().equals(no.getName()) ||
+                                edge.getEndNode().getName().equals(no.getName())) {
+                            edgeIterator.remove();
+                        }
                     }
                 }
             }

@@ -167,14 +167,16 @@ public class WsnListener implements Runnable{
         hello.setType(SUB_PUB_NOTIFY);
         for (Lsa lsa : lsdb.getLSDB().values()) {
             String endGroup = lsa.getGroupName();
-            hello.setEndGroup(endGroup);
-            String address = lsa.getAddress();
-            int port = lsa.getPort();
-            MultiHandler handler = new MultiHandler(port, address);
-            Long time = System.currentTimeMillis();
-            hello.setSendTime(time);
-            hello.getLsa().setSendTime(time);
-            handler.v6Send(hello);
+            if (!endGroup.equals(groupName)) {
+                hello.setEndGroup(endGroup);
+                String address = lsa.getAddress();
+                int port = lsa.getPort();
+                MultiHandler handler = new MultiHandler(port, address);
+                Long time = System.currentTimeMillis();
+                hello.setSendTime(time);
+                hello.getLsa().setSendTime(time);
+                handler.v6Send(hello);
+            }
         }
     }
 

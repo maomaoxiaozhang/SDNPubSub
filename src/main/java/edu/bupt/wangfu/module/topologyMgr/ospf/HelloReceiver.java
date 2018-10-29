@@ -196,8 +196,9 @@ public class HelloReceiver implements Runnable {
         if (subNodes == null) {
             subNodes = new HashSet<>();
         }
-        Node node = BuildTopology.find(controller.getLocalGroupName(), routeMgr.getAllNodes());
+        Node node = BuildTopology.find(group, routeMgr.getAllNodes());
         subNodes.add(node);
+        routeMgr.getAllSubNodes().put(topic, subNodes);
 
         //下发主题路径
         RouteUtil.downTopicRtFlows(routeMgr.getAllNodes(), routeMgr.getAllSubNodes().get(topic),
@@ -269,5 +270,6 @@ public class HelloReceiver implements Runnable {
             portList = new LinkedList<>();
         }
         portList.add(msg.getEndOutPort());
+        controller.getPort2nei().put(neiGroupName, portList);
     }
 }

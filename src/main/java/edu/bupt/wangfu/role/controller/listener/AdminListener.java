@@ -41,6 +41,7 @@ public class AdminListener implements Runnable{
     private void onMsgReceive(Object msg) {
         if (msg instanceof AdminMessage) {
             if (msg instanceof EncodeTopicTreeMsg) {
+                System.out.println("admin message");
                 EncodeTopicTree encodeTopicTree = ((EncodeTopicTreeMsg) msg).getEncodeTopicTree();
                 controllerStart.setEncodeTopicTree(encodeTopicTree);
                 int wsnPort = controller.getWsnPort();
