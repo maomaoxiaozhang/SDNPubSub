@@ -10,7 +10,7 @@ import java.util.Map;
 @Component
 public class Manager {
 
-    @Value("${G1}")
+    @Value("${adminName:G1}")
     private String adminName;
 
     @Value("${adminV6Addr:FF0E:0000:0000:0000:0001:2345:6789:ABCD}")

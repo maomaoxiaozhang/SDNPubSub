@@ -9,5 +9,8 @@
         <module name="SDN-PubSub" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SDN-PubSub" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
