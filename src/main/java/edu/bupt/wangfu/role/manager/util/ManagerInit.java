@@ -1,4 +1,4 @@
-package edu.bupt.wangfu.role.controller.util;
+package edu.bupt.wangfu.role.manager.util;
 
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.device.Switch;
@@ -17,7 +17,7 @@ import static edu.bupt.wangfu.module.util.Constant.SWITCH_ADDRESS;
  * 负责流表预下发
  */
 @Component
-public class Init {
+public class ManagerInit {
     @Autowired
     OvsProcess ovsProcess;
 
@@ -30,8 +30,8 @@ public class Init {
     public void init() {
         //测试使用，添加虚拟交换机
         Switch sw = new Switch();
-//        sw.setId("8888888");
-        sw.setId("66666666666");
+        sw.setId("8888888");
+//        sw.setId("66666666666");
         sw.setAddress(SWITCH_ADDRESS);
         sw.setUserName("admin");
         sw.setPassword("pica8");

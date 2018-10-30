@@ -11,7 +11,7 @@ import edu.bupt.wangfu.module.util.store.GlobalSubPub;
 import edu.bupt.wangfu.module.util.store.LocalSubPub;
 import edu.bupt.wangfu.role.controller.listener.AdminListener;
 import edu.bupt.wangfu.role.controller.listener.WsnListener;
-import edu.bupt.wangfu.role.controller.util.Init;
+import edu.bupt.wangfu.role.controller.util.ControllerInit;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -53,7 +53,7 @@ public class ControllerStart {
     private WsnListener wsnListener;
 
     @Autowired
-    private Init init;
+    private ControllerInit controllerInit;
 
     //本地发布订阅信息
     LocalSubPub localSubPub = new LocalSubPub();
@@ -80,7 +80,7 @@ public class ControllerStart {
     }
 
     public void start() {
-        init.init();
+        controllerInit.init();
         //测试期间，激活ldap
         topicTreeMgr.buildTopicTree();
         new Timer().schedule(new TopicTask(), 1000, 15000);

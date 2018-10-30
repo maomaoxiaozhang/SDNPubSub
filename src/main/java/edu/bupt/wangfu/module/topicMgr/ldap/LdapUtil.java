@@ -42,7 +42,7 @@ public class LdapUtil {
         //set the initializing information of the context
         env.put(Context.INITIAL_CONTEXT_FACTORY,  "com.sun.jndi.ldap.LdapCtxFactory");
         //set the URL of ldap server
-        env.put(Context.PROVIDER_URL, "ldap://192.168.10.101:389");
+        env.put(Context.PROVIDER_URL, "ldap://127.0.0.1:389");
         //set the authentication mode
         env.put(Context.SECURITY_AUTHENTICATION, "simple");
         //set user of ldap server

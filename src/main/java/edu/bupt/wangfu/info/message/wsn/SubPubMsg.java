@@ -10,6 +10,7 @@ import lombok.Data;
  * @see TopicEncodeMsg
  * @see WsnMgr
  */
+
 @Data
 public class SubPubMsg extends WsnMessage {
     //当前集群

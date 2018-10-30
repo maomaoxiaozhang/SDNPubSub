@@ -1,10 +1,12 @@
-package edu.bupt.wangfu.info.device;
+package edu.bupt.wangfu.module.managerMgr.util;
 
 import lombok.Data;
+
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 
+@Data
 public class Policy {
     String targetTopic;
     List<String> targetGroups;

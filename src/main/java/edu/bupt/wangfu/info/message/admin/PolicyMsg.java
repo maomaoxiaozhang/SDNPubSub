@@ -1,6 +1,6 @@
 package edu.bupt.wangfu.info.message.admin;
 
-import edu.bupt.wangfu.info.device.Policy;
+import edu.bupt.wangfu.module.managerMgr.util.Policy;
 import lombok.Data;
 
 import java.util.Map;

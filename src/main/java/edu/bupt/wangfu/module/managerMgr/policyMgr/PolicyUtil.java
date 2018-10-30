@@ -1,6 +1,6 @@
 package edu.bupt.wangfu.module.managerMgr.policyMgr;
 
-import edu.bupt.wangfu.info.device.Policy;
+import edu.bupt.wangfu.module.managerMgr.util.Policy;
 import org.w3c.dom.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -11,8 +11,10 @@ import java.io.*;
 import java.util.*;
 
 public class PolicyUtil {
+
     private static final String POLICYMSG = "./policyMsg.xml";
-    public Map<String,Policy> readXMLFile()throws Exception{
+
+    public static Map<String,Policy> readXMLFile() {
         //得到dom解析器的工厂实例
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder bulid = null;
@@ -56,7 +58,7 @@ public class PolicyUtil {
         return policyMap;
     }
 
-    public void updateXMLFile(Map<String,Policy> policyMap) throws Exception{
+    public static void updateXMLFile(Map<String,Policy> policyMap) throws Exception{
         //得到dom解析器的工厂实例
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder bulid = null;
@@ -111,7 +113,7 @@ public class PolicyUtil {
      * @return domDocToFile(doc, outFile, outFile)
      * @throws Exception
      */
-    public String wirteXMLFile(String outFile,Map<String,Policy> policyMap) throws Exception{
+    public static String wirteXMLFile(String outFile,Map<String,Policy> policyMap) throws Exception{
         //得到dom解析器的工厂实例
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder bulid = null;
@@ -155,7 +157,7 @@ public class PolicyUtil {
      * @return file.getAbsolutePath()
      * @throws TransformerException
      */
-    public String domDocToFile(Document doc) throws TransformerException{
+    public static String domDocToFile(Document doc) throws TransformerException{
         //为了得到xslt引擎创建对象
         TransformerFactory tff = TransformerFactory.newInstance();
         //创建xslt引擎对象输出xml文档
@@ -183,25 +185,26 @@ public class PolicyUtil {
         //将输出文件的路径返回
         return file.getAbsolutePath();
     }
-    public static void main(String[] args) {
-        try{
-            PolicyUtil util = new PolicyUtil();
-            Map<String,Policy> policyMap = util.readXMLFile();
-            policyMap.get("all:E").getTargetGroups().add("G2");
-            util.updateXMLFile(policyMap);
-            /*for(Policy policy:policyMap.values()){
-                System.out.print(policy.getTargetTopic());
-                for(String group:policy.getTargetGroups()){
-                    System.out.print(group+" ");
-                }
-                System.out.println();
 
-            }*/
-            System.out.println("输出到控制台的xml文档：");
-            //System.out.println("文件（包括路径和后缀）："+PolicyUtil.wirteXMLFile(, policyMap));
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args) {
+//        try{
+//            PolicyUtil util = new PolicyUtil();
+//            Map<String,Policy> policyMap = util.readXMLFile();
+//            policyMap.get("all:E").getTargetGroups().add("G2");
+//            util.updateXMLFile(policyMap);
+//            /*for(Policy policy:policyMap.values()){
+//                System.out.print(policy.getTargetTopic());
+//                for(String group:policy.getTargetGroups()){
+//                    System.out.print(group+" ");
+//                }
+//                System.out.println();
+//
+//            }*/
+//            System.out.println("输出到控制台的xml文档：");
+//            //System.out.println("文件（包括路径和后缀）："+PolicyUtil.wirteXMLFile(, policyMap));
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
 }
