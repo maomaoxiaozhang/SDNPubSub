@@ -8,9 +8,9 @@ import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
 import edu.bupt.wangfu.module.topologyMgr.TopoMgr;
 import edu.bupt.wangfu.module.util.MultiHandler;
-import edu.bupt.wangfu.role.controller.ControllerStart;
 import edu.bupt.wangfu.role.controller.listener.AdminListener;
-import edu.bupt.wangfu.role.controller.listener.ManagerListener;
+import edu.bupt.wangfu.role.manager.listener.ManagerAdminListener;
+import edu.bupt.wangfu.role.manager.listener.ManagerWsnListener;
 import edu.bupt.wangfu.role.manager.util.ManagerInit;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,21 +53,33 @@ public class ManagerStart {
     private TopoMgr topoMgr;
 
     @Autowired
-    ManagerListener managerListener;
+    ManagerWsnListener managerWsnListener;
 
     @Autowired
     private ManagerMgr managerMgr;
 
+    @Autowired
+    ManagerAdminListener managerAdminListener;
+
     public void start() {
-//        managerInit.init();
-//        topicTreeMgr.buildTopicTree();
-//        new Timer().schedule(new TopicTask(), 1000, 15000);
-//        topoMgr.start();
-//        new Thread(managerListener, "managerListener").start();
+        //集群初始化，流表预下发
+        managerInit.init();
+        //生成编码主题树
+        topicTreeMgr.buildTopicTree();
+        //时间驱动，定时向控制器发送编码主题树
+        new Timer().schedule(new ControllerTopicTask(), 1000, 20000);
+        //时间驱动，定时向wsn发送编码主题树
+        new Timer().schedule(new WsnTopicTask(), 1000, 15000);
+        topoMgr.start();
+        //启动wsn监听，接收集群内的发布订阅情况
+        new Thread(managerWsnListener, "managerListener").start();
+        //启动admin监听，接收各集群上报的信息
+        new Thread(managerAdminListener, "ManagerAdminListener").start();
+        //启动管理员模块、ui界面
         managerMgr.start();
     }
 
-    public class TopicTask extends TimerTask {
+    public class ControllerTopicTask extends TimerTask {
 
         @Override
         public void run() {
@@ -75,6 +87,20 @@ public class ManagerStart {
             String address = controller.getAdminV6Addr();
             MultiHandler handler = new MultiHandler(wsnPort, address);
             System.out.println("向controller发送编码主题树");
+            TopicEncodeMsg msg = new TopicEncodeMsg();
+            msg.setTopicTree(encodeTopicTree);
+            handler.v6Send(msg);
+        }
+    }
+
+    public class WsnTopicTask extends TimerTask{
+
+        @Override
+        public void run() {
+            int wsnPort = controller.getWsnPort();
+            String address = controller.getWsnV6Addr();
+            MultiHandler handler = new MultiHandler(wsnPort, address);
+            System.out.println("向wsnReceiver发送消息");
             TopicEncodeMsg msg = new TopicEncodeMsg();
             msg.setTopicTree(encodeTopicTree);
             handler.v6Send(msg);

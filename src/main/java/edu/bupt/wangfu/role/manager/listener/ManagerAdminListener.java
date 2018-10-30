@@ -1,8 +1,10 @@
-package edu.bupt.wangfu.role.controller.listener;
+package edu.bupt.wangfu.role.manager.listener;
 
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.message.admin.AdminMessage;
 import edu.bupt.wangfu.info.message.admin.EncodeTopicTreeMsg;
+import edu.bupt.wangfu.info.message.admin.GroupMessage;
+import edu.bupt.wangfu.module.managerMgr.util.AllGroups;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.role.controller.ControllerStart;
@@ -11,18 +13,17 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AdminListener implements Runnable{
+public class ManagerAdminListener implements Runnable{
 
     @Autowired
     Controller controller;
 
     @Autowired
-    @Lazy
-    ControllerStart controllerStart;
+    AllGroups allGroups;
 
     @Override
     public void run() {
-        System.out.println("控制器 admin 监听启动~~");
+        System.out.println("管理员 admin 监听启动~~");
         int adminPort = controller.getAdminPort();
         String address = controller.getAdminV6Addr();
         MultiHandler handler = new MultiHandler(adminPort, address);
@@ -33,23 +34,16 @@ public class AdminListener implements Runnable{
     }
 
     /**
-     * 收到消息后的处理措施：
-     *     1. 更新本地主题编码树
-     *     2. 向wsn发送主题树
+     * 收到控制器上报的集群内部信息，存储在Allgroups 中
      * @param msg
      */
     private void onMsgReceive(Object msg) {
         if (msg instanceof AdminMessage) {
-            if (msg instanceof EncodeTopicTreeMsg) {
-                System.out.println("admin message");
-                EncodeTopicTree encodeTopicTree = ((EncodeTopicTreeMsg) msg).getEncodeTopicTree();
-                controllerStart.setEncodeTopicTree(encodeTopicTree);
-
-                //事件驱动，发送接收到的主题树编码
-                int wsnPort = controller.getWsnPort();
-                String address = controller.getWsnV6Addr();
-                MultiHandler handler = new MultiHandler(wsnPort, address);
-                handler.v6Send(encodeTopicTree);
+            if (msg instanceof GroupMessage) {
+                System.out.println("admin group message");
+                GroupMessage message = (GroupMessage)msg;
+                String groupName = message.getGroupName();
+                allGroups.getAllGroups().put(groupName, message);
             }
         }
     }

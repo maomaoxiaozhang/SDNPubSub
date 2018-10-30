@@ -1,4 +1,4 @@
-package edu.bupt.wangfu.role.controller.listener;
+package edu.bupt.wangfu.role.manager.listener;
 
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.device.User;
@@ -30,7 +30,7 @@ import static edu.bupt.wangfu.module.util.Constant.*;
  * @see WsnReceive
  */
 @Component
-public class ManagerListener implements Runnable{
+public class ManagerWsnListener implements Runnable{
     @Autowired
     Controller controller;
 

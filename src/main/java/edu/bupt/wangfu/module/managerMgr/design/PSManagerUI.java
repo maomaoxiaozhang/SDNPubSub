@@ -35,7 +35,7 @@ public class PSManagerUI {
     TopoMgr topomgr;
 
     @Autowired
-    Manager manager;
+    Controller ctl;
 
     @Autowired
     PolicyMap policyMap;
@@ -596,8 +596,8 @@ public class PSManagerUI {
         fbdnGroupsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         fbdnGroups.add(fbdnGroupsScrollPane, BorderLayout.CENTER);
         // 默认加载所有集群 且处于未选中状态
-        if (manager.getGroups() != null) {
-            for (final String groupName : manager.getGroups().keySet()) {
+        if (allGroups.getAllGroups() != null && !allGroups.getAllGroups().isEmpty()) {
+            for (final String groupName : allGroups.getAllGroups().keySet()) {
                 final JCheckBox group = new JCheckBox(groupName);
                 group.setSelected(false);
                 group.addActionListener(new ActionListener() {
@@ -849,8 +849,8 @@ public class PSManagerUI {
         //ArrayList<String> day = new ArrayList<>();
         //ArrayList<Double> element = new ArrayList<>();
         groupNames.add(defaultC);
-        if (manager.getGroups() != null) {
-            for (final String group : manager.getGroups().keySet()) {
+        if (allGroups.getAllGroups() != null && !allGroups.getAllGroups().isEmpty()) {
+            for (final String group : allGroups.getAllGroups().keySet()) {
                 groupNames.add(group);
             }
         }
@@ -873,7 +873,8 @@ public class PSManagerUI {
                     switchName.addItem(defaultC);
                     switchName.setSelectedIndex(0);
                     if (tempGroup != null) {
-                        final Map<String, Switch> groupSwitchMap = manager.getGroups().get(tempGroup).getSwitches();
+                        final Map<String, Switch> groupSwitchMap = allGroups.getAllGroups().get(tempGroup)
+                                .getController().getSwitches();
                         for (final String switchId : groupSwitchMap.keySet()) {
                             switchName.addItem(switchId);
                         }
@@ -909,7 +910,8 @@ public class PSManagerUI {
 
                     String tempSwitch = (String) switchName.getSelectedItem();
                     if (tempSwitch != null) {
-                        Set<String> ports =manager.getGroups().get(groupName.getSelectedItem()).getSwitches().get(tempSwitch).getPorts();
+                        Set<String> ports = allGroups.getAllGroups().get(groupName.getSelectedItem()).getController()
+                                .getSwitches().get(tempSwitch).getPorts();
                         for(String port:ports){
                             portName.addItem(port);
                         }
@@ -1212,9 +1214,9 @@ public class PSManagerUI {
         if (allGroupsPane != null) allGroupsPane.removeAll();
         if (fbdnGroupsPanel != null) fbdnGroupsPanel.removeAll();
 
-        if (manager.getGroups() != null && manager.getGroups().size() > 0) {
+        if (allGroups.getAllGroups() != null && !allGroups.getAllGroups().isEmpty()) {
 
-            for (final String groupName : manager.getGroups().keySet()) { // 遍历当前所有集群
+            for (final String groupName : allGroups.getAllGroups().keySet()) { // 遍历当前所有集群
                 final JButton groupButton = new JButton(groupName);
                 currentGroup = groupName;
                 groupButton.setToolTipText(groupName);
@@ -1283,7 +1285,8 @@ public class PSManagerUI {
                                 switchMapLabel.setText("集群" + currentGroup + "交换机");
 
                                 //获取集群所有交换机和群内拓扑
-                                final Map<String, Switch> groupSwitchMap = manager.getGroups().get(currentGroup).getSwitches();
+                                final Map<String, Switch> groupSwitchMap = allGroups.getAllGroups().get(currentGroup)
+                                        .getController().getSwitches();
                                 //globalUtil.getTopology(groupController);
                                 //groupSubs = adminMgr.getGroupSubscriptions(currentGroup); // 获取集群订阅，必须放在获取拓扑之后
 
@@ -1314,7 +1317,8 @@ public class PSManagerUI {
                                                     queues.removeAll();
                                                 switchHostScrollPane.repaint();
                                                 switchHostLabel.setText("交换机" + groupSwitchButton.getText() + "下主机");
-                                                Map<String, Host> wsnHostMap = manager.getGroups().get(currentGroup).getSwitches().get(switchName).getHosts();
+                                                Map<String, Host> wsnHostMap = allGroups.getAllGroups().get(currentGroup)
+                                                        .getController().getSwitches().get(switchName).getHosts();
                                                 for (final Host host : wsnHostMap.values()) {
                                                     final String memAddr = host.getIp();
                                                     final JButton hostButton = new JButton(memAddr);
@@ -1394,7 +1398,8 @@ public class PSManagerUI {
                                                         if (ports != null)
                                                             ports.removeAll();
                                                         String[] pHeader = {"端口名称", "端口ID", "所属交换机", "进端口数据(Byte)", "出端口数据(Byte)"};
-                                                        Set<String> pList = manager.getGroups().get(currentGroup).getSwitches().get(switchName).getPorts();
+                                                        Set<String> pList = allGroups.getAllGroups().get(currentGroup)
+                                                                .getController().getSwitches().get(switchName).getPorts();
                                                         Object[][] pInfo = new Object[pList.size()][5];
                                                         int pindex = 0;
                                                         /*final Port[] pArray = new Port[pList.size()];
@@ -1429,7 +1434,8 @@ public class PSManagerUI {
                                                                 if (queues != null)
                                                                     queues.removeAll();
                                                                 String[] qHeader = {"队列名称", "所属端口", "进队列数据(Byte)", "出队列数据(Byte)", "当前队列长度", "队列带宽"};
-                                                                Map<Integer, java.util.List<Queue>> qList = manager.getGroups().get(currentGroup).getSwitches().get(switchName).getQueues();
+                                                                Map<Integer, java.util.List<Queue>> qList = allGroups.getAllGroups().get(currentGroup)
+                                                                        .getController().getSwitches().get(switchName).getQueues();
                                                                 Object[][] qInfo = new Object[qList.size()][6];
                                                                 int qindex = 0;
                                                                 /*for (Queue q : qList) { // 遍历端口上每个队列

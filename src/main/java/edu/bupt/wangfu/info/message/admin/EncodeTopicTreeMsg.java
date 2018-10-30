@@ -5,6 +5,9 @@ import lombok.Data;
 
 /**
  * 主题树消息，负责将编码主题树从管理下发，传至各个交换机
+ * 管理员 --> 控制器
+ *
+ * @see GroupMessage
  */
 @Data
 public class EncodeTopicTreeMsg extends AdminMessage{

@@ -3,6 +3,7 @@ package edu.bupt.wangfu.info.device;
 import edu.bupt.wangfu.module.routeMgr.util.Edge;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -17,11 +18,14 @@ import java.util.Set;
  */
 @Data
 @Component
+@PropertySource("classpath:/controller.properties")
 public class Controller {
+
     @Value("${GroupControllerAddr:192.168.10.101}")
     private String GroupControllerAddr;
 
-    @Value("${adminName:G1}")
+    //保存管理员所在集群名
+    @Value("${adminName:null}")
     private String adminName;
 
     //本地集群名
@@ -71,11 +75,6 @@ public class Controller {
     @Value("${outSwitches:#{null}}")
     private Map<String, Switch> outSwitches;
 
-//    private LsdbMsg lsdb;
-
-//    //存储邻居集群控制器信息，key为集群名称，value为集群控制器信息
-//    private Map<String, Controller> neighbors;
-
     //Hello 消息有效时间
     @Value("${HelloAliveTime:30000}")
     private long HelloAliveTime;
@@ -109,9 +108,6 @@ public class Controller {
     //控制器所在交换机id
     @Value("${localSwtId:139329991887403}")
     private String localSwtId;
-
-    //存储集群内的交换机连接情况
-    private Edge[] edges;
 
     //保存交换机与邻居的端口对应情况，key——集群名，value——与之相接的交换机端口列表
     private Map<String, List<String>> port2nei = new HashMap<>();

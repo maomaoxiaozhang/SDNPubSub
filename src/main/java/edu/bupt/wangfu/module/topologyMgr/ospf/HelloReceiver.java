@@ -31,10 +31,6 @@ public class HelloReceiver implements Runnable {
     @Autowired
     private Controller controller;
 
-//    @Autowired
-//    @Lazy
-//    private TopoMgr topoMgr;
-
     @Autowired
     RouteMgr routeMgr;
 

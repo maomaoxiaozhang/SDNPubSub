@@ -2,6 +2,7 @@ package edu.bupt.wangfu.role.controller;
 
 import edu.bupt.wangfu.config.ControllerConfig;
 import edu.bupt.wangfu.info.device.Controller;
+import edu.bupt.wangfu.info.message.admin.GroupMessage;
 import edu.bupt.wangfu.info.message.wsn.TopicEncodeMsg;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
@@ -79,13 +80,32 @@ public class ControllerStart {
         }
     }
 
+    public class GroupTask extends TimerTask{
+
+        @Override
+        public void run() {
+            int adminPort = controller.getAdminPort();
+            String address = controller.getAdminV6Addr();
+            MultiHandler handler = new MultiHandler(adminPort, address);
+            System.out.println("向管理员发送集群信息");
+            GroupMessage msg = new GroupMessage();
+            msg.setController(controller);
+            msg.setGroupName(controller.getLocalGroupName());
+            handler.v6Send(msg);
+        }
+    }
+
     public void start() {
+        //初始化集群，流表预下发
         controllerInit.init();
-        //测试期间，激活ldap
-        topicTreeMgr.buildTopicTree();
-        new Timer().schedule(new TopicTask(), 1000, 15000);
+        //启动管理消息监听，接收主题树
         new Thread(adminListener, "adminListener").start();
+        //时间驱动，定时向wsn更新主题树
+        new Timer().schedule(new TopicTask(), 1000, 15000);
+        //时间驱动，定时向管理员发送集群内信息
+        new Timer().schedule(new GroupTask(), 1000, 20000);
         topoMgr.start();
+        //启动wsn监听，接收集群内的发布订阅情况
         new Thread(wsnListener, "wsnListener").start();
     }
 

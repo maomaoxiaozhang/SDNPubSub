@@ -8,7 +8,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
 @ComponentScan(basePackages = {"edu.bupt.wangfu.*"})
-@PropertySource("classpath:/controller.properties")
+//@PropertySource("classpath:/*.properties")
 public class ControllerConfig {
 
     /*

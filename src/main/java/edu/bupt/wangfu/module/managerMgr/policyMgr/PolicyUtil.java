@@ -43,7 +43,7 @@ public class PolicyUtil {
         //Element policyList= (Element)root.getElementsByTagName("policyList").item(0);
         NodeList nodeList = root.getElementsByTagName("policy");
         for(int i=0;i<nodeList.getLength();i++){
-            System.out.println("start");
+//            System.out.println("start");
             Element element = (Element) nodeList.item(i);
             policy = new Policy();
             policy.setTargetTopic(element.getElementsByTagName("targetTopic").item(0).getTextContent());
