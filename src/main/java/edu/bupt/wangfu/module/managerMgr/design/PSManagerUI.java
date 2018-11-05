@@ -304,7 +304,7 @@ public class PSManagerUI {
                     JOptionPane.showMessageDialog(null, "输入为空！请输入要查询的集群名称或代表ip");
                 } else {
                     DefaultTableModel searchSubsModel;
-                    List<String> sercherSubs =topomgr.getLsdb().getLSDB().get(searchInput).getSubsTopics();
+                    List<String> sercherSubs =topomgr.getLsdb().getLSDB().get(searchInput).getSubTopics();
                     String[] columnNames = {"集群" + currentGroup + "成员" + searchInput + "的订阅"};
                     String[][] searchSubInfo;
                     if (sercherSubs != null && sercherSubs.size() > 0) {
@@ -1434,9 +1434,9 @@ public class PSManagerUI {
                                                                 if (queues != null)
                                                                     queues.removeAll();
                                                                 String[] qHeader = {"队列名称", "所属端口", "进队列数据(Byte)", "出队列数据(Byte)", "当前队列长度", "队列带宽"};
-                                                                Map<Integer, java.util.List<Queue>> qList = allGroups.getAllGroups().get(currentGroup)
-                                                                        .getController().getSwitches().get(switchName).getQueues();
-                                                                Object[][] qInfo = new Object[qList.size()][6];
+//                                                                Map<Integer, java.util.List<String>> qList = allGroups.getAllGroups().get(currentGroup)
+//                                                                        .getController().getSwitches().get(switchName).getQueues();
+//                                                                Object[][] qInfo = new Object[qList.size()][6];
                                                                 int qindex = 0;
                                                                 /*for (Queue q : qList) { // 遍历端口上每个队列
                                                                     qInfo[qindex][0] = q.getQueueName();
@@ -1447,11 +1447,11 @@ public class PSManagerUI {
                                                                     qInfo[qindex][5] = q.getBrandWidth();
                                                                     qindex++;
                                                                 }*/
-                                                                queueTable = new JTable(qInfo, qHeader) {
-                                                                    public boolean isCellEditable(int row, int column) {
-                                                                        return false; //表格不允许被编辑
-                                                                    }
-                                                                };
+//                                                                queueTable = new JTable(qInfo, qHeader) {
+//                                                                    public boolean isCellEditable(int row, int column) {
+//                                                                        return false; //表格不允许被编辑
+//                                                                    }
+//                                                                };
                                                                 queueTable.setPreferredScrollableViewportSize(new Dimension(620, 220));
                                                                 FitTableColumns(queueTable); // 列宽自适应
                                                                 queueTable.setRowHeight(23); // 行高
@@ -1514,11 +1514,11 @@ public class PSManagerUI {
 
                             //加载集群订阅信息
                             //ArrayList<String> subers = new ArrayList<>();//所有订阅用户地址
-                            if (topomgr.getLsdb().getLSDB().get(currentGroup).getSubsTopics() != null) {
-                                int count = topomgr.getLsdb().getLSDB().get(currentGroup).getSubsTopics().size();
+                            if (topomgr.getLsdb().getLSDB().get(currentGroup).getSubTopics() != null) {
+                                int count = topomgr.getLsdb().getLSDB().get(currentGroup).getSubTopics().size();
                                 String[][] groupSubData = new String[count][1];
                                 for (int i = 0; i < count; i ++) {
-                                    groupSubData[i][1] =  topomgr.getLsdb().getLSDB().get(currentGroup).getSubsTopics().get(i);
+                                    groupSubData[i][1] =  topomgr.getLsdb().getLSDB().get(currentGroup).getSubTopics().get(i);
                                 }
                                 String[] columnNames = {"集群" + currentGroup + "的所有订阅"};
                                 groupSubsModel = new DefaultTableModel(groupSubData, columnNames);

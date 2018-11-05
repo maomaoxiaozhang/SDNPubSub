@@ -4,9 +4,10 @@ import edu.bupt.wangfu.config.ControllerConfig;
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.device.User;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
+import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.module.util.store.LocalSubPub;
-import edu.bupt.wangfu.module.wsnMgr.util.MessageReceiver;
 import edu.bupt.wangfu.module.wsnMgr.util.WsnReceive;
+import edu.bupt.wangfu.module.wsnMgr.util.soap.SendWSNCommandWSSyn;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.WsnNotificationProcessImpl;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 
 import javax.xml.ws.Endpoint;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import static edu.bupt.wangfu.module.util.Constant.PUBLISH;
 
 /**
  * 在用户端使用
@@ -29,6 +34,14 @@ import java.util.Map;
  *            发送本地订阅情况
  *     2. user -> wsn
  *        接收并保存本地所有用户及其对应的主题发布、订阅情况
+ *
+ * <p>
+ *     订阅：
+ *          接收用户数据，向控制器发送订阅请求，由控制器下发主题路径
+ *     发布：
+ *          1. 注册：向控制器发送发布注册请求，由控制器下发主题路径
+ *          2. 传输：向用户主题地址发送数据
+ * </p>
  *
  * @see WsnReceive
  */
@@ -59,49 +72,117 @@ public class WsnMgr {
 
     /**
      * 根据用户信息更新本地订阅表
+     */
+    public void registerSub(User user, String topic) {
+        Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
+        List<String> subList = localSubMap.get(user);
+        if (subList == null) {
+            subList = new LinkedList<>();
+        }
+        if (!subList.contains(topic)) {
+            subList.add(topic);
+        }
+        localSubMap.put(user, subList);
+    }
+
+    /**
      * 每一个新增订阅都需要添加新的监听
      */
-    public String updateSubPubMap(User user, String topic) {
-        Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
+    public String addListener(String topic) {
         String address = encodeTopicTree.getAddress(topic);
+        Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
         if (address == null || address.equals("")) {
             System.out.println("主题 " + topic + " 对应的编码不存在，订阅失败！");
         }else {
-            if (isNewSub(topic, localSubMap)) {
+            if (isNewSubPub(topic, localSubMap)) {
                 MessageReceiver messageReceiver = new MessageReceiver();
-                messageReceiver.setTopic(topic);
-                messageReceiver.setTopicPort(controller.getTopicPort());
-                messageReceiver.setAddress(address);
+                messageReceiver.topic = topic;
+                messageReceiver.topicPort = controller.getTopicPort();
+                messageReceiver.address = address;
                 new Thread(messageReceiver, topic + "Listener").start();
             }else {
                 System.out.println(topic + " 该主题已监听，请勿重复订阅");
+                return "";
             }
-            List<String> subList = localSubMap.get(user);
-            if (subList == null) {
-                subList = new LinkedList<>();
+        }
+        return address;
+    }
+
+    public class MessageReceiver implements Runnable{
+        String topic;
+        int topicPort;
+        String address;
+
+        @Override
+        public void run() {
+            System.out.println("监听新主题：" + topic + "\t地址：" + address);
+            while (true) {
+                MultiHandler handler = new MultiHandler(topicPort, address);
+                Object msg = handler.v6Receive();
+                onMsgReceive(msg);
             }
-            if (!subList.contains(topic)) {
-                subList.add(topic);
+        }
+
+        //收到主题消息，分发给订阅该主题的用户
+        public void onMsgReceive(Object msg) {
+            System.out.println("收到主题 " + topic + " 消息：" + msg);
+            Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
+            for (User user : localSubMap.keySet()) {
+                if (localSubMap.get(user).contains(topic)) {
+                    String userAddress = user.getAddress();
+                    SendWSNCommandWSSyn send = new SendWSNCommandWSSyn("", userAddress);
+                    send.notify(topic, String.valueOf(msg));
+                }
             }
-            localSubMap.put(user, subList);
+        }
+    }
+
+    //发布注册
+    public String registerPub(User user, String topic) {
+        Map<User, List<String>> localPubMap = localSubPub.getLocalPubMap();
+        String address = encodeTopicTree.getAddress(topic);
+        if (address == null || address.equals("")) {
+            System.out.println("主题 " + topic + " 对应的编码不存在，注册失败！");
+        }else {
+            if (isNewSubPub(topic, localPubMap)) {
+                //新的发布注册请求，向控制器上报发布信息
+                implementor.send2controller(topic, user, address, PUBLISH);
+                //添加至本地发布表中
+                List<String> pubList = localPubMap.get(user);
+                if (pubList == null) {
+                    pubList = new LinkedList<>();
+                }
+                if (!pubList.contains(topic)) {
+                    pubList.add(topic);
+                }
+                localPubMap.put(user, pubList);
+            }else {
+                System.out.println(topic + " 该主题已注册，请勿重复发布");
+            }
         }
         return address;
     }
 
     /**
      * 判断主题是否为集群内新增订阅，是则需要添加单独的监听
-     * @param topic
-     * @param localSubMap
-     * @return
      */
-    public boolean isNewSub(String topic, Map<User, List<String>> localSubMap) {
-        for (User user : localSubMap.keySet()) {
-            List<String> list = localSubMap.get(user);
+    public boolean isNewSubPub(String topic, Map<User, List<String>> map) {
+        for (User user : map.keySet()) {
+            List<String> list = map.get(user);
             if (list!= null && list.contains(topic)) {
                 return false;
             }
         }
         return true;
+    }
+
+    public User findUser(String id) {
+        for (User user : localSubPub.getLocalSubMap().keySet()) {
+            if (user.getId().equals(id)) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public static void main(String[] args) {

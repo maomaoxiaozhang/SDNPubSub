@@ -1,10 +1,11 @@
 package edu.bupt.wangfu.info.device;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -12,7 +13,8 @@ import java.util.Set;
  *
  * @author caoming
  */
-@Data
+@Getter
+@Setter
 public class Switch extends DevInfo{
     //存储所有端口集合
     private Set<String> ports;
@@ -28,8 +30,8 @@ public class Switch extends DevInfo{
     private String address;
     //交换机登录密码
     private String password;
-    private Map<String,Host> hosts;
+    private Map<String, Host> hosts;
 
-    //端口对应的队列集合
-    private Map<Integer, List<Queue>> queues;
+    //端口对应的队列运行情况，key——端口id，value——队列信息
+    Map<Integer, List<Queue>> queueMap = new HashMap<>();
 }

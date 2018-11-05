@@ -2,6 +2,8 @@ package edu.bupt.wangfu.role.controller.listener;
 
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.device.User;
+import edu.bupt.wangfu.info.message.admin.GroupRequestMsg;
+import edu.bupt.wangfu.info.message.wsn.UserRequestMsg;
 import edu.bupt.wangfu.info.message.system.HelloMsg;
 import edu.bupt.wangfu.info.message.wsn.SubPubMsg;
 import edu.bupt.wangfu.info.message.wsn.WsnMessage;
@@ -25,7 +27,7 @@ import java.util.*;
 import static edu.bupt.wangfu.module.util.Constant.*;
 
 /**
- * 控制器的wsn监听，负责接收本集群的发布订阅消息
+ * 控制器的wsn监听，负责接收本集群的发布订阅消息，以及用户请求
  *
  * @see WsnReceive
  */
@@ -69,10 +71,15 @@ public class WsnListener implements Runnable{
     public void onMsgReceive(Object msg) {
         if (msg instanceof WsnMessage) {
             if (msg instanceof SubPubMsg) {
+                //用户发布订阅注册情况，更新本地用户信息表
                 SubPubMsg subPubMsg = (SubPubMsg) msg;
                 if (subPubMsg.getGroup().equals(controller.getLocalGroupName())) {
                     updateSubPubMap(subPubMsg);
                 }
+            }else if (msg instanceof UserRequestMsg) {
+                //用户时延带宽请求，通过管理路径向管理员上报
+                UserRequestMsg userRequestMsg = (UserRequestMsg) msg;
+                send2manager(userRequestMsg);
             }
         }
     }
@@ -89,6 +96,8 @@ public class WsnListener implements Runnable{
         String encodeAddress = msg.getEncodeAddress();
         String groupName = controller.getLocalGroupName();
         List<String> topicList;
+        Node node;
+        Set<Node> set = new HashSet<>();
         Map<User, List<String>> localSubMap = controllerStart.getLocalSubPub().getLocalSubMap();
         Map<User, List<String>> localPubMap = controllerStart.getLocalSubPub().getLocalPubMap();
         List<String> subList = controllerStart.getGlobalSubPub().getGlobalSubMap().get(groupName);
@@ -96,7 +105,35 @@ public class WsnListener implements Runnable{
         switch (type) {
             case PUBLISH:
                 topicList = localPubMap.get(user);
-                topicList.add(topic);
+                if (topicList == null) {
+                    topicList = new LinkedList<>();
+                }
+                if (topicList.contains(topic)) {
+                    System.out.println("集群 " + groupName + " 内 " + topic + " 主题已注册");
+                }else {
+                    //更新本地lsa并广播
+                    System.out.println("集群 " + groupName + " 新增发布注册：user -- " + user.getAddress() +  "\ttopic: " + topic);
+                    topicList.add(topic);
+                    localPubMap.put(user, topicList);
+                    List<String> pubTopics = localLsa.getPubTopics();
+                    pubTopics.add(topic);
+                    sendLsa(topic, encodeAddress);
+
+                    //添加至本地的发布节点
+                    Set<Node> pubNodes = routeMgr.getAllPubNodes().get(topic);
+                    if (pubNodes == null) {
+                        pubNodes = new HashSet<>();
+                    }
+                    node = BuildTopology.find(groupName, routeMgr.getAllNodes());
+                    pubNodes.add(node);
+                    routeMgr.getAllPubNodes().put(topic, pubNodes);
+
+                    //下发主题路径
+                    set.addAll(routeMgr.getAllPubNodes().get(topic));
+                    set.addAll(routeMgr.getAllSubNodes().get(topic));
+                    RouteUtil.downTopicRtFlows(routeMgr.getAllNodes(), set,
+                            controller, encodeAddress, ovsProcess);
+                }
                 break;
             case SUBSCRIBE:
                 topicList = localSubMap.get(user);
@@ -104,16 +141,17 @@ public class WsnListener implements Runnable{
                     topicList = new LinkedList<>();
                 }
                 if (topicList.contains(topic)) {
-                    System.out.println("集群 " + controller.getLocalGroupName() + " 内 " + topic + " 主题已订阅");
+                    System.out.println("集群 " + groupName + " 内 " + topic + " 主题已订阅");
                 }else {
+                    //更新本地lsa并广播
                     System.out.println("集群 " + groupName + " 新增订阅：user -- " + user.getAddress() + "\ttopic: " + topic);
                     topicList.add(topic);
                     localSubMap.put(user, topicList);
-                    for (User user1 : controllerStart.getLocalSubPub().getLocalSubMap().keySet()) {
-                        System.out.println("user: " + user.getAddress() + "\ttopicList: " +
-                                controllerStart.getLocalSubPub().getLocalSubMap().get(user1));
-                    }
-                    List<String> subTopics = localLsa.getSubsTopics();
+//                    for (User user1 : controllerStart.getLocalSubPub().getLocalSubMap().keySet()) {
+//                        System.out.println("user: " + user.getAddress() + "\ttopicList: " +
+//                                controllerStart.getLocalSubPub().getLocalSubMap().get(user1));
+//                    }
+                    List<String> subTopics = localLsa.getSubTopics();
                     subTopics.add(topic);
                     sendLsa(topic, encodeAddress);
 
@@ -122,12 +160,18 @@ public class WsnListener implements Runnable{
                     if (subNodes == null) {
                         subNodes = new HashSet<>();
                     }
-                    Node node = BuildTopology.find(controller.getLocalGroupName(), routeMgr.getAllNodes());
+                    node = BuildTopology.find(controller.getLocalGroupName(), routeMgr.getAllNodes());
                     subNodes.add(node);
                     routeMgr.getAllSubNodes().put(topic, subNodes);
 
                     //下发主题路径
-                    RouteUtil.downTopicRtFlows(routeMgr.getAllNodes(), routeMgr.getAllSubNodes().get(topic),
+                    if (routeMgr.getAllSubNodes().get(topic) != null) {
+                        set.addAll(routeMgr.getAllSubNodes().get(topic));
+                    }
+                    if (routeMgr.getAllPubNodes().get(topic) != null) {
+                        set.addAll(routeMgr.getAllPubNodes().get(topic));
+                    }
+                    RouteUtil.downTopicRtFlows(routeMgr.getAllNodes(), set,
                             controller, encodeAddress, ovsProcess);
                 }
                 break;
@@ -178,6 +222,22 @@ public class WsnListener implements Runnable{
                 handler.v6Send(hello);
             }
         }
+    }
+
+    /**
+     * 将wsn得到的用户配置请求上报给管理员
+     * @param msg
+     */
+    public void send2manager(UserRequestMsg msg) {
+        GroupRequestMsg groupRequestMsg = new GroupRequestMsg();
+        groupRequestMsg.setGroup(controller.getLocalGroupName());
+        groupRequestMsg.setDelay(msg.getDelay());
+        groupRequestMsg.setLostRate(msg.getLostRate());
+        groupRequestMsg.setTopic(msg.getTopic());
+        int port = controller.getAdminPort();
+        String address = controller.getAdminV6Addr();
+        MultiHandler handler = new MultiHandler(port, address);
+        handler.v6Send(groupRequestMsg);
     }
 
     /**

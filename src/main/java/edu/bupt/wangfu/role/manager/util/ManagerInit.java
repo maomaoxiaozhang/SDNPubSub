@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import static edu.bupt.wangfu.module.util.Constant.PRIORITY;
 import static edu.bupt.wangfu.module.util.Constant.SWITCH_ADDRESS;
@@ -35,37 +37,24 @@ public class ManagerInit {
         sw.setAddress(SWITCH_ADDRESS);
         sw.setUserName("admin");
         sw.setPassword("pica8");
-        Map<String, String> ports = new HashMap<String, String>() {
-            {
-                put("1", "1");
-                put("2", "2");
-                put("3", "3");
-                put("4", "4");
-                put("5", "5");
-                put("6", "6");
-                put("8", "8");
-            }
-        };
-        sw.setPorts(ports.keySet());
-        Map<String, String> outPorts = new HashMap<String, String>() {
-            {
-                put("1", "1");
-//                put("2", "2");
-//                put("4", "4");
-//                put("6", "6");
-            }
-        };
+        Set<String> ports = new HashSet<>();
+        ports.add("1");
+        ports.add("2");
+        ports.add("3");
+        ports.add("4");
+        ports.add("5");
+        ports.add("6");
+        ports.add("8");
+        sw.setPorts(ports);
+        Map<String, String> outPorts = new HashMap<>();
+        outPorts.put("1", "1");
         sw.setOutPorts(outPorts);
-        controller.setSwitches(new HashMap<String, Switch>(){
-            {
-                put(sw.getId(), sw);
-            }
-        });
-        controller.setOutSwitches(new HashMap<String, Switch>(){
-            {
-                put(sw.getId(), sw);
-            }
-        });
+        Map<String, Switch> switchMap = new HashMap<>();
+        switchMap.put(sw.getId(), sw);
+        controller.setSwitches(switchMap);
+        Map<String, Switch> outSwitchMap = new HashMap<>();
+        outSwitchMap.put(sw.getId(), sw);
+        controller.setOutSwitches(outSwitchMap);
         controller.setLocalSwtId(sw.getId());
 
         ovsProcess.init();

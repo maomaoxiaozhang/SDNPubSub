@@ -47,6 +47,9 @@ public class RouteMgr {
     //所有订阅节点集合，key——主题，value——该主题的订阅节点
     private Map<String, Set<Node>> allSubNodes = new HashMap<>();
 
+    //所有发布节点集合，key——主题，value——该主题的发布节点
+    private Map<String, Set<Node>> allPubNodes = new HashMap<>();
+
     //所有边的集合
     private Set<Edge> allEdges = new HashSet<>();
 
@@ -100,38 +103,38 @@ public class RouteMgr {
      */
     public void buildAdminTree() {
         adminPath = Dijkstra.dijkstra(root, allNodes);
-        List<String> path = adminPath.get(root.getName());
-        int i = 0;
-        for (; i < path.size(); i++) {
-            if (path.get(i).equals(root.getName())) {
-                break;
-            }
-        }
-        if (i > 0) {
-            String name = path.get(i-1);
-            List<String> portList = controller.getPort2nei().get(name);
-            for (String port : portList) {
-                RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), port, String.valueOf(controller.getSwitchPort()),
-                        controller.getAdminV6Addr(), ovsProcess);
-                RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), String.valueOf(controller.getSwitchPort()), port,
-                        controller.getAdminV6Addr(), ovsProcess);
-            }
-        }
-        if (i < path.size()-1) {
-            String name = path.get(i+1);
-            List<String> portList = controller.getPort2nei().get(name);
-            for (String port : portList) {
-                RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), port, String.valueOf(controller.getSwitchPort()),
-                        controller.getAdminV6Addr(), ovsProcess);
-                RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), String.valueOf(controller.getSwitchPort()), port,
-                        controller.getAdminV6Addr(), ovsProcess);
+        for (String groupName : adminPath.keySet()) {
+            List<String> path = adminPath.get(groupName);
+            for (int i = 0; i < path.size(); i++) {
+                if (path.get(i).equals(controller.getLocalGroupName())) {
+                    if (i > 0) {
+                        String name = path.get(i-1);
+                        List<String> portList = controller.getPort2nei().get(name);
+                        for (String port : portList) {
+                            RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), port, String.valueOf(controller.getSwitchPort()),
+                                    controller.getAdminV6Addr(), ovsProcess);
+                            RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), String.valueOf(controller.getSwitchPort()), port,
+                                    controller.getAdminV6Addr(), ovsProcess);
+                        }
+                    }
+                    if (i < path.size()-1) {
+                        String name = path.get(i+1);
+                        List<String> portList = controller.getPort2nei().get(name);
+                        for (String port : portList) {
+                            RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), port, String.valueOf(controller.getSwitchPort()),
+                                    controller.getAdminV6Addr(), ovsProcess);
+                            RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), String.valueOf(controller.getSwitchPort()), port,
+                                    controller.getAdminV6Addr(), ovsProcess);
+                        }
+                    }
+                }
             }
         }
     }
 
     /**
      * 在已有管理路径的基础上添加新的节点
-     * 选择新增节点与所有节点中距离最小的点
+     * 选择新增节点与所有节点中距离最小的点，若当前集群为选择的节点，则下发双向流表
      * @param node
      */
     public void addAdminTree(Node node) {
@@ -146,14 +149,22 @@ public class RouteMgr {
         }
         if (!groupName.equals("")) {
             List<String> path = new LinkedList<>(adminPath.get(groupName));
+            if (path == null) {
+                path = new LinkedList<>();
+            }
             path.add(groupName);
             adminPath.put(node.getName(), path);
-            List<String> portList = controller.getPort2nei().get(groupName);
-            for (String port : portList) {
-                RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), port, String.valueOf(controller.getSwitchPort()),
-                        controller.getAdminV6Addr(), ovsProcess);
-                RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), String.valueOf(controller.getSwitchPort()), port,
-                        controller.getAdminV6Addr(), ovsProcess);
+            //若选择当前集群，则下发双向流表
+            if (controller.getLocalGroupName().equals(groupName)) {
+                List<String> portList = controller.getPort2nei().get(node.getName());
+                if (portList != null) {
+                    for (String port : portList) {
+                        RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), port, String.valueOf(controller.getSwitchPort()),
+                                controller.getAdminV6Addr(), ovsProcess);
+                        RouteUtil.downAdminRtFlows(controller, controller.getLocalSwtId(), String.valueOf(controller.getSwitchPort()), port,
+                                controller.getAdminV6Addr(), ovsProcess);
+                    }
+                }
             }
         }
     }
