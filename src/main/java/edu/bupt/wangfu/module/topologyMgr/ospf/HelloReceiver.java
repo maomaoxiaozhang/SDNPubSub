@@ -24,7 +24,7 @@ import java.util.Set;
 import static edu.bupt.wangfu.module.util.Constant.*;
 
 /**
- * 监听Hello消息，被动接受来自其他集群的连接建立请求
+ * 监听Hello消息，接受来自其他集群的连接建立请求
  */
 @Component
 public class HelloReceiver implements Runnable {
@@ -68,23 +68,25 @@ public class HelloReceiver implements Runnable {
         if (!msg.getStartGroup().equals(controller.getLocalGroupName())) {
             //第一次握手，收到 Hello 消息，返回 ReHello
             if (msg.getEndGroup() == null && msg.getState() == State.down && msg.getType().equals(HELLO)) {
-                System.out.println("收到 Hello 消息，第一次握手~~ " + msg);
-                if (isValid(msg.getSendTime(), HELLO)) {
-                    new Thread(new OnHelloClass(msg)).start();
+                if (isNew(msg.getStartGroup(), routeMgr.getAllNodes()) && isValid(msg.getSendTime(), HELLO)) {
+                    System.out.println("收到 Hello 消息，第一次握手~~ " + msg);
+                        new Thread(new OnHelloClass(msg)).start();
                 }
             }else if (msg.getEndGroup().equals(controller.getLocalGroupName()) && msg.getState() == State.init
                     && msg.getType().equals(RE_HELLO)) {
                 //第二次握手，收到 ReHello 消息，返回 FinalHello，本地保存邻居集群信息
-//                if (isValid(msg.getSendTime(), RE_HELLO)) {
+                if (isValid(msg.getSendTime(), RE_HELLO)) {
                     System.out.println("收到 ReHello 消息，第二次握手！！" + msg);
                     update(msg);
                     new Thread(new OnReHelloClass(msg)).start();
-//                }
+                }
             }else if (msg.getEndGroup().equals(controller.getLocalGroupName()) && msg.getState() == State.two_way
                     && msg.getType().equals(FINAL_HELLO)) {
-                System.out.println("收到 FinalHello 消息，第三次握手=。= " + msg);
-                update(msg);
-                onFinalMsgReceive(msg);
+                if (isValid(msg.getSendTime(), FINAL_HELLO)) {
+                    System.out.println("收到 FinalHello 消息，第三次握手=。= " + msg);
+                    update(msg);
+                    onFinalMsgReceive(msg);
+                }
             }else if (msg.getEndGroup().equals(controller.getLocalGroupName()) && msg.getState() == State.two_way
                     && msg.getType().equals(SUB_PUB_NOTIFY)) {
                 onNotifyReceive(msg);
@@ -197,7 +199,14 @@ public class HelloReceiver implements Runnable {
         routeMgr.getAllSubNodes().put(topic, subNodes);
 
         //下发主题路径
-        RouteUtil.downTopicRtFlows(routeMgr.getAllNodes(), routeMgr.getAllSubNodes().get(topic),
+        Set<Node> set = new HashSet<>();
+        if (routeMgr.getAllSubNodes().get(topic) != null) {
+            set.addAll(routeMgr.getAllSubNodes().get(topic));
+        }
+        if (routeMgr.getAllPubNodes().get(topic) != null) {
+            set.addAll(routeMgr.getAllPubNodes().get(topic));
+        }
+        RouteUtil.downTopicRtFlows(routeMgr.getAllNodes(), set,
                 controller, encodeAddress, ovsProcess);
     }
 
@@ -234,8 +243,8 @@ public class HelloReceiver implements Runnable {
     /**
      * 1. 更新本地 lsa、lsdb 信息
      * 2. 生成对应的node 节点
-     * 3. 判断如果加入了管理员节点，则自动生成管理路径
-     * 4. 保存当前交换机与邻居交换机的端口对应情况，供下发流表使用
+     * 3. 保存当前交换机与邻居交换机的端口对应情况，供下发流表使用
+     * 4. 判断如果加入了管理员节点，则自动生成管理路径
      *
      * @param msg
      */
@@ -251,6 +260,14 @@ public class HelloReceiver implements Runnable {
         //添加新的node 节点
         BuildTopology.add(msg.getLsa(), routeMgr.getAllNodes(), routeMgr.getAllEdges());
 
+        //保存端口对应情况
+        List<String> portList = controller.getPort2nei().get(neiGroupName);
+        if (portList == null) {
+            portList = new LinkedList<>();
+        }
+        portList.add(msg.getEndOutPort());
+        controller.getPort2nei().put(neiGroupName, portList);
+
         //当出现管理节点时开始计算管理路径
         Node node = BuildTopology.find(neiGroupName, routeMgr.getAllNodes());
         if (routeMgr.getRoot() != null) {
@@ -259,13 +276,14 @@ public class HelloReceiver implements Runnable {
             routeMgr.setRoot(node);
             routeMgr.buildAdminTree();
         }
+    }
 
-        //保存端口对应情况
-        List<String> portList = controller.getPort2nei().get(neiGroupName);
-        if (portList == null) {
-            portList = new LinkedList<>();
+    public boolean isNew(String groupName, Set<Node> allNodes) {
+        for (Node node : allNodes) {
+            if (node.getName().equals(groupName)) {
+                return false;
+            }
         }
-        portList.add(msg.getEndOutPort());
-        controller.getPort2nei().put(neiGroupName, portList);
+        return true;
     }
 }

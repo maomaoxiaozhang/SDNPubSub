@@ -13,6 +13,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+import static edu.bupt.wangfu.module.util.Constant.*;
+
 /**
  *  与交换机建立session通道，对交换机进行管理
  *
@@ -23,14 +25,22 @@ import java.util.Properties;
  *      ovs-ofctl del-flows br0 in_port=all,dl_type=0x86DD,ipv6_dst=FF0E:0000:0000:0000:0001:2345:6790:ABCD/128,out_port=1
  *      查看流表：
  *      ovs-ofctl dump-flows br0
+ *      查看队列：
+ *      ovs-appctl qos/show ge-1/1/5
+ *      添加队列：
+ *      ovs-vsctl -- set port ge-1/1/2 qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 -- --id=@q1 create queue other-config:min-rate=30000000 other-config:max-rate=30000000  -- --id=@q2 create queue other-config:min-rate=10000000 other-config:max-rate=10000000
  *
  *      一般表达式：
  *          添加：
  *              ovs-ofctl add-flow br0 priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s,actions=output:%s
  *          删除：
  *              ovs-ofctl del-flows br0 in_port=%s,dl_type=0x86DD,ipv6_dst=%s,out_port=%s
- *          查看：
+ *          查看流表：
  *              ovs-ofctl dump-flows br0
+ *          查看队列：
+ *              ovs-appctl qos/show ge-1/1/%d
+ *          添加队列：
+ *              ovs-vsctl -- set port ge-1/1/%s qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 -- --id=@q1 create queue other-config:min-rate=30000000 other-config:max-rate=30000000  -- --id=@q2 create queue other-config:min-rate=10000000 other-config:max-rate=10000000
  *  </p>
  */
 @Component
@@ -40,6 +50,8 @@ public class OvsProcess {
 
     private Session session;
     private ChannelExec channel;
+
+
 
     public void init() {
         try {
@@ -89,36 +101,37 @@ public class OvsProcess {
         return sb.toString();
     }
 
+    //添加流表
     public void addFlow(String body) {
-        String cmd = "ovs-ofctl add-flow br0 " + body;
+        String cmd = ADD_FLOW + body;
         remoteExecuteCommand(cmd);
     }
 
-    public void addFlow(Controller ctrl, String tpid, String body) {
-//        String brName = RestProcess.getBrNameByTpid(ctrl, tpid);
-//        String cmd = "ovs-ofctl add-flow " + brName + " " + body;
-//
-//        remoteExcuteCommand(cmd);
-
-        String cmd = "ovs-ofctl add-flow br0 " + body;
-        remoteExecuteCommand(cmd);
-    }
-
+    //删除所有流表
     public void deleteFlows(String body) {
-        String cmd = "ovs-ofctl del-flows br0 " + body;
+        String cmd = DEL_FLOW + body;
         remoteExecuteCommand(cmd);
     }
 
     //查看下发的所有流表
     public String dumpFlows() {
-        String cmd = "ovs-ofctl dump-flow br0 ";
+        String cmd = DUMP_FLOW;
         return remoteExecuteCommand(cmd);
     }
 
-    public String dumpFlows(Controller ctrl, String tpid, String body) {
-//        String brName = RestProcess.getBrNameByTpid(ctrl, tpid);
-//        String cmd = "ovs-ofctl dump-flows " + brName + " " + body;
-        String cmd = "ovs-ofctl dump-flow br0 " + body;
+    //查看所有队列信息
+    public String dumpQueues(int port) {
+        String cmd = String.format(DUMP_QUEUES, port);
+        return remoteExecuteCommand(cmd);
+    }
+
+    /**
+     * 初始化队列，默认分配带宽，比例为6:3:1
+     * @param port
+     * @return
+     */
+    public String defaultInitQueues(int port) {
+        String cmd = String.format(INIT_QUEUES, port);
         return remoteExecuteCommand(cmd);
     }
 }

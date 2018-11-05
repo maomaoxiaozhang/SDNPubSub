@@ -142,6 +142,7 @@ public class TopoMgr{
         if (controller.getRole().equals(ADMIN)) {
             Node root = BuildTopology.find(controller.getLocalGroupName(), routeMgr.getAllNodes());
             routeMgr.setRoot(root);
+            routeMgr.getAdminPath().put(controller.getLocalGroupName(), new LinkedList<>());
         }
 
         //保存至localLsa、lsdb

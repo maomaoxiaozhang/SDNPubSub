@@ -33,7 +33,10 @@ public class Lsa implements Serializable{
     private List<String> lostGroup = new LinkedList<>();
 
     // 发送源的订阅
-    private List<String> subsTopics = new LinkedList<>();
+    private List<String> subTopics = new LinkedList<>();
+
+    // 发送源的发布
+    private List<String> pubTopics = new LinkedList<>();
 
     //发送源取消的订阅
     private List<String> cancelTopics = new LinkedList<>();

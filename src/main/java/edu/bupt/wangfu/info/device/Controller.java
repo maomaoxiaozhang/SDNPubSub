@@ -1,6 +1,5 @@
 package edu.bupt.wangfu.info.device;
 
-import edu.bupt.wangfu.module.routeMgr.util.Edge;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -19,7 +18,7 @@ import java.util.Set;
 @Data
 @Component
 @PropertySource("classpath:/controller.properties")
-public class Controller {
+public class Controller extends DevInfo{
 
     @Value("${GroupControllerAddr:192.168.10.101}")
     private String GroupControllerAddr;
@@ -32,7 +31,7 @@ public class Controller {
     @Value("${localGroupName:G1}")
     private String localGroupName;
 
-    @Value("${role:controller}")
+    @Value("${role:admin}")
     private String role;
 
     //本地集群地址
@@ -76,15 +75,15 @@ public class Controller {
     private Map<String, Switch> outSwitches;
 
     //Hello 消息有效时间
-    @Value("${HelloAliveTime:30000}")
+    @Value("${HelloAliveTime:300000}")
     private long HelloAliveTime;
 
     //ReHello 消息有效时间
-    @Value("${ReHelloAliveTime:30000}")
+    @Value("${ReHelloAliveTime:300000}")
     private long ReHelloAliveTime;
 
     //Hello 消息有效时间
-    @Value("${FinalHelloAliveTime:30000}")
+    @Value("${FinalHelloAliveTime:300000}")
     private long FinalHelloAliveTime;
 
     @Value("${helloTaskPeriod:90000}")

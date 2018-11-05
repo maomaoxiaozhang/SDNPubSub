@@ -29,17 +29,26 @@ public class Constant {
 
     public static final String LOCAL = "LOCAL";
 
+    //订阅
+    public static final String SUBSCRIBE = "subscribe";
+
     //发布
     public static final String PUBLISH = "publish";
 
-    //订阅
-    public static final String SUBSCRIBE = "subscribe";
+    //注册
+    public static final String REGISTER = "register";
 
     //取消发布
     public static final String CAL_PUBLISH = "cal_publish";
 
     //取消订阅
     public static final String CAL_SUBSCRIBE = "cal_subscribe";
+
+    //用户配置
+    public static final String CONFIG = "config";
+
+    //未识别
+    public static final String UNKNOWN = "unknown";
 
     //二级流表，流表id
     public static final String TABLE_ID = "0";
@@ -58,5 +67,13 @@ public class Constant {
 
     public static final String SWITCH_ADDRESS = "192.168.10.11";
 
-    public static final String LOCAL_ADDRESS = "192.168.10.101";
+    public static final String ADD_FLOW = "ovs-ofctl add-flow br0 ";
+
+    public static final String DEL_FLOW = "ovs-ofctl del-flows br0";
+
+    public static final String DUMP_FLOW = "ovs-ofctl dump-flow br0 ";
+
+    public static final String DUMP_QUEUES = "ovs-appctl qos/show ge-1/1/%d";
+
+    public static final String INIT_QUEUES = "ovs-vsctl -- set port ge-1/1/%d qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 -- --id=@q1 create queue other-config:min-rate=30000000 other-config:max-rate=30000000  -- --id=@q2 create queue other-config:min-rate=10000000 other-config:max-rate=10000000";
 }

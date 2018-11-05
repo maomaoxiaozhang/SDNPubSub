@@ -45,38 +45,26 @@ public class Dijkstra {
         fir.add(root);
         sec.addAll(nodes);
         sec.remove(root);
+        Node next = null;
         for (Node node : sec) {
-            if (root.getNeighbors().contains(node)) {
-                for (int i = 0; i < root.getNeighbors().size(); i++) {
-                    if (root.getNeighbors().get(i).getName().equals(node.getName())) {
-                        length.put(node.getName(), root.getNeighbors().get(i).distance);
-                        break;
-                    }
-                }
-                path = temp.get(root.getName());
-                path.add(root.getName());
-                temp.put(node.getName(), path);
-            }else {
-                length.put(node.getName(), Integer.MAX_VALUE);
-            }
-        }
-        while (!sec.isEmpty()) {
-            int min = Integer.MAX_VALUE;
-            Node loc = null;
-            for (Node node : sec) {
-                int len = length.get(node.getName());
-                if (len < min) {
-                    min = len;
-                    loc = node;
+            for (int i = 0; i < root.getNeighbors().size(); i++) {
+                if (root.getNeighbors().get(i).getName().equals(node.getName())) {
+                    length.put(node.getName(), root.getNeighbors().get(i).distance);
+                    break;
                 }
             }
-            root = loc;
-            fir.add(root);
-            sec.remove(root);
-            path = new LinkedList<>(temp.get(root.getName()));
+            next = node;
+            path = temp.get(root.getName());
+            if (path == null) {
+                path = new LinkedList<>();
+            }
             path.add(root.getName());
-            adminPath.put(root.getName(), path);
+            temp.put(node.getName(), path);
         }
+        path = new LinkedList<>();
+        adminPath.put(root.getName(), path);
+        path.add(root.getName());
+        adminPath.put(next.getName(), path);
         return adminPath;
     }
 

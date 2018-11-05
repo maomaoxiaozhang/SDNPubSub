@@ -42,7 +42,7 @@ public class Kruskal {
             } else if ((loca_1 == -1 && loca_2 != -2) || (loca_1 != -1 && loca_2 == -2)){
                 g.add(ed);
             } else{
-                System.out.println("选择边：" + edgeStart + "  ->  " + edgeFinish + "  长度为：" + edgeValue);
+//                System.out.println("选择边：" + edgeStart + "  ->  " + edgeFinish + "  长度为：" + edgeValue);
                 HashSet set_1 = new HashSet();
                 set_1 = sets.get(loca_1);
                 HashSet set_2 = new HashSet();

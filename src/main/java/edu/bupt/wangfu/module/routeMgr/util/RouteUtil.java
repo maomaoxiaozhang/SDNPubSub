@@ -213,4 +213,8 @@ public class RouteUtil {
     public static void delRouteFlow(Flow flow, OvsProcess ovsProcess) {
         FlowUtil.deleteFlow(flow, ovsProcess);
     }
+
+    public static String dumpQueues(int port, OvsProcess ovsProcess) {
+        return ovsProcess.dumpQueues(port);
+    }
 }
