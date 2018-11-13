@@ -2,18 +2,23 @@ package edu.bupt.wangfu.role.user.publish;
 
 import edu.bupt.wangfu.module.wsnMgr.util.soap.SendWSNCommandWSSyn;
 
+import static edu.bupt.wangfu.module.util.Constant.*;
+
 public class Trans {
-	private static final String sendAddr = "http://192.168.10.101:9018/wsn-publish";
-	private static final String wsnAddr = "http://192.168.10.101:9010/wsn-core";
-	private static final String sendTopic = "spark";
+	public static SendWSNCommandWSSyn register;
+
 	public static SendWSNCommandWSSyn send;
+
 	private static int i = 0;
+
+	//设置用户id
 	public static final String id = String.valueOf(System.currentTimeMillis());
 	
 	public Trans() {
-		send = new SendWSNCommandWSSyn(sendAddr, wsnAddr);
-//		send.register(id, sendTopic);
-		send.publish(id, sendTopic, "message!!!");
+		register = new SendWSNCommandWSSyn(sendAddr, wsnAddr);
+		register.register(id, sendTopic);
+//		send = new SendWSNCommandWSSyn(sendAddr, publishAddr);
+//		send.publish(id, sendTopic, "message!!!");
 	}
 
 	public void sendMethod(String msg) {

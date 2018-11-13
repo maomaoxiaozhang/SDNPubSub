@@ -176,6 +176,7 @@ public class WsnListener implements Runnable{
                 }
                 break;
             case CAL_PUBLISH:
+                //取消发布，需要重新计算主题路径
                 if (isAlone(topic, localPubMap)) {
                     pubList.remove(topic);
                 }
