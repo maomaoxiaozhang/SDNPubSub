@@ -12,4 +12,12 @@ public class Host extends DevInfo{
     private String ip;
     private String swId;
     private String port;
+    private String sysInfo;
+    private String sysName;
+    private String mac;
+    private String sysMemory;
+    private String cpuRate;
+    private int ifNum;
+    private long lastSeen;
+
 }

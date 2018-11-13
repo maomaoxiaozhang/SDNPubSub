@@ -1,6 +1,7 @@
 package edu.bupt.wangfu.module.managerMgr.design;
 
 import edu.bupt.wangfu.info.device.*;
+import edu.bupt.wangfu.info.message.admin.LookUpMsg;
 import edu.bupt.wangfu.module.managerMgr.policyMgr.PolicyUtil;
 import edu.bupt.wangfu.module.managerMgr.util.AllGroups;
 import edu.bupt.wangfu.module.managerMgr.util.Policy;
@@ -89,7 +90,7 @@ public class PSManagerUI {
     private JPanel queues; // 交换机队列信息
     private JTable queueTable; //队列信息表
 
-    private JPanel topoManage; // 拓扑管理
+    //private JPanel topoManage; // 拓扑管理
     private JPanel policyM;// 策略管理
 
     private JPanel sdnConfig;//SDN相关信息配置
@@ -133,7 +134,6 @@ public class PSManagerUI {
 
         topicTreeUI = new TopicTreeUI(this);
         util = new PolicyUtil();
-        //policyList = ShorenUtils.getAllPolicy();
         JFrame.setDefaultLookAndFeelDecorated(true);
         /**
          * com.jtattoo.plaf.aluminium.AluminiumLookAndFeel 椭圆按钮+翠绿色按钮背景+金属质感
@@ -333,9 +333,9 @@ public class PSManagerUI {
         groupsInfoTabbedPane.addTab("队列信息", null, queues, null);
 
         // 拓扑
-        topoManage = new JPanel(new BorderLayout());
-        topoManage.setBounds(new Rectangle(650,570));
-        visualManagement.addTab("", new ImageIcon("./img/topoManage.png"), topoManage, null);
+//        topoManage = new JPanel(new BorderLayout());
+//        topoManage.setBounds(new Rectangle(650,570));
+//        visualManagement.addTab("", new ImageIcon("./img/topoManage.png"), topoManage, null);
 
         //主题树
         topicTreeM = new JPanel();
@@ -639,15 +639,6 @@ public class PSManagerUI {
 
                 // 获得主题树中选中主题
                 String selectedTopic = comboBox.getSelectedItem().toString();
-                /*TopicEntry currentChosenTopicEntry = new TopicEntry();
-                currentChosenTopicEntry.setTopicName(selectedTopic);
-
-                String chosenTopicPath = "ou=" + selectedTopic + ",ou=all_test,dc=wsn,dc=com";
-                try {
-                    currentChosenTopicEntry.setTopicCode(ShorenUtils.ldap.getByDN(chosenTopicPath).getTopicCode());
-                } catch (NamingException e2) {
-                    e2.printStackTrace();
-                }*/
                 for (int i = 0; i < topicsPanel.getComponentCount(); i++) {
                     JComboBox topicsChoosed = (JComboBox) topicsPanel.getComponent(i);
                     if (topicsChoosed.getSelectedIndex() != 0 && topicsChoosed.getSelectedItem() != null) {
@@ -984,13 +975,6 @@ public class PSManagerUI {
         flowManage.add(editChoose);
         flowManage.add(showPanel);
 
-		/*JTextArea flowText = new JTextArea();
-		flowText.setOpaque(false);
-
-		flowText.setText("开发中，敬请期待。。。");
-		flowText.setBounds(250, 200, 200, 50);
-		showPanel.add(flowText);*/
-
 		//控制台
         consol = new JPanel();
         topTabbedPane.addTab("控制台", null, consol, null);
@@ -1078,33 +1062,6 @@ public class PSManagerUI {
         policyTable.invalidate();
     }
 
-    public void newGroup(final Controller controller) {
-
-        /*GroupInfo aGroupItem = new GroupInfo();
-        aGroupItem.GroupAddress = newGroup.addr;
-        aGroupItem.GroupName = newGroup.name;
-        aGroupItem.date = newGroup.date;
-        aGroupItem.port = newGroup.tPort;
-        int stat = data.addGroup(aGroupItem);
-
-        if (stat == -1) {
-            text.append(new Date() + "已经存在名为" + newGroup.name + "的集群，无法注册" + "\r\n");
-            text.paintImmediately(text.getBounds());
-
-        } else {
-            if (stat == 1) {
-                text.append(new Date() + "集群" + newGroup.name + "代表地址为" + newGroup.addr + "端口号" + newGroup.tPort + "注册成功" + "\r\n");
-                text.paintImmediately(text.getBounds());
-            } else {
-                text.append(new Date() + "注册失败，未知错误!" + "\r\n");
-                text.paintImmediately(text.getBounds());
-            }
-        }
-        groupNames.add( newGroup.name);
-        reloadAllGroup();*/
-
-    }
-
     public void reflashJtreeRoot() {
 
         Enumeration trees = topicTreeUI.lib_root.children();
@@ -1157,18 +1114,6 @@ public class PSManagerUI {
         chooseTopic.repaint();
     }
 
-    public void printAllGroup() {
-        /*java.util.List<GroupInfo> curGroup;
-        curGroup = data.getAllGroup();
-        Iterator<GroupInfo> itr = curGroup.iterator();
-        if (itr.hasNext())
-            text.append(new Date() + "  当前所有集群的信息如下：" + "\r\n");
-        while (itr.hasNext()) {
-            GroupInfo tmpItem = itr.next();
-            text.append("组名称:" + tmpItem.GroupName + "组代表地址：" + tmpItem.GroupAddress + "\r\n");
-            text.paintImmediately(text.getBounds());
-        }*/
-    }
 
     /**
      * new added on 2016/8/6 by HanB
@@ -1240,10 +1185,6 @@ public class PSManagerUI {
                             ports.repaint();
                             queues.removeAll();
                             queues.repaint();
-                            //currentGroupName = currentGroup;
-
-                            //String groupControllerName = manager.getGroups().get(currentGroup).getLocalAddr();
-                            //Controller groupController = globalUtil.getController(groupControllerAddr);
 
                             //添加非空判断
                             if (currentGroup == null) {
@@ -1298,7 +1239,7 @@ public class PSManagerUI {
                                     groupSwitchButton.setVerticalTextPosition(SwingConstants.BOTTOM);
                                     groupSwitchButton.setIcon(new ImageIcon("./img/switch.png"));
                                     switchMapPanel.add(groupSwitchButton);
-                                    groupSwitchButton.setToolTipText("点击左键查询交换机下主机，右键查看设备信息");
+                                    //groupSwitchButton.setToolTipText("点击左键查询交换机下主机，右键查看设备信息");
                                     //final Controller finalGroupController = manager.getGroups().get(currentGroup);
 
                                     final JFrame flowInfo = new JFrame();
@@ -1325,58 +1266,39 @@ public class PSManagerUI {
                                                     hostButton.setToolTipText(memAddr);
                                                     switchHostPanel.add(hostButton);
                                                     hostButton.setIcon(new ImageIcon("./img/rep.png"));
-                                                   /* hostButton.setToolTipText("点击左键查询该成员订阅，右键查看主机信息");
+                                                   //hostButton.setToolTipText("点击左键查询该成员订阅，右键查看主机信息");
 
                                                     // 显示主机详细信息
                                                     hostButton.addMouseListener(new MouseAdapter() {
                                                         @Override
                                                         public void mouseClicked(MouseEvent e) {
-                                                            if (e.getButton() == MouseEvent.BUTTON1) {
-                                                                DefaultTableModel memSubsModel;
-                                                                String[] colHeader = {"集群" + currentGroup + "成员" + memAddr + "的订阅"};
-                                                                String[][] memSubInfo;
-                                                                //ArrayList<String> memSubs = groupSubs.get(memAddr);
-                                                                ArrayList<String> memSubs = host.getSubTopics();
-                                                                if (memSubs != null && memSubs.size() > 0) {
-                                                                    memSubInfo = new String[memSubs.size()][1];
-                                                                    for (int i = 0; i < memSubs.size(); i ++) {
-                                                                        memSubInfo[i][0] = memSubs.get(i);
-                                                                    }
-                                                                    memSubsModel = new DefaultTableModel(memSubInfo,colHeader);
-                                                                    subsTable.removeAll();
-                                                                    subsTable.setModel(memSubsModel);
-                                                                    groupsInfoTabbedPane.setSelectedIndex(2);
-                                                                }else {
-                                                                    JOptionPane.showMessageDialog(null, "该成员未订阅任何主题！");
-                                                                }
-                                                            }
                                                             if (e.getButton() == MouseEvent.BUTTON3) {
                                                                 JFrame f = new JFrame();
-                                                                SnmpMgr snmpMgr = new SnmpMgr();
-                                                                HostInfo hostInfo = snmpMgr.getHostInfo(host);
+                                                                LookUpMsg lookUpMsg = new LookUpMsg();
+                                                                Host host = new Host();
                                                                 f.setTitle("设备信息");
                                                                 f.setBounds(e.getXOnScreen(), e.getYOnScreen(), 230, 280);
                                                                 f.setVisible(true);
                                                                 JTextArea t = new JTextArea();
                                                                 String excpDes = "暂无";
-                                                                for (MsgException excp : msgExceptions) {
-                                                                    if (excp.groupName.equals(currentGroup) &&
-                                                                            excp.switchID.equals(groupSwitchButton.getText()) &&
-                                                                            excp.hostAddr.equals(host.getIpAddr())) {
-                                                                        groupButton.setBackground(Color.RED);
-                                                                        groupSwitchButton.setBackground(Color.RED);
-                                                                        hostButton.setBackground(Color.RED);
-                                                                        excpDes = excp.excpDescrip;
-                                                                        break;
-                                                                    }
-                                                                }
-                                                                t.setText("设备描述：" + hostInfo.getSysInfo() + "\r\n"
-                                                                        + "设备名称：" + hostInfo.getSysName() + "\r\n"
-                                                                        + "IP地址：" + host.getIpAddr() + "\r\n"
+//                                                                for (MsgException excp : msgExceptions) {
+//                                                                    if (excp.groupName.equals(currentGroup) &&
+//                                                                            excp.switchID.equals(groupSwitchButton.getText()) &&
+//                                                                            excp.hostAddr.equals(host.getIpAddr())) {
+//                                                                        groupButton.setBackground(Color.RED);
+//                                                                        groupSwitchButton.setBackground(Color.RED);
+//                                                                        hostButton.setBackground(Color.RED);
+//                                                                        excpDes = excp.excpDescrip;
+//                                                                        break;
+//                                                                    }
+//                                                                }
+                                                                t.setText("设备描述：" + host.getSysInfo() + "\r\n"
+                                                                        + "设备名称：" + host.getSysName() + "\r\n"
+                                                                        + "IP地址：" + host.getIp() + "\r\n"
                                                                         + "MAC地址：" + host.getMac() + "\r\n"
-                                                                        + "系统内存(KB)：" + hostInfo.getSysMemory() + "\r\n"
-                                                                        + "CPU利用率(%)：" + hostInfo.getCpuRate() + "\r\n"
-                                                                        + "网络接口数：" + hostInfo.getIfNum() + "\r\n"
+                                                                        + "系统内存(KB)：" + host.getSysMemory() + "\r\n"
+                                                                        + "CPU利用率(%)：" + host.getCpuRate() + "\r\n"
+                                                                        + "网络接口数：" + host.getIfNum() + "\r\n"
                                                                         + "交换机连接端口：" + host.getPort() + "\r\n"
                                                                         + "最后发现时间：" + host.getLastSeen() + "\r\n"
                                                                         + "设备异常：" + excpDes);
@@ -1386,7 +1308,7 @@ public class PSManagerUI {
                                                                 f.add(t);
                                                             }
                                                         }
-                                                    });*/
+                                                    });
                                                 }
                                             }
                                             if (e.getButton() == MouseEvent.BUTTON3) {
