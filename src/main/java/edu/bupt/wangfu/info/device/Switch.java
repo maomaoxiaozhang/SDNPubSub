@@ -25,11 +25,14 @@ public class Switch extends DevInfo{
     private String id;
 
     private double load;
+
     private String userName;
     //交换机地址
     private String address;
+
     //交换机登录密码
     private String password;
+
     private Map<String, Host> hosts;
 
     //端口对应的队列运行情况，key——端口id，value——队列信息

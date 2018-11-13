@@ -86,14 +86,26 @@ public class Controller extends DevInfo{
     @Value("${FinalHelloAliveTime:300000}")
     private long FinalHelloAliveTime;
 
-    @Value("${helloTaskPeriod:90000}")
+    @Value("${helloTaskPeriod:300000}")
     private long helloTaskPeriod;
 
-    @Value("${helloPeriod:50000}")
+    @Value("${helloPeriod:300000}")
     private long helloPeriod;
 
-    @Value("${reHelloPeriod:40000}")
+    @Value("${reHelloPeriod:300000}")
     private long reHelloPeriod;
+
+    //失效阈值
+    @Value("${loseThreshold:300000}")
+    private long loseThreshold;
+
+    //扫描周期
+    @Value("${scanPeriod:300000}")
+    private long scanPeriod;
+
+    //发送周期
+    @Value("${sendPeriod:300000}")
+    private long sendPeriod;
 
     @Value("${nbrGrpExpiration:120000}")
     private long nbrGrpExpiration;

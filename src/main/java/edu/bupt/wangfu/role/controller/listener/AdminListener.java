@@ -2,6 +2,7 @@ package edu.bupt.wangfu.role.controller.listener;
 
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.message.admin.AdminMessage;
+import edu.bupt.wangfu.info.message.admin.ConfigureMsg;
 import edu.bupt.wangfu.info.message.admin.EncodeTopicTreeMsg;
 import edu.bupt.wangfu.info.message.admin.RequestFeedBackMsg;
 import edu.bupt.wangfu.module.switchMgr.odl.OvsProcess;
@@ -65,6 +66,15 @@ public class AdminListener implements Runnable{
                 RequestFeedBackMsg feedBackMsg = (RequestFeedBackMsg) msg;
                 System.out.println("RequestFeedBackMsg\t" + feedBackMsg.getBind());
                 handleFeedBack(feedBackMsg);
+            }else if (msg instanceof ConfigureMsg) {
+                //收到管理员下发配置信息，修改controller中相应参数
+                ConfigureMsg configureMsg = (ConfigureMsg) msg;
+                long  loseThreshold = configureMsg.getLoseThreshold();
+                long scanPeriod = configureMsg.getScanPeriod();
+                long sendPeriod = configureMsg.getSendPeriod();
+                controller.setLoseThreshold(loseThreshold);
+                controller.setScanPeriod(scanPeriod);
+                controller.setSendPeriod(sendPeriod);
             }
         }
     }
@@ -77,7 +87,6 @@ public class AdminListener implements Runnable{
         int queue = feedBackMsg.getQueue();
         double bind = feedBackMsg.getBind();
 
-
-
+        //to-do
     }
 }

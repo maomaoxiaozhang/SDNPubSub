@@ -16,7 +16,10 @@ import javax.jws.WebService;
 import static edu.bupt.wangfu.module.util.Constant.*;
 
 /**
- * wsn 层监听，接收本地的发布订阅消息
+ * wsn 层监听，接收本地的发布注册、订阅消息
+ * PublishNotificationProcessImpl 负责消息的直接发布
+ *
+ * @see PublishNotificationProcessImpl
  */
 @WebService(endpointInterface= "edu.bupt.wangfu.module.wsnMgr.util.soap.INotificationProcess",
         serviceName="WsnNotificationProcessImpl")
@@ -57,17 +60,6 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
                 //向控制器上报订阅信息
                 if (encodeAddress != null && !encodeAddress.equals("")) {
                     send2controller(topic, user, encodeAddress, SUBSCRIBE);
-                }
-                break;
-            case PUBLISH:
-                //发布
-                message = splitString(notification, "<message>", "</message>");
-                //发布主题已经注册，直接传输message
-                encodeAddress = wsnMgr.getEncodeTopicTree().getAddress(topic);
-                if (encodeAddress == null) {
-                    System.out.println("该主题未找到编码，无法传输！");
-                }else {
-                    send2user(encodeAddress, message);
                 }
                 break;
             case CONFIG:
@@ -114,14 +106,6 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
         String address = controller.getLocalAddr();
         MultiHandler handler = new MultiHandler(wsnPort, address);
         handler.v6Send(subPubMsg);
-    }
-
-    //直接发送给用户
-    public void send2user(String address, String msg) {
-        int port = controller.getTopicPort();
-        MultiHandler handler = new MultiHandler(port, address);
-        handler.v6Send(msg);
-        System.out.println("向用户发消息：" + msg);
     }
 
     //将用户配置信息发送给控制器

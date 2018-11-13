@@ -8,6 +8,7 @@ import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.module.util.store.LocalSubPub;
 import edu.bupt.wangfu.module.wsnMgr.util.WsnReceive;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.SendWSNCommandWSSyn;
+import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.PublishNotificationProcessImpl;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.WsnNotificationProcessImpl;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 
 import javax.xml.ws.Endpoint;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutputStream;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static edu.bupt.wangfu.module.util.Constant.PUBLISH;
+import static edu.bupt.wangfu.module.util.Constant.publishAddr;
+import static edu.bupt.wangfu.module.util.Constant.wsnAddr;
 
 /**
  * 在用户端使用
@@ -43,6 +47,10 @@ import static edu.bupt.wangfu.module.util.Constant.PUBLISH;
  *          2. 传输：向用户主题地址发送数据
  * </p>
  *
+ * 发布注册、订阅、用户配置 -- wsnAddr，使用线程池管理接收消息后发布的线程；同时在本地保存
+ *                             主题线程的监听，取消订阅后直接关闭线程
+ * 发布消息 -- 单独的 PublishAddr，防止发布消息过多造成负载过大
+ *
  * @see WsnReceive
  */
 
@@ -54,20 +62,30 @@ public class WsnMgr {
     //编码主题树，接收自控制器
     EncodeTopicTree encodeTopicTree = new EncodeTopicTree();
 
+    //预生成线程池，减少运行时工作者线程新建、销毁代价
+    public static final ExecutorService threadPool = Executors.newCachedThreadPool();
+
     @Autowired
     WsnReceive wsnReceive;
 
     @Autowired
-    WsnNotificationProcessImpl implementor;
+    WsnNotificationProcessImpl wsnNotificationProcess;
+
+    @Autowired
+    PublishNotificationProcessImpl publishNotificationProcess;
 
     @Autowired
     Controller controller;
 
-    private static final String wsnAddr = "http://192.168.10.101:9010/wsn-core";
+    //针对主题的监听
+    Map<String, Thread> topicListeners = new HashMap<>();
 
     public void start() {
         new Thread(wsnReceive, "wsnReceive监听").start();
-        Endpoint endpint = Endpoint.publish(wsnAddr, implementor);// 开启接收服务
+        //开启发布订阅注册服务
+        Endpoint endpint = Endpoint.publish(wsnAddr, wsnNotificationProcess);
+        //开启发布消息接收服务
+        Endpoint point = Endpoint.publish(publishAddr, publishNotificationProcess);
     }
 
     /**
@@ -99,13 +117,33 @@ public class WsnMgr {
                 messageReceiver.topic = topic;
                 messageReceiver.topicPort = controller.getTopicPort();
                 messageReceiver.address = address;
-                new Thread(messageReceiver, topic + "Listener").start();
+                String listenerName = topic + "Listener";
+                Thread thread = new Thread(messageReceiver, listenerName);
+                //将新增的主题监听线程保存，集中管理监听线程的生命周期
+                topicListeners.put(listenerName, thread);
+                thread.start();
             }else {
                 System.out.println(topic + " 该主题已监听，请勿重复订阅");
                 return "";
             }
         }
         return address;
+    }
+
+    /**
+     * 取消主题对应的监听
+     * 使用线程的 stop 方法
+     * @param topic
+     */
+    public void calListener(String topic) {
+        String listenerName = topic + "Listener";
+        for (String name : topicListeners.keySet()) {
+            if (name.equals(listenerName)) {
+                System.out.println("停止主题 " + topic + " 对应的监听！");
+                Thread thread = topicListeners.get(name);
+                thread.stop();
+            }
+        }
     }
 
     public class MessageReceiver implements Runnable{
@@ -116,22 +154,25 @@ public class WsnMgr {
         @Override
         public void run() {
             System.out.println("监听新主题：" + topic + "\t地址：" + address);
-            while (true) {
-                MultiHandler handler = new MultiHandler(topicPort, address);
-                Object msg = handler.v6Receive();
-                onMsgReceive(msg);
-            }
+            MultiHandler handler = new MultiHandler(topicPort, address);
+            Object msg = handler.v6Receive();
+            onMsgReceive(msg);
         }
 
-        //收到主题消息，分发给订阅该主题的用户
+        /**
+         * 收到主题消息，分发给订阅该主题的用户
+         * 采用线程池的方式，多线程传输减少阻塞
+         */
         public void onMsgReceive(Object msg) {
             System.out.println("收到主题 " + topic + " 消息：" + msg);
             Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
             for (User user : localSubMap.keySet()) {
                 if (localSubMap.get(user).contains(topic)) {
-                    String userAddress = user.getAddress();
-                    SendWSNCommandWSSyn send = new SendWSNCommandWSSyn("", userAddress);
-                    send.notify(topic, String.valueOf(msg));
+                    threadPool.execute(() -> {
+                        String userAddress = user.getAddress();
+                        SendWSNCommandWSSyn send = new SendWSNCommandWSSyn("", userAddress);
+                        send.notify(topic, String.valueOf(msg));
+                    });
                 }
             }
         }
@@ -146,7 +187,7 @@ public class WsnMgr {
         }else {
             if (isNewSubPub(topic, localPubMap)) {
                 //新的发布注册请求，向控制器上报发布信息
-                implementor.send2controller(topic, user, address, PUBLISH);
+                wsnNotificationProcess.send2controller(topic, user, address, PUBLISH);
                 //添加至本地发布表中
                 List<String> pubList = localPubMap.get(user);
                 if (pubList == null) {

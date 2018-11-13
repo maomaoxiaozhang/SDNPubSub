@@ -1,7 +1,7 @@
 package edu.bupt.wangfu.module.util;
 
 /**
- * 常量
+ * 申明全局常量
  */
 public class Constant {
     //Hello 消息类型
@@ -76,4 +76,16 @@ public class Constant {
     public static final String DUMP_QUEUES = "ovs-appctl qos/show ge-1/1/%d";
 
     public static final String INIT_QUEUES = "ovs-vsctl -- set port ge-1/1/%d qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 -- --id=@q1 create queue other-config:min-rate=30000000 other-config:max-rate=30000000  -- --id=@q2 create queue other-config:min-rate=10000000 other-config:max-rate=10000000";
+
+    public static final String wsnAddr = "http://192.168.10.101:9010/wsn-core";
+
+    public static final String publishAddr = "http://192.168.10.101:9012/wsn-publish";
+
+    public static final String receiveAddr = "http://192.168.10.101:9016/wsn-subscribe";
+
+    public static final String receiveTopic = "spark";
+
+    public static final String sendAddr = "http://192.168.10.101:9018/wsn-publish";
+
+    public static final String sendTopic = "spark";
 }

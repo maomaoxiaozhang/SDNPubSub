@@ -132,7 +132,7 @@ public class ControllerStart {
         //时间驱动，定时向管理员发送集群内信息
         new Timer().schedule(new GroupTask(), 1000, 20000);
         topoMgr.start();
-//        启动wsn监听，接收集群内的发布订阅情况
+        //启动wsn监听，接收集群内的发布订阅情况
         new Thread(wsnListener, "wsnListener").start();
     }
 
