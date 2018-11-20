@@ -49,11 +49,14 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
         switch (getType(notification)) {
             case SUBSCRIBE:
                 //订阅
-                user = new User();
-                user.setId(id);
-                userAddress = splitString(notification, "<receiveAddress>", "</receiveAddress>");
-                user.setAddress(userAddress);
-                //开启新的监听
+                user = wsnMgr.findUser(id);
+                if (user == null) {
+                    user = new User();
+                    user.setId(id);
+                    userAddress = splitString(notification, "<receiveAddress>", "</receiveAddress>");
+                    user.setAddress(userAddress);
+                }
+                //wsn 开启新的监听
                 encodeAddress = wsnMgr.addListener(topic);
                 //将该用户订阅信息保存至本地订阅表
                 wsnMgr.registerSub(user, topic);
@@ -61,26 +64,16 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
                 if (encodeAddress != null && !encodeAddress.equals("")) {
                     send2controller(topic, user, encodeAddress, SUBSCRIBE);
                 }
-                break;
-            case CONFIG:
-                //用户配置请求
+                //向控制器发送用户配置请求
                 delay = Long.parseLong(splitString(notification, "<delay>", "</delay>"));
                 lostRate = Double.parseDouble(splitString(notification, "<lostRate>", "</lostRate>"));
-                UserRequestMsg msg = new UserRequestMsg();
-                user = wsnMgr.findUser(id);
-                if (user == null) {
-                    System.out.println("该用户尚未进行订阅注册，请先注册订阅用户：" + id);
-                }else {
-                    msg.setTopic(topic);
-                    msg.setDelay(delay);
-                    msg.setLostRate(lostRate);
-                    msg.setUser(user);
-                    config2controller(msg);
-                }
+                config2controller(topic, delay, lostRate, user);
                 break;
             case REGISTER:
+                //发布
                 user = new User();
                 user.setId(id);
+                //注册发布信息
                 wsnMgr.registerPub(user, topic);
                 break;
             default:
@@ -109,9 +102,14 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
     }
 
     //将用户配置信息发送给控制器
-    public void config2controller(UserRequestMsg msg) {
+    public void config2controller(String topic, long delay, double lostRate, User user) {
         int wsnPort = controller.getWsnPort();
         String address = controller.getLocalAddr();
+        UserRequestMsg msg = new UserRequestMsg();
+        msg.setTopic(topic);
+        msg.setDelay(delay);
+        msg.setLostRate(lostRate);
+        msg.setUser(user);
         MultiHandler handler = new MultiHandler(wsnPort, address);
         handler.v6Send(msg);
     }
@@ -127,10 +125,6 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
     public String getType(String str) {
         if (str.startsWith("<wsnt:Subscribe")) {
             return SUBSCRIBE;
-        }else if (str.startsWith("<wsnt:Publish")) {
-            return PUBLISH;
-        }else if ((str.startsWith("<wsnt:Config"))) {
-            return CONFIG;
         }else if ((str.startsWith("<wsnt:Register"))) {
             return REGISTER;
         }else {
