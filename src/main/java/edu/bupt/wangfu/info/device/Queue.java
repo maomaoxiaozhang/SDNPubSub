@@ -25,4 +25,13 @@ public class Queue {
 
     //队列带宽
     long brandWidth;
+
+    //增量差法数据
+    private Long inRate = 0L;
+    private Long outRate = 0L;
+    private Long lastInRate = 0L;
+    private Long lastOutRate = 0L;
+    private Double avgQ = 0.0;
+    private String uuid;
+    private Long nowRate;
 }

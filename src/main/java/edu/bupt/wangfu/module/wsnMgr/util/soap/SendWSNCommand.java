@@ -14,6 +14,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static edu.bupt.wangfu.module.util.Constant.DELAY;
+import static edu.bupt.wangfu.module.util.Constant.LOST_RATE;
+
 /**
  * 向wsn发送订阅消息
  */
@@ -28,11 +31,21 @@ public class SendWSNCommand {
     private HttpClient client;
     private static int counter = 0;
 
-    public SendWSNCommand(String receiveAddr,String wsnAddress) {
+    public SendWSNCommand(String receiveAddr, String wsnAddress) {
         localServiceAddr = receiveAddr;
         wsnAddr = wsnAddress;
         endpointAddr = null;
         client = new HttpClient();
+    }
+
+    /**
+     * 订阅操作，时延和丢包率采用默认值
+     * @param id
+     * @param topic
+     * @return
+     */
+    public String subscribe(String id, String topic) {
+        return subscribe(id, topic, localServiceAddr, DELAY, LOST_RATE);
     }
 
     /**
@@ -41,7 +54,7 @@ public class SendWSNCommand {
      * @param topic
      * @return
      */
-    public String subscribe(String id, String topic, String receiveAddress) {
+    public String subscribe(String id, String topic, String receiveAddress, long delay, double lostRate) {
         String content = "";
         String returnValue = "";
 
@@ -57,56 +70,6 @@ public class SendWSNCommand {
         content += EscapeSequenceGenerate("<id>" + id + "</id>");
         content += EscapeSequenceGenerate("<topic>" + topic + "</topic>");
         content += EscapeSequenceGenerate("<receiveAddress>" + receiveAddress + "</receiveAddress>");
-        content += EscapeSequenceGenerate("</wsa:Address>");
-        content += EscapeSequenceGenerate("</wsnt:ConsumerReference>");
-        content += EscapeSequenceGenerate("<wsnt:Filter>");
-        content += EscapeSequenceGenerate("<wsnt:TopicExpression Dialect=\"http://docs.oasis-open.org/wsn/t-1/TopicExpression/Simple\">");
-        content += EscapeSequenceGenerate(topic);
-        content += EscapeSequenceGenerate("</wsnt:TopicExpression>");
-        content += EscapeSequenceGenerate("</wsnt:Filter>");
-        content += EscapeSequenceGenerate("<wsnt:SubscriberAddress>");
-        content += EscapeSequenceGenerate("</wsnt:SubscriberAddress>");
-        content += EscapeSequenceGenerate("</wsnt:Subscribe>");
-        content += "</org:WsnProcess>";
-        content += "</soapenv:Body>";
-        content += "</soapenv:Envelope>";
-
-
-        String[] responseValue = send(wsnAddr + "/wsnprocess/",new HashMap<String,String>(), "utf-8", true, content.trim());
-
-        if(responseValue[0].equals("200") && !responseValue[1].contains("failed")) {
-            returnValue="ok";
-            SubscribeResponse response = new SubscribeResponse();
-            String message = responseValue[1];
-            int messageStart = message.indexOf("<ns2:Address>") + 13;
-            int messageEnd = message.indexOf("</ns2:Address>");
-            if( ( messageStart >= 0 ) && ( messageEnd >= 0 ) )
-            {
-                String address = message.substring(messageStart, messageEnd);
-                subscriptionAddr = address;
-                System.out.println("******************************subscribe Address " + subscriptionAddr);
-            }
-        } else {
-            returnValue="error";
-        }
-        return returnValue;
-    }
-
-    public String config(String id, String topic, long delay, double lostRate) {
-        String content = "";
-        String returnValue = "";
-
-        content += "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-        content += "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:org=\"http://edu.bupt.wangfu.module.wsnMgr.util.soap\">";
-        content += "<soapenv:Header/>";
-        content += "<soapenv:Body>";
-        content += "<org:WsnProcess>";
-        content  +=  EscapeSequenceGenerate(
-                "<wsnt:Config xmlns:wsnt=\"http://docs.oasis-open.org/wsnMgr/b-2\" xmlns:wsa=\"http://www.w3.org/2005/08/addressing\">");
-        content += EscapeSequenceGenerate("<wsnt:ConsumerReference>");
-        content += EscapeSequenceGenerate(" <wsa:Address>");
-        content += EscapeSequenceGenerate("<id>" + id + "</id>");
-        content += EscapeSequenceGenerate("<topic>" + topic + "</topic>");
         content += EscapeSequenceGenerate("<delay>" + delay + "</delay>");
         content += EscapeSequenceGenerate("<lostRate>" + lostRate + "</lostRate>");
         content += EscapeSequenceGenerate("</wsa:Address>");
@@ -122,8 +85,6 @@ public class SendWSNCommand {
         content += "</org:WsnProcess>";
         content += "</soapenv:Body>";
         content += "</soapenv:Envelope>";
-
-
         String[] responseValue = send(wsnAddr + "/wsnprocess/",new HashMap<String,String>(), "utf-8", true, content.trim());
 
         if(responseValue[0].equals("200") && !responseValue[1].contains("failed")) {
@@ -182,7 +143,6 @@ public class SendWSNCommand {
             }
             method.setParams(p);
         }
-
         try {
             int status = client.executeMethod(method);
             counter++;

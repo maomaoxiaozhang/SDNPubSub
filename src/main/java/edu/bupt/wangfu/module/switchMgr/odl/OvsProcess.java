@@ -5,6 +5,7 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import edu.bupt.wangfu.info.device.Controller;
+import edu.bupt.wangfu.info.device.Queue;
 import edu.bupt.wangfu.info.device.Switch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -133,5 +134,42 @@ public class OvsProcess {
     public String defaultInitQueues(int port) {
         String cmd = String.format(INIT_QUEUES, port);
         return remoteExecuteCommand(cmd);
+    }
+
+    public synchronized void getInAndOutRate(Queue queue) {
+        queue.setLastInRate(queue.getInRate());
+        queue.setLastOutRate(queue.getOutRate());
+        String cmd = "/ovs/bin/ovs-ofctl dump-flows br0 && /ovs/bin/ovs-appctl qos/show " + queue.getPort() ;
+        String res = remoteExecuteCommand(cmd);
+        queue.setInRate(getInRate(queue, res));
+        queue.setOutRate(getOutRate(queue, res));
+    }
+
+    private static Long getInRate(Queue queue, String rtn) {
+        String res = "0";
+        for (String line : rtn.split("\n")) {
+            if (line.contains("output:" + queue.getPort()) && line.contains("set_queue:" + queue.getId())) {
+                int left = line.indexOf("n_bytes=");
+                int right = line.indexOf(", priority");
+                res = line.substring(left + 8, right);
+                break;
+            }
+        }
+        return Long.parseLong(res.trim());
+    }
+
+    private static Long getOutRate(Queue queue, String rtn) {
+        String trans;
+        String index = "";
+        switch (queue.getId()) {
+            case 0 : index = "Queue 7:"; break;
+            case 1 : index = "Queue 6:"; break;
+            case 2 : index = "Queue 5:"; break;
+        }
+        String sub = rtn.substring(rtn.indexOf(index));
+        int left = sub.indexOf("tx_bytes: ");
+        int right = sub.indexOf("tx_errors");
+        trans = sub.substring(left + 9, right);
+        return Long.parseLong(trans.trim());
     }
 }
