@@ -167,7 +167,7 @@ public class LdapUtil {
         TopicEntry root = new TopicEntry();
         root.setTopicName(getTopicString(te.getTopicPath().split(",")[0]));
         Attributes attrs = ctx.getAttributes(te.getTopicPath());
-        root.setTopicCode(attrs.get("description").toString().split(": ")[1]);
+        //root.setTopicCode(attrs.get("description").toString().split(": ")[1]);
         root.setTopicPath(te.getTopicPath());
         childrens.add(root);
         //将当前条目的所有子条目按层添加到列表中
@@ -201,7 +201,7 @@ public class LdapUtil {
         TopicEntry root = new TopicEntry();
         root.setTopicName(getTopicString(te.getTopicPath().split(",")[0]));
         Attributes attrs = ctx.getAttributes(te.getTopicPath());
-        root.setTopicCode(attrs.get("description").toString().split(": ")[1]);
+        //root.setTopicCode(attrs.get("description").toString().split(": ")[1]);
         root.setTopicPath(te.getTopicPath());
         childrens.add(root);
         TopicTreeEntry entryRoot = convert(root);
@@ -250,7 +250,7 @@ public class LdapUtil {
             sub_path = "ou=" + _te.getTopicName() + "," + te.getTopicPath();
             Attributes attrs = ctx.getAttributes(sub_path);
 
-            _te.setTopicCode(attrs.get("description").toString().split(": ")[1]);
+//            _te.setTopicCode(attrs.get("description").toString().split(": ")[1]);
             _te.setTopicPath(sub_path);
 
             sub.add(_te);

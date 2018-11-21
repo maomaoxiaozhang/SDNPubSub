@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="fr">
+
+<xs:element name="JAXECFG">
+    <xs:annotation>
+        <xs:documentation>
+            Element racine pour un fichier de configuration de Jaxe
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+    <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="1">
+            <xs:element ref="FICHIERTITRES"/>
+            <xs:element ref="DESCRIPTION"/>
+        </xs:choice>
+        <xs:element ref="CONFIG" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="FICHIERXSL" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="FICHIERSCHEMA" minOccurs="0"/>
+        <xs:element ref="RACINE" maxOccurs="unbounded"/>
+        <xs:element ref="ESPACE" minOccurs="0"/>
+        <xs:element ref="ENCODAGE" minOccurs="0"/>
+        <xs:element ref="DOCTYPE" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="OPTIONS" minOccurs="0" maxOccurs="1"/>
+        <xs:choice maxOccurs="unbounded">
+            <xs:element ref="ENSEMBLE"/>
+            <xs:element ref="MENU"/>
+        </xs:choice>
+    </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="FICHIERTITRES">
+    <xs:annotation>
+        <xs:documentation>
+            Nom de l'ensemble des fichiers de propriétés (.properties) contenant des titres dans différentes langues.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:attribute use="required" type="xs:string" name="nom"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="DESCRIPTION" type="xs:string">
+    <xs:annotation>
+        <xs:documentation>
+            Description courte du fichier de configuration, affichée dans le dialogue de création d'un nouveau document.
+        </xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element name="OPTIONS">
+    <xs:annotation>
+        <xs:documentation>
+            Options pour l'affichage des éléments avec les types "division", "zone", "string", "vide", "liste", et "typesimple".
+            Attribut "titres" : texte utilisé pour afficher les balises (noms des éléments XML, ou titres des menus)
+            (par défaut les noms des éléments sont utilisés)
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:attribute use="required" name="titres">
+            <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="noms"/>
+                <xs:enumeration value="titres"/>
+            </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="CONFIG">
+    <xs:annotation>
+        <xs:documentation>
+            Fichier de configuration désignant un langage XML mixable avec ce langage et un autre espace de noms.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:attribute use="required" type="xs:string" name="nom"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="FICHIERXSL">
+    <xs:annotation>
+        <xs:documentation>
+            Fchier XSL à utiliser pour l'aperçu
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="PARAMETRE"/>
+        </xs:choice>
+        <xs:attribute use="required" type="xs:string" name="nom"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="FICHIERSCHEMA">
+    <xs:annotation>
+        <xs:documentation>
+            Fichier de schéma à utiliser
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute use="required" type="xs:string" name="nom"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="RACINE">
+    <xs:annotation>
+        <xs:documentation>
+            Balise racine
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+    <xs:sequence>
+        <xs:element ref="BALISE"/>
+    </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="ESPACE">
+    <xs:annotation>
+        <xs:documentation>
+            Espace de noms pour un nouveau document
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute use="required" type="xs:string" name="uri"/>
+      <xs:attribute use="optional" type="xs:string" name="prefixe"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="ENCODAGE" type="xs:string">
+    <xs:annotation>
+        <xs:documentation>
+            Encodage des caractères pour les nouveaux documents. Par défaut ISO-8859-1 est utilisé.
+        </xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element name="DOCTYPE">
+    <xs:annotation>
+        <xs:documentation>
+            Définition du type de document, utilisé pour enregistrer les fichiers XML.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute use="optional" type="xs:string" name="publicId"/>
+      <xs:attribute use="optional" type="xs:string" name="systemId"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="MENU">
+    <xs:annotation>
+        <xs:documentation>
+            Menu d'insertion de balises
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+    <xs:choice maxOccurs="unbounded">
+        <xs:element ref="BALISE"/>
+        <xs:element ref="FONCTION"/>
+        <xs:element ref="MENU"/>
+        <xs:element ref="SEPARATEUR"/>
+    </xs:choice>
+    <xs:attribute use="required" type="xs:string" name="titre"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="ENSEMBLE">
+    <xs:annotation>
+        <xs:documentation>
+            Ensemble de balises, à utiliser comme sous-balise (utile uniquement si aucun schéma XML n'est défini)
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+    <xs:choice maxOccurs="unbounded">
+        <xs:element ref="SOUSBALISE"/>
+        <xs:element ref="TEXTE"/>
+    </xs:choice>
+    <xs:attribute use="required" type="xs:string" name="nom"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="BALISE">
+    <xs:annotation>
+        <xs:documentation>
+            Définition d'un sous-menu d'insertion de balise
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="SOUSBALISE"/>
+        <xs:element ref="ATTRIBUT"/>
+        <xs:element ref="PARAMETRE"/>
+        <xs:element ref="TEXTE"/>
+    </xs:choice>
+    <xs:attribute use="required" type="xs:string" name="nom"/>
+    <xs:attribute use="optional" type="xs:string" name="titre"/>
+    <xs:attribute use="required" name="type">
+        <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="division"/>
+            <xs:enumeration value="zone"/>
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="vide"/>
+            <xs:enumeration value="tableau"/>
+            <xs:enumeration value="tabletexte"/>
+            <xs:enumeration value="typesimple"/>
+            <xs:enumeration value="style"/>
+            <xs:enumeration value="fichier"/>
+            <xs:enumeration value="symbole"/>
+            <xs:enumeration value="liste"/>
+            <xs:enumeration value="item"/>
+            <xs:enumeration value="equation"/>
+            <xs:enumeration value="formulaire"/>
+            <xs:enumeration value="plugin"/>
+        </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute use="optional" name="noeudtype">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="instruction" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute use="optional" name="cache">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="true"/>
+                <xs:enumeration value="false"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute use="optional" type="xs:string" name="commande"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="SOUSBALISE">
+    <xs:annotation>
+        <xs:documentation>
+            Lien vers une sous-balise (utile uniquement si aucun schéma XML n'est défini)
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+    <xs:attribute use="optional" type="xs:string" name="nom"/>
+    <xs:attribute use="optional" type="xs:string" name="ensemble"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="ATTRIBUT">
+    <xs:annotation>
+        <xs:documentation>
+            Définition d'un attribut de balise (utile uniquement si aucun schéma XML n'est défini)
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="VALEUR"/>
+    </xs:choice>
+    <xs:attribute use="required" type="xs:string" name="nom"/>
+    <xs:attribute use="optional" name="presence">
+        <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="obligatoire"/>
+            <xs:enumeration value="optionelle"/>
+        </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="VALEUR" type="xs:string">
+    <xs:annotation>
+        <xs:documentation>
+            Valeur possible d'attribut
+        </xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element name="PARAMETRE">
+    <xs:annotation>
+        <xs:documentation>
+            Paramètres des balises ou des fichiers XSL
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:attribute use="required" type="xs:string" name="nom"/>
+        <xs:attribute use="required" type="xs:string" name="valeur"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="TEXTE">
+    <xs:annotation>
+        <xs:documentation>
+            Indique qu'une balise peut contenir du texte (utile uniquement si aucun schéma XML n'est défini)
+        </xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element name="FONCTION">
+    <xs:annotation>
+        <xs:documentation>
+            Menu appelant une fonction (la classe doit implémenter l'interface Fonction)
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="PARAMETRE"/>
+        </xs:choice>
+        <xs:attribute use="required" type="xs:string" name="titre"/>
+        <xs:attribute use="required" type="xs:string" name="classe"/>
+        <xs:attribute use="optional" type="xs:string" name="commande"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="SEPARATEUR">
+    <xs:annotation>
+        <xs:documentation>
+            Ligne de séparation dans un menu.
+        </xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+</xs:schema>

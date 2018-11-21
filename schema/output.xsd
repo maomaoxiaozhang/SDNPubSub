@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/xsd/" targetNamespace="http://www.example.org/xsd/">
+  <topic xmlns="" name="all:Test:output" type="tns:ComplexType"/>
+
+  <values xmlns="" name="test">
+    <test1 type="int"/>
+    <test2 type="int"/>   
+</values>
+<values xmlns="" name="soundarray">
+   <target1 type="int"/>
+    <target2 type="int"/> 
+  </values>
+ </schema>

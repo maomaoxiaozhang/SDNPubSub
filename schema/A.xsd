@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/xsd/" targetNamespace="http://www.example.org/xsd/">
+  <topic xmlns="" name="all:Test:A" type="tns:ComplexType"/>
+  <values xmlns="" name="TESTA1">
+    <a1 type="int">1</a1>
+<a2 type="int">1</a2>
+<a3 type="int">1</a3>
+<a4 type="int">1</a4>
+</values>
+</schema>

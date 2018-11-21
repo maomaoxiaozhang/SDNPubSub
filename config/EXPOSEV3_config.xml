@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><CONFIG_JAXE>
+<LANGAGE>
+<FICHIER_SCHEMA nom="EXPOSEV3.xsd"/>
+<RACINE element="EXPOSE"/>
+</LANGAGE>
+
+<MENUS>
+<MENU nom="Organisation">
+<MENU_INSERTION nom="PAGE_TITRE" type_noeud="element"/>
+<MENU_INSERTION nom="PARTIE" type_noeud="element"/>
+<MENU_INSERTION nom="METADONNEES" type_noeud="element"/>
+<MENU_INSERTION nom="OPTIONS" type_noeud="element"/>
+<MENU_INSERTION nom="COMMENTAIRES" type_noeud="element"/>
+<MENU_INSERTION nom="IMPRESSION" type_noeud="element"/>
+<MENU_INSERTION nom="DATECRE" type_noeud="element"/>
+<MENU_INSERTION nom="TITRE" raccourci="T" type_noeud="element"/>
+<MENU_INSERTION nom="SOUS_TITRE" type_noeud="element"/>
+<MENU_INSERTION nom="AUTEUR" type_noeud="element"/>
+<MENU_INSERTION nom="LOGO_GAUCHE" type_noeud="element"/>
+<MENU_INSERTION nom="LOGO_DROIT" type_noeud="element"/>
+<MENU_INSERTION nom="PIEDPAGE_GAUCHE" type_noeud="element"/>
+<MENU_INSERTION nom="PIEDPAGE_DROIT" type_noeud="element"/>
+<MENU_INSERTION nom="SECTION" type_noeud="element"/>
+<MENU_INSERTION nom="PARAGRAPHE" raccourci="P" type_noeud="element"/>
+<MENU_INSERTION nom="EXEMPLE" type_noeud="element"/>
+</MENU>
+<MENU nom="Ensembles">
+<MENU_INSERTION nom="LISTE" type_noeud="element"/>
+<MENU_INSERTION nom="EL" type_noeud="element"/>
+<MENU_INSERTION nom="LISTEDEF" type_noeud="element"/>
+<MENU_INSERTION nom="TERME" type_noeud="element"/>
+<MENU_INSERTION nom="DEF" type_noeud="element"/>
+<MENU_INSERTION nom="TABLEAU" type_noeud="element"/>
+<MENU_INSERTION nom="ENVIMAGE" type_noeud="element"/>
+<MENU_INSERTION nom="IMAGE" type_noeud="element"/>
+<MENU_INSERTION nom="LEGENDE" type_noeud="element"/>
+<MENU_INSERTION nom="APPLET" type_noeud="element"/>
+<MENU_INSERTION nom="PARAM" type_noeud="element"/>
+<MENU_INSERTION nom="EMAIL" type_noeud="element"/>
+<MENU_INSERTION nom="IDENTIFIANT" type_noeud="element"/>
+<MENU_INSERTION nom="HTML" type_noeud="element"/>
+
+</MENU>
+<MENU nom="Texte">
+<MENU_INSERTION nom="EMPHASE" type_noeud="element"/>
+<MENU_INSERTION nom="LIEN_EXTERNE" type_noeud="element"/>
+<!--<MENU_INSERTION nom="LIEN_INTERNE" type_noeud="element"/> -->
+<MENU_INSERTION nom="CODE" type_noeud="element"/>
+<MENU_INSERTION nom="ESP" type_noeud="element"/>
+<MENU_INSERTION nom="BR" type_noeud="element"/>
+<MENU_INSERTION nom="EQUATION" raccourci="E" type_noeud="element"/>
+<MENU_INSERTION nom="COMMENTAIRE" type_noeud="element"/>
+</MENU>
+</MENUS>
+
+<AFFICHAGE_NOEUDS>
+<AFFICHAGE_ELEMENT element="EXPOSE" type="division"/>
+<AFFICHAGE_ELEMENT element="METADONNEES" type="formulaire"/>
+<AFFICHAGE_ELEMENT element="OPTIONS" type="zone"/>
+<AFFICHAGE_ELEMENT element="COMMENTAIRES" type="typesimple"/>
+<AFFICHAGE_ELEMENT element="IMPRESSION" type="typesimple"/>
+<AFFICHAGE_ELEMENT element="DATECRE" type="typesimple"/>
+<AFFICHAGE_ELEMENT element="PAGE_TITRE" type="division"/>
+<AFFICHAGE_ELEMENT element="TITRE" type="string">    
+<PARAMETRE nom="style" valeur="GRAS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="SOUS_TITRE" type="string">    
+<PARAMETRE nom="style" valeur="GRAS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="AUTEUR" type="string"/>
+<AFFICHAGE_ELEMENT element="EMAIL" type="string"/>
+<AFFICHAGE_ELEMENT element="IDENTIFIANT" type="zone"/>
+<AFFICHAGE_ELEMENT element="DATE_EXPOSE" type="zone"/>
+<AFFICHAGE_ELEMENT element="HTML" type="zone"/>
+<AFFICHAGE_ELEMENT element="LOGO_GAUCHE" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="fichier"/>
+<PARAMETRE nom="srcAtt" valeur="image_alternative"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="LOGO_DROIT" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="fichier"/>
+<PARAMETRE nom="srcAtt" valeur="image_alternative"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="PIEDPAGE_GAUCHE" type="zone"/>
+<AFFICHAGE_ELEMENT element="PIEDPAGE_DROIT" type="zone"/>
+<AFFICHAGE_ELEMENT element="PARTIE" type="division"/>
+<AFFICHAGE_ELEMENT element="SECTION" type="division"/>
+<AFFICHAGE_ELEMENT element="PARAGRAPHE" type="zone"/>
+<AFFICHAGE_ELEMENT element="EXEMPLE" type="zone">
+<PARAMETRE nom="police" valeur="Monospaced"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="LISTE" type="liste">
+<PARAMETRE attributsVisibles="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="EL" type="item"/>
+<AFFICHAGE_ELEMENT element="LISTEDEF" type="zone"/>
+<AFFICHAGE_ELEMENT element="TERME" type="string"/>
+<AFFICHAGE_ELEMENT element="DEF" type="string"/>
+<AFFICHAGE_ELEMENT element="TABLEAU" type="tabletexte">
+<PARAMETRE nom="trTag" valeur="LT"/>
+<PARAMETRE nom="tdTag" valeur="CT"/>
+<PARAMETRE nom="thTag" valeur="ET"/>
+<PARAMETRE nom="colspanAttr" valeur="colspan"/>
+<PARAMETRE nom="rowspanAttr" valeur="rowspan"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="LT" type="zone"/>
+<AFFICHAGE_ELEMENT element="ET" type="string"/>
+<AFFICHAGE_ELEMENT element="CT" type="zone"/>
+<AFFICHAGE_ELEMENT element="ENVIMAGE" type="zone"/>
+<AFFICHAGE_ELEMENT element="IMAGE" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="fichier"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="LEGENDE" type="zone"/>
+<AFFICHAGE_ELEMENT element="APPLET" type="zone">
+<PARAMETRE nom="titreAtt" valeur="classe"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="PARAM" type="vide">
+<PARAMETRE nom="titreAtt" valeur="nom"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="EMPHASE" type="string">
+<PARAMETRE nom="style" valeur="ITALIQUE"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="LIEN_EXTERNE" type="string"/>
+<AFFICHAGE_ELEMENT element="LIEN_INTERNE" type="string"/>
+<AFFICHAGE_ELEMENT element="CODE" type="string">
+<PARAMETRE nom="police" valeur="Monospaced"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="ESP" type="vide"/>
+<AFFICHAGE_ELEMENT element="BR" type="vide"/>
+<AFFICHAGE_ELEMENT element="EQUATION" type="equation">
+<PARAMETRE nom="texteAtt" valeur="texte"/>
+<PARAMETRE nom="srcAtt" valeur="image"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="COMMENTAIRE" type="zone"/>
+</AFFICHAGE_NOEUDS>
+
+<EXPORTS>
+<EXPORT nom="HTML" sortie="HTML">
+<FICHIER_XSL nom="EXPOSEV3.xsl"/>
+</EXPORT>
+</EXPORTS>
+
+<STRINGS langue="fr">
+    
+<DESCRIPTION_CONFIG>Exposé</DESCRIPTION_CONFIG>
+
+<STRINGS_MENU menu="TERME">
+<TITRE>Terme de liste de définitions</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="DEF">
+<TITRE>Définition de liste de définitions</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="ESP">
+<TITRE>Espace insécable</TITRE>
+</STRINGS_MENU>
+
+<STRINGS_ELEMENT element="EXPOSE">
+<TITRE>Exposé</TITRE>
+    <STRINGS_ATTRIBUT attribut="transition">
+    <TITRE>Type de transition</TITRE>
+    </STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="METADONNEES">
+<TITRE>Métadonnées</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="OPTIONS">
+<TITRE>Options</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="COMMENTAIRES">
+<TITRE>Commentaires</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="IMPRESSION">
+<TITRE>Impression</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="DATECRE">
+<TITRE>Date de création</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PAGE_TITRE">
+<TITRE>Page de titre</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="TITRE">
+<TITRE>Titre</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="SOUS_TITRE">
+<TITRE>Sous Titre</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EMAIL">
+<TITRE>Courriel</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="DATE_EXPOSE">
+<TITRE>Date de l'exposé</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="HTML">
+<TITRE>Code HTML</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="IDENTIFIANT">
+<TITRE>Identifiant de l'exposé</TITRE>
+<STRINGS_ATTRIBUT attribut="TYPE">
+<TITRE>Classe de l'exposé</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="AUTEUR">
+<TITRE>Auteur</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="LOGO_GAUCHE">
+<TITRE>Logo Gauche</TITRE>
+<STRINGS_ATTRIBUT attribut="fichier">
+<TITRE>fichier</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image_alterantive">
+<TITRE>iamge alternative</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="largeur_SVG">
+<TITRE>Largeur en % ( pour SVG )</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="hauteur_SVG">
+<TITRE>Hauteur en % ( pour SVG )</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LOGO_DROIT">
+<TITRE>Logo Droit</TITRE>
+<STRINGS_ATTRIBUT attribut="fichier">
+<TITRE>fichier</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image_alterantive">
+<TITRE>image alternative</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="largeur_SVG">
+<TITRE>Largeur en % ( pour SVG )</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="hauteur_SVG">
+<TITRE>Hauteur en % ( pour SVG )</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PIEDPAGE_DROIT">
+<TITRE>Pied de page droit</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PIEDPAGE_GAUCHE">
+<TITRE>Pied de page gauche</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="PARAGRAPHE">
+<TITRE>Paragraphe</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="PARTIE">
+<TITRE>Partie</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="SECTION">
+<TITRE>Section</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PARAGRAPHE">
+<TITRE>Paragraphe</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EXEMPLE">
+<TITRE>Exemple</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LISTE">
+<TITRE>Liste</TITRE>
+    <STRINGS_ATTRIBUT attribut="type">
+        <TITRE>Type d'item</TITRE>
+    </STRINGS_ATTRIBUT>
+    <STRINGS_ATTRIBUT attribut="couleur_puce">
+        <TITRE>Couleur de la puce</TITRE>
+    </STRINGS_ATTRIBUT>
+    <STRINGS_ATTRIBUT attribut="couleur_texte">
+        <TITRE>Couleur du texte</TITRE>
+    </STRINGS_ATTRIBUT>
+    <STRINGS_ATTRIBUT attribut="image_puce">
+        <TITRE>Image de la puce</TITRE>
+    </STRINGS_ATTRIBUT>
+    <STRINGS_ATTRIBUT attribut="mode">
+        <TITRE>Mode de présentation de la liste</TITRE>
+    </STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EL">
+    <TITRE>Elément de liste</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LISTEDEF">
+<TITRE>Liste de définitions</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="TERME">
+<TITRE>Terme</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="DEF">
+<TITRE>Définition</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="TABLEAU">
+<TITRE>Tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LT">
+<TITRE>Ligne de tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ET">
+<TITRE>Cellule entête de tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="CT">
+<TITRE>Cellule de tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ENVIMAGE">
+<TITRE>Environnement d'image</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="IMAGE">
+<TITRE>Image</TITRE>
+<STRINGS_ATTRIBUT attribut="fichier">
+<TITRE>fichier</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LEGENDE">
+<TITRE>Légende</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="APPLET">
+<TITRE>Applet</TITRE>
+<STRINGS_ATTRIBUT attribut="classe">
+<TITRE>classe</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="largeur">
+<TITRE>largeur</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="hauteur">
+<TITRE>hauteur</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PARAM">
+<TITRE>Paramètre d'applet</TITRE>
+<STRINGS_ATTRIBUT attribut="nom">
+<TITRE>nom</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="valeur">
+<TITRE>valeur</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EMPHASE">
+<TITRE>Emphase</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LIEN_INTERNE">
+<TITRE>Lien Interne</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LIEN_EXTERNE">
+<TITRE>Lien externe</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="CODE">
+<TITRE>Code</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ESP">
+<TITRE>Esp</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="BR">
+<TITRE>Saut de ligne</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EQUATION">
+<TITRE>Equation</TITRE>
+<STRINGS_ATTRIBUT attribut="texte">
+<TITRE>texte</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="COMMENTAIRE">
+<TITRE>Commentaire</TITRE>
+</STRINGS_ELEMENT>
+
+</STRINGS>
+
+<STRINGS langue="en">
+<DESCRIPTION_CONFIG>Slide Show</DESCRIPTION_CONFIG>
+
+<STRINGS_MENU menu="ESP">
+<TITRE>Non-breaking space</TITRE>
+</STRINGS_MENU>
+
+<STRINGS_ELEMENT element="EXPOSE">
+<TITRE>Slideshow</TITRE>
+    <STRINGS_ATTRIBUT attribut="transition">
+    <TITRE>Transition type</TITRE>
+    </STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="METADONNEES">
+<TITRE>Metadata</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="OPTIONS">
+<TITRE>Options</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="COMMENTAIRES">
+<TITRE>Comments</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="IMPRESSION">
+<TITRE>Printing</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="DATECRE">
+<TITRE>Creation date</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="TITRE">
+<TITRE>Title</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="SOUS_TITRE">
+<TITRE>Sub title</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EMAIL">
+<TITRE>Email</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="DATE_EXPOSE">
+<TITRE>Slideshow date</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="HTML">
+<TITRE>HTML Code</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="IDENTIFIANT">
+<TITRE>Identifiant</TITRE>
+<STRINGS_ATTRIBUT attribut="TYPE">
+<TITRE>Slideshow class</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="AUTEUR">
+<TITRE>Author</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="LOGO_GAUCHE">
+<TITRE>Left Logo</TITRE>
+<STRINGS_ATTRIBUT attribut="fichier">
+<TITRE>file</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image_alternative">
+<TITRE>Alternative picture</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="largeur_SVG">
+<TITRE>Width in percentage  ( for SVG )</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="hauteur_SVG">
+<TITRE>Height in percentage ( for SVG )</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LOGO_DROIT">
+<TITRE>Right Logo</TITRE>
+<STRINGS_ATTRIBUT attribut="fichier">
+<TITRE>file</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image_alterantive">
+<TITRE>Alternative picture</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="largeur_SVG">
+<TITRE>Width in percentage  ( for SVG )</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="hauteur_SVG">
+<TITRE>Height in percentage ( for SVG )</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PIEDPAGE_DROIT">
+<TITRE>Right Footnote</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PIEDPAGE_GAUCHE">
+<TITRE>Left Footnote</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="PARTIE">
+<TITRE>Part</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="SECTION">
+<TITRE>Section</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PARAGRAPHE">
+<TITRE>Paragraph</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EXEMPLE">
+<TITRE>Example</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LISTE">
+<TITRE>List</TITRE>
+<STRINGS_ATTRIBUT attribut="type">
+<TITRE>Item type</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="couleur_puce">
+<TITRE>Item color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="couleur_texte">
+<TITRE>Item text color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image_puce">
+<TITRE>Item image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="mode">
+<TITRE>Display Mode List</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EL">
+<TITRE>List element</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LISTEDEF">
+<TITRE>Definition list</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="TERME">
+<TITRE>Term</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="DEF">
+<TITRE>Definition</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="TABLEAU">
+<TITRE>Table</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LT">
+<TITRE>Table row</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ET">
+<TITRE>Table header cell</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="CT">
+<TITRE>Table cell</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ENVIMAGE">
+<TITRE>Image environment</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="IMAGE">
+<TITRE>Image</TITRE>
+<STRINGS_ATTRIBUT attribut="fichier">
+<TITRE>file</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="LEGENDE">
+<TITRE>Legend</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="APPLET">
+<TITRE>Applet</TITRE>
+<STRINGS_ATTRIBUT attribut="classe">
+<TITRE>class</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="largeur">
+<TITRE>width</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="hauteur">
+<TITRE>height</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="PARAM">
+<TITRE>Applet parameter</TITRE>
+<STRINGS_ATTRIBUT attribut="nom">
+<TITRE>name</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="valeur">
+<TITRE>value</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EMPHASE">
+<TITRE>Emphasis</TITRE>
+</STRINGS_ELEMENT>
+<!--<STRINGS_ELEMENT element="LIEN_INTERNE">
+<TITRE>Internal Link</TITRE>
+</STRINGS_ELEMENT>-->
+<STRINGS_ELEMENT element="LIEN_EXTERNE">
+<TITRE>External Link</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="CODE">
+<TITRE>Code</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ESP">
+<TITRE>NBSP</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="BR">
+<TITRE>Line break</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="EQUATION">
+<TITRE>Equation</TITRE>
+<STRINGS_ATTRIBUT attribut="texte">
+<TITRE>text</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="COMMENTAIRE">
+<TITRE>Comment</TITRE>
+</STRINGS_ELEMENT>
+
+</STRINGS>
+</CONFIG_JAXE>

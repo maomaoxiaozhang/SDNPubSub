@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 集群控制器信息
@@ -33,6 +30,9 @@ public class Controller extends DevInfo{
 
     @Value("${role:admin}")
     private String role;
+
+    @Value("${hostList:#{null}}")
+    private List<Host> hostList;
 
     //本地集群地址
     @Value("${localAddr:FF0E:0000:0000:0000:0001:2345:6792:abcd}")

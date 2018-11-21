@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/xsd/" targetNamespace="http://www.example.org/xsd/">
+  <topic xmlns="" name="topic" type="tns:ComplexType"/>
+
+  <values xmlns="" name="http://www.test.org/Class/Individual/temperaturesensor1Ont">
+    <address type="string">1</address>
+    <type type="string">RD</type>
+    <operate type="string">read</operate>
+    <value type="string">1</value>
+  </values>
+  
+
+</schema>

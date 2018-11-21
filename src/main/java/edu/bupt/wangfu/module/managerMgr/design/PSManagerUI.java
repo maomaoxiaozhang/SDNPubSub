@@ -1,5 +1,6 @@
 package edu.bupt.wangfu.module.managerMgr.design;
 
+import edu.bupt.wangfu.config.ControllerConfig;
 import edu.bupt.wangfu.info.device.*;
 import edu.bupt.wangfu.info.message.admin.LookUpMsg;
 import edu.bupt.wangfu.module.managerMgr.policyMgr.PolicyUtil;
@@ -9,8 +10,11 @@ import edu.bupt.wangfu.module.managerMgr.util.PolicyMap;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.topologyMgr.TopoMgr;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+import javax.naming.NamingException;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -24,6 +28,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.util.*;
 import java.util.List;
 
@@ -45,6 +50,7 @@ public class PSManagerUI {
     AllGroups allGroups;
 
     public static TopicTreeUI topicTreeUI = null;
+    public static SchemaUI schemaUI=null;
     public static PolicyUtil util = null;
     private String currentGroup;
     private java.util.List<String> currentTargetGroups;// 受限集群框内
@@ -52,6 +58,7 @@ public class PSManagerUI {
 
     public static Dimension screenSize;
     public static JPanel topicTreeM;// 主题树管理
+    public static JPanel schemaM;// 主题树管理
 
     public JTabbedPane visualManagement;// "可视化管理"
     public JTextArea text;// 控制台文本
@@ -67,7 +74,14 @@ public class PSManagerUI {
     private JScrollPane allGroupsScrollPane;// 所有集群 可滚动窗口容器
     private JPanel allGroupsPane;// 所有集群
     private JTabbedPane groupsInfoTabbedPane;// 包括“控制器”、“交换机”、“订阅信息”、“配置信息”、“端口信息”、“队列信息”
-    private JPanel controller;//控制器信息
+
+    private JPanel controllerConf;//控制器配置信息
+    private JPanel currentConf; //控制器配置
+    private JLabel currentGroupLabel;
+    private JTabbedPane currentGroupConf;
+    private JPanel basicConfC,heartConf;
+    private JTextField controllerAddrInput,switchSizeInput,hostSizeInput,lostThresholdInput,scanPeriodInput,sendPeriodInput;
+    private JButton confirmCurrentC;
 
     private JPanel groupSwitch;// 集群交换机信息
     private JPanel switchMap;// 集群内交换机拓扑关系图面板
@@ -120,6 +134,8 @@ public class PSManagerUI {
     private JPanel fbdnGroups;
     private JPanel topicsPanel;
     private JPanel currentPolicyPanel;
+    private JButton btnNewButton,btnNewButton_1,btnNewButton_2,btnNewButton_3;
+    public JLabel lblNewLabel_5;
 
     private JTextArea sysInfo;
     private JLabel INT100;
@@ -133,6 +149,7 @@ public class PSManagerUI {
     public void start() {
 
         topicTreeUI = new TopicTreeUI(this);
+        schemaUI = new SchemaUI(this);
         util = new PolicyUtil();
         JFrame.setDefaultLookAndFeelDecorated(true);
         /**
@@ -152,20 +169,11 @@ public class PSManagerUI {
     /**
      * Launch the application.
      */
-//    public static void main(String[] args) {
-//        EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                try {
-//                    JFrame.setDefaultLookAndFeelDecorated(true);
-//                    UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
-//                    PSManagerUI window = new PSManagerUI();
-//                    window.open();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//    }
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(ControllerConfig.class);
+        PSManagerUI ui = (PSManagerUI) context.getBean("PSManagerUI");
+        ui.start();
+    }
 
     /**
      * Initialize the contents of the frame.
@@ -217,10 +225,136 @@ public class PSManagerUI {
         groupsMgmt.add(groupsInfoTabbedPane);
 
         //集群控制器信息
-        controller = new JPanel();
-        controller.setBorder(new EmptyBorder(20, 20, 20, 20));
-        controller.setLayout(null);
-        groupsInfoTabbedPane.addTab("控制器", null, controller, null);
+        controllerConf = new JPanel();
+        groupsInfoTabbedPane.addTab("配置信息", null, controllerConf, null);
+        controllerConf.setLayout(null);
+
+        currentConf = new JPanel();
+        currentConf.setBorder(new LineBorder(Color.LIGHT_GRAY, 1, true));
+        currentConf.setBounds(0,0,420,245);
+
+        controllerConf.add(currentConf);
+        currentConf.setLayout(new BorderLayout(0, 0));
+
+        currentGroupLabel = new JLabel("集群配置");
+        currentGroupLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        currentGroupLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+        currentConf.add(BorderLayout.NORTH,currentGroupLabel);
+
+        currentGroupConf = new JTabbedPane();
+        currentGroupConf.setTabPlacement(JTabbedPane.RIGHT);
+        currentConf.add(BorderLayout.CENTER,currentGroupConf);
+
+        basicConfC = new JPanel();
+        currentGroupConf.addTab("基本配置", null, basicConfC, null);
+        basicConfC.setLayout(null);
+
+        heartConf = new JPanel();
+        currentGroupConf.addTab("心跳配置", null, heartConf, null);
+        heartConf.setLayout(null);
+
+        JLabel repAddrC = new JLabel("控制器地址",SwingConstants.CENTER);
+        repAddrC.setBounds(0,20,100,30);
+        basicConfC.add(repAddrC);
+
+
+        controllerAddrInput = new JTextField();
+        controllerAddrInput.setEditable(false);
+        controllerAddrInput.setEnabled(false);
+        controllerAddrInput.setOpaque(false);
+        controllerAddrInput.setToolTipText("系统运行时不得更改");
+        controllerAddrInput.setBounds(150,20,150,30);
+        controllerAddrInput.setHorizontalAlignment(SwingConstants.CENTER);
+        basicConfC.add(controllerAddrInput);
+        controllerAddrInput.setColumns(10);
+
+        JLabel switchSizeC = new JLabel("交换机数目",SwingConstants.CENTER);
+        switchSizeC.setBounds(0,60,100,30);
+        basicConfC.add(switchSizeC);
+
+        switchSizeInput = new JTextField();
+        switchSizeInput.setEditable(false);
+        switchSizeInput.setEnabled(false);
+        switchSizeInput.setOpaque(false);
+        switchSizeInput.setToolTipText("系统运行时不得更改");
+        switchSizeInput.setBounds(150,60,150,30);
+        switchSizeInput.setHorizontalAlignment(SwingConstants.CENTER);
+        basicConfC.add(switchSizeInput);
+        switchSizeInput.setColumns(10);
+
+        JLabel hostSizeC = new JLabel("主机数目",SwingConstants.CENTER);
+        hostSizeC.setBounds(0,100,100,30);
+        basicConfC.add(hostSizeC);
+
+        hostSizeInput = new JTextField();
+        hostSizeInput.setEditable(false);
+        hostSizeInput.setEnabled(false);
+        hostSizeInput.setOpaque(false);
+        hostSizeInput.setToolTipText("系统运行时不得更改");
+        hostSizeInput.setBounds(150,100,150,30);
+        hostSizeInput.setHorizontalAlignment(SwingConstants.CENTER);
+        basicConfC.add(hostSizeInput);
+        hostSizeInput.setColumns(10);
+
+        JLabel lostThresholdC = new JLabel("判断失效阀值:",SwingConstants.CENTER);
+        lostThresholdC.setBounds(0,20,100,30);
+        heartConf.add(lostThresholdC);
+
+        lostThresholdInput = new JTextField();
+        lostThresholdInput.setEditable(true);
+        lostThresholdInput.setOpaque(false);
+        //lostThresholdInput.setToolTipText("系统运行时不得更改");
+        lostThresholdInput.setBounds(150,20,150,30);
+        lostThresholdInput.setHorizontalAlignment(SwingConstants.CENTER);
+        heartConf.add(lostThresholdInput);
+        lostThresholdInput.setColumns(10);
+
+        JLabel scanPeriodC = new JLabel("扫描周期:",SwingConstants.CENTER);
+        scanPeriodC.setBounds(0,60,100,30);
+        heartConf.add(scanPeriodC);
+
+        scanPeriodInput = new JTextField();
+        scanPeriodInput.setEditable(true);
+        scanPeriodInput.setOpaque(false);
+        scanPeriodInput.setToolTipText("系统运行时不得更改");
+        scanPeriodInput.setBounds(150,60,150,30);
+        scanPeriodInput.setHorizontalAlignment(SwingConstants.CENTER);
+        heartConf.add(scanPeriodInput);
+        scanPeriodInput.setColumns(10);
+
+        JLabel sendPeriodC = new JLabel("发送周期:",SwingConstants.CENTER);
+        sendPeriodC.setBounds(0,100,100,30);
+        heartConf.add(sendPeriodC);
+
+        sendPeriodInput = new JTextField();
+        sendPeriodInput.setEditable(true);
+        sendPeriodInput.setOpaque(false);
+        sendPeriodInput.setToolTipText("系统运行时不得更改");
+        sendPeriodInput.setBounds(150,100,150,30);
+        sendPeriodInput.setHorizontalAlignment(SwingConstants.CENTER);
+        heartConf.add(sendPeriodInput);
+        sendPeriodInput.setColumns(10);
+
+        confirmCurrentC = new JButton("应用更改");
+        confirmCurrentC.setBounds(200,150,100,20);
+        heartConf.add(BorderLayout.SOUTH,confirmCurrentC);
+        confirmCurrentC.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(allGroups.getAllGroups().get(currentGroup) !=null){
+                    allGroups.getAllGroups().get(currentGroup).getController().setLoseThreshold(Long.valueOf(lostThresholdInput.getText()));
+                    allGroups.getAllGroups().get(currentGroup).getController().setScanPeriod(Long.valueOf(scanPeriodInput.getText()));
+                    allGroups.getAllGroups().get(currentGroup).getController().setSendPeriod(Long.valueOf(sendPeriodInput.getText()));
+                    //发消息
+                    JOptionPane.showMessageDialog( null, "保存成功");
+                    //	MessageDialog.openInformation(shell, "", "保存成功");
+                }
+                else{
+                    JOptionPane.showMessageDialog( null, "该集群不存在");
+                }
+            }
+        });
+
+
 
         // 集群交换机信息
         groupSwitch = new JPanel();
@@ -257,7 +391,7 @@ public class PSManagerUI {
         groupSwitch.add(switchHost);
         switchHost.setLayout(new BorderLayout(0, 0));
 
-        switchHostLabel = new JLabel("交换机下主机");
+        switchHostLabel = new JLabel("集群内主机");
         switchHostLabel.setHorizontalAlignment(SwingConstants.CENTER);
         switchHostLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         switchHost.add(BorderLayout.NORTH, switchHostLabel);
@@ -975,6 +1109,15 @@ public class PSManagerUI {
         flowManage.add(editChoose);
         flowManage.add(showPanel);
 
+        //schema管理
+        schemaM = new JPanel();
+        try {
+            schemaM.add(schemaUI.getTreeInstance());
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+        visualManagement.addTab("", new ImageIcon("./img/shcemaM.png"), schemaM, null);
+
 		//控制台
         consol = new JPanel();
         topTabbedPane.addTab("控制台", null, consol, null);
@@ -1188,7 +1331,7 @@ public class PSManagerUI {
 
                             //添加非空判断
                             if (currentGroup == null) {
-                                controller.removeAll();
+                                controllerConf.removeAll();
                                 switchMapPanel.removeAll();
                                 switchHostPanel.removeAll();
                                 groupsInfoTabbedPane.setTitleAt(0, ("控制器信息"));
@@ -1198,27 +1341,21 @@ public class PSManagerUI {
                                 groupsInfoTabbedPane.setTitleAt(4, ("队列信息"));
                             }
                             else {
-                                groupsInfoTabbedPane.setTitleAt(0, ("集群" + currentGroup + "控制器"));
+                                groupsInfoTabbedPane.setTitleAt(0, ("集群" + currentGroup + "配置信息"));
                                 groupsInfoTabbedPane.setTitleAt(1, ("集群" + currentGroup + "设备"));
                                 groupsInfoTabbedPane.setTitleAt(2, ("集群" + currentGroup + "订阅"));
                                 groupsInfoTabbedPane.setTitleAt(3, ("集群" + currentGroup + "端口"));
                                 groupsInfoTabbedPane.setTitleAt(4, ("集群" + currentGroup + "队列"));
                                 //添加交换机和控制器
-                                if (controller != null) {
-                                    controller.removeAll();
+                                if (controllerConf != null) {
+                                    controllerConf.removeAll();
                                 }
-                                JTextArea ctrlInfo = new JTextArea();
-                                ctrlInfo.setBounds(170,40,300,30);
-                                ctrlInfo.setOpaque(false);
-                                ctrlInfo.setLineWrap(true);
-                                ctrlInfo.setEditable(false);
-                                ctrlInfo.setText("集群" + currentGroup + "当前控制器URL: " + currentGroup);
-                                controller.add(ctrlInfo);
-
-                                JLabel opendaylight = new JLabel("");
-                                opendaylight.setIcon(new ImageIcon("./img/odl.png"));
-                                opendaylight.setBounds(100,100,400,100);
-                                controller.add(opendaylight);
+                                controllerAddrInput.setText(allGroups.getAllGroups().get(currentGroup).getController().getLocalAddr());
+                                switchSizeInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getSwitches().size());
+                                hostSizeInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getHostList().size());
+                                lostThresholdInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getLoseThreshold());
+                                scanPeriodInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getScanPeriod());
+                                sendPeriodInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getSendPeriod());
 
                                 //交换机
                                 if (switchMapPanel != null)
@@ -1258,9 +1395,9 @@ public class PSManagerUI {
                                                     queues.removeAll();
                                                 switchHostScrollPane.repaint();
                                                 switchHostLabel.setText("交换机" + groupSwitchButton.getText() + "下主机");
-                                                Map<String, Host> wsnHostMap = allGroups.getAllGroups().get(currentGroup)
-                                                        .getController().getSwitches().get(switchName).getHosts();
-                                                for (final Host host : wsnHostMap.values()) {
+                                                List<Host> wsnHostMap = allGroups.getAllGroups().get(currentGroup)
+                                                        .getController().getHostList();
+                                                for (final Host host : wsnHostMap) {
                                                     final String memAddr = host.getIp();
                                                     final JButton hostButton = new JButton(memAddr);
                                                     hostButton.setToolTipText(memAddr);

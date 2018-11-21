@@ -1,0 +1,4455 @@
+<xs:schema
+  xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+  <xs:notation name='CGM-CHAR' public="ISO 8632/2//NOTATION Character encoding//EN"/>
+
+  <xs:notation name='CGM-BINARY' public="ISO 8632/3//NOTATION Binary encoding//EN"/>
+
+  <xs:notation name='CGM-CLEAR' public="ISO 8632/4//NOTATION Clear text encoding//EN"/>
+
+  <xs:notation name='EPS' public="+//ISBN 0-201-18127-4::Adobe//NOTATION PostScript Language Ref. Manual//EN"/>
+
+  <xs:notation name='FAX' public="-//USA-DOD//NOTATION CCITT Group 4 Facsimile Type 1 Untiled Raster//EN"/>
+
+  <xs:notation name='IGES' public="-//USA-DOD//NOTATION (ASME/ANSI Y14.26M-1987) Initial Graphics Exchange Specification//EN"/>
+
+  <xs:notation name='PCX' public="+//ISBN 0-7923-9432-1::Graphic Notation//NOTATION ZSoft PCX bitmap//EN"/>
+
+  <xs:notation name='SGML' public="ISO 8879:1986//NOTATION Standard Generalized Markup Language//EN"/>
+
+  <xs:notation name='TEX' public="+//ISBN 0-201-13448-9::Knuth//NOTATION The TeXbook//EN"/>
+
+  <xs:notation name='WMF' public="+//ISBN 0-7923-9432-1::Graphic Notation//NOTATION Microsoft Windows Metafile//EN"/>
+
+ <xs:element name='title'>
+  <xs:annotation>
+   <xs:documentation>
+    The text of the title of a section of a document or of a formal block-level element
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='author'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='othercredit'/>
+    <xs:element ref='revhistory'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='pagenum' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='titleabbrev'>
+  <xs:annotation>
+   <xs:documentation>
+    The abbreviation of a Title
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='author'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='othercredit'/>
+    <xs:element ref='revhistory'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='subtitle'>
+  <xs:annotation>
+   <xs:documentation>
+    The subtitle of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='author'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='othercredit'/>
+    <xs:element ref='revhistory'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='bibliomset'>
+  <xs:annotation>
+   <xs:documentation>
+    A cooked container for related bibliographic information
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='abstract'/>
+    <xs:element ref='author'/>
+    <xs:element ref='authorgroup'/>
+    <xs:element ref='bibliomisc'/>
+    <xs:element ref='copyright'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='date'/>
+    <xs:element ref='edition'/>
+    <xs:element ref='editor'/>
+    <xs:element ref='issuenum'/>
+    <xs:element ref='othercredit'/>
+    <xs:element ref='pubdate'/>
+    <xs:element ref='publishername'/>
+    <xs:element ref='releaseinfo'/>
+    <xs:element ref='revhistory'/>
+    <xs:element ref='subtitle'/>
+    <xs:element ref='title'/>
+    <xs:element ref='titleabbrev'/>
+    <xs:element ref='volumenum'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='honorific'/>
+    <xs:element ref='firstname'/>
+    <xs:element ref='surname'/>
+    <xs:element ref='lineage'/>
+    <xs:element ref='othername'/>
+    <xs:element ref='affiliation'/>
+    <xs:element ref='authorblurb'/>
+    <xs:element ref='bibliomset'/>
+   </xs:choice>
+   <xs:attribute name='relation' type='xs:string' use='optional'/>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='bibliomisc'>
+  <xs:annotation>
+   <xs:documentation>
+    Untyped bibliographic information
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='subjectset'>
+  <xs:annotation>
+   <xs:documentation>
+    A set of terms describing the subject matter of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='subject' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='scheme' type='xs:NMTOKEN' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='subject'>
+  <xs:annotation>
+   <xs:documentation>
+    One of a group of terms describing the subject matter of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='subjectterm' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='weight' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='subjectterm'>
+  <xs:annotation>
+   <xs:documentation>
+    A term in a group of terms describing the subject matter of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='keywordset'>
+  <xs:annotation>
+   <xs:documentation>
+    A set of keywords describing the content of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='keyword' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='keyword'>
+  <xs:annotation>
+   <xs:documentation>
+    One of a set of keywords describing the content of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='abstract'>
+  <xs:annotation>
+   <xs:documentation>
+    A summary
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='title' minOccurs='0' maxOccurs='1'/>
+    <xs:sequence maxOccurs='unbounded'>
+     <xs:element ref='para'/>
+    </xs:sequence>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='authorblurb'>
+  <xs:annotation>
+   <xs:documentation>
+    A short description or note about an author
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='title' minOccurs='0' maxOccurs='1'/>
+    <xs:sequence maxOccurs='unbounded'>
+     <xs:element ref='para'/>
+    </xs:sequence>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='blockquote'>
+  <xs:annotation>
+   <xs:documentation>
+    A quotation set off from the main text
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='title' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='attribution' minOccurs='0' maxOccurs='1'/>
+    <xs:choice maxOccurs='unbounded'>
+     <xs:element ref='itemizedlist'/>
+     <xs:element ref='orderedlist'/>
+     <xs:element ref='variablelist'/>
+     <xs:element ref='note'/>
+     <xs:element ref='literallayout'/>
+     <xs:element ref='programlisting'/>
+     <xs:element ref='para'/>
+     <xs:element ref='blockquote'/>
+     <xs:element ref='mediaobject'/>
+     <xs:element ref='informaltable'/>
+     <xs:element ref='example'/>
+     <xs:element ref='figure'/>
+     <xs:element ref='table'/>
+     <xs:element ref='sidebar'/>
+     <xs:element ref='abstract'/>
+     <xs:element ref='authorblurb'/>
+     <xs:element ref='epigraph'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='attribution'>
+  <xs:annotation>
+   <xs:documentation>
+    The source of a block quote or epigraph
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='epigraph'>
+  <xs:annotation>
+   <xs:documentation>
+    A short inscription at the beginning of a document or component
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='attribution' minOccurs='0' maxOccurs='1'/>
+    <xs:sequence maxOccurs='unbounded'>
+     <xs:element ref='para'/>
+    </xs:sequence>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='footnote'>
+  <xs:annotation>
+   <xs:documentation>
+    A footnote
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='itemizedlist'/>
+    <xs:element ref='orderedlist'/>
+    <xs:element ref='variablelist'/>
+    <xs:element ref='literallayout'/>
+    <xs:element ref='programlisting'/>
+    <xs:element ref='para'/>
+    <xs:element ref='blockquote'/>
+    <xs:element ref='mediaobject'/>
+    <xs:element ref='informaltable'/>
+   </xs:choice>
+   <xs:attribute name='label' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='note'>
+  <xs:annotation>
+   <xs:documentation>
+    A message set off from the text
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='title' minOccurs='0' maxOccurs='1'/>
+    <xs:choice maxOccurs='unbounded'>
+     <xs:element ref='itemizedlist'/>
+     <xs:element ref='orderedlist'/>
+     <xs:element ref='variablelist'/>
+     <xs:element ref='literallayout'/>
+     <xs:element ref='programlisting'/>
+     <xs:element ref='para'/>
+     <xs:element ref='blockquote'/>
+     <xs:element ref='mediaobject'/>
+     <xs:element ref='informaltable'/>
+     <xs:element ref='example'/>
+     <xs:element ref='figure'/>
+     <xs:element ref='table'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='itemizedlist'>
+  <xs:annotation>
+   <xs:documentation>
+    A list in which each entry is marked with a bullet or other dingbat
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence minOccurs='0' maxOccurs='1'>
+     <xs:element ref='title'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:element ref='listitem' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='spacing' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='normal'/>
+      <xs:enumeration value='compact'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='mark' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='orderedlist'>
+  <xs:annotation>
+   <xs:documentation>
+    A list in which each entry is marked with a sequentially incremented label
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence minOccurs='0' maxOccurs='1'>
+     <xs:element ref='title'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:element ref='listitem' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='numeration' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='arabic'/>
+      <xs:enumeration value='upperalpha'/>
+      <xs:enumeration value='loweralpha'/>
+      <xs:enumeration value='upperroman'/>
+      <xs:enumeration value='lowerroman'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='inheritnum' default='ignore'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='inherit'/>
+      <xs:enumeration value='ignore'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='continuation' default='restarts'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='continues'/>
+      <xs:enumeration value='restarts'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='spacing' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='normal'/>
+      <xs:enumeration value='compact'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='listitem'>
+  <xs:annotation>
+   <xs:documentation>
+    A wrapper for the elements of a list item
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='itemizedlist'/>
+    <xs:element ref='orderedlist'/>
+    <xs:element ref='variablelist'/>
+    <xs:element ref='note'/>
+    <xs:element ref='literallayout'/>
+    <xs:element ref='programlisting'/>
+    <xs:element ref='para'/>
+    <xs:element ref='blockquote'/>
+    <xs:element ref='mediaobject'/>
+    <xs:element ref='informaltable'/>
+    <xs:element ref='example'/>
+    <xs:element ref='figure'/>
+    <xs:element ref='table'/>
+    <xs:element ref='sidebar'/>
+    <xs:element ref='abstract'/>
+    <xs:element ref='authorblurb'/>
+    <xs:element ref='epigraph'/>
+   </xs:choice>
+   <xs:attribute name='override' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='variablelist'>
+  <xs:annotation>
+   <xs:documentation>
+    A list in which each entry is composed of a set of one or more terms and an associated description
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence minOccurs='0' maxOccurs='1'>
+     <xs:element ref='title'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:element ref='varlistentry' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='termlength' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='varlistentry'>
+  <xs:annotation>
+   <xs:documentation>
+    A wrapper for a set of terms and the associated description in a variable list
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='term' maxOccurs='unbounded'/>
+    <xs:element ref='listitem'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='term'>
+  <xs:annotation>
+   <xs:documentation>
+    The word or phrase being defined or described in a variable list
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='example'>
+  <xs:annotation>
+   <xs:documentation>
+    A formal example, with a title
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence>
+     <xs:element ref='title'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:choice maxOccurs='unbounded'>
+     <xs:element ref='itemizedlist'/>
+     <xs:element ref='orderedlist'/>
+     <xs:element ref='variablelist'/>
+     <xs:element ref='literallayout'/>
+     <xs:element ref='programlisting'/>
+     <xs:element ref='para'/>
+     <xs:element ref='blockquote'/>
+     <xs:element ref='mediaobject'/>
+     <xs:element ref='informaltable'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='label' type='xs:string' use='optional'/>
+   <xs:attribute name='width' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='figure'>
+  <xs:annotation>
+   <xs:documentation>
+    A formal figure, generally an illustration, with a title
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence>
+     <xs:element ref='title'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:choice maxOccurs='unbounded'>
+     <xs:element ref='literallayout'/>
+     <xs:element ref='programlisting'/>
+     <xs:element ref='blockquote'/>
+     <xs:element ref='mediaobject'/>
+     <xs:element ref='informaltable'/>
+     <xs:element ref='link'/>
+     <xs:element ref='ulink'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='float' type='xs:string' default='0'/>
+   <xs:attribute name='pgwide' type='xs:string' use='optional'/>
+   <xs:attribute name='label' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='mediaobject'>
+  <xs:annotation>
+   <xs:documentation>
+    A displayed media object (video, audio, image, etc.)
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='objectinfo' minOccurs='0' maxOccurs='1'/>
+    <xs:choice>
+     <xs:element ref='videoobject'/>
+     <xs:element ref='audioobject'/>
+     <xs:element ref='imageobject'/>
+    </xs:choice>
+    <xs:choice minOccurs='0' maxOccurs='unbounded'>
+     <xs:element ref='videoobject'/>
+     <xs:element ref='audioobject'/>
+     <xs:element ref='imageobject'/>
+     <xs:element ref='textobject'/>
+    </xs:choice>
+    <xs:element ref='caption' minOccurs='0' maxOccurs='1'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='inlinemediaobject'>
+  <xs:annotation>
+   <xs:documentation>
+    An inline media object (video, audio, image, and so on)
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='objectinfo' minOccurs='0' maxOccurs='1'/>
+    <xs:choice>
+     <xs:element ref='videoobject'/>
+     <xs:element ref='audioobject'/>
+     <xs:element ref='imageobject'/>
+    </xs:choice>
+    <xs:choice minOccurs='0' maxOccurs='unbounded'>
+     <xs:element ref='videoobject'/>
+     <xs:element ref='audioobject'/>
+     <xs:element ref='imageobject'/>
+     <xs:element ref='textobject'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='videoobject'>
+  <xs:annotation>
+   <xs:documentation>
+    A wrapper for video data and its associated meta-information
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='objectinfo' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='videodata'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='audioobject'>
+  <xs:annotation>
+   <xs:documentation>
+    A wrapper for audio data and its associated meta-information
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='objectinfo' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='audiodata'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='imageobject'>
+  <xs:annotation>
+   <xs:documentation>
+    A wrapper for image data and its associated meta-information
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='objectinfo' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='imagedata'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='textobject'>
+  <xs:annotation>
+   <xs:documentation>
+    A wrapper for a text description of an object and its associated meta-information
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='objectinfo' minOccurs='0' maxOccurs='1'/>
+    <xs:choice>
+     <xs:element ref='phrase'/>
+     <xs:choice maxOccurs='unbounded'>
+      <xs:element ref='itemizedlist'/>
+      <xs:element ref='orderedlist'/>
+      <xs:element ref='variablelist'/>
+      <xs:element ref='note'/>
+      <xs:element ref='literallayout'/>
+      <xs:element ref='programlisting'/>
+      <xs:element ref='para'/>
+      <xs:element ref='blockquote'/>
+     </xs:choice>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='videodata'>
+  <xs:annotation>
+   <xs:documentation>
+    Pointer to external video data
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='entityref' type='xs:ENTITY' use='optional'/>
+   <xs:attribute name='fileref' type='xs:string' use='optional'/>
+   <xs:attribute name='format' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='BMP'/>
+      <xs:enumeration value='CGM-CHAR'/>
+      <xs:enumeration value='CGM-BINARY'/>
+      <xs:enumeration value='CGM-CLEAR'/>
+      <xs:enumeration value='DITROFF'/>
+      <xs:enumeration value='DVI'/>
+      <xs:enumeration value='EPS'/>
+      <xs:enumeration value='EQN'/>
+      <xs:enumeration value='FAX'/>
+      <xs:enumeration value='GIF'/>
+      <xs:enumeration value='GIF87a'/>
+      <xs:enumeration value='GIF89a'/>
+      <xs:enumeration value='JPG'/>
+      <xs:enumeration value='JPEG'/>
+      <xs:enumeration value='IGES'/>
+      <xs:enumeration value='PCX'/>
+      <xs:enumeration value='PIC'/>
+      <xs:enumeration value='PNG'/>
+      <xs:enumeration value='PS'/>
+      <xs:enumeration value='SGML'/>
+      <xs:enumeration value='TBL'/>
+      <xs:enumeration value='TEX'/>
+      <xs:enumeration value='TIFF'/>
+      <xs:enumeration value='WMF'/>
+      <xs:enumeration value='WPG'/>
+      <xs:enumeration value='linespecific'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='srccredit' type='xs:string' use='optional'/>
+   <xs:attribute name='width' type='xs:string' use='optional'/>
+   <xs:attribute name='depth' type='xs:string' use='optional'/>
+   <xs:attribute name='align' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='left'/>
+      <xs:enumeration value='right'/>
+      <xs:enumeration value='center'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='scale' type='xs:string' use='optional'/>
+   <xs:attribute name='scalefit' type='xs:string' use='optional'/>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='audiodata'>
+  <xs:annotation>
+   <xs:documentation>
+    Pointer to external audio data
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='entityref' type='xs:ENTITY' use='optional'/>
+   <xs:attribute name='fileref' type='xs:string' use='optional'/>
+   <xs:attribute name='format' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='BMP'/>
+      <xs:enumeration value='CGM-CHAR'/>
+      <xs:enumeration value='CGM-BINARY'/>
+      <xs:enumeration value='CGM-CLEAR'/>
+      <xs:enumeration value='DITROFF'/>
+      <xs:enumeration value='DVI'/>
+      <xs:enumeration value='EPS'/>
+      <xs:enumeration value='EQN'/>
+      <xs:enumeration value='FAX'/>
+      <xs:enumeration value='GIF'/>
+      <xs:enumeration value='GIF87a'/>
+      <xs:enumeration value='GIF89a'/>
+      <xs:enumeration value='JPG'/>
+      <xs:enumeration value='JPEG'/>
+      <xs:enumeration value='IGES'/>
+      <xs:enumeration value='PCX'/>
+      <xs:enumeration value='PIC'/>
+      <xs:enumeration value='PNG'/>
+      <xs:enumeration value='PS'/>
+      <xs:enumeration value='SGML'/>
+      <xs:enumeration value='TBL'/>
+      <xs:enumeration value='TEX'/>
+      <xs:enumeration value='TIFF'/>
+      <xs:enumeration value='WMF'/>
+      <xs:enumeration value='WPG'/>
+      <xs:enumeration value='linespecific'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='srccredit' type='xs:string' use='optional'/>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='imagedata'>
+  <xs:annotation>
+   <xs:documentation>
+    Pointer to external image data
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='entityref' type='xs:ENTITY' use='optional'/>
+   <xs:attribute name='fileref' type='xs:string' use='optional'/>
+   <xs:attribute name='format' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='BMP'/>
+      <xs:enumeration value='CGM-CHAR'/>
+      <xs:enumeration value='CGM-BINARY'/>
+      <xs:enumeration value='CGM-CLEAR'/>
+      <xs:enumeration value='DITROFF'/>
+      <xs:enumeration value='DVI'/>
+      <xs:enumeration value='EPS'/>
+      <xs:enumeration value='EQN'/>
+      <xs:enumeration value='FAX'/>
+      <xs:enumeration value='GIF'/>
+      <xs:enumeration value='GIF87a'/>
+      <xs:enumeration value='GIF89a'/>
+      <xs:enumeration value='JPG'/>
+      <xs:enumeration value='JPEG'/>
+      <xs:enumeration value='IGES'/>
+      <xs:enumeration value='PCX'/>
+      <xs:enumeration value='PIC'/>
+      <xs:enumeration value='PNG'/>
+      <xs:enumeration value='PS'/>
+      <xs:enumeration value='SGML'/>
+      <xs:enumeration value='TBL'/>
+      <xs:enumeration value='TEX'/>
+      <xs:enumeration value='TIFF'/>
+      <xs:enumeration value='WMF'/>
+      <xs:enumeration value='WPG'/>
+      <xs:enumeration value='linespecific'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='srccredit' type='xs:string' use='optional'/>
+   <xs:attribute name='width' type='xs:string' use='optional'/>
+   <xs:attribute name='depth' type='xs:string' use='optional'/>
+   <xs:attribute name='align' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='left'/>
+      <xs:enumeration value='right'/>
+      <xs:enumeration value='center'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='scale' type='xs:string' use='optional'/>
+   <xs:attribute name='scalefit' type='xs:string' use='optional'/>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='caption'>
+  <xs:annotation>
+   <xs:documentation>
+    A caption
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='itemizedlist'/>
+    <xs:element ref='orderedlist'/>
+    <xs:element ref='variablelist'/>
+    <xs:element ref='note'/>
+    <xs:element ref='literallayout'/>
+    <xs:element ref='programlisting'/>
+    <xs:element ref='para'/>
+    <xs:element ref='blockquote'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='table'>
+  <xs:annotation>
+   <xs:documentation>
+    A formal table in a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='title'/>
+    <xs:choice>
+     <xs:element ref='mediaobject' maxOccurs='unbounded'/>
+     <xs:element ref='tgroup' maxOccurs='unbounded'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='frame' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='top'/>
+      <xs:enumeration value='bottom'/>
+      <xs:enumeration value='topbot'/>
+      <xs:enumeration value='all'/>
+      <xs:enumeration value='sides'/>
+      <xs:enumeration value='none'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='colsep' type='xs:string' use='optional'/>
+   <xs:attribute name='rowsep' type='xs:string' use='optional'/>
+   <xs:attribute name='tabstyle' type='xs:string' use='optional'/>
+   <xs:attribute name='tocentry' type='xs:string' use='optional'/>
+   <xs:attribute name='shortentry' type='xs:string' use='optional'/>
+   <xs:attribute name='orient' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='port'/>
+      <xs:enumeration value='land'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='pgwide' type='xs:string' use='optional'/>
+   <xs:attribute name='label' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='tgroup'>
+  <xs:annotation>
+   <xs:documentation>
+    A wrapper for the main content of a table, or part of a table
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='colspec' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element ref='spanspec' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element ref='thead' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='tfoot' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='tbody'/>
+   </xs:sequence>
+   <xs:attribute name='cols' type='xs:string' use='required'/>
+   <xs:attribute name='tgroupstyle' type='xs:string' use='optional'/>
+   <xs:attribute name='colsep' type='xs:string' use='optional'/>
+   <xs:attribute name='rowsep' type='xs:string' use='optional'/>
+   <xs:attribute name='align' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='left'/>
+      <xs:enumeration value='right'/>
+      <xs:enumeration value='center'/>
+      <xs:enumeration value='justify'/>
+      <xs:enumeration value='char'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='char' type='xs:string' use='optional'/>
+   <xs:attribute name='charoff' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='colspec'>
+  <xs:annotation>
+   <xs:documentation>
+    Specifications for a column in a table
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:attribute name='colnum' type='xs:string' use='optional'/>
+   <xs:attribute name='colname' type='xs:string' use='optional'/>
+   <xs:attribute name='colwidth' type='xs:string' use='optional'/>
+   <xs:attribute name='colsep' type='xs:string' use='optional'/>
+   <xs:attribute name='rowsep' type='xs:string' use='optional'/>
+   <xs:attribute name='align' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='left'/>
+      <xs:enumeration value='right'/>
+      <xs:enumeration value='center'/>
+      <xs:enumeration value='justify'/>
+      <xs:enumeration value='char'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='char' type='xs:string' use='optional'/>
+   <xs:attribute name='charoff' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='spanspec'>
+  <xs:annotation>
+   <xs:documentation>
+    Formatting information for a spanned column in a table
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:attribute name='namest' type='xs:string' use='required'/>
+   <xs:attribute name='nameend' type='xs:string' use='required'/>
+   <xs:attribute name='spanname' type='xs:string' use='required'/>
+   <xs:attribute name='colsep' type='xs:string' use='optional'/>
+   <xs:attribute name='rowsep' type='xs:string' use='optional'/>
+   <xs:attribute name='align' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='left'/>
+      <xs:enumeration value='right'/>
+      <xs:enumeration value='center'/>
+      <xs:enumeration value='justify'/>
+      <xs:enumeration value='char'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='char' type='xs:string' use='optional'/>
+   <xs:attribute name='charoff' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='thead'>
+  <xs:annotation>
+   <xs:documentation>
+    A table header consisting of one or more rows
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='colspec' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element ref='row' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='valign' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='top'/>
+      <xs:enumeration value='middle'/>
+      <xs:enumeration value='bottom'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='tfoot'>
+  <xs:annotation>
+   <xs:documentation>
+    A table footer consisting of one or more rows
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='colspec' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element ref='row' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='valign' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='top'/>
+      <xs:enumeration value='middle'/>
+      <xs:enumeration value='bottom'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='tbody'>
+  <xs:annotation>
+   <xs:documentation>
+    A wrapper for the rows of a table or informal table
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='row' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='valign' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='top'/>
+      <xs:enumeration value='middle'/>
+      <xs:enumeration value='bottom'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='row'>
+  <xs:annotation>
+   <xs:documentation>
+    A row in a table
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='entry'/>
+    <xs:element ref='entrytbl'/>
+   </xs:choice>
+   <xs:attribute name='rowsep' type='xs:string' use='optional'/>
+   <xs:attribute name='valign' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='top'/>
+      <xs:enumeration value='middle'/>
+      <xs:enumeration value='bottom'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='entrytbl'>
+  <xs:annotation>
+   <xs:documentation>
+    A subtable appearing in place of an Entry in a table
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='colspec' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element ref='spanspec' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:element ref='thead' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='tbody'/>
+   </xs:sequence>
+   <xs:attribute name='cols' type='xs:string' use='required'/>
+   <xs:attribute name='tgroupstyle' type='xs:string' use='optional'/>
+   <xs:attribute name='colname' type='xs:string' use='optional'/>
+   <xs:attribute name='spanname' type='xs:string' use='optional'/>
+   <xs:attribute name='namest' type='xs:string' use='optional'/>
+   <xs:attribute name='nameend' type='xs:string' use='optional'/>
+   <xs:attribute name='colsep' type='xs:string' use='optional'/>
+   <xs:attribute name='rowsep' type='xs:string' use='optional'/>
+   <xs:attribute name='align' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='left'/>
+      <xs:enumeration value='right'/>
+      <xs:enumeration value='center'/>
+      <xs:enumeration value='justify'/>
+      <xs:enumeration value='char'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='char' type='xs:string' use='optional'/>
+   <xs:attribute name='charoff' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='entry'>
+  <xs:annotation>
+   <xs:documentation>
+    A cell in a table
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+    <xs:element ref='itemizedlist'/>
+    <xs:element ref='orderedlist'/>
+    <xs:element ref='variablelist'/>
+    <xs:element ref='note'/>
+    <xs:element ref='literallayout'/>
+    <xs:element ref='programlisting'/>
+    <xs:element ref='para'/>
+    <xs:element ref='mediaobject'/>
+   </xs:choice>
+   <xs:attribute name='colname' type='xs:string' use='optional'/>
+   <xs:attribute name='namest' type='xs:string' use='optional'/>
+   <xs:attribute name='nameend' type='xs:string' use='optional'/>
+   <xs:attribute name='spanname' type='xs:string' use='optional'/>
+   <xs:attribute name='morerows' type='xs:string' use='optional'/>
+   <xs:attribute name='colsep' type='xs:string' use='optional'/>
+   <xs:attribute name='rowsep' type='xs:string' use='optional'/>
+   <xs:attribute name='align' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='left'/>
+      <xs:enumeration value='right'/>
+      <xs:enumeration value='center'/>
+      <xs:enumeration value='justify'/>
+      <xs:enumeration value='char'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='char' type='xs:string' use='optional'/>
+   <xs:attribute name='charoff' type='xs:string' use='optional'/>
+   <xs:attribute name='rotate' type='xs:string' use='optional'/>
+   <xs:attribute name='valign' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='top'/>
+      <xs:enumeration value='middle'/>
+      <xs:enumeration value='bottom'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='jobtitle'>
+  <xs:annotation>
+   <xs:documentation>
+    The title of an individual in an organization
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='author'>
+  <xs:annotation>
+   <xs:documentation>
+    The name of an individual author
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='honorific'/>
+    <xs:element ref='firstname'/>
+    <xs:element ref='surname'/>
+    <xs:element ref='lineage'/>
+    <xs:element ref='othername'/>
+    <xs:element ref='affiliation'/>
+    <xs:element ref='authorblurb'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='authorinitials'>
+  <xs:annotation>
+   <xs:documentation>
+    The initials or other short identifier for an author
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='copyright'>
+  <xs:annotation>
+   <xs:documentation>
+    Copyright information about a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='year' maxOccurs='unbounded'/>
+    <xs:element ref='holder' minOccurs='0' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='year'>
+  <xs:annotation>
+   <xs:documentation>
+    The year of publication of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='holder'>
+  <xs:annotation>
+   <xs:documentation>
+    The name of the individual or organization that holds a copyright
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='corpauthor'>
+  <xs:annotation>
+   <xs:documentation>
+    A corporate author, as opposed to an individual
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='date'>
+  <xs:annotation>
+   <xs:documentation>
+    The date of publication or revision of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='edition'>
+  <xs:annotation>
+   <xs:documentation>
+    The name or number of an edition of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='editor'>
+  <xs:annotation>
+   <xs:documentation>
+    The name of the editor of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='honorific'/>
+    <xs:element ref='firstname'/>
+    <xs:element ref='surname'/>
+    <xs:element ref='lineage'/>
+    <xs:element ref='othername'/>
+    <xs:element ref='affiliation'/>
+    <xs:element ref='authorblurb'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='issuenum'>
+  <xs:annotation>
+   <xs:documentation>
+    The number of an issue of a journal
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='legalnotice'>
+  <xs:annotation>
+   <xs:documentation>
+    A statement of legal obligations or requirements
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='title' minOccurs='0' maxOccurs='1'/>
+    <xs:choice maxOccurs='unbounded'>
+     <xs:element ref='itemizedlist'/>
+     <xs:element ref='orderedlist'/>
+     <xs:element ref='variablelist'/>
+     <xs:element ref='note'/>
+     <xs:element ref='literallayout'/>
+     <xs:element ref='programlisting'/>
+     <xs:element ref='para'/>
+     <xs:element ref='blockquote'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='orgname'>
+  <xs:annotation>
+   <xs:documentation>
+    The name of an organization other than a corporation
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='othercredit'>
+  <xs:annotation>
+   <xs:documentation>
+    A person or entity, other than an author or editor, credited in a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='honorific'/>
+    <xs:element ref='firstname'/>
+    <xs:element ref='surname'/>
+    <xs:element ref='lineage'/>
+    <xs:element ref='othername'/>
+    <xs:element ref='affiliation'/>
+    <xs:element ref='authorblurb'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='firstname'>
+  <xs:annotation>
+   <xs:documentation>
+    The first name of a person
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='honorific'>
+  <xs:annotation>
+   <xs:documentation>
+    The title of a person
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='lineage'>
+  <xs:annotation>
+   <xs:documentation>
+    The portion of a person's name indicating a relationship to ancestors
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='othername'>
+  <xs:annotation>
+   <xs:documentation>
+    A component of a persons name that is not a first name, surname, or lineage
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='surname'>
+  <xs:annotation>
+   <xs:documentation>
+    A family name; in western cultures the last name
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='pubdate'>
+  <xs:annotation>
+   <xs:documentation>
+    The date of publication of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='publishername'>
+  <xs:annotation>
+   <xs:documentation>
+    The name of the publisher of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='releaseinfo'>
+  <xs:annotation>
+   <xs:documentation>
+    Information about a particular release of a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='revhistory'>
+  <xs:annotation>
+   <xs:documentation>
+    A history of the revisions to a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='revision' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='revision'>
+  <xs:annotation>
+   <xs:documentation>
+    An entry describing a single revision in the history of the revisions to a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='revnumber'/>
+    <xs:element ref='date'/>
+    <xs:element ref='authorinitials' minOccurs='0' maxOccurs='unbounded'/>
+    <xs:choice minOccurs='0' maxOccurs='1'>
+     <xs:element ref='revremark'/>
+     <xs:element ref='revdescription'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='revnumber'>
+  <xs:annotation>
+   <xs:documentation>
+    A document revision number
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='revremark'>
+  <xs:annotation>
+   <xs:documentation>
+    A description of a revision to a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='revdescription'>
+  <xs:annotation>
+   <xs:documentation>
+    A extended description of a revision to a document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='itemizedlist'/>
+    <xs:element ref='orderedlist'/>
+    <xs:element ref='variablelist'/>
+    <xs:element ref='note'/>
+    <xs:element ref='literallayout'/>
+    <xs:element ref='programlisting'/>
+    <xs:element ref='para'/>
+    <xs:element ref='blockquote'/>
+    <xs:element ref='mediaobject'/>
+    <xs:element ref='informaltable'/>
+    <xs:element ref='example'/>
+    <xs:element ref='figure'/>
+    <xs:element ref='table'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='volumenum'>
+  <xs:annotation>
+   <xs:documentation>
+    The volume number of a document in a set (as of books in a set or articles in a journal)
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='command'>
+  <xs:annotation>
+   <xs:documentation>
+    The name of an executable program or other software command
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='moreinfo' default='none'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='refentry'/>
+      <xs:enumeration value='none'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='computeroutput'>
+  <xs:annotation>
+   <xs:documentation>
+    Data, generally text, displayed or presented by a computer
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='moreinfo' default='none'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='refentry'/>
+      <xs:enumeration value='none'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='email'>
+  <xs:annotation>
+   <xs:documentation>
+    An email address
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='filename'>
+  <xs:annotation>
+   <xs:documentation>
+    The name of a file
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='class' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='headerfile'/>
+      <xs:enumeration value='devicefile'/>
+      <xs:enumeration value='libraryfile'/>
+      <xs:enumeration value='directory'/>
+      <xs:enumeration value='symlink'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='path' type='xs:string' use='optional'/>
+   <xs:attribute name='moreinfo' default='none'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='refentry'/>
+      <xs:enumeration value='none'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='lineannotation'>
+  <xs:annotation>
+   <xs:documentation>
+    A comment on a line in a verbatim listing
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='literal'>
+  <xs:annotation>
+   <xs:documentation>
+    Inline text that is some literal value
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='moreinfo' default='none'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='refentry'/>
+      <xs:enumeration value='none'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='option'>
+  <xs:annotation>
+   <xs:documentation>
+    An option for a software command
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='systemitem'>
+  <xs:annotation>
+   <xs:documentation>
+    A system-related item or term
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='inlinemediaobject'/>
+    <xs:element ref='acronym'/>
+   </xs:choice>
+   <xs:attribute name='class' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='constant'/>
+      <xs:enumeration value='groupname'/>
+      <xs:enumeration value='library'/>
+      <xs:enumeration value='macro'/>
+      <xs:enumeration value='osname'/>
+      <xs:enumeration value='resource'/>
+      <xs:enumeration value='systemname'/>
+      <xs:enumeration value='username'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='moreinfo' default='none'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='refentry'/>
+      <xs:enumeration value='none'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='userinput'>
+  <xs:annotation>
+   <xs:documentation>
+    Data entered by the user
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='moreinfo' default='none'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='refentry'/>
+      <xs:enumeration value='none'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='abbrev'>
+  <xs:annotation>
+   <xs:documentation>
+    An abbreviation, especially one followed by a period
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='acronym'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='acronym'>
+  <xs:annotation>
+   <xs:documentation>
+    An often pronounceable word made from the initial (or selected) letters of a name or phrase
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='acronym'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='citetitle'>
+  <xs:annotation>
+   <xs:documentation>
+    The title of a cited work
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='pubwork' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='article'/>
+      <xs:enumeration value='book'/>
+      <xs:enumeration value='chapter'/>
+      <xs:enumeration value='part'/>
+      <xs:enumeration value='refentry'/>
+      <xs:enumeration value='section'/>
+      <xs:enumeration value='journal'/>
+      <xs:enumeration value='series'/>
+      <xs:enumeration value='set'/>
+      <xs:enumeration value='manuscript'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='emphasis'>
+  <xs:annotation>
+   <xs:documentation>
+    Emphasized text
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='phrase'>
+  <xs:annotation>
+   <xs:documentation>
+    A span of text
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='quote'>
+  <xs:annotation>
+   <xs:documentation>
+    An inline quotation
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='link'>
+  <xs:annotation>
+   <xs:documentation>
+    A hypertext link
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='endterm' type='xs:IDREF' use='optional'/>
+   <xs:attribute name='linkend' type='xs:IDREF' use='required'/>
+   <xs:attribute name='type' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='ulink'>
+  <xs:annotation>
+   <xs:documentation>
+    A link that addresses its target by means of a URL (Uniform Resource Locator)
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='url' type='xs:string' use='required'/>
+   <xs:attribute name='type' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='footnoteref'>
+  <xs:annotation>
+   <xs:documentation>
+    A cross reference to a footnote (a footnote mark)
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:attribute name='linkend' type='xs:IDREF' use='required'/>
+   <xs:attribute name='label' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='xref'>
+  <xs:annotation>
+   <xs:documentation>
+    A cross reference to another part of the document
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:attribute name='endterm' type='xs:IDREF' use='optional'/>
+   <xs:attribute name='linkend' type='xs:IDREF' use='required'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='objectinfo'>
+  <xs:annotation>
+   <xs:documentation>
+    Meta-information for an object
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='mediaobject'/>
+    <xs:element ref='legalnotice'/>
+    <xs:element ref='keywordset'/>
+    <xs:element ref='subjectset'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='abstract'/>
+    <xs:element ref='author'/>
+    <xs:element ref='authorgroup'/>
+    <xs:element ref='bibliomisc'/>
+    <xs:element ref='copyright'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='date'/>
+    <xs:element ref='edition'/>
+    <xs:element ref='editor'/>
+    <xs:element ref='issuenum'/>
+    <xs:element ref='othercredit'/>
+    <xs:element ref='pubdate'/>
+    <xs:element ref='publishername'/>
+    <xs:element ref='releaseinfo'/>
+    <xs:element ref='revhistory'/>
+    <xs:element ref='subtitle'/>
+    <xs:element ref='title'/>
+    <xs:element ref='titleabbrev'/>
+    <xs:element ref='volumenum'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='honorific'/>
+    <xs:element ref='firstname'/>
+    <xs:element ref='surname'/>
+    <xs:element ref='lineage'/>
+    <xs:element ref='othername'/>
+    <xs:element ref='affiliation'/>
+    <xs:element ref='authorblurb'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='section'>
+  <xs:annotation>
+   <xs:documentation>
+    A recursive section
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='sectioninfo' minOccurs='0' maxOccurs='1'/>
+    <xs:sequence>
+     <xs:element ref='title'/>
+     <xs:element ref='subtitle' minOccurs='0' maxOccurs='1'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:choice>
+     <xs:sequence>
+      <xs:choice maxOccurs='unbounded'>
+       <xs:element ref='itemizedlist'/>
+       <xs:element ref='orderedlist'/>
+       <xs:element ref='variablelist'/>
+       <xs:element ref='note'/>
+       <xs:element ref='literallayout'/>
+       <xs:element ref='programlisting'/>
+       <xs:element ref='para'/>
+       <xs:element ref='blockquote'/>
+       <xs:element ref='mediaobject'/>
+       <xs:element ref='informaltable'/>
+       <xs:element ref='example'/>
+       <xs:element ref='figure'/>
+       <xs:element ref='table'/>
+       <xs:element ref='sidebar'/>
+       <xs:element ref='abstract'/>
+       <xs:element ref='authorblurb'/>
+       <xs:element ref='epigraph'/>
+      </xs:choice>
+      <xs:element ref='section' minOccurs='0' maxOccurs='unbounded'/>
+     </xs:sequence>
+     <xs:element ref='section' maxOccurs='unbounded'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='label' type='xs:string' use='optional'/>
+   <xs:attribute name='status' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='sectioninfo'>
+  <xs:annotation>
+   <xs:documentation>
+    Meta-information for a recursive section
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='mediaobject'/>
+    <xs:element ref='legalnotice'/>
+    <xs:element ref='keywordset'/>
+    <xs:element ref='subjectset'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='abstract'/>
+    <xs:element ref='author'/>
+    <xs:element ref='authorgroup'/>
+    <xs:element ref='bibliomisc'/>
+    <xs:element ref='copyright'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='date'/>
+    <xs:element ref='edition'/>
+    <xs:element ref='editor'/>
+    <xs:element ref='issuenum'/>
+    <xs:element ref='othercredit'/>
+    <xs:element ref='pubdate'/>
+    <xs:element ref='publishername'/>
+    <xs:element ref='releaseinfo'/>
+    <xs:element ref='revhistory'/>
+    <xs:element ref='subtitle'/>
+    <xs:element ref='title'/>
+    <xs:element ref='titleabbrev'/>
+    <xs:element ref='volumenum'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='honorific'/>
+    <xs:element ref='firstname'/>
+    <xs:element ref='surname'/>
+    <xs:element ref='lineage'/>
+    <xs:element ref='othername'/>
+    <xs:element ref='affiliation'/>
+    <xs:element ref='authorblurb'/>
+   </xs:choice>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='authorgroup'>
+  <xs:annotation>
+   <xs:documentation>
+    Wrapper for author information when a document has multiple authors or collaborators
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='author'/>
+    <xs:element ref='editor'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='othercredit'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='affiliation'>
+  <xs:annotation>
+   <xs:documentation>
+    The institutional affiliation of an individual
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='jobtitle' minOccurs='0' maxOccurs='1'/>
+    <xs:element ref='orgname' minOccurs='0' maxOccurs='1'/>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='para'>
+  <xs:annotation>
+   <xs:documentation>
+    A paragraph
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='informaltable'>
+  <xs:annotation>
+   <xs:documentation>
+    A table without a title
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice>
+    <xs:element ref='mediaobject' maxOccurs='unbounded'/>
+    <xs:element ref='tgroup' maxOccurs='unbounded'/>
+   </xs:choice>
+   <xs:attribute name='frame' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='top'/>
+      <xs:enumeration value='bottom'/>
+      <xs:enumeration value='topbot'/>
+      <xs:enumeration value='all'/>
+      <xs:enumeration value='sides'/>
+      <xs:enumeration value='none'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='colsep' type='xs:string' use='optional'/>
+   <xs:attribute name='rowsep' type='xs:string' use='optional'/>
+   <xs:attribute name='label' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+   <xs:attribute name='tabstyle' type='xs:string' use='optional'/>
+   <xs:attribute name='tocentry' type='xs:string' use='optional'/>
+   <xs:attribute name='shortentry' type='xs:string' use='optional'/>
+   <xs:attribute name='orient' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='port'/>
+      <xs:enumeration value='land'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='pgwide' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='replaceable'>
+  <xs:annotation>
+   <xs:documentation>
+    Content that may or must be replaced by the user
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='inlinemediaobject'/>
+   </xs:choice>
+   <xs:attribute name='class' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='command'/>
+      <xs:enumeration value='function'/>
+      <xs:enumeration value='option'/>
+      <xs:enumeration value='parameter'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='trademark'>
+  <xs:annotation>
+   <xs:documentation>
+    A trademark
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+    <xs:element ref='emphasis'/>
+   </xs:choice>
+   <xs:attribute name='class' default='trade'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='service'/>
+      <xs:enumeration value='trade'/>
+      <xs:enumeration value='registered'/>
+      <xs:enumeration value='copyright'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='article'>
+  <xs:annotation>
+   <xs:documentation>
+    An article
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence minOccurs='0' maxOccurs='1'>
+     <xs:element ref='title'/>
+     <xs:element ref='subtitle' minOccurs='0' maxOccurs='1'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:element ref='articleinfo' minOccurs='0' maxOccurs='1'/>
+    <xs:choice>
+     <xs:sequence>
+      <xs:choice maxOccurs='unbounded'>
+       <xs:element ref='itemizedlist'/>
+       <xs:element ref='orderedlist'/>
+       <xs:element ref='variablelist'/>
+       <xs:element ref='note'/>
+       <xs:element ref='literallayout'/>
+       <xs:element ref='programlisting'/>
+       <xs:element ref='para'/>
+       <xs:element ref='blockquote'/>
+       <xs:element ref='mediaobject'/>
+       <xs:element ref='informaltable'/>
+       <xs:element ref='example'/>
+       <xs:element ref='figure'/>
+       <xs:element ref='table'/>
+       <xs:element ref='sidebar'/>
+       <xs:element ref='abstract'/>
+       <xs:element ref='authorblurb'/>
+       <xs:element ref='epigraph'/>
+      </xs:choice>
+      <xs:element ref='section' minOccurs='0' maxOccurs='unbounded'/>
+     </xs:sequence>
+     <xs:element ref='section' maxOccurs='unbounded'/>
+    </xs:choice>
+    <xs:choice minOccurs='0' maxOccurs='unbounded'>
+     <xs:sequence>
+      <xs:element ref='appendix'/>
+     </xs:sequence>
+     <xs:element ref='bibliography'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='class' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='journalarticle'/>
+      <xs:enumeration value='productsheet'/>
+      <xs:enumeration value='whitepaper'/>
+      <xs:enumeration value='techreport'/>
+      <xs:enumeration value='specification'/>
+      <xs:enumeration value='faq'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='parentbook' type='xs:IDREF' use='optional'/>
+   <xs:attribute name='status' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='articleinfo'>
+  <xs:annotation>
+   <xs:documentation>
+    Meta-information for an Article
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:choice maxOccurs='unbounded'>
+    <xs:element ref='mediaobject'/>
+    <xs:element ref='legalnotice'/>
+    <xs:element ref='subjectset'/>
+    <xs:element ref='keywordset'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='abstract'/>
+    <xs:element ref='author'/>
+    <xs:element ref='authorgroup'/>
+    <xs:element ref='bibliomisc'/>
+    <xs:element ref='copyright'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='date'/>
+    <xs:element ref='edition'/>
+    <xs:element ref='editor'/>
+    <xs:element ref='issuenum'/>
+    <xs:element ref='othercredit'/>
+    <xs:element ref='pubdate'/>
+    <xs:element ref='publishername'/>
+    <xs:element ref='releaseinfo'/>
+    <xs:element ref='revhistory'/>
+    <xs:element ref='subtitle'/>
+    <xs:element ref='title'/>
+    <xs:element ref='titleabbrev'/>
+    <xs:element ref='volumenum'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='honorific'/>
+    <xs:element ref='firstname'/>
+    <xs:element ref='surname'/>
+    <xs:element ref='lineage'/>
+    <xs:element ref='othername'/>
+    <xs:element ref='affiliation'/>
+    <xs:element ref='authorblurb'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='appendix'>
+  <xs:annotation>
+   <xs:documentation>
+    An appendix in a Book or Article
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence>
+     <xs:element ref='title'/>
+     <xs:element ref='subtitle' minOccurs='0' maxOccurs='1'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:choice>
+     <xs:sequence>
+      <xs:choice maxOccurs='unbounded'>
+       <xs:element ref='itemizedlist'/>
+       <xs:element ref='orderedlist'/>
+       <xs:element ref='variablelist'/>
+       <xs:element ref='note'/>
+       <xs:element ref='literallayout'/>
+       <xs:element ref='programlisting'/>
+       <xs:element ref='para'/>
+       <xs:element ref='blockquote'/>
+       <xs:element ref='mediaobject'/>
+       <xs:element ref='informaltable'/>
+       <xs:element ref='example'/>
+       <xs:element ref='figure'/>
+       <xs:element ref='table'/>
+       <xs:element ref='sidebar'/>
+       <xs:element ref='abstract'/>
+       <xs:element ref='authorblurb'/>
+       <xs:element ref='epigraph'/>
+      </xs:choice>
+      <xs:element ref='section' minOccurs='0' maxOccurs='unbounded'/>
+     </xs:sequence>
+     <xs:element ref='section' maxOccurs='unbounded'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='label' type='xs:string' use='optional'/>
+   <xs:attribute name='status' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='bibliography'>
+  <xs:annotation>
+   <xs:documentation>
+    A bibliography
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence minOccurs='0' maxOccurs='1'>
+     <xs:element ref='title'/>
+     <xs:element ref='subtitle' minOccurs='0' maxOccurs='1'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:choice minOccurs='0' maxOccurs='unbounded'>
+     <xs:element ref='itemizedlist'/>
+     <xs:element ref='orderedlist'/>
+     <xs:element ref='variablelist'/>
+     <xs:element ref='note'/>
+     <xs:element ref='literallayout'/>
+     <xs:element ref='programlisting'/>
+     <xs:element ref='para'/>
+     <xs:element ref='blockquote'/>
+     <xs:element ref='mediaobject'/>
+     <xs:element ref='informaltable'/>
+     <xs:element ref='example'/>
+     <xs:element ref='figure'/>
+     <xs:element ref='table'/>
+     <xs:element ref='sidebar'/>
+     <xs:element ref='abstract'/>
+     <xs:element ref='authorblurb'/>
+     <xs:element ref='epigraph'/>
+    </xs:choice>
+    <xs:choice>
+     <xs:element ref='bibliodiv' maxOccurs='unbounded'/>
+     <xs:element ref='bibliomixed' maxOccurs='unbounded'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='status' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='bibliomixed'>
+  <xs:annotation>
+   <xs:documentation>
+    An entry in a Bibliography
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='abstract'/>
+    <xs:element ref='author'/>
+    <xs:element ref='authorgroup'/>
+    <xs:element ref='bibliomisc'/>
+    <xs:element ref='copyright'/>
+    <xs:element ref='corpauthor'/>
+    <xs:element ref='date'/>
+    <xs:element ref='edition'/>
+    <xs:element ref='editor'/>
+    <xs:element ref='issuenum'/>
+    <xs:element ref='othercredit'/>
+    <xs:element ref='pubdate'/>
+    <xs:element ref='publishername'/>
+    <xs:element ref='releaseinfo'/>
+    <xs:element ref='revhistory'/>
+    <xs:element ref='subtitle'/>
+    <xs:element ref='title'/>
+    <xs:element ref='titleabbrev'/>
+    <xs:element ref='volumenum'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='honorific'/>
+    <xs:element ref='firstname'/>
+    <xs:element ref='surname'/>
+    <xs:element ref='lineage'/>
+    <xs:element ref='othername'/>
+    <xs:element ref='affiliation'/>
+    <xs:element ref='authorblurb'/>
+    <xs:element ref='bibliomset'/>
+   </xs:choice>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='bibliodiv'>
+  <xs:annotation>
+   <xs:documentation>
+    A section of a Bibliography
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence minOccurs='0' maxOccurs='1'>
+     <xs:element ref='title'/>
+     <xs:element ref='subtitle' minOccurs='0' maxOccurs='1'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:choice minOccurs='0' maxOccurs='unbounded'>
+     <xs:element ref='itemizedlist'/>
+     <xs:element ref='orderedlist'/>
+     <xs:element ref='variablelist'/>
+     <xs:element ref='note'/>
+     <xs:element ref='literallayout'/>
+     <xs:element ref='programlisting'/>
+     <xs:element ref='para'/>
+     <xs:element ref='blockquote'/>
+     <xs:element ref='mediaobject'/>
+     <xs:element ref='informaltable'/>
+     <xs:element ref='example'/>
+     <xs:element ref='figure'/>
+     <xs:element ref='table'/>
+     <xs:element ref='sidebar'/>
+     <xs:element ref='abstract'/>
+     <xs:element ref='authorblurb'/>
+     <xs:element ref='epigraph'/>
+    </xs:choice>
+    <xs:sequence maxOccurs='unbounded'>
+     <xs:element ref='bibliomixed'/>
+    </xs:sequence>
+   </xs:sequence>
+   <xs:attribute name='status' type='xs:string' use='optional'/>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='sidebar'>
+  <xs:annotation>
+   <xs:documentation>
+    A portion of a document that is isolated from the main narrative flow
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:sequence minOccurs='0' maxOccurs='1'>
+     <xs:element ref='title'/>
+     <xs:element ref='titleabbrev' minOccurs='0' maxOccurs='1'/>
+    </xs:sequence>
+    <xs:choice maxOccurs='unbounded'>
+     <xs:element ref='itemizedlist'/>
+     <xs:element ref='orderedlist'/>
+     <xs:element ref='variablelist'/>
+     <xs:element ref='note'/>
+     <xs:element ref='literallayout'/>
+     <xs:element ref='programlisting'/>
+     <xs:element ref='para'/>
+     <xs:element ref='blockquote'/>
+     <xs:element ref='mediaobject'/>
+     <xs:element ref='informaltable'/>
+     <xs:element ref='example'/>
+     <xs:element ref='figure'/>
+     <xs:element ref='table'/>
+    </xs:choice>
+   </xs:sequence>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='programlisting'>
+  <xs:annotation>
+   <xs:documentation>
+    A literal listing of all or part of a program
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+    <xs:element ref='lineannotation'/>
+   </xs:choice>
+   <xs:attribute name='width' type='xs:string' use='optional'/>
+   <xs:attribute name='format' type='xs:normalizedString' default='linespecific'/>
+   <xs:attribute name='linenumbering' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='numbered'/>
+      <xs:enumeration value='unnumbered'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='literallayout'>
+  <xs:annotation>
+   <xs:documentation>
+    A block of text in which line breaks and white space are to be reproduced faithfully
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed='true'>
+   <xs:choice minOccurs='0' maxOccurs='unbounded'>
+    <xs:element ref='footnoteref'/>
+    <xs:element ref='xref'/>
+    <xs:element ref='abbrev'/>
+    <xs:element ref='acronym'/>
+    <xs:element ref='citetitle'/>
+    <xs:element ref='emphasis'/>
+    <xs:element ref='footnote'/>
+    <xs:element ref='phrase'/>
+    <xs:element ref='quote'/>
+    <xs:element ref='trademark'/>
+    <xs:element ref='link'/>
+    <xs:element ref='ulink'/>
+    <xs:element ref='command'/>
+    <xs:element ref='computeroutput'/>
+    <xs:element ref='email'/>
+    <xs:element ref='filename'/>
+    <xs:element ref='literal'/>
+    <xs:element ref='option'/>
+    <xs:element ref='replaceable'/>
+    <xs:element ref='systemitem'/>
+    <xs:element ref='userinput'/>
+    <xs:element ref='inlinemediaobject'/>
+    <xs:element ref='lineannotation'/>
+   </xs:choice>
+   <xs:attribute name='width' type='xs:string' use='optional'/>
+   <xs:attribute name='format' type='xs:normalizedString' default='linespecific'/>
+   <xs:attribute name='linenumbering' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='numbered'/>
+      <xs:enumeration value='unnumbered'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='class' default='normal'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='monospaced'/>
+      <xs:enumeration value='normal'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='id' type='xs:ID' use='optional'/>
+   <xs:attribute name='lang' type='xs:string' use='optional'/>
+   <xs:attribute name='revisionflag' use='optional'>
+    <xs:simpleType>
+     <xs:restriction base='xs:string'>
+      <xs:enumeration value='changed'/>
+      <xs:enumeration value='added'/>
+      <xs:enumeration value='deleted'/>
+      <xs:enumeration value='off'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+   <xs:attribute name='role' type='xs:string' use='optional'/>
+  </xs:complexType>
+ </xs:element>
+</xs:schema>

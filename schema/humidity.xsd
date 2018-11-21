@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/xsd/" targetNamespace="http://www.example.org/xsd/">
+  <topic xmlns="" name="all:Test:humidity" type="tns:ComplexType"/>
+
+  <values xmlns="" name="hum1">
+    <hum type="int">10</hum>
+    <credibility type="double">0.5</credibility>   
+</values>
+ </schema>

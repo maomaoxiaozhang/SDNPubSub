@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/xsd/" targetNamespace="http://www.example.org/xsd/">
+  <topic xmlns="" name="all:Test:ps1" type="tns:ComplexType"/>
+
+  <values xmlns="" name="http://www.test.org/Class/Individual/ps1">
+    <e1 type="int"/>
+    <e2 type="int"/>   
+   <e3 type="int"/>
+    <e4 type="int"/>   
+</values>
+ 
+
+
+</schema>

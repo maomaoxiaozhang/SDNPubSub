@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><CONFIG_JAXE>
+<LANGAGE>
+<FICHIER_SCHEMA nom="dita/schema/technicalContent/xsd/map.xsd"/>
+<RACINE element="map"/>
+</LANGAGE>
+
+<ENREGISTREMENT>
+<DOCTYPE publicId="-//OASIS//DTD DITA Map//EN" systemId="map.dtd"/>
+</ENREGISTREMENT>
+
+<MENUS>
+<MENU nom="Map">
+<MENU_INSERTION nom="map"/>
+<MENU_INSERTION nom="anchor"/>
+<MENU_INSERTION nom="navref"/>
+<MENU_INSERTION nom="reltable"/>
+<MENU_INSERTION nom="relrow"/>
+<MENU_INSERTION nom="relcell"/>
+<MENU_INSERTION nom="relheader"/>
+<MENU_INSERTION nom="relcolspec"/>
+<MENU_INSERTION nom="topicmeta"/>
+<MENU_INSERTION nom="topicref"/>
+<MENU_INSERTION nom="keydef"/>
+<MENU_INSERTION nom="glossref"/>
+<MENU_INSERTION nom="linktext"/>
+<SEPARATEUR/>
+<MENU_INSERTION nom="topicgroup"/>
+<MENU_INSERTION nom="topichead"/>
+<MENU_INSERTION nom="anchorref"/>
+<MENU_INSERTION nom="mapref"/>
+<MENU_INSERTION nom="topicset"/>
+<MENU_INSERTION nom="topicsetref"/>
+<SEPARATEUR/>
+<MENU_INSERTION nom="exportanchors"/>
+<MENU_INSERTION nom="anchorid"/>
+<MENU_INSERTION nom="anchorkey"/>
+</MENU>
+<MENU nom="Topic">
+<MENU_INSERTION nom="title"/>
+<MENU_INSERTION nom="navtitle"/>
+<MENU_INSERTION nom="searchtitle"/>
+<MENU_INSERTION nom="shortdesc"/>
+</MENU>
+<MENU nom="Body">
+<MENU_INSERTION nom="alt"/>
+<MENU_INSERTION nom="cite"/>
+<MENU_INSERTION nom="desc"/>
+<MENU_INSERTION nom="dd"/>
+<MENU_INSERTION nom="ddhd"/>
+<MENU_INSERTION nom="dl"/>
+<MENU_INSERTION nom="dlentry"/>
+<MENU_INSERTION nom="dlhead"/>
+<MENU_INSERTION nom="dt"/>
+<MENU_INSERTION nom="dthd"/>
+<MENU_INSERTION nom="fig"/>
+<MENU_INSERTION nom="figgroup"/>
+<MENU_INSERTION nom="image"/>
+<MENU_INSERTION nom="keyword"/>
+<MENU_INSERTION nom="li"/>
+<MENU_INSERTION nom="lines"/>
+<MENU_INSERTION nom="longdescref"/>
+<MENU_INSERTION nom="longquoteref"/>
+<MENU_INSERTION nom="lq"/>
+<MENU_INSERTION nom="note"/>
+<MENU_INSERTION nom="object"/>
+<MENU_INSERTION nom="ol"/>
+<MENU_INSERTION nom="p"/>
+<MENU_INSERTION nom="param"/>
+<MENU_INSERTION nom="ph"/>
+<MENU_INSERTION nom="pre"/>
+<MENU_INSERTION nom="q"/>
+<MENU_INSERTION nom="sl"/>
+<MENU_INSERTION nom="sli"/>
+<MENU_INSERTION nom="text"/>
+<MENU_INSERTION nom="ul"/>
+<MENU_INSERTION nom="xref"/>
+</MENU>
+<MENU nom="Table">
+<MENU_INSERTION nom="table"/>
+<MENU_INSERTION nom="tgroup"/>
+<MENU_INSERTION nom="colspec"/>
+<MENU_INSERTION nom="thead"/>
+<MENU_INSERTION nom="tbody"/>
+<MENU_INSERTION nom="row"/>
+<MENU_INSERTION nom="entry"/>
+<SEPARATEUR/>
+<MENU_INSERTION nom="simpletable"/>
+<MENU_INSERTION nom="sthead"/>
+<MENU_INSERTION nom="strow"/>
+<MENU_INSERTION nom="stentry"/>
+</MENU>
+<MENU nom="Prolog">
+<MENU_INSERTION nom="metadata"/>
+<MENU_INSERTION nom="author"/>
+<MENU_INSERTION nom="source"/>
+<MENU_INSERTION nom="publisher"/>
+<MENU_INSERTION nom="copyright"/>
+<MENU_INSERTION nom="copyryear"/>
+<MENU_INSERTION nom="copyrholder"/>
+<MENU_INSERTION nom="critdates"/>
+<MENU_INSERTION nom="revised"/>
+<MENU_INSERTION nom="created"/>
+<MENU_INSERTION nom="resourceid"/>
+<MENU_INSERTION nom="audience"/>
+<MENU_INSERTION nom="category"/>
+<MENU_INSERTION nom="keywords"/>
+<MENU_INSERTION nom="othermeta"/>
+<MENU_INSERTION nom="permissions"/>
+<MENU_INSERTION nom="prodinfo"/>
+<MENU_INSERTION nom="brand"/>
+<MENU_INSERTION nom="series"/>
+<MENU_INSERTION nom="platform"/>
+<MENU_INSERTION nom="prognum"/>
+<MENU_INSERTION nom="featnum"/>
+<MENU_INSERTION nom="component"/>
+<MENU_INSERTION nom="prodname"/>
+<MENU_INSERTION nom="vrmlist"/>
+<MENU_INSERTION nom="vrm"/>
+</MENU>
+<MENU nom="Specialized">
+<MENU_INSERTION nom="boolean"/>
+<MENU_INSERTION nom="data"/>
+<MENU_INSERTION nom="data-about"/>
+<MENU_INSERTION nom="draft-comment"/>
+<MENU_INSERTION nom="fn"/>
+<MENU_INSERTION nom="foreign"/>
+<MENU_INSERTION nom="itemgroup"/>
+<MENU_INSERTION nom="required-cleanup"/>
+<MENU_INSERTION nom="state"/>
+<MENU_INSERTION nom="term"/>
+<MENU_INSERTION nom="tm"/>
+<MENU_INSERTION nom="unknown"/>
+</MENU>
+<MENU nom="Index">
+<MENU_INSERTION nom="index-base"/>
+<MENU_INSERTION nom="index-see"/>
+<MENU_INSERTION nom="index-see-also"/>
+<MENU_INSERTION nom="index-sort-as"/>
+<MENU_INSERTION nom="indexterm"/>
+<MENU_INSERTION nom="indextermref"/>
+</MENU>
+</MENUS>
+
+<AFFICHAGE_NOEUDS>
+<AFFICHAGE_ELEMENT element="map" type="division">
+<PARAMETRE nom="titreAtt" valeur="title"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="anchor" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="navref" type="vide"/>
+<AFFICHAGE_ELEMENT element="reltable" type="zone"/>
+<AFFICHAGE_ELEMENT element="relrow" type="zone"/>
+<AFFICHAGE_ELEMENT element="relcell" type="zone"/>
+<AFFICHAGE_ELEMENT element="relheader" type="zone"/>
+<AFFICHAGE_ELEMENT element="relcolspec" type="zone"/>
+<AFFICHAGE_ELEMENT element="topicmeta" type="zone"/>
+<AFFICHAGE_ELEMENT element="topicref" type="zone">
+<PARAMETRE nom="titreAtt" valeur="href"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="keydef" type="zone">
+<PARAMETRE nom="titreAtt" valeur="keys"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glossref" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="linktext" type="zone"/>
+<AFFICHAGE_ELEMENT element="topicgroup" type="zone"/>
+<AFFICHAGE_ELEMENT element="topichead" type="zone"/>
+<AFFICHAGE_ELEMENT element="anchorref" type="zone"/>
+<AFFICHAGE_ELEMENT element="mapref" type="zone"/>
+<AFFICHAGE_ELEMENT element="topicset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="topicsetref" type="zone"/>
+<AFFICHAGE_ELEMENT element="exportanchors" type="zone"/>
+<AFFICHAGE_ELEMENT element="anchorid" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="anchorkey" type="vide">
+<PARAMETRE nom="titreAtt" valeur="keyref"/>
+</AFFICHAGE_ELEMENT>
+
+<AFFICHAGE_ELEMENT element="title" type="zone">
+<PARAMETRE nom="style" valeur="GRAS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="navtitle" type="zone"/>
+<AFFICHAGE_ELEMENT element="searchtitle" type="zone"/>
+<AFFICHAGE_ELEMENT element="shortdesc" type="zone"/>
+
+<AFFICHAGE_ELEMENT element="alt" type="zone"/>
+<AFFICHAGE_ELEMENT element="cite" type="zone"/>
+<AFFICHAGE_ELEMENT element="desc" type="zone"/>
+<AFFICHAGE_ELEMENT element="dd" type="zone"/>
+<AFFICHAGE_ELEMENT element="ddhd" type="zone"/>
+<AFFICHAGE_ELEMENT element="dl" type="zone"/>
+<AFFICHAGE_ELEMENT element="dlentry" type="zone"/>
+<AFFICHAGE_ELEMENT element="dlhead" type="zone"/>
+<AFFICHAGE_ELEMENT element="dt" type="zone"/>
+<AFFICHAGE_ELEMENT element="dthd" type="zone"/>
+<AFFICHAGE_ELEMENT element="fig" type="zone"/>
+<AFFICHAGE_ELEMENT element="figgroup" type="zone"/>
+<AFFICHAGE_ELEMENT element="image" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="href"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="keyword" type="zone"/>
+<AFFICHAGE_ELEMENT element="li" type="item"/>
+<AFFICHAGE_ELEMENT element="lines" type="zone"/>
+<AFFICHAGE_ELEMENT element="longdescref" type="vide"/>
+<AFFICHAGE_ELEMENT element="longquoteref" type="vide"/>
+<AFFICHAGE_ELEMENT element="lq" type="zone"/>
+<AFFICHAGE_ELEMENT element="note" type="zone"/>
+<AFFICHAGE_ELEMENT element="object" type="zone"/>
+<AFFICHAGE_ELEMENT element="ol" type="liste">
+<PARAMETRE nom="typeListe" valeur="NUMEROS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="p" type="zone"/>
+<AFFICHAGE_ELEMENT element="param" type="zone"/>
+<AFFICHAGE_ELEMENT element="ph" type="string"/>
+<AFFICHAGE_ELEMENT element="pre" type="zone"/>
+<AFFICHAGE_ELEMENT element="q" type="zone"/>
+<AFFICHAGE_ELEMENT element="sl" type="liste">
+<PARAMETRE nom="typeListe" valeur="POINTS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sli" type="item"/>
+<AFFICHAGE_ELEMENT element="text" type="string"/>
+<AFFICHAGE_ELEMENT element="ul" type="liste">
+<PARAMETRE nom="typeListe" valeur="POINTS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="xref" type="zone"/>
+
+<AFFICHAGE_ELEMENT element="table" type="zone"/>
+<AFFICHAGE_ELEMENT element="tgroup" type="zone"/>
+<AFFICHAGE_ELEMENT element="colspec" type="zone"/>
+<AFFICHAGE_ELEMENT element="thead" type="tabletexte">
+<PARAMETRE nom="trTag" valeur="row"/>
+<PARAMETRE nom="tdTag" valeur="entry"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tbody" type="tabletexte">
+<PARAMETRE nom="trTag" valeur="row"/>
+<PARAMETRE nom="tdTag" valeur="entry"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="row" type="zone"/>
+<AFFICHAGE_ELEMENT element="entry" type="zone"/>
+<AFFICHAGE_ELEMENT element="simpletable" type="zone"/>
+<AFFICHAGE_ELEMENT element="sthead" type="zone"/>
+<AFFICHAGE_ELEMENT element="strow" type="zone"/>
+<AFFICHAGE_ELEMENT element="stentry" type="zone"/>
+
+<AFFICHAGE_ELEMENT element="metadata" type="zone"/>
+<AFFICHAGE_ELEMENT element="author" type="zone"/>
+<AFFICHAGE_ELEMENT element="source" type="zone"/>
+<AFFICHAGE_ELEMENT element="publisher" type="zone"/>
+<AFFICHAGE_ELEMENT element="copyright" type="zone"/>
+<AFFICHAGE_ELEMENT element="copyryear" type="vide">
+<PARAMETRE nom="titreAtt" valeur="year"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="copyrholder" type="zone"/>
+<AFFICHAGE_ELEMENT element="critdates" type="zone"/>
+<AFFICHAGE_ELEMENT element="revised" type="vide">
+<PARAMETRE nom="titreAtt" valeur="modified"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="created" type="vide">
+<PARAMETRE nom="titreAtt" valeur="date"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="resourceid" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="audience" type="vide"/>
+<AFFICHAGE_ELEMENT element="category" type="zone"/>
+<AFFICHAGE_ELEMENT element="keywords" type="zone"/>
+<AFFICHAGE_ELEMENT element="othermeta" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="permissions" type="vide">
+<PARAMETRE nom="titreAtt" valeur="view"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="prodinfo" type="zone"/>
+<AFFICHAGE_ELEMENT element="brand" type="zone"/>
+<AFFICHAGE_ELEMENT element="series" type="zone"/>
+<AFFICHAGE_ELEMENT element="platform" type="zone"/>
+<AFFICHAGE_ELEMENT element="prognum" type="zone"/>
+<AFFICHAGE_ELEMENT element="featnum" type="zone"/>
+<AFFICHAGE_ELEMENT element="component" type="zone"/>
+<AFFICHAGE_ELEMENT element="prodname" type="zone"/>
+<AFFICHAGE_ELEMENT element="vrmlist" type="zone"/>
+<AFFICHAGE_ELEMENT element="vrm" type="vide">
+<PARAMETRE nom="titreAtt" valeur="version"/>
+</AFFICHAGE_ELEMENT>
+
+<AFFICHAGE_ELEMENT element="boolean" type="vide">
+<PARAMETRE nom="titreAtt" valeur="state"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="data" type="zone"/>
+<AFFICHAGE_ELEMENT element="data-about" type="zone"/>
+<AFFICHAGE_ELEMENT element="draft-comment" type="zone"/>
+<AFFICHAGE_ELEMENT element="fn" type="zone"/>
+<AFFICHAGE_ELEMENT element="foreign" type="zone"/>
+<AFFICHAGE_ELEMENT element="itemgroup" type="zone"/>
+<AFFICHAGE_ELEMENT element="required-cleanup" type="zone"/>
+<AFFICHAGE_ELEMENT element="state" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="term" type="zone"/>
+<AFFICHAGE_ELEMENT element="tm" type="zone"/>
+<AFFICHAGE_ELEMENT element="unknown" type="zone"/>
+
+<AFFICHAGE_ELEMENT element="index-base" type="zone"/>
+<AFFICHAGE_ELEMENT element="index-see" type="zone"/>
+<AFFICHAGE_ELEMENT element="index-see-also" type="zone"/>
+<AFFICHAGE_ELEMENT element="index-sort-as" type="zone"/>
+<AFFICHAGE_ELEMENT element="indexterm" type="zone"/>
+<AFFICHAGE_ELEMENT element="indextermref" type="vide">
+<PARAMETRE nom="titreAtt" valeur="keyref"/>
+</AFFICHAGE_ELEMENT>
+
+</AFFICHAGE_NOEUDS>
+
+<EXPORTS>
+<EXPORT nom="HTML" sortie="HTML">
+<FICHIER_XSL nom="dita/xsl/map2htmtoc.xsl"/>
+</EXPORT>
+<EXPORT nom="Docbook" sortie="XML">
+<FICHIER_XSL nom="dita/xsl/map2docbook.xsl"/>
+</EXPORT>
+<EXPORT nom="PDF" sortie="PDF">
+<FICHIER_XSL nom="dita/xsl/topicmerge.xsl"/>
+<FICHIER_XSL nom="dita/xsl/dita2fo-shell.xsl"/>
+</EXPORT>
+</EXPORTS>
+
+<STRINGS>
+<DESCRIPTION_CONFIG>DITA map</DESCRIPTION_CONFIG>
+<STRINGS_ELEMENT element="map">
+<TITRE>map</TITRE>
+<DOCUMENTATION>
+The &lt;map&gt; element is used to define a map
+which describes the relationships among a set of DITA topics. Maps consist
+of references to topics organized into hierarchies and tables. Maps provide
+a way to express these relationships in a single common format that can be
+used for different outputs. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="anchor">
+<TITRE>anchor</TITRE>
+<DOCUMENTATION>
+The &lt;anchor&gt; element is used for runtime
+integration of navigation. It provides an integration point that another map
+can point to in order to insert its navigation into the current navigation
+tree. It is currently supported by Eclipse output only.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="navref">
+<TITRE>navref</TITRE>
+<DOCUMENTATION>
+The &lt;navref&gt; element references a map file
+from within a map file. The reference is resolved at runtime for Eclipse
+navigation, typically to pull together the navigation for multiple components
+into a product navigation. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="reltable">
+<TITRE>reltable</TITRE>
+<DOCUMENTATION>
+The relationship table (&lt;reltable&gt;) defines
+relationships between topics, based on the familiar table model of rows (&lt;relrow&gt;),
+columns (&lt;relheader&gt;), and cells (&lt;relcell&gt;).
+The &lt;relcell&gt; elements can contain &lt;topicref&gt;
+elements, which are then related to other &lt;topicref&gt;
+elements in the same row (although not necessarily in the same cell). By default,
+the contents of a &lt;reltable&gt; element are not output
+for navigation or TOC purposes, and are used only to define relationships
+that can be expressed as topic-to-topic links.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="relrow">
+<TITRE>relrow</TITRE>
+<DOCUMENTATION>
+A &lt;relrow&gt; is a row in the relationship table.
+This creates a relationship between the cells in the row, which will end up
+expressed as links among the &lt;topicref&gt; elements in
+the cells.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="relcell">
+<TITRE>relcell</TITRE>
+<DOCUMENTATION>
+A &lt;relcell&gt; element is a cell in the relationship
+table. The &lt;topicref&gt; elements it contains will be related
+to topicrefs in other cells of the same row. By default, topicrefs in the
+same cell are not related to each other, unless you change the relcell's collection-type
+attribute to indicate that they are related.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="relheader">
+<TITRE>relheader</TITRE>
+<DOCUMENTATION>
+The &lt;relheader&gt; element is a row of column
+definitions (&lt;relcolspec&gt; elements) in a relationship
+table. Each table can have only one set of column definitions.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="relcolspec">
+<TITRE>relcolspec</TITRE>
+<DOCUMENTATION>
+A column definition in the relationship table. You can use &lt;relcolspec&gt;
+column definitions to set defaults for the attributes of &lt;topicref&gt;
+elements in the column. For example, you can set type="concept" to treat all
+untyped &lt;topicref&gt; elements in the column as concepts.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="topicmeta">
+<TITRE>topicmeta</TITRE>
+<DOCUMENTATION>
+The &lt;topicmeta&gt; element defines the metadata
+that applies to a topic and the topic's children. When creating links, it
+can also be used to override the title and short description of the topic.
+In addition, it can insert index entries through the &lt;keywords&gt;
+element.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="topicref">
+<TITRE>topicref</TITRE>
+<DOCUMENTATION>
+The &lt;topicref&gt; element designates a topic
+(such as a concept, task, or reference) as a link in a DITA map. A &lt;topicref&gt;
+can contain other&lt;topicref&gt; elements, allowing you to
+express navigation or table-of-contents hierarchies, as well as implying relationships
+between the containing &lt;topicref&gt; and its children.
+You can set the collection-type of a container &lt;topicref&gt;
+to determine how its children are related to each other. Relationships end
+up expressed as links in the output (with each participant in a relationship
+having links to the other participants). 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keydef">
+<TITRE>keydef</TITRE>
+<DOCUMENTATION>The &lt;keydef&gt; specializes &lt;topicref&gt; to set a chunk="to-navigation" 
+default and required id attribute to make it easy to delimit standalone, reusable collections of content within a 
+map (such as lessons within a course or large tasks explained by a collection of discrete task topics). 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glossref">
+<TITRE>glossref</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="linktext">
+<TITRE>linktext</TITRE>
+<DOCUMENTATION>
+The &lt;linktext&gt; element provides the literal
+label or line of text for a link. In most cases, the text of a link can be
+resolved during processing by cross reference with the target resource. Use
+the &lt;linktext&gt; element only when the target cannot be
+reached, such as when it is a peer or external link.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="topicgroup">
+<TITRE>topicgroup</TITRE>
+<DOCUMENTATION>The &lt;topicgroup&gt; element is for creating
+groups of &lt;topicref&gt; elements without affecting the
+hierarchy, as opposed to nested &lt;topicref&gt; elements
+within a &lt;topicref&gt;, which does imply a structural hierarchy.
+It is typically used outside a hierarchy to identify groups for linking without
+affecting the resulting toc/navigation output. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="topichead">
+<TITRE>topichead</TITRE>
+<DOCUMENTATION>The &lt;topichead&gt; element provides a title-only
+entry in a navigation map, as an alternative to the fully-linked title provided
+by the &lt;topicref&gt; element.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="anchorref">
+<TITRE>anchorref</TITRE>
+<DOCUMENTATION>The &lt;anchorref&gt; specializes &lt;topicref&gt; to set format="ditamap" 
+and type="anchor" defaults for a reference to an &lt;anchor&gt; to enable push of collections
+of content smaller than a map onto an anchor.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="mapref">
+<TITRE>mapref</TITRE>
+<DOCUMENTATION>The &lt;anchorref&gt; specializes &lt;topicref&gt; to set a format="ditamap" 
+default for more intuitive map references 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="topicset">
+<TITRE>topicset</TITRE>
+<DOCUMENTATION>The &lt;topicset&gt; specializes &lt;topicref&gt; to set a chunk="to-navigation" 
+default and required id attribute to make it easy to delimit standalone, reusable collections of content within a 
+map (such as lessons within a course or large tasks explained by a collection of discrete task topics). 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="topicsetref">
+<TITRE>topicsetref</TITRE>
+<DOCUMENTATION>The &lt;topicsetref&gt; pecializes &lt;topicref&gt; to set format="ditamap" and 
+type="branch" defaults for a reference to a &lt;topicset&gt; to enable reuse of small collections within a 
+map (especially for task composition approaches in which multiple larger task collections reuse smaller component task collections). 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="exportanchors">
+<TITRE>exportanchors</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="anchorid">
+<TITRE>anchorid</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="anchorkey">
+<TITRE>anchorkey</TITRE>
+<DOCUMENTATION>The &lt;keyword&gt; element identifies a keyword
+or token, such as a single value from an enumerated list, the name of a command
+or parameter, or a lookup key for a message (contrast with 
+term
+).
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="title">
+<TITRE>title</TITRE>
+<DOCUMENTATION>The &lt;title&gt; element contains a heading or
+label for the main parts of a document such as &lt;topic&gt;, &lt;section&gt;, and
+&lt;example&gt; and for the display elements such as figure (&lt;fig&gt;)
+and &lt;table&gt;.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="navtitle">
+<TITRE>navtitle</TITRE>
+<DOCUMENTATION>The navigation title (&lt;navtitle&gt;) element
+is one of a set of alternate titles that can be included inside the &lt;titlealts&gt;
+element. This navigation title may differ from the first level heading that
+shows in the main browser window. Use &lt;navtitle&gt; when
+the actual title of the topic isn't appropriate for use in navigation panes
+or online contents (for example, because the actual title is too long or needs
+stated in terse, imperative voice in the navigation).
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="searchtitle">
+<TITRE>searchtitle</TITRE>
+<DOCUMENTATION>
+When your DITA topic is transformed to XHTML, the &lt;searchtitle&gt;
+element is used to create a title element at the top of the resulting HTML
+file. This title is normally used in search result summaries by some search
+engines, such as that in Eclipse (
+http://eclipse.org
+); if not set, the XHTML's
+title element defaults to the source topic's title content (which may not
+be as well optimized for search summaries)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="shortdesc">
+<TITRE>shortdesc</TITRE>
+<DOCUMENTATION>
+The short description (&lt;shortdesc&gt;) element
+occurs between the topic title and the topic body, as the initial paragraph-like
+content of a topic. The short description, which represents the purpose or
+theme of the topic, is also intended to be used as a link preview and for
+searching.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="alt">
+<TITRE>alt</TITRE>
+<DOCUMENTATION>The alt element provides an element equivalent of the alt attribute
+on the image element. As an element, it provides direct text entry within
+an XML editor and is more easily accessed than an attribute for translation.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="cite">
+<TITRE>cite</TITRE>
+<DOCUMENTATION>The &lt;cite&gt; element is used when you need
+a bibliographic citation that refers to a book or article. It specifically
+identifies the title of the resource. Its keyref attribute
+allows the citation to be associated to other possible bibliographic processing
+(not supported yet). 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="desc">
+<TITRE>desc</TITRE>
+<DOCUMENTATION>The &lt;desc&gt; element contains the description
+of the current element. A description should provide more information than
+the title.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="dd">
+<TITRE>dd</TITRE>
+<DOCUMENTATION>The definition description (&lt;dd&gt;) element
+contains the description of a term in a definition list entry.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ddhd">
+<TITRE>ddhd</TITRE>
+<DOCUMENTATION>The definition descriptions heading (&lt;ddhd&gt;) element contains
+an optional heading or title for a column of descriptions or definitions in
+a definition list
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="dl">
+<TITRE>dl</TITRE>
+<DOCUMENTATION>A definition list (&lt;dl&gt;) is a list of terms
+and corresponding definitions. The term (&lt;dt&gt;) is usually
+flush left. The description or definition (&lt;dt&gt;) is
+usually either indented and on the next line, or on the same line to the right
+of the term.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="dlentry">
+<TITRE>dlentry</TITRE>
+<DOCUMENTATION>In a definition list, each list item is defined by the definition
+list entry (&lt;dlentry&gt;) element. The definition list entry element includes
+a term &lt;dt&gt; and one or more definitions or descriptions &lt;dd&gt; of that
+term.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="dlhead">
+<TITRE>dlhead</TITRE>
+<DOCUMENTATION>The &lt;dlhead&gt; element contains optional headings
+for the term and description columns in a definition list. The definition
+list heading contains a heading &lt;dthd&gt; for the column
+of terms and an optional heading &lt;ddhd&gt;for the column
+of descriptions.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="dt">
+<TITRE>dt</TITRE>
+<DOCUMENTATION>The definition term &lt;dt&gt; element contains
+a term in a definition list entry.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="dthd">
+<TITRE>dthd</TITRE>
+<DOCUMENTATION>The definition term heading (&lt;dthd&gt;) element is contained in
+a definition list head (&lt;dlhead&gt;) and provides an optional heading for
+the column of terms in a description list.</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="fig">
+<TITRE>fig</TITRE>
+<DOCUMENTATION>The figure (&lt;fig&gt;) element is a display context
+(sometimes called an exhibit) with an optional title for a wide variety
+of content. Most commonly, the figure element contains an image element (a
+graphic or artwork), but it can contain several kinds of text objects as well.
+A title is placed inside the figure element to provide a caption to describe
+the content.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="figgroup">
+<TITRE>figgroup</TITRE>
+<DOCUMENTATION>The &lt;figgroup&gt; element is used only for specialization
+at this time. Figure groups can be used to contain multiple cross-references,
+footnotes or keywords, but not multipart images. Multipart images in DITA
+should be represented by a suitable media type displayed by the &lt;object&gt;
+element.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="image">
+<TITRE>image</TITRE>
+<DOCUMENTATION>Include artwork or images in a DITA topic by using the &lt;image&gt;
+element. The &lt;image&gt; element has optional attributes
+that indicate whether the placement of the included graphic or artwork should
+be inline (like a button or icon), or on a separate line for a larger image.
+An href attribute is required on the image element,
+as this attribute creates a pointer to the image, and allows the output formatting
+processor to bring the image into the text flow. To make the intent of the
+image more accessible for users using screen readers or text-only readers,
+always include a description of the image's content in the alt attribute.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keyword">
+<TITRE>keyword</TITRE>
+<DOCUMENTATION>The &lt;keyword&gt; element identifies a keyword
+or token, such as a single value from an enumerated list, the name of a command
+or parameter, or a lookup key for a message (contrast with 
+term
+).
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="li">
+<TITRE>li</TITRE>
+<DOCUMENTATION>A list (&lt;li&gt;) item is a single item in an ordered &lt;ol&gt; or
+unordered &lt;ul&gt; list. When a DITA topic is formatted for output, numbers
+and alpha characters are usually output with list items in ordered lists,
+while bullets and dashes are usually output with list items in unordered lists.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lines">
+<TITRE>lines</TITRE>
+<DOCUMENTATION>The &lt;lines&gt; element may be used to represent
+dialogs, lists, text fragments, and so forth. The &lt;lines&gt;
+element is similar to &lt;pre&gt; in that hard line breaks
+are preserved, but the font style is not set to monospace, and extra spaces
+inside the lines are not preserved. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="longdescref">
+<TITRE>longdescref</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="longquoteref">
+<TITRE>longquoteref</TITRE>
+<DOCUMENTATION> 
+      </DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lq">
+<TITRE>lq</TITRE>
+<DOCUMENTATION>The long quote (&lt;lq&gt;) element indicates
+content quoted from another source. Use the quote element &lt;q&gt;for
+short, inline quotations, and long quote &lt;lq&gt; for quotations
+that are too long for inline use, following normal guidelines for quoting
+other sources. You can store a URL to the source of the quotation in the href attribute.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="note">
+<TITRE>note</TITRE>
+<DOCUMENTATION>A &lt;note&gt; element contains information, differentiated
+from the main text, which expands on or calls attention to a particular point.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="object">
+<TITRE>object</TITRE>
+<DOCUMENTATION>DITA's &lt;object&gt; element corresponds to the
+HTML &lt;object&gt; element. The &lt;object&gt;
+element allows authors to include animated images, applets, plug-ins, ActiveX
+controls, video clips, and other multimedia objects in a topic for rendering
+after transformation to HTML.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ol">
+<TITRE>ol</TITRE>
+<DOCUMENTATION>An ordered list (&lt;ol&gt;) is a list of items sorted by sequence
+or order of importance.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="p">
+<TITRE>p</TITRE>
+<DOCUMENTATION>A paragraph element (&lt;p&gt;) is a block of
+text containing a single main idea.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="param">
+<TITRE>param</TITRE>
+<DOCUMENTATION>The parameter (&lt;param&gt;)element specifies
+a set of values that may be required by an &lt;object&gt;
+at runtime. Any number of &lt;param&gt; elements may appear
+in the content of an object in any order, but must be placed at the start
+of the content of the enclosing object. This element is comparable to the
+XHMTL &lt;param&gt; element.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ph">
+<TITRE>ph</TITRE>
+<DOCUMENTATION>The phrase (&lt;ph&gt;) element is used to organize
+content for reuse or conditional processing (for example, when part of a paragraph
+applies to a particular audience). It can be used by future specializations
+of DITA to apply specific processing or formatting to marked up phrases.</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="pre">
+<TITRE>pre</TITRE>
+<DOCUMENTATION>The preformatted element (&lt;pre&gt;) preserves
+line breaks and spaces entered manually by the author in the content of the
+element, and also presents the content in a monospaced type font (depending
+on your output formatting processor).
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="q">
+<TITRE>q</TITRE>
+<DOCUMENTATION>A quotation element (&lt;q&gt;) indicates content quoted from another
+source. This element is used for short quotes which are displayed inline.
+Use the long quote element (&lt;lq&gt;) for quotations that should be set off
+from the surrounding text.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sl">
+<TITRE>sl</TITRE>
+<DOCUMENTATION>The &lt;sl&gt; element contains a simple list of
+items of short, phrase-like content, such as in documenting the materials
+in a kit or package.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sli">
+<TITRE>sli</TITRE>
+<DOCUMENTATION>
+A simple list item (&lt;sli&gt;) is a single item in a simple list&lt;sl&gt;.
+Simple list items have phrase or text content, adequate for describing package
+contents, for example. When a DITA topic is formatted for output, the items
+of a simple list are placed each on its own line, with no other prefix such
+as a number (as in an ordered list) or bullet (as in an unordered list)..
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="text">
+<TITRE>text</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ul">
+<TITRE>ul</TITRE>
+<DOCUMENTATION>In an unordered list (&lt;ul&gt;), the order of the list items is
+not significant. List items are typically styled on output with a "bullet"
+character, depending on nesting level.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="xref">
+<TITRE>xref</TITRE>
+<DOCUMENTATION>Use the cross-reference (&lt;xref&gt;) element
+to link to a different location within the current topic, or a different topic
+within the same help system or DITA document. You can also point to external
+sources, such as Web pages, or to a location in another topic as well. The href attribute
+on the &lt;xref&gt; element is used to create the link pointer,
+or URL.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="table">
+<TITRE>table</TITRE>
+<DOCUMENTATION>
+The &lt;table&gt; element organizes arbitrarily
+complex relationships of tabular information. This standard table markup allows
+column or row spanning and table captions or descriptions. A optional title
+allowed inside the table element provides a caption to describe the table.
+See 
+simpletable
+for a simplified
+table model that can be specialized to represent more regular relationships
+of data.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tgroup">
+<TITRE>tgroup</TITRE>
+<DOCUMENTATION>
+The &lt;tgroup&gt; element in a table contains
+column, row, spanning, header and footer specifications, and the body (&lt;tbody&gt;)
+of the table.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="colspec">
+<TITRE>colspec</TITRE>
+<DOCUMENTATION>
+The &lt;colspec&gt; element contains a column specification
+for a table, including assigning a column name and number, cell content alignment,
+and column width.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="thead">
+<TITRE>thead</TITRE>
+<DOCUMENTATION>
+The table header (&lt;thead&gt;) element precedes
+the table body (&lt;tbody&gt;) element in a complex table.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tbody">
+<TITRE>tbody</TITRE>
+<DOCUMENTATION>
+The &lt;tbody&gt; element contains the rows in
+a table.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="row">
+<TITRE>row</TITRE>
+<DOCUMENTATION>The &lt;row&gt; element contains a single row in
+a table &lt;tgroup&gt;.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="entry">
+<TITRE>entry</TITRE>
+<DOCUMENTATION>The &lt;entry&gt; element defines a single cell
+in a table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="simpletable">
+<TITRE>simpletable</TITRE>
+<DOCUMENTATION>The &lt;simpletable&gt; element is used for tables
+that are regular in structure and do not need a caption. Choose the simple
+table element when you want to show information in regular rows and columns.
+For example, multi-column tabular data such as phone directory listings or
+parts lists are good candidates for simpletable. Another good use of simpletable
+is for information that seems to beg for a "three-part definition list"&#8212;just
+use the keycol attribute to indicate which column represents the "key" or
+term-like column of your structure. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sthead">
+<TITRE>sthead</TITRE>
+<DOCUMENTATION>The simpletable header (&lt;sthead&gt;) element contains the table's
+header row. The header row is optional in a simple table.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="strow">
+<TITRE>strow</TITRE>
+<DOCUMENTATION>The &lt;simpletable&gt; row (&lt;strow&gt;)
+element specifies a row in a simple table, like row in a conventional 
+table
+.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="stentry">
+<TITRE>stentry</TITRE>
+<DOCUMENTATION>The simpletable entry (&lt;stentry&gt;) element represents a single
+table cell, like &lt;entry&gt; in &lt;table&gt;. You can place any number of stentry
+cells in either an 
+sthead
+element
+(for headings) or 
+strow
+element (for
+rows of data).
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="metadata">
+<TITRE>metadata</TITRE>
+<DOCUMENTATION>The &lt;metadata&gt; section of the prolog contains
+information about a topic such as audience and product information. Metadata
+can be used by computational processes to select particular topics or to prepare
+search indexes or to customize navigation.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="author">
+<TITRE>author</TITRE>
+<DOCUMENTATION>The &lt;author&gt; metadata element contains the
+name of the topic's author. The currently unsupported keyref attribute can
+point to another location where the author information is defined.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="source">
+<TITRE>source</TITRE>
+<DOCUMENTATION>The &lt;source&gt; element contains a reference
+to a resource from which the present topic is derived, either completely or
+in part. The element can contain a description of the resource; the href reference
+can be a string or a URL that points to it.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="publisher">
+<TITRE>publisher</TITRE>
+<DOCUMENTATION>The &lt;publisher&gt; metadata element contains
+the name of the person, company, or organization responsible for making the
+content or subject of the topic available.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="copyright">
+<TITRE>copyright</TITRE>
+<DOCUMENTATION>The &lt;copyright&gt; element is used for a single
+copyright entry. It includes the copyright years and the copyright holder.
+Multiple &lt;copyright&gt; statements are allowed.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="copyryear">
+<TITRE>copyryear</TITRE>
+<DOCUMENTATION>The &lt;copyryear&gt; element contains the copyright
+year as specified by the year attribute. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="copyrholder">
+<TITRE>copyrholder</TITRE>
+<DOCUMENTATION>The copyright holder (&lt;copyrholder&gt;) element
+names the entity that holds legal rights to the material contained in the
+topic.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="critdates">
+<TITRE>critdates</TITRE>
+<DOCUMENTATION>The &lt;critdates&gt; element contains the critical
+dates in a document life cycle, such as the creation date and multiple revision
+dates.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revised">
+<TITRE>revised</TITRE>
+<DOCUMENTATION>The &lt;revised&gt; element in the prolog is used
+to maintain tracking dates that are important in a topic development cycle,
+such as the last modification date, the original availability date, and the
+expiration date.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="created">
+<TITRE>created</TITRE>
+<DOCUMENTATION>The &lt;created&gt; element specifies the document
+creation date using the date attribute.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="resourceid">
+<TITRE>resourceid</TITRE>
+<DOCUMENTATION>The &lt;resourceid&gt; element provides an identifier
+for applications that require them in a particular format, when the normal
+id attribute of the topic can't be used. Each resourceid entry should be unique.
+It is one of the metadata elements that can be included within the prolog
+of a topic, along with document tracking and product information, etc. The
+element has no content, but takes an id attribute
+or an appname attribute.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="audience">
+<TITRE>audience</TITRE>
+<DOCUMENTATION>The &lt;audience&gt; metadata element indicates,
+through the value of its type attribute, the intended audience for a topic.
+Since a topic can have multiple audiences, you can include multiple audience
+elements. For each audience you specify, you can identify the high-level task
+(job) they are trying to accomplish and the level
+of experience (experiencelevel) expected.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="category">
+<TITRE>category</TITRE>
+<DOCUMENTATION>The &lt;category&gt; element can represent any
+category by which a topic might be classified for retrieval or navigation;
+for example, the categories could be used to group topics in a generated navigation
+bar. Topics can belong to multiple categories.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keywords">
+<TITRE>keywords</TITRE>
+<DOCUMENTATION>The &lt;keywords&gt; element contains a list of
+keyword entries (using 
+indexterm
+or 
+keyword
+markup) that can be used by a search
+engine. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="othermeta">
+<TITRE>othermeta</TITRE>
+<DOCUMENTATION>The &lt;othermeta&gt; element can be used to identify
+properties not otherwise included in &lt;metadata&gt; and
+assign name/content values to those properties. The name attribute identifies
+the property and the content attribute specifies the property's value. The
+values in this attribute are output as HTML metadata elements, and have no
+defined meaning for other possible outputs such as PDF.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="permissions">
+<TITRE>permissions</TITRE>
+<DOCUMENTATION>The &lt;permissions&gt; empty prolog element can
+indicate any preferred controls for access to a topic. Topics can be filtered
+based on the permissions element. This capability depends on your output formatting
+process.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="prodinfo">
+<TITRE>prodinfo</TITRE>
+<DOCUMENTATION>The &lt;prodinfo&gt; metadata element in the prolog
+contains information about the product or products that are the subject matter
+of the current topic.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="brand">
+<TITRE>brand</TITRE>
+<DOCUMENTATION>The &lt;brand&gt; element indicates the manufacturer
+or brand associated with the product described by the parent 
+&lt;prodinfo&gt;
+element.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="series">
+<TITRE>series</TITRE>
+<DOCUMENTATION>The &lt;series&gt; metadata element contains information
+about the product series that the topic supports.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="platform">
+<TITRE>platform</TITRE>
+<DOCUMENTATION>The &lt;platform&gt; metadata element contains
+a description of the operating system and/or hardware related to the product
+being described by the &lt;prodinfo&gt; element.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="prognum">
+<TITRE>prognum</TITRE>
+<DOCUMENTATION>The &lt;prognum&gt; metadata element identifies
+the program number of the associated program product. This is typically an
+order number or a product tracking code that could be replaced by an order
+number when a product completes development.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="featnum">
+<TITRE>featnum</TITRE>
+<DOCUMENTATION>The &lt;featnum&gt; element contains the feature
+number of a product in the document metadata.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="component">
+<TITRE>component</TITRE>
+<DOCUMENTATION>The &lt;component&gt; element describes the component
+of the product that this topic is concerned with. For example, a product might
+be made up of many components, each of which is installable separately. Components
+might also be shared by several products so that the same component is available
+for installation with many products. This identification can be used to check
+cross-component dependencies when some components are installed, but not others.
+It could also be used to make sure that topics are hidden, removed, or flagged
+in some way when the component they describe isn't installed. Such process-control
+logic is not currently supported in DITA processing.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="prodname">
+<TITRE>prodname</TITRE>
+<DOCUMENTATION>The &lt;prodname&gt; metadata element contains
+the name of the product that is supported by the information in this topic.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="vrmlist">
+<TITRE>vrmlist</TITRE>
+<DOCUMENTATION>The &lt;vrmlist&gt; element contains a set of &lt;vrm&gt;
+elements for logging the version, release, and modification information for
+multiple products or versions of products to which the topic applies.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="vrm">
+<TITRE>vrm</TITRE>
+<DOCUMENTATION>The empty &lt;vrm&gt; element contains information about a single product's
+version, modification, and release, to which the current topic applies.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="boolean">
+<TITRE>boolean</TITRE>
+<DOCUMENTATION>( Deprecated ) - The &lt;boolean&gt; element is used to express
+one of two opposite values, such as yes or no, on or off, true or false, high
+or low, and so forth. The element itself is empty; the value of the element
+is stored in its state attribute, and
+the semantic associated with the value is typically in a specialized name
+derived from this element. If you need more than two values (for example,
+"yes," "no" and "don't care") use the 
+&lt;state&gt;
+element instead. This element is primarily for specialization, where
+it can be used to require a logical true or false designation in a particular
+part of the document.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="data">
+<TITRE>data</TITRE>
+<DOCUMENTATION>The &lt;data&gt; element represents a property
+within a DITA topic or map. While the &lt;data&gt; element
+can be used directly to capture properties, it is particularly useful as a
+basis for specialization. Default processing treats the property values as
+an unknown kind of metadata, but custom processing can match the name attribute
+or specialized element to format properties as sidebars or other adornments
+or to harvest properties for automated processing. </DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="data-about">
+<TITRE>data-about</TITRE>
+<DOCUMENTATION>
+The &lt;data-about&gt; element identifies the subject
+of a property when the subject isn't associated with the context in which
+the property is specified. The property itself is expressed by the &lt;data&gt;
+element. The &lt;data-about&gt; element handles exception
+cases where a property must be expressed somewhere other than inside the actual
+subject of the property. The &lt;data-about&gt; element is
+particularly useful as a basis for specialization in combination with the &lt;data&gt;
+element.
+
+Don't use the &lt;data-about&gt;
+element to identify the object of a property. The href attribute
+of the &lt;data&gt; element serves that purpose.
+
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="draft-comment">
+<TITRE>draft-comment</TITRE>
+<DOCUMENTATION>The &lt;draft-comment&gt; element allows simple
+review and discussion of topic contents within the marked-up content. Use
+the &lt;draft-comment&gt; element to ask a question or make a comment that you
+would like others to review. To indicate the source of the draft comment or
+the status of the comment, use the author, time or disposition attributes.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="fn">
+<TITRE>fn</TITRE>
+<DOCUMENTATION>Use footnote (&lt;fn&gt;) to annotate text with
+notes that are not appropriate for inclusion in line or to indicate the source
+for facts or other material used in the text.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="foreign">
+<TITRE>foreign</TITRE>
+<DOCUMENTATION>The &lt;foreign&gt; element is an open extension that allows information architects 
+to incorporate existing standard vocabularies for non-textual content. like MathML and SVG, as inline 
+objects. If &lt;foreign&gt; contains more than one alternative content element, they will all be processed. 
+Specialization of &lt;foreign&gt; should be implemented as a domain, but for those looking for more 
+control over the content can implement foreign vocabulary as an element specialization.</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="itemgroup">
+<TITRE>itemgroup</TITRE>
+<DOCUMENTATION>The &lt;itemgroup&gt; element is reserved for specialization
+of DITA. As a container element, it can be used to sub-divide or organize
+elements that occur inside a list item, definition, or parameter definition.</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="required-cleanup">
+<TITRE>required-cleanup</TITRE>
+<DOCUMENTATION>A &lt;required-cleanup&gt; element is used as a
+placeholder for migrated elements that cannot be appropriately tagged without
+manual intervention. As the element name implies, the intent for authors is
+to clean up the contained material and eventually get rid of the &lt;required-cleanup&gt;
+element. Authors should not insert this element into documents. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="state">
+<TITRE>state</TITRE>
+<DOCUMENTATION>The &lt;state&gt; element specifies a name/value
+pair whenever it is necessary to represent a named state that has a variable
+value. The element is primarily intended for use in specializations to represent
+specific states (like logic circuit states, chemical reaction states, airplane
+instrumentation states, and so forth).
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="term">
+<TITRE>term</TITRE>
+<DOCUMENTATION>The &lt;term&gt; element identifies words that
+represent extended definitions or explanations. In future development of DITA,
+for example, terms might provide associative linking to matching glossary
+entries.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tm">
+<TITRE>tm</TITRE>
+<DOCUMENTATION>The trademark (&lt;tm&gt;) element in DITA is used
+to markup and identify a term or phrase that is trademarked. Trademarks include
+registered trademarks, service marks, slogans and logos.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="unknown">
+<TITRE>unknown</TITRE>
+<DOCUMENTATION>
+The &lt;unknown&gt; element is an open extension that allows information architects to
+incorporate xml fragments that does not necessarily fit into an exisitng DITA use case.
+The base processing for &lt;unknown&gt; is to supress unless otherwise instructed.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="index-base">
+<TITRE>index-base</TITRE>
+<DOCUMENTATION>The &lt;index-base&gt; element allows indexing extensions to be added by specializing off this
+element. It does not in itself have any meaning and should be ignored in processing.</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="index-see">
+<TITRE>index-see</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="index-see-also">
+<TITRE>index-see-also</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="index-sort-as">
+<TITRE>index-sort-as</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="indexterm">
+<TITRE>indexterm</TITRE>
+<DOCUMENTATION>An &lt;indexterm&gt; is an index entry. You can
+nest entries to create multi-level indexes. The content is not output as part
+of topic content, only as part of the index.
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="indextermref">
+<TITRE>indextermref</TITRE>
+<DOCUMENTATION>An &lt;indextermref&gt; is a reference to an index
+entry in a lookup table used by the indexing process. If you want to create
+index markers pointing to referenced items, but only want page numbers instead
+of separate index entries to be generated, use the index term reference &lt;indextermref&gt;
+element. This adds the page number of the reference to the index without creating
+a separate index entry. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+
+<STRINGS_EXPORT export="HTML">
+<TITRE>Export to HTML...</TITRE>
+</STRINGS_EXPORT>
+<STRINGS_EXPORT export="Docbook">
+<TITRE>Export to Docbook...</TITRE>
+</STRINGS_EXPORT>
+<STRINGS_EXPORT export="PDF">
+<TITRE>Export to PDF...</TITRE>
+</STRINGS_EXPORT>
+</STRINGS>
+</CONFIG_JAXE>

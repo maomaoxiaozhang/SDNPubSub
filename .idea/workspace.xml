@@ -7,38 +7,645 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0433af26-fd9a-4271-8cf1-53a0a3175bf2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_54.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_httpclient_commons_httpclient_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_0_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_0_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_0_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_0_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_8_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Host.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Host.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/CONFIG_JAXE.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/CONFIG_JAXE_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/CatalogManager.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/DOCBOOK_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/EXPOSEV3.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/EXPOSEV3.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/EXPOSEV3_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/JAXECFG.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/JAXECFG_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/SDOCBOOK_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/SimplerSchema.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XHTML.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XHTML_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XMLSchema.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XMLSchema_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES1.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES2.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES3.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/applications/cortado.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/applications/player.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/applications/video.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/applet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/application.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/blanc_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/flash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/flechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/flechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/glossaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/activite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/attention.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/bibliographie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/citation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/complement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/conclusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/conseil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/definition.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/demonstration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/ensavoirplus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/exemple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/exercice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/introduction.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/methode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/objectifs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/prerequis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/qcm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/rappel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/icones_sections/remarque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/imagesel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/impression.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/listeactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/listeinactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/loupe_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/petiteflechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/petiteflechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/puce.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/sommaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/azur/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/applet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/application.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/blanc_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/flash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/flechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/flechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/fond.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/glossaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/activite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/attention.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/bibliographie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/citation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/complement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/conclusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/conseil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/definition.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/demonstration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/ensavoirplus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/exemple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/exercice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/introduction.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/methode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/objectifs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/prerequis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/qcm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/rappel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/icones_sections/remarque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/imagesel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/impression.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/listeactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/listeinactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/petiteflechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/petiteflechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/sommaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/bois/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/applet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/application.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/blanc_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/flash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/flechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/flechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/fond.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/glossaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/activite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/attention.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/bibliographie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/citation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/complement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/conclusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/conseil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/definition.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/demonstration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/ensavoirplus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/exemple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/exercice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/introduction.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/methode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/objectifs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/prerequis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/qcm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/rappel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/icones_sections/remarque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/imagesel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/impression.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/listeactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/listeinactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/noir_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/petiteflechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/petiteflechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/sommaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/etoiles/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/applet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/application.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/blanc_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/flash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/flechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/flechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/fond.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/glossaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/activite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/attention.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/bibliographie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/citation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/complement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/conclusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/conseil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/definition.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/demonstration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/ensavoirplus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/exemple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/exercice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/introduction.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/methode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/objectifs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/prerequis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/qcm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/rappel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/icones_sections/remarque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/imagesel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/impression.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/listeactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/listeinactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/noir_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/petiteflechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/petiteflechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/sommaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/marbre/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/applet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/application.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/blanc_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/flash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/flechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/flechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/fond.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/glossaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/activite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/attention.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/bibliographie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/citation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/complement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/conclusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/conseil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/definition.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/demonstration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/ensavoirplus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/exemple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/exercice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/introduction.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/methode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/objectifs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/prerequis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/qcm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/rappel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/icones_sections/remarque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/imagesel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/impression.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/listeactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/listeinactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/petiteflechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/petiteflechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/sommaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/parchemin/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/applet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/application.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/blanc_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/flash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/flechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/flechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/fond.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/glossaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/activite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/attention.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/bibliographie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/citation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/complement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/conclusion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/conseil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/definition.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/demonstration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/ensavoirplus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/exemple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/exercice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/introduction.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/methode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/objectifs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/prerequis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/qcm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/rappel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/icones_sections/remarque.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/imagesel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/impression.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/listeactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/listeinactive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/petiteflechedroite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/petiteflechegauche.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/sommaire_petit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/peinture/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/STIXSubset-Regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/STIXSubset-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Delta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Gamma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Lambda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Omega.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Phi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Pi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Psi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Sigma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Theta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/Xi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/sigmaf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-majuscules/thetasym.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/alpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/beta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/chi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/delta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/epsilon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/eta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/gamma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/iota.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/kappa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/lambda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/mu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/nu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/omega.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/omicron.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/phi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/phi2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/pi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/piv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/psi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/rho.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/sigma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/tau.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/theta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/upsilon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/xi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/grec-minuscules/zeta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/asymp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/cap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/cup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/exist.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/forall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/ge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/harr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/hdarr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/infin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/isin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/larr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/ldarr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/le.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/nabla.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/ne.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/not.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/part.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/plusmn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/rarr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/rdarr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/sim.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_interface/symboles/maths/sub.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_messages_en.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XPAGES_messages_fr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XSLT.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/XSLT_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config_exposeV3/jaxe_expose.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config_exposeV3/jaxe_expose.smil" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config_exposeV3/jaxe_expose_transitions.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config_exposeV3/signe_plus.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config_exposeV3/timesheets-navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config_exposeV3/timesheets.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/conversion_config.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/catalog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/commonElements.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/commonElements.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/delayResolutionDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/delayResolutionDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/hazardstatementDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/hazardstatementDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/highlightDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/highlightDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/indexingDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/indexingDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/map.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/mapGroup.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/mapGroup.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/metaDecl.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/tblDecl.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/topic.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/topicDefn.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/utilitiesDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/base/dtd/utilitiesDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/bookmap/dtd/bookmap.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/bookmap/dtd/bookmap.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/bookmap/dtd/bookmap.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/abbreviateDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/abbreviateDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/concept.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/concept.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/concept.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/ditabase.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/generalTask.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossary.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossary.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossary.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossentry.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossentry.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossentry.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossgroup.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossgroup.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossgroup.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossrefDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/glossrefDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/map.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/programmingDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/programmingDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/reference.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/reference.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/reference.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/softwareDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/softwareDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/strictTaskbodyConstraint.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/task.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/task.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/task.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/taskreqDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/taskreqDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/topic.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/uiDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/technicalContent/dtd/uiDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/xnal/dtd/xnalDomain.ent" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/dtd/xnal/dtd/xnalDomain.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/commonltr.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/commonrtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/delta.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/deltaend.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/ditaval.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/messages.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/messages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/messages_template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/resource/plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/commonElementGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/commonElementMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/delayResolutionDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/ditaarch.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/hazardstatementDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/highlightDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/indexingDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/mapGroupMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/mapGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/mapMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/metaDeclGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/metaDeclMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/tblDeclGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/tblDeclMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/topicGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/topicMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/utilitiesDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/base/xsd/xml.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/bookmap/xsd/bookmap.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/bookmap/xsd/bookmapGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/bookmap/xsd/bookmapMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/abbreviateDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/concept.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/conceptGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/conceptMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/ditabase.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/generalTask.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossary.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossaryGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossaryMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossentry.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossentryGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossentryMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossgroup.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossgroupGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossgroupMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/glossrefDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/map.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/programmingDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/reference.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/referenceGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/referenceMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/softwareDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/strictTaskbodyConstraintMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/task.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/taskGrp.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/taskMod.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/taskreqDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/topic.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/technicalContent/xsd/uiDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/schema/xnal/xsd/xnalDomain.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/allstrings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/allstrings_template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/dita-utilities.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/output-message.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/related-links.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-ar-eg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-be-by.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-bg-bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-ca-es.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-cs-cz.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-da-dk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-de-ch.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-de-de.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-el-gr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-en-ca.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-en-gb.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-en-us.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-es-es.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-et-ee.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-fi-fi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-fr-be.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-fr-ca.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-fr-ch.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-fr-fr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-he-il.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-hi-in.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-hr-hr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-hu-hu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-is-is.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-it-ch.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-it-it.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-ja-jp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-ko-kr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-lt-lt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-lv-lv.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-mk-mk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-nl-be.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-nl-nl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-no-no.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-pl-pl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-pt-br.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-pt-pt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-ro-ro.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-ru-ru.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-sk-sk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-sl-si.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-sr-latn-rs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-sr-sp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-sv-se.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-th-th.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-tr-tr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-uk-ua.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-ur-pk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-zh-cn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings-zh-tw.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/common/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/dita2docbook.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/dita2fo-shell.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/dita2html.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/dita2xhtml.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/docbook/highlight2db.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/docbook/programming2db.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/docbook/software2db.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/docbook/topic2db.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/docbook/ui2db.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/docbook/util.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/map2docbook.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/map2htmtoc.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/topicmerge.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita-page-setup.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-calstable.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-elems.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-links.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-lists.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-parms.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-prolog.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-simpletable.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-stubs.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-subroutines.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/dita2fo-titles.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/domains2fo.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/toc2fo.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslfo/topic2foImpl.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/abbrev-d.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/conceptdisplay.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/dita2htmlImpl.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/flag-old.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/flag.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/get-meta.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/glossdisplay.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/hi-d.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/map2TOC.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/mapwalker.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/pr-d.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/refdisplay.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/rel-links.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/sw-d.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/syntax-braces.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/syntax-svg.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/taskdisplay.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/ui-d.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita/xsl/xslhtml/ut-d.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita_bookmap_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/dita_map_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/docbook_4.5/calstblx.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/docbook_4.5/dbhierx.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/docbook_4.5/dbnotnx.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/docbook_4.5/dbpoolx.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/docbook_4.5/docbook.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/docbook_4.5/htmltblx.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/docbook_4.5/xml.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/sdocbook.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/tri_config.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/xhtml1-strict.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/xml.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/xsd_vers_config_1.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/xsd_vers_config_2.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LocalStrings.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XMLConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XSDNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XSDUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/LocalStrings.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SDN-PubSub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SDN-PubSub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Switch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Switch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/util/AllGroups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/util/AllGroups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topicMgr/ldap/LdapUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topicMgr/ldap/LdapUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/test/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/info/device/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/info/device/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/info/device/Host.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/info/device/Host.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/info/device/Switch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/info/device/Switch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$14$1$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$14$1$1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$14$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$14$1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$14$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$14$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$5$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$5$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$14.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$15.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$16.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$17.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$18.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$19.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$20.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$21.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$22.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$23.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/util/AllGroups.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/managerMgr/util/AllGroups.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/topicMgr/ldap/LdapUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/topicMgr/ldap/LdapUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/util/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/util/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/wsnMgr/util/soap/wsn/WsnNotificationProcessImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/module/wsnMgr/util/soap/wsn/WsnNotificationProcessImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/role/user/publish/Trans.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/role/user/publish/Trans.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/test/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/bupt/wangfu/test/Test.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,102 +660,67 @@
       <FILTER>edu.bupt.wangfu.*</FILTER>
     </SUITE>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TopoMgr.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topologyMgr/TopoMgr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="143" column="24" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManagerStart.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/ManagerStart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1517">
-              <caret line="99" selection-start-line="99" selection-end-line="99" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PSManagerUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PSManagerUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2128">
-              <caret line="1303" column="93" lean-forward="true" selection-start-line="1303" selection-start-column="93" selection-end-line="1303" selection-end-column="93" />
+            <state relative-caret-position="-281">
+              <caret line="1122" lean-forward="true" selection-start-line="1122" selection-end-line="1122" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XSDUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XSDUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#55419#61125#0" expanded="true" />
-                <element signature="e#61124#61125#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LdapUtil.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topicMgr/ldap/LdapUtil.java">
+      <file leaf-file-name="SchemaUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/SchemaUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="48" column="72" lean-forward="true" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
+            <state relative-caret-position="1157">
+              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#MenuBar_init#0;class#SchemaUI#0" />
+                <element signature="method#ToolBar_init#0;class#SchemaUI#0" />
+                <element signature="method#OPFrame_init#0;class#SchemaUI#0" />
+                <element signature="method#PopMenu_init#0;class#SchemaUI#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Host.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Host.java">
+      <file leaf-file-name="XSDNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XSDNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LookUpMsg.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/LookUpMsg.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GroupRequestMsg.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/GroupRequestMsg.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FlowUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/switchMgr/odl/FlowUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="93" column="30" lean-forward="true" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RouteUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/util/RouteUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OvsProcess.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/switchMgr/odl/OvsProcess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-499">
-              <caret line="51" column="32" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="51" selection-end-column="32" />
+            <state relative-caret-position="171">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,8 +736,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>139329991887403</find>
-      <find>Lsa</find>
       <find>lsa</find>
       <find>%s</find>
       <find>routeMgr</find>
@@ -194,6 +764,8 @@
       <find>adminName</find>
       <find>start</find>
       <find>[</find>
+      <find>user</find>
+      <find>Aucun fichier de config</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -202,57 +774,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/util/Edge.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topologyMgr/util/BuildTopology.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/util/soap/wsn/WsnNotificationProcessImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/system/HelloMsg.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topologyMgr/util/Lsa.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/switchMgr/SwitchMgr.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/util/Constant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/util/RouteUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Flow.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/Start.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/util/Neighbor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/util/BuildTopology.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/RouteMgr.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/algorithm/Kruskal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/algorithm/Dijkstra.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/WsnMgr.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/controller/listener/WsnListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/algorithm/Steiner.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/config/ManagerConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/controller/util/Init.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/controller/util/ControllerInit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Policy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/util/Policy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/DialogueInconnu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeElement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JETexte.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/AffichageFormulaire.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JEZone.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JEVide.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JETypeSimple.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JESwing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JETableTexte.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JETable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JESymbole2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JESymbole.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/DialogueListeChamps.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/DialogueSymbole.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JECommentaire.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JEFormulaire.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JEListe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/equations/StringMathBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/equations/MathBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/equations/DOMMathBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeUndoableEdit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeTransferHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeTextPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/FonctionNormal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/ActionInsertionBalise.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/AttributePanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/ValidationFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JEFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JEListeChamps.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JEItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/JESauf.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/SchemaRelaxNG.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/elements/DialogueSymbole2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/Export.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeMenuBar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/util/AllGroups.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/util/PolicyMap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/ManagerMgr.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topicMgr/ldap/LdapUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/wsn/SubPubMsg.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/config/ControllerConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/controller.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/manager.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/util/WsnReceive.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topologyMgr/TopoMgr.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/test/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Manager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/util/ManagerInit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topologyMgr/ospf/HelloReceiver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/listener/ManagerListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/listener/ManagerWsnListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/EncodeTopicTreeMsg.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/controller/listener/AdminListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/listener/ManagerAdminListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/GroupMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeResourceBundle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeDocument.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/policyMgr/PolicyUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/controller/ControllerStart.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/ManagerStart.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/xsdUtil.java" />
+        <option value="$PROJECT_DIR$/schema/feature.xsd" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XMLConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topicMgr/ldap/LdapUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Host.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/SchemaUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XSDNode.java" />
+        <option value="$PROJECT_DIR$/schema/test.xsd" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XSDUtil.java" />
       </list>
     </option>
   </component>
@@ -323,7 +895,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -334,11 +905,6 @@
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -361,55 +927,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="info" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="info" type="462c0819:PsiDirectoryNode" />
-              <item name="device" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="info" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="info" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
@@ -438,7 +955,8 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="wangfu" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="routeMgr" type="462c0819:PsiDirectoryNode" />
+              <item name="managerMgr" type="462c0819:PsiDirectoryNode" />
+              <item name="design" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
@@ -448,8 +966,9 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="wangfu" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="routeMgr" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="managerMgr" type="462c0819:PsiDirectoryNode" />
+              <item name="design" type="462c0819:PsiDirectoryNode" />
+              <item name="TreeTransferHandler.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
@@ -459,18 +978,8 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="wangfu" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="switchMgr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="switchMgr" type="462c0819:PsiDirectoryNode" />
-              <item name="odl" type="462c0819:PsiDirectoryNode" />
+              <item name="managerMgr" type="462c0819:PsiDirectoryNode" />
+              <item name="schemaMgr" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
@@ -484,56 +993,113 @@
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="role" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="role" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="role" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="wangfu" type="462c0819:PsiDirectoryNode" />
-              <item name="role" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDNPubSub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="awt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+              <item name="naming" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+              <item name="naming" type="462c0819:PsiDirectoryNode" />
+              <item name="directory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+              <item name="swing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+              <item name="xml" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+              <item name="xml" type="462c0819:PsiDirectoryNode" />
+              <item name="transform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: dom4j:dom4j:1.1" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: dom4j:dom4j:1.1" type="70bed36:NamedLibraryElementNode" />
+              <item name="dom4j-1.1.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: dom4j:dom4j:1.1" type="70bed36:NamedLibraryElementNode" />
+              <item name="dom4j-1.1.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDN-PubSub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: dom4j:dom4j:1.1" type="70bed36:NamedLibraryElementNode" />
+              <item name="dom4j-1.1.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="dom4j" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -545,26 +1111,31 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="setTopicCode&#9;PSI&#9;JAVA://edu.bupt.wangfu.module.topicMgr.ldap.TopicEntry#setTopicCode" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/img/shcemaM.png&#10;true&#10;D:/SDNPubSub/img/icon/open.jpg" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/com/jtattoo/JTattoo/1.6.11/JTattoo-1.6.11.jar!/" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/apache/fop/fop-0.95.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4270172" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
-    <property name="add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="edu.bupt.wangfu.info.msg" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\lenovo\IdeaProjects\SDNPubSub\src\main\java\edu\bupt\wangfu\module\routeMgr" />
-      <recent name="C:\Users\lenovo\IdeaProjects\SDNPubSub\src\main\java\edu\bupt\wangfu\role\user" />
-      <recent name="C:\Users\lenovo\IdeaProjects\SDNPubSub\src\main\java\edu\bupt\wangfu\module" />
+      <recent name="D:\SDNPubSub" />
+      <recent name="D:\SDNPubSub\src" />
+      <recent name="D:\SDNPubSub\src\main\resources" />
+      <recent name="D:\SDNPubSub\src\main\java\edu\bupt\wangfu\module\managerMgr\design" />
+      <recent name="D:\SDNPubSub\src\main\java\edu\bupt\wangfu\module\managerMgr\design\jaxe" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="edu.bupt.wangfu.module.routeMgr.util" />
@@ -573,6 +1144,9 @@
       <recent name="module.managePath" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SDNPubSub\src\main\java\edu\bupt\wangfu\module\managerMgr\design\jaxe" />
+      <recent name="D:\SDNPubSub" />
+      <recent name="D:\SDNPubSub\src\main\java\edu\bupt\wangfu\module\managerMgr\design" />
       <recent name="C:\Users\lenovo\IdeaProjects\SDNPubSub\src\main\java\edu\bupt\wangfu\module\routeMgr" />
     </key>
   </component>
@@ -588,7 +1162,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ManagerStart">
+  <component name="RunManager" selected="Application.PSManagerUI">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
@@ -627,13 +1201,13 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="Start (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.bupt.wangfu.Start" />
-      <module name="SDNPubSub" />
+    <configuration name="PSManagerUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.bupt.wangfu.module.managerMgr.design.PSManagerUI" />
+      <module name="SDN-PubSub" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.bupt.wangfu.*" />
+          <option name="PATTERN" value="edu.bupt.wangfu.module.managerMgr.design.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -649,13 +1223,13 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="WsnMgr" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.bupt.wangfu.module.wsnMgr.WsnMgr" />
-      <module name="SDNPubSub" />
+    <configuration name="XSDUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.bupt.wangfu.module.managerMgr.schemaMgr.XSDUtil" />
+      <module name="SDN-PubSub" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.bupt.wangfu.module.wsnMgr.*" />
+          <option name="PATTERN" value="edu.bupt.wangfu.module.managerMgr.schemaMgr.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -704,18 +1278,18 @@
     <list>
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Test" />
-      <item itemvalue="Application.Start (1)" />
       <item itemvalue="Application.ControllerStart" />
-      <item itemvalue="Application.WsnMgr" />
       <item itemvalue="Application.ManagerStart" />
+      <item itemvalue="Application.PSManagerUI" />
+      <item itemvalue="Application.XSDUtil" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ManagerStart" />
+        <item itemvalue="Application.PSManagerUI" />
+        <item itemvalue="Application.XSDUtil" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.ManagerStart" />
         <item itemvalue="Application.ControllerStart" />
-        <item itemvalue="Application.WsnMgr" />
-        <item itemvalue="Application.Start (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -755,7 +1329,10 @@
       <workItem from="1540817690336" duration="1009000" />
       <workItem from="1540818976689" duration="14798000" />
       <workItem from="1541401968646" duration="274000" />
-      <workItem from="1541402896648" duration="10657000" />
+      <workItem from="1541402896648" duration="29236000" />
+      <workItem from="1542194168222" duration="1347000" />
+      <workItem from="1542438283791" duration="39750000" />
+      <workItem from="1542617720618" duration="34859000" />
     </task>
     <task id="LOCAL-00001" summary="赶快回家">
       <created>1528965847718</created>
@@ -768,43 +1345,44 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="369878000" />
+    <option name="totallyTimeSpent" value="464413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" weight="0.4181818" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5141388" side_tool="true" weight="0.4939107" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5141388" side_tool="true" weight="0.492562" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="12" sideWeight="0.48393315" visible="true" weight="0.47933885" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48586118" weight="0.26522326" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.48393315" weight="0.47933885" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48586118" visible="true" weight="0.2644628" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4877892" weight="0.37190083" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49526387" visible="true" weight="0.19818456" />
-      <window_info anchor="right" id="Database" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49526387" visible="true" weight="0.24508321" />
+      <window_info anchor="right" id="Database" order="9" weight="0.32980332" />
       <window_info id="Structure" order="7" sideWeight="0.5047361" side_tool="true" weight="0.26701966" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" x="-31" y="540" width="1556" height="341" id="Debug" order="4" weight="0.2553542" />
+      <window_info anchor="bottom" x="-31" y="540" width="1556" height="341" id="Debug" order="4" weight="0.46115702" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="1" />
       <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49164525" weight="0.32341" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32980332" />
+      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49164525" weight="0.32231405" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32980332" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -871,346 +1449,332 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="63" />
+      <option name="time" value="66" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/javax/swing/UIManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/wsn/SubPubMsg.java">
+    <entry file="file://$PROJECT_DIR$/src/LocalStrings.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="247">
+          <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.0/lombok-1.18.0.jar!/lombok/Data.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeDocument.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <state relative-caret-position="-1579">
+          <caret line="652" column="28" selection-start-line="652" selection-start-column="28" selection-end-line="652" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/user/subscribe/Client.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar!/org/apache/commons/httpclient/HttpClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/config/dita/dtd/base/dtd/map.mod">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/javax/swing/ImageIcon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="37" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/util/soap/SendWSNCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/util/soap/SubscribeResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/user/subscribe/Trans.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="84" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/util/soap/wsn/WsnNotificationProcessImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/util/soap/INotificationProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/Start.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/config/ControllerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="42" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/WsnMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/util/MessageReceiver.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topicTreeMgr/topicTree/EncodeTopicTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/wsn/TopicEncodeMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/wsnMgr/util/WsnReceive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/util/BuildTopology.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="21" column="6" lean-forward="true" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/controller.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/manager.properties" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/util/ManagerInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="75" column="64" selection-start-line="75" selection-start-column="63" selection-end-line="75" selection-end-column="64" />
+        <state relative-caret-position="185">
+          <caret line="239" selection-start-line="239" selection-end-line="239" />
           <folding>
-            <element signature="imports" />
+            <element signature="e#5677#5678#0" expanded="true" />
+            <element signature="e#5717#5718#0" expanded="true" />
+            <element signature="e#6701#6702#0" expanded="true" />
+            <element signature="e#6758#6759#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/AdminMessage.java">
+    <entry file="file://$PROJECT_DIR$/schema/insist.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/scxtoday.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/output.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/Balise.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        <state relative-caret-position="139">
+          <caret line="298" selection-start-line="298" selection-end-line="298" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/listener/ManagerWsnListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/controller/listener/WsnListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/images/splitcolumn.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/ManagerMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="157" column="61" selection-start-line="157" selection-start-column="61" selection-end-line="157" selection-end-column="61" />
-          <folding>
-            <element signature="docComment;method#isAlone#0;class#WsnListener#0" />
-            <element signature="method#isAlone#0;class#WsnListener#0" />
-          </folding>
+        <state relative-caret-position="403">
+          <caret line="34" column="5" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/EncodeTopicTreeMsg.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/AllowedElementsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="139">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/listener/ManagerAdminListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Controller.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/awt/Component.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="112" column="65" selection-start-line="112" selection-start-column="65" selection-end-line="112" selection-end-column="65" />
+        <state relative-caret-position="-1959">
+          <caret line="6523" column="19" selection-start-line="6523" selection-start-column="19" selection-end-line="6523" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Manager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeTextPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        <state relative-caret-position="133">
+          <caret line="204" column="27" lean-forward="true" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/feature.xsd" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/javax/swing/JMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="112" column="13" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/awt/event/KeyEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="294" column="28" selection-start-line="294" selection-start-column="28" selection-end-line="294" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeMenuBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-268">
+          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/test/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/SchemaSimple.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+        <state relative-caret-position="-2084">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/util/AllGroups.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/SchemaRelaxNG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state relative-caret-position="139">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/policyMgr/PolicyUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/JaxeTableView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+        <state relative-caret-position="-8421">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/DOMTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="213" column="60" lean-forward="true" selection-start-line="213" selection-start-column="60" selection-end-line="213" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/javax/xml/transform/TransformerFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/javax/naming/directory/DirContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="528" column="22" selection-start-line="528" selection-start-column="22" selection-end-line="528" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/awt/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="1012" column="16" selection-start-line="1012" selection-start-column="16" selection-end-line="1012" selection-end-column="16" />
+          <folding>
+            <element signature="e#35456#35457#0" expanded="true" />
+            <element signature="e#35491#35492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/icon/open.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/icon/schema.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="3224" column="16" selection-start-line="3224" selection-start-column="16" selection-end-line="3224" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/TreeTransferHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="17" column="56" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/welcome.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/test2.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/A.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/A_URL.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/ABResult.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/AResult.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/B.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/confience.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/dlzhou_09.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/ff.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topicMgr/ldap/TopicEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="72" column="5" lean-forward="true" selection-start-line="69" selection-start-column="4" selection-end-line="72" selection-end-column="5" />
+          <folding>
+            <element signature="e#1532#1533#0" expanded="true" />
+            <element signature="e#1565#1566#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/TopicTreeUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8398">
-          <caret line="472" column="22" selection-start-line="472" selection-start-column="22" selection-end-line="472" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/GroupMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/RouteMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topologyMgr/ospf/HelloReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4275">
-          <caret line="266" column="9" selection-start-line="266" selection-start-column="9" selection-end-line="266" selection-end-column="9" />
-          <folding>
-            <element signature="docComment;method#isValid#0;class#HelloReceiver#0" />
-            <element signature="method#isValid#0;class#HelloReceiver#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/ManagerMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/controller/listener/AdminListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/controller/ControllerStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="51" column="14" lean-forward="true" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/routeMgr/util/RouteUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/switchMgr/odl/FlowUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="93" column="30" lean-forward="true" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/switchMgr/odl/OvsProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-499">
-          <caret line="51" column="32" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="51" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/LookUpMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/message/admin/GroupRequestMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topologyMgr/TopoMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="143" column="24" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/role/manager/ManagerStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1517">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/info/device/Host.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2128">
-          <caret line="1303" column="93" lean-forward="true" selection-start-line="1303" selection-start-column="93" selection-end-line="1303" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#55419#61125#0" expanded="true" />
-            <element signature="e#61124#61125#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="171">
+          <caret line="441" column="46" selection-start-line="441" selection-start-column="46" selection-end-line="441" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/topicMgr/ldap/LdapUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="48" column="72" lean-forward="true" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
+        <state relative-caret-position="247">
+          <caret line="328" column="22" lean-forward="true" selection-start-line="328" selection-start-column="22" selection-end-line="328" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/policyMgr/PolicyUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-893">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/dom4j/dom4j/1.1/dom4j-1.1.jar!/org/dom4j/Element.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema/test.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XSDNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XSDUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/jaxe/Jaxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="88" column="4" lean-forward="true" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6388#6389#0" expanded="true" />
+            <element signature="e#6435#6436#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/schemaMgr/XMLConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="54" lean-forward="true" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/SchemaUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1157">
+          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MenuBar_init#0;class#SchemaUI#0" />
+            <element signature="method#ToolBar_init#0;class#SchemaUI#0" />
+            <element signature="method#OPFrame_init#0;class#SchemaUI#0" />
+            <element signature="method#PopMenu_init#0;class#SchemaUI#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bupt/wangfu/module/managerMgr/design/PSManagerUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281">
+          <caret line="1122" lean-forward="true" selection-start-line="1122" selection-end-line="1122" />
         </state>
       </provider>
     </entry>
@@ -1224,7 +1788,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4270172" />
               </list>
             </option>
           </splitter-proportions>
@@ -1236,7 +1800,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4270172" />
               </list>
             </option>
           </splitter-proportions>
@@ -1271,7 +1835,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4270172" />
                 <option value="0.6" />
               </list>
             </option>
@@ -1280,7 +1844,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>JTattoo-1.6.11</last-edited>
+          <last-edited>Maven: dom4j:dom4j:1.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

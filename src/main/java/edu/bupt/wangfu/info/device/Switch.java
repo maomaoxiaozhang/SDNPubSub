@@ -33,8 +33,6 @@ public class Switch extends DevInfo{
     //交换机登录密码
     private String password;
 
-    private Map<String, Host> hosts;
-
     //端口对应的队列运行情况，key——端口id，value——队列信息
     Map<Integer, List<Queue>> queueMap = new HashMap<>();
 }

@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="fr">
+
+<xs:element name="EXPOSE">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" ref="METADONNEES"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="LOGO_GAUCHE"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="LOGO_DROIT"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="PIEDPAGE_GAUCHE"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="PIEDPAGE_DROIT"/>
+<xs:element maxOccurs="1" minOccurs="1" ref="PAGE_TITRE"/>
+<xs:element maxOccurs="unbounded" minOccurs="1" ref="PARTIE"/>
+</xs:sequence>
+<xs:attribute name="transition" type="transitiontype" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PAGE_TITRE">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="1" ref="TITRE"/> 
+<xs:element maxOccurs="1" minOccurs="0" ref="SOUS_TITRE"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="AUTEUR"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="EMAIL"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="IDENTIFIANT"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="DATE_EXPOSE"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="METADONNEES">
+<xs:annotation>
+<xs:documentation>
+Métadonnées sur le document (options d'affichage, auteurs, date de création).
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" ref="OPTIONS"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="AUTEUR"/>
+<xs:element minOccurs="0" ref="DATECRE"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="OPTIONS">
+<xs:annotation>
+<xs:documentation>
+Options d'affichage.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" ref="COMMENTAIRES"/>
+<xs:element minOccurs="0" ref="IMPRESSION"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="COMMENTAIRES">
+<xs:annotation>
+<xs:documentation>
+Indique si les commentaires de l'auteur seront affichés dans le résultat.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="oui"/>
+<xs:enumeration value="non"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="IMPRESSION">
+<xs:annotation>
+<xs:documentation>
+Indique si le document doit être préparé pour l'impression (avec les numéros de pages).
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="oui"/>
+<xs:enumeration value="non"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="TITRE" type="xs:string">
+</xs:element>
+
+<xs:element name="SOUS_TITRE" type="xs:string">
+</xs:element>
+
+<xs:simpleType name="EmailAddress">
+<xs:annotation>
+<xs:documentation>
+Email address.
+</xs:documentation>
+</xs:annotation>
+
+<xs:restriction base="xs:string">
+<xs:pattern value="([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="EMAIL" type="EmailAddress">
+</xs:element>
+
+<xs:element name="AUTEUR" type="xs:string">
+</xs:element>
+
+<xs:element name="IDENTIFIANT">
+<xs:annotation>
+<xs:documentation>
+Identifiant public unique de l'exposé.
+L'attribut type est la classe ou catégorie de l'exposé.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attribute name="TYPE" type="xs:string"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="DATE_EXPOSE">
+<xs:annotation>
+<xs:documentation>
+Date réélle de l'exposé. Intervient au milieu du bas de page de la page de titre
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attribute name="TYPE" type="xs:string"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="DATECRE">
+<xs:annotation>
+<xs:documentation>
+Date de création.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[0-3]?[0-9]/[0-1]?[0-9]/[1-2][0-9][0-9][0-9]"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:simpleType name="percentage">
+<xs:restriction base="xs:integer">
+<xs:minInclusive value="0"/>
+<xs:maxInclusive value="100"/>
+</xs:restriction>
+</xs:simpleType>
+
+
+<xs:element name="LOGO_GAUCHE">
+<xs:annotation>
+<xs:documentation>
+Logo gauche pour le document, éventuellement avec un lien si on clique dessus.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:attribute name="fichier" type="xs:anyURI" use="required"/>
+<xs:attribute name="url" type="xs:anyURI" use="optional"/>
+<xs:attribute name="alt" type="xs:string" use="optional"/>
+<xs:attribute name="image_alternative" type="xs:anyURI" use="optional"/>
+<xs:attribute default="10" name="largeur_SVG" type="percentage" use="optional"/>
+<xs:attribute default="10" name="hauteur_SVG" type="percentage" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+
+<xs:element name="LOGO_DROIT">
+<xs:annotation>
+<xs:documentation>
+Logo droit pour le document, éventuellement avec un lien si on clique dessus.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:attribute name="fichier" type="xs:anyURI" use="required"/>
+<xs:attribute name="url" type="xs:anyURI" use="optional"/>
+<xs:attribute name="alt" type="xs:string" use="optional"/>
+<xs:attribute name="image_alternative" type="xs:anyURI" use="optional"/>
+<xs:attribute default="10" name="largeur_SVG" type="percentage" use="optional"/>
+<xs:attribute default="10" name="hauteur_SVG" type="percentage" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PIEDPAGE_GAUCHE" type="xs:string"/>
+<xs:element name="PIEDPAGE_DROIT" type="xs:string"/>
+
+<xs:element name="PARTIE">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:element maxOccurs="unbounded" minOccurs="1" ref="SECTION"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+
+<xs:element name="SECTION">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:choice maxOccurs="unbounded" minOccurs="0">
+<xs:element ref="PARAGRAPHE"/>
+<xs:element ref="LISTE"/>
+<xs:element ref="LISTEDEF"/>
+<xs:element ref="TABLEAU"/>
+<xs:element ref="EXEMPLE"/>
+<xs:element ref="ENVIMAGE"/>
+<xs:element ref="COMMENTAIRE"/>
+<xs:element ref="APPLET"/>
+<xs:element ref="HTML"/>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PARAGRAPHE">
+<xs:complexType mixed="true">
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LISTE">
+<xs:annotation>
+<xs:documentation>
+Liste à points.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<!-- <xs:element maxOccurs="unbounded" minOccurs="1" ref="EL"/> -->
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="EL"/>
+</xs:sequence>
+<!-- <xs:attribute name="type" type="itemtype" use="required"/> -->
+<xs:attribute name="type" type="itemtype" use="optional"/>
+<xs:attribute name="couleur_puce" type="itemcolor" use="optional"/>
+<xs:attribute name="couleur_texte" type="itemcolor" use="optional"/>
+<xs:attribute name="image_puce" type="xs:anyURI" use="optional"/>
+<xs:attribute name="mode" type="list_mode" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+
+<xs:simpleType name="itemtype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="square"/>
+<xs:enumeration value="disc"/>
+<xs:enumeration value="circle"/>
+<xs:enumeration value="A"/>
+<xs:enumeration value="1"/>
+<xs:enumeration value="i"/>
+<xs:enumeration value="I"/> 
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="itemcolor">
+<xs:restriction base="xs:string">
+<xs:enumeration value="aqua"/>
+<xs:enumeration value="black"/>
+<xs:enumeration value="blue"/>
+<xs:enumeration value="gray"/>
+<xs:enumeration value="green"/>
+<xs:enumeration value="lime"/>
+<xs:enumeration value="maroon"/>
+<xs:enumeration value="navy"/>
+<xs:enumeration value="olive"/>
+<xs:enumeration value="orange"/>
+<xs:enumeration value="purple"/>
+<xs:enumeration value="red"/>
+<xs:enumeration value="silver"/>
+<xs:enumeration value="teal"/>
+<xs:enumeration value="white"/>
+<xs:enumeration value="yellow"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="list_mode">
+<xs:restriction base="xs:string">
+<xs:enumeration value="accordeon"/>
+<xs:enumeration value="pliage"/>
+<xs:enumeration value="incremental"/>
+<xs:enumeration value="incremental_ombre"/>
+<xs:enumeration value="progressif"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="transitiontype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="none"/>
+<xs:enumeration value="crossfade"/>
+<xs:enumeration value="fadethrough"/>
+<xs:enumeration value="carousel"/>
+<xs:enumeration value="slide"/>
+<xs:enumeration value="toss"/>
+<xs:enumeration value="burst"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="EL">
+<xs:annotation>
+<xs:documentation>
+Elément de liste
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:choice maxOccurs="unbounded" minOccurs="0">
+<xs:element ref="LISTE"/>
+<xs:group ref="texte"/>
+<xs:element ref="COMMENTAIRE"/>
+</xs:choice>
+
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LISTEDEF">
+<xs:annotation>
+<xs:documentation>
+Liste de définitions
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:sequence maxOccurs="unbounded" minOccurs="1">
+<xs:element ref="TERME"/>
+<xs:element ref="DEF"/>
+</xs:sequence>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="TERME">
+<xs:annotation>
+<xs:documentation>
+Terme d'une liste de définitions
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="DEF">
+<xs:annotation>
+<xs:documentation>
+Définition pour une liste de définitions
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:complexType>
+</xs:element>
+
+
+<xs:element name="TABLEAU">
+<xs:complexType>
+<xs:sequence maxOccurs="unbounded">
+<xs:element ref="LT"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LT">
+<xs:annotation>
+<xs:documentation>
+Ligne de tableau
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="ET"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="CT"/>
+</xs:sequence>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="CT">
+<xs:annotation>
+<xs:documentation>
+Cellule de tableau
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:choice>    
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="LISTE"/>
+</xs:choice>  
+<xs:attribute name="rowspan" type="xs:positiveInteger" use="optional"/>
+<xs:attribute name="colspan" type="xs:positiveInteger" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="ET">
+<xs:annotation>
+<xs:documentation>
+Cellule entête de tableau
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+<xs:attribute name="colspan" type="xs:positiveInteger" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="EXEMPLE">
+<xs:complexType mixed="true">
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:sequence>
+<xs:attribute name="label" type="xs:string" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:group name="texte">
+<xs:annotation>
+<xs:documentation>
+Ensemble de texte et d'éléments mélangés à du texte
+</xs:documentation>
+</xs:annotation>
+<xs:choice>
+<xs:element ref="EMPHASE"/>
+<xs:element ref="CODE"/>
+<xs:element ref="ESP"/>
+<xs:element ref="BR"/>
+<xs:element ref="LIEN_EXTERNE"/>
+<xs:element ref="LIEN_INTERNE"/>
+<xs:element ref="IMAGE"/>
+<xs:element ref="EQUATION"/>
+<xs:element ref="EXEMPLE"/>
+</xs:choice>
+</xs:group>
+
+<xs:element name="EMPHASE" type="xs:string">
+
+</xs:element>
+
+<xs:element name="CODE" type="xs:string">
+
+</xs:element>
+
+<xs:element name="ESP">
+<xs:annotation>
+<xs:documentation>
+Espace insécable.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+
+<xs:element name="BR">
+<xs:annotation>
+<xs:documentation>
+Saut de ligne. Utiliser PARAGRAPHE de préférence pour séparer les paragraphes.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+
+<xs:element name="LIEN_EXTERNE">
+<xs:complexType mixed="true">
+<xs:attribute name="href" type="xs:anyURI" use="required"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LIEN_INTERNE">
+<xs:complexType mixed="true">
+<xs:attribute name="num" type="xs:integer" use="required"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="EQUATION">
+<xs:complexType>
+<xs:attribute name="texte" type="xs:string" use="required"/>
+<xs:attribute name="image" type="xs:anyURI" use="required"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="IMAGE">
+<xs:complexType>
+<xs:attribute name="fichier" type="xs:anyURI" use="required"/>
+<xs:attribute name="alt" type="xs:string" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="ENVIMAGE">
+<xs:annotation>
+<xs:documentation>
+Environnement pour une image, avec un titre et une légende.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:element maxOccurs="1" minOccurs="1" ref="IMAGE"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="LEGENDE"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LEGENDE">
+<xs:complexType mixed="true">
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="COMMENTAIRE">
+<xs:annotation>
+<xs:documentation>
+Texte qui ne sera pas affiché en sortie, sauf si le paramètre "commentaires" de la feuille de style a la valeur "oui".
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:choice maxOccurs="unbounded" minOccurs="0">
+<xs:element ref="PARAGRAPHE"/>
+<xs:element ref="LISTE"/>
+<xs:element ref="LISTEDEF"/>
+<xs:element ref="TABLEAU"/>
+<xs:group ref="texte"/>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="HTML">
+<xs:annotation>
+<xs:documentation>
+Code HTML à afficher "tel quel"
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+</xs:complexType>
+</xs:element>
+
+<xs:element name="APPLET">
+<xs:annotation>
+<xs:documentation>
+Appliquette Java.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice maxOccurs="unbounded" minOccurs="0">
+<xs:element ref="PARAM"/>
+</xs:choice>
+<xs:attribute name="classe" type="xs:string" use="required"/>
+<xs:attribute name="archive" type="xs:string" use="optional"/>
+<xs:attribute name="largeur" type="xs:positiveInteger" use="required"/>
+<xs:attribute name="hauteur" type="xs:positiveInteger" use="required"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PARAM">
+<xs:annotation>
+<xs:documentation>
+paramètre d'applet
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:attribute name="nom" type="xs:string" use="required"/>
+<xs:attribute name="valeur" type="xs:string" use="required"/>
+</xs:complexType>
+</xs:element>
+</xs:schema>

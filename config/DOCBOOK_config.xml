@@ -1,0 +1,4387 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><CONFIG_JAXE>
+<LANGAGE>
+<FICHIER_SCHEMA nom="docbook_4.5/docbook.xsd"/>
+<RACINE element="appendix"/>
+<RACINE element="article"/>
+<RACINE element="bibliography"/>
+<RACINE element="book"/>
+<RACINE element="chapter"/>
+<RACINE element="colophon"/>
+<RACINE element="dedication"/>
+<RACINE element="glossary"/>
+<RACINE element="index"/>
+<RACINE element="part"/>
+<RACINE element="preface"/>
+<RACINE element="qandaset"/>
+<RACINE element="refentry"/>
+<RACINE element="reference"/>
+<RACINE element="sect1"/>
+<RACINE element="section"/>
+<RACINE element="set"/>
+<RACINE element="setindex"/>
+</LANGAGE>
+
+<MENUS>
+<MENU nom="menu-divisions">
+<MENU nom="menu-titles">
+<MENU_INSERTION nom="title"/>
+<MENU_INSERTION nom="titleabbrev"/>
+<MENU_INSERTION nom="subtitle"/>
+<MENU_INSERTION nom="bridgehead"/>
+</MENU>
+<MENU nom="menu-sections">
+<MENU_INSERTION nom="section"/>
+<MENU_INSERTION nom="sect1"/>
+<MENU_INSERTION nom="sect2"/>
+<MENU_INSERTION nom="sect3"/>
+<MENU_INSERTION nom="sect4"/>
+<MENU_INSERTION nom="sect5"/>
+<MENU_INSERTION nom="simplesect"/>
+</MENU>
+<MENU_INSERTION nom="set"/>
+<MENU_INSERTION nom="book"/>
+<MENU_INSERTION nom="dedication"/>
+<MENU_INSERTION nom="part"/>
+<MENU_INSERTION nom="partintro"/>
+<MENU_INSERTION nom="preface"/>
+<MENU_INSERTION nom="chapter"/>
+<MENU_INSERTION nom="appendix"/>
+<MENU_INSERTION nom="glossary"/>
+<MENU_INSERTION nom="glossdiv"/>
+<MENU_INSERTION nom="article"/>
+<MENU_INSERTION nom="colophon"/>
+</MENU>
+
+<MENU nom="menu-navigation">
+<MENU nom="menu-toc">
+<MENU_INSERTION nom="toc"/>
+<MENU_INSERTION nom="tocfront"/>
+<MENU_INSERTION nom="tocentry"/>
+<MENU_INSERTION nom="tocpart"/>
+<MENU_INSERTION nom="tocchap"/>
+<MENU_INSERTION nom="toclevel1"/>
+<MENU_INSERTION nom="toclevel2"/>
+<MENU_INSERTION nom="toclevel3"/>
+<MENU_INSERTION nom="toclevel4"/>
+<MENU_INSERTION nom="toclevel5"/>
+<MENU_INSERTION nom="tocback"/>
+</MENU>
+<MENU nom="menu-lot">
+<MENU_INSERTION nom="lot"/>
+<MENU_INSERTION nom="lotentry"/>
+</MENU>
+<MENU nom="menu-index">
+<MENU_INSERTION nom="index"/>
+<MENU_INSERTION nom="setindex"/>
+<MENU_INSERTION nom="indexdiv"/>
+<MENU_INSERTION nom="indexentry"/>
+<MENU_INSERTION nom="primaryie"/>
+<MENU_INSERTION nom="secondaryie"/>
+<MENU_INSERTION nom="tertiaryie"/>
+<MENU_INSERTION nom="seeie"/>
+<MENU_INSERTION nom="seealsoie"/>
+<SEPARATEUR/>
+<MENU_INSERTION nom="itermset"/>
+<MENU_INSERTION nom="indexterm"/>
+<MENU_INSERTION nom="primary"/>
+<MENU_INSERTION nom="secondary"/>
+<MENU_INSERTION nom="tertiary"/>
+<MENU_INSERTION nom="see"/>
+<MENU_INSERTION nom="seealso"/>
+</MENU>
+</MENU>
+
+<MENU nom="menu-metadata">
+<MENU_INSERTION nom="abstract"/>
+<MENU_INSERTION nom="authorblurb"/>
+<MENU_INSERTION nom="personblurb"/>
+<MENU nom="menu-division-information">
+<MENU_INSERTION nom="setinfo"/>
+<MENU_INSERTION nom="bookinfo"/>
+<MENU_INSERTION nom="articleinfo"/>
+<MENU_INSERTION nom="appendixinfo"/>
+<MENU_INSERTION nom="bibliographyinfo"/>
+<MENU_INSERTION nom="chapterinfo"/>
+<MENU_INSERTION nom="glossaryinfo"/>
+<MENU_INSERTION nom="indexinfo"/>
+<MENU_INSERTION nom="setindexinfo"/>
+<MENU_INSERTION nom="partinfo"/>
+<MENU_INSERTION nom="prefaceinfo"/>
+<MENU_INSERTION nom="refentryinfo"/>
+<MENU_INSERTION nom="blockinfo"/>
+<MENU_INSERTION nom="sidebarinfo"/>
+</MENU>
+<MENU nom="menu-section-information">
+<MENU_INSERTION nom="refsectioninfo"/>
+<MENU_INSERTION nom="refsect1info"/>
+<MENU_INSERTION nom="refsect2info"/>
+<MENU_INSERTION nom="refsect3info"/>
+<MENU_INSERTION nom="refsynopsisdivinfo"/>
+<MENU_INSERTION nom="referenceinfo"/>
+<MENU_INSERTION nom="sectioninfo"/>
+<MENU_INSERTION nom="sect1info"/>
+<MENU_INSERTION nom="sect2info"/>
+<MENU_INSERTION nom="sect3info"/>
+<MENU_INSERTION nom="sect4info"/>
+<MENU_INSERTION nom="sect5info"/>
+</MENU>
+<MENU nom="menu-subjects">
+<MENU_INSERTION nom="subjectset"/>
+<MENU_INSERTION nom="subject"/>
+<MENU_INSERTION nom="subjectterm"/>
+</MENU>
+<MENU nom="menu-keywords">
+<MENU_INSERTION nom="keywordset"/>
+<MENU_INSERTION nom="keyword"/>
+</MENU>
+</MENU>
+
+<MENU nom="menu-block">
+<MENU nom="menu-paragraphs">
+<MENU_INSERTION nom="para" raccourci="P"/>
+<MENU_INSERTION nom="simpara"/>
+<MENU_INSERTION nom="formalpara"/>
+</MENU>
+<MENU nom="menu-lists">
+<MENU_INSERTION nom="itemizedlist"/>
+<MENU_INSERTION nom="orderedlist"/>
+<MENU_INSERTION nom="listitem"/>
+<MENU_INSERTION nom="glosslist"/>
+<MENU_INSERTION nom="glossentry"/>
+<MENU_INSERTION nom="glossdef"/>
+<MENU_INSERTION nom="glosssee"/>
+<MENU_INSERTION nom="glossseealso"/>
+<MENU_INSERTION nom="segmentedlist"/>
+<MENU_INSERTION nom="segtitle"/>
+<MENU_INSERTION nom="seglistitem"/>
+<MENU_INSERTION nom="seg"/>
+<MENU_INSERTION nom="simplelist"/>
+<MENU_INSERTION nom="member"/>
+<MENU_INSERTION nom="variablelist"/>
+<MENU_INSERTION nom="varlistentry"/>
+<MENU_INSERTION nom="term"/>
+<MENU_INSERTION nom="calloutlist"/>
+</MENU>
+<MENU nom="menu-annotations">
+<MENU_INSERTION nom="calloutlist"/>
+<MENU_INSERTION nom="callout"/>
+<MENU_INSERTION nom="areaspec"/>
+<MENU_INSERTION nom="area"/>
+<MENU_INSERTION nom="areaset"/>
+<MENU_INSERTION nom="screenco"/>
+<MENU_INSERTION nom="graphicco"/>
+<MENU_INSERTION nom="co"/>
+<MENU_INSERTION nom="coref"/>
+</MENU>
+<MENU nom="menu-admonitions">
+<MENU_INSERTION nom="caution"/>
+<MENU_INSERTION nom="important"/>
+<MENU_INSERTION nom="note"/>
+<MENU_INSERTION nom="tip"/>
+<MENU_INSERTION nom="warning"/>
+</MENU>
+<MENU nom="menu-examples">
+<MENU_INSERTION nom="example"/>
+<MENU_INSERTION nom="informalexample"/>
+</MENU>
+<MENU nom="menu-tables">
+<MENU_INSERTION nom="table"/>
+<MENU_INSERTION nom="informaltable"/>
+<MENU_INSERTION nom="colgroup"/>
+<MENU_INSERTION nom="col"/>
+<MENU_INSERTION nom="tr"/>
+<MENU_INSERTION nom="th"/>
+<MENU_INSERTION nom="td"/>
+<MENU_INSERTION nom="tgroup"/>
+<MENU_INSERTION nom="colspec"/>
+<MENU_INSERTION nom="spanspec"/>
+<MENU_INSERTION nom="thead"/>
+<MENU_INSERTION nom="tfoot"/>
+<MENU_INSERTION nom="tbody"/>
+<MENU_INSERTION nom="row"/>
+<MENU_INSERTION nom="entry"/>
+<MENU_INSERTION nom="entrytbl"/>
+<MENU_INSERTION nom="caption"/>
+</MENU>
+<MENU nom="menu-figures">
+<MENU_INSERTION nom="figure"/>
+<MENU_INSERTION nom="informalfigure"/>
+</MENU>
+<MENU nom="menu-objects">
+<MENU_INSERTION nom="mediaobject"/>
+<MENU_INSERTION nom="inlinemediaobject"/>
+<MENU_INSERTION nom="videoobject"/>
+<MENU_INSERTION nom="audioobject"/>
+<MENU_INSERTION nom="imageobject"/>
+<MENU_INSERTION nom="caption"/>
+<MENU_INSERTION nom="textobject"/>
+<MENU_INSERTION nom="objectinfo"/>
+<MENU_INSERTION nom="videodata"/>
+<MENU_INSERTION nom="audiodata"/>
+<MENU_INSERTION nom="imagedata"/>
+<MENU_INSERTION nom="textdata"/>
+<MENU_INSERTION nom="mediaobjectco"/>
+<MENU_INSERTION nom="imageobjectco"/>
+<MENU_INSERTION nom="graphic"/>
+</MENU>
+<MENU nom="menu-equations">
+<MENU_INSERTION nom="equation"/>
+<MENU_INSERTION nom="informalequation"/>
+<MENU_INSERTION nom="alt"/>
+</MENU>
+<MENU nom="menu-line-specific-environments">
+<MENU_INSERTION nom="address"/>
+<MENU_INSERTION nom="literallayout"/>
+<MENU_INSERTION nom="programlisting"/>
+<MENU_INSERTION nom="programlistingco"/>
+<MENU_INSERTION nom="screen"/>
+<MENU_INSERTION nom="screenshot"/>
+<MENU_INSERTION nom="screeninfo"/>
+<MENU_INSERTION nom="synopsis"/>
+<MENU_INSERTION nom="lineannotation"/>
+</MENU>
+<MENU nom="menu-faq">
+<MENU_INSERTION nom="qandaset"/>
+<MENU_INSERTION nom="qandadiv"/>
+<MENU_INSERTION nom="qandaentry"/>
+<MENU_INSERTION nom="question"/>
+<MENU_INSERTION nom="answer"/>
+<MENU_INSERTION nom="label"/>
+</MENU>
+<MENU nom="menu-messages">
+<MENU_INSERTION nom="msgset"/>
+<MENU_INSERTION nom="msgentry"/>
+<MENU_INSERTION nom="simplemsgentry"/>
+<MENU_INSERTION nom="msg"/>
+<MENU_INSERTION nom="msgmain"/>
+<MENU_INSERTION nom="msgsub"/>
+<MENU_INSERTION nom="msgrel"/>
+<MENU_INSERTION nom="msginfo"/>
+<MENU_INSERTION nom="msglevel"/>
+<MENU_INSERTION nom="msgorig"/>
+<MENU_INSERTION nom="msgaud"/>
+<MENU_INSERTION nom="msgexplan"/>
+</MENU>
+<MENU nom="menu-tasks">
+<MENU_INSERTION nom="task"/>
+<MENU_INSERTION nom="tasksummary"/>
+<MENU_INSERTION nom="taskprerequisites"/>
+<MENU_INSERTION nom="taskrelated"/>
+</MENU>
+<MENU nom="menu-misc">
+<MENU_INSERTION nom="blockquote"/>
+<MENU_INSERTION nom="epigraph"/>
+<MENU_INSERTION nom="attribution"/>
+<MENU_INSERTION nom="highlights"/>
+<MENU_INSERTION nom="sidebar"/>
+<MENU_INSERTION nom="ackno"/>
+</MENU>
+</MENU>
+
+<MENU nom="menu-inline">
+<MENU nom="menu-traditional">
+<MENU_INSERTION nom="abbrev"/>
+<MENU_INSERTION nom="acronym"/>
+<MENU_INSERTION nom="emphasis"/>
+<MENU_INSERTION nom="footnote"/>
+<MENU_INSERTION nom="phrase"/>
+<MENU_INSERTION nom="quote"/>
+<MENU_INSERTION nom="trademark"/>
+</MENU>
+<MENU nom="menu-cross-references">
+<MENU_INSERTION nom="anchor"/>
+<MENU_INSERTION nom="citation"/>
+<MENU_INSERTION nom="citerefentry"/>
+<MENU_INSERTION nom="citetitle"/>
+<MENU_INSERTION nom="firstterm"/>
+<MENU_INSERTION nom="glossterm"/>
+<MENU_INSERTION nom="link"/>
+<MENU_INSERTION nom="olink"/>
+<MENU_INSERTION nom="ulink"/>
+<MENU_INSERTION nom="xref"/>
+<MENU_INSERTION nom="footnoteref"/>
+<MENU_INSERTION nom="biblioref"/>
+</MENU>
+<MENU nom="menu-markup">
+<MENU_INSERTION nom="foreignphrase"/>
+<MENU_INSERTION nom="wordasword"/>
+<MENU_INSERTION nom="computeroutput"/>
+<MENU_INSERTION nom="literal"/>
+<MENU_INSERTION nom="markup"/>
+<MENU_INSERTION nom="prompt"/>
+<MENU_INSERTION nom="replaceable"/>
+<MENU_INSERTION nom="sgmltag"/>
+<MENU_INSERTION nom="userinput"/>
+<MENU_INSERTION nom="remark"/>
+</MENU>
+<MENU nom="menu-mathematics">
+<MENU_INSERTION nom="inlineequation"/>
+<MENU_INSERTION nom="mathphrase"/>
+<MENU_INSERTION nom="subscript"/>
+<MENU_INSERTION nom="superscript"/>
+<MENU_INSERTION nom="alt"/>
+</MENU>
+<MENU nom="menu-user-interfaces">
+<MENU_INSERTION nom="accel"/>
+<MENU_INSERTION nom="guibutton"/>
+<MENU_INSERTION nom="guiicon"/>
+<MENU_INSERTION nom="guilabel"/>
+<MENU_INSERTION nom="guimenu"/>
+<MENU_INSERTION nom="guimenuitem"/>
+<MENU_INSERTION nom="guisubmenu"/>
+<MENU_INSERTION nom="keycap"/>
+<MENU_INSERTION nom="keycode"/>
+<MENU_INSERTION nom="keycombo"/>
+<MENU_INSERTION nom="keysym"/>
+<MENU_INSERTION nom="menuchoice"/>
+<MENU_INSERTION nom="mousebutton"/>
+<MENU_INSERTION nom="shortcut"/>
+</MENU>
+<MENU nom="menu-operating-systems">
+<MENU_INSERTION nom="application"/>
+<MENU_INSERTION nom="command"/>
+<MENU_INSERTION nom="envar"/>
+<MENU_INSERTION nom="filename"/>
+<MENU_INSERTION nom="medialabel"/>
+<MENU_INSERTION nom="msgtext"/>
+<MENU_INSERTION nom="option"/>
+<MENU_INSERTION nom="parameter"/>
+<MENU_INSERTION nom="prompt"/>
+<MENU_INSERTION nom="systemitem"/>
+</MENU>
+<MENU nom="menu-general-purpose">
+<MENU_INSERTION nom="uri"/>
+<MENU_INSERTION nom="email"/>
+<MENU_INSERTION nom="application"/>
+<MENU_INSERTION nom="database"/>
+<MENU_INSERTION nom="filename"/>
+<MENU_INSERTION nom="hardware"/>
+<MENU_INSERTION nom="inlinegraphic"/>
+<MENU_INSERTION nom="literal"/>
+<MENU_INSERTION nom="medialabel"/>
+<MENU_INSERTION nom="option"/>
+<MENU_INSERTION nom="optional"/>
+<MENU_INSERTION nom="replaceable"/>
+<MENU_INSERTION nom="symbol"/>
+<MENU_INSERTION nom="token"/>
+<MENU_INSERTION nom="type"/>
+<MENU_INSERTION nom="beginpage"/>
+<MENU_INSERTION nom="termdef"/>
+</MENU>
+</MENU>
+
+<MENU nom="menu-bibliography">
+<MENU_INSERTION nom="bibliography"/>
+<MENU_INSERTION nom="bibliodiv"/>
+<MENU_INSERTION nom="bibliolist"/>
+<MENU_INSERTION nom="biblioentry"/>
+<MENU_INSERTION nom="bibliomixed"/>
+<MENU_INSERTION nom="biblioset"/>
+<MENU_INSERTION nom="bibliomset"/>
+<MENU_INSERTION nom="bibliomisc"/>
+<MENU nom="menu-identities">
+<MENU_INSERTION nom="author"/>
+<MENU_INSERTION nom="authorgroup"/>
+<MENU_INSERTION nom="collab"/>
+<MENU_INSERTION nom="collabname"/>
+<MENU_INSERTION nom="affiliation"/>
+<MENU_INSERTION nom="shortaffil"/>
+<MENU_INSERTION nom="jobtitle"/>
+<MENU_INSERTION nom="orgdiv"/>
+<MENU_INSERTION nom="personname"/>
+<MENU_INSERTION nom="authorinitials"/>
+<MENU_INSERTION nom="firstname"/>
+<MENU_INSERTION nom="honorific"/>
+<MENU_INSERTION nom="lineage"/>
+<MENU_INSERTION nom="othername"/>
+<MENU_INSERTION nom="surname"/>
+<MENU_INSERTION nom="corpauthor"/>
+<MENU_INSERTION nom="corpcredit"/>
+<MENU_INSERTION nom="corpname"/>
+<MENU_INSERTION nom="orgname"/>
+<MENU_INSERTION nom="othercredit"/>
+</MENU>
+<MENU nom="menu-addresses">
+<MENU_INSERTION nom="address"/>
+<MENU_INSERTION nom="street"/>
+<MENU_INSERTION nom="pob"/>
+<MENU_INSERTION nom="postcode"/>
+<MENU_INSERTION nom="city"/>
+<MENU_INSERTION nom="state"/>
+<MENU_INSERTION nom="country"/>
+<MENU_INSERTION nom="phone"/>
+<MENU_INSERTION nom="fax"/>
+<MENU_INSERTION nom="otheraddr"/>
+</MENU>
+<MENU nom="menu-conferences">
+<MENU_INSERTION nom="confgroup"/>
+<MENU_INSERTION nom="confdates"/>
+<MENU_INSERTION nom="conftitle"/>
+<MENU_INSERTION nom="confnum"/>
+<MENU_INSERTION nom="confsponsor"/>
+</MENU>
+<MENU nom="menu-bibliographic-references">
+<MENU_INSERTION nom="artpagenums"/>
+<MENU_INSERTION nom="contractnum"/>
+<MENU_INSERTION nom="contractsponsor"/>
+<MENU_INSERTION nom="copyright"/>
+<MENU_INSERTION nom="year"/>
+<MENU_INSERTION nom="holder"/>
+<MENU_INSERTION nom="date"/>
+<MENU_INSERTION nom="edition"/>
+<MENU_INSERTION nom="editor"/>
+<MENU_INSERTION nom="isbn"/>
+<MENU_INSERTION nom="issn"/>
+<MENU_INSERTION nom="biblioid"/>
+<MENU_INSERTION nom="citebiblioid"/>
+<MENU_INSERTION nom="bibliosource"/>
+<MENU_INSERTION nom="bibliorelation"/>
+<MENU_INSERTION nom="bibliocoverage"/>
+<MENU_INSERTION nom="invpartnumber"/>
+<MENU_INSERTION nom="issuenum"/>
+<MENU_INSERTION nom="legalnotice"/>
+<MENU_INSERTION nom="modespec"/>
+<MENU_INSERTION nom="pagenums"/>
+<MENU_INSERTION nom="contrib"/>
+<MENU_INSERTION nom="printhistory"/>
+<MENU_INSERTION nom="productname"/>
+<MENU_INSERTION nom="productnumber"/>
+<MENU_INSERTION nom="pubdate"/>
+<MENU_INSERTION nom="publisher"/>
+<MENU_INSERTION nom="publishername"/>
+<MENU_INSERTION nom="pubsnumber"/>
+<MENU_INSERTION nom="releaseinfo"/>
+<MENU_INSERTION nom="revhistory"/>
+<MENU_INSERTION nom="revision"/>
+<MENU_INSERTION nom="revnumber"/>
+<MENU_INSERTION nom="revremark"/>
+<MENU_INSERTION nom="revdescription"/>
+<MENU_INSERTION nom="seriesvolnums"/>
+<MENU_INSERTION nom="volumenum"/>
+</MENU>
+</MENU>
+
+<MENU nom="menu-programming">
+<MENU nom="menu-reference-page">
+<MENU_INSERTION nom="reference"/>
+<MENU_INSERTION nom="refentry"/>
+<MENU_INSERTION nom="refsection"/>
+<MENU_INSERTION nom="refsect1"/>
+<MENU_INSERTION nom="refsect2"/>
+<MENU_INSERTION nom="refsect3"/>
+<MENU_INSERTION nom="refmeta"/>
+<MENU_INSERTION nom="manvolnum"/>
+<MENU_INSERTION nom="refmiscinfo"/>
+<MENU_INSERTION nom="refnamediv"/>
+<MENU_INSERTION nom="refdescriptor"/>
+<MENU_INSERTION nom="refname"/>
+<MENU_INSERTION nom="refpurpose"/>
+<MENU_INSERTION nom="refclass"/>
+<MENU_INSERTION nom="refentrytitle"/>
+<MENU_INSERTION nom="refsynopsisdiv"/>
+</MENU>
+<MENU nom="menu-functions">
+<MENU_INSERTION nom="function"/>
+<MENU_INSERTION nom="funcsynopsis"/>
+<MENU_INSERTION nom="funcsynopsisinfo"/>
+<MENU_INSERTION nom="funcprototype"/>
+<MENU_INSERTION nom="funcdef"/>
+<MENU_INSERTION nom="void"/>
+<MENU_INSERTION nom="varargs"/>
+<MENU_INSERTION nom="paramdef"/>
+<MENU_INSERTION nom="funcparams"/>
+</MENU>
+<MENU nom="menu-classes">
+<MENU_INSERTION nom="classname"/>
+<MENU_INSERTION nom="classsynopsis"/>
+<MENU_INSERTION nom="classsynopsisinfo"/>
+<MENU_INSERTION nom="ooclass"/>
+<MENU_INSERTION nom="oointerface"/>
+<MENU_INSERTION nom="ooexception"/>
+<MENU_INSERTION nom="interfacename"/>
+<MENU_INSERTION nom="fieldsynopsis"/>
+<MENU_INSERTION nom="initializer"/>
+<MENU_INSERTION nom="constructorsynopsis"/>
+<MENU_INSERTION nom="destructorsynopsis"/>
+<MENU_INSERTION nom="methodsynopsis"/>
+<MENU_INSERTION nom="methodname"/>
+<MENU_INSERTION nom="methodparam"/>
+</MENU>
+<MENU nom="menu-synopsis">
+<MENU_INSERTION nom="cmdsynopsis"/>
+<MENU_INSERTION nom="arg"/>
+<MENU_INSERTION nom="group"/>
+<MENU_INSERTION nom="sbr"/>
+<MENU_INSERTION nom="synopfragmentref"/>
+<MENU_INSERTION nom="synopfragment"/>
+<MENU_INSERTION nom="modifier"/>
+</MENU>
+<MENU nom="menu-errors">
+<MENU_INSERTION nom="errorcode"/>
+<MENU_INSERTION nom="errorname"/>
+<MENU_INSERTION nom="errortext"/>
+<MENU_INSERTION nom="errortype"/>
+</MENU>
+<MENU nom="menu-procedures">
+<MENU_INSERTION nom="procedure"/>
+<MENU_INSERTION nom="step"/>
+<MENU_INSERTION nom="substeps"/>
+<MENU_INSERTION nom="stepalternatives"/>
+</MENU>
+
+<MENU_INSERTION nom="interface"/>
+<MENU_INSERTION nom="exceptionname"/>
+<MENU_INSERTION nom="action"/>
+<MENU_INSERTION nom="constant"/>
+<MENU_INSERTION nom="literal"/>
+<MENU_INSERTION nom="msgtext"/>
+<MENU_INSERTION nom="parameter"/>
+<MENU_INSERTION nom="property"/>
+<MENU_INSERTION nom="replaceable"/>
+<MENU_INSERTION nom="returnvalue"/>
+<MENU_INSERTION nom="structfield"/>
+<MENU_INSERTION nom="structname"/>
+<MENU_INSERTION nom="symbol"/>
+<MENU_INSERTION nom="token"/>
+<MENU_INSERTION nom="type"/>
+<MENU_INSERTION nom="varname"/>
+<MENU_INSERTION nom="code"/>
+<MENU_INSERTION nom="package"/>
+</MENU>
+</MENUS>
+
+<AFFICHAGE_NOEUDS>
+<AFFICHAGE_ELEMENT element="colgroup" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="col" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tr" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="th" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="td" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="table" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tgroup" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="colspec" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="spanspec" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="thead" type="tabletexte">
+<PARAMETRE nom="trTag" valeur="tr"/>
+<PARAMETRE nom="tdTag" valeur="td"/>
+<PARAMETRE nom="colspanAttr" valeur="colspan"/>
+<PARAMETRE nom="rowspanAttr" valeur="rowspan"/>
+<PARAMETRE nom="alignAttr" valeur="align"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tfoot" type="tabletexte">
+<PARAMETRE nom="trTag" valeur="tr"/>
+<PARAMETRE nom="tdTag" valeur="td"/>
+<PARAMETRE nom="colspanAttr" valeur="colspan"/>
+<PARAMETRE nom="rowspanAttr" valeur="rowspan"/>
+<PARAMETRE nom="alignAttr" valeur="align"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tbody" type="tabletexte">
+<PARAMETRE nom="trTag" valeur="tr"/>
+<PARAMETRE nom="tdTag" valeur="td"/>
+<PARAMETRE nom="colspanAttr" valeur="colspan"/>
+<PARAMETRE nom="rowspanAttr" valeur="rowspan"/>
+<PARAMETRE nom="alignAttr" valeur="align"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="row" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="entrytbl" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="entry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="title" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+<PARAMETRE nom="style" valeur="GRAS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="titleabbrev" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="subtitle" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliolist" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="biblioentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliomixed" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="articleinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="biblioset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliomset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliomisc" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="subjectset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="subject" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="subjectterm" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="keywordset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="keyword" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="itermset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="blockinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="simplemsgentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msg" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgmain" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgsub" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgrel" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msginfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msglevel" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgorig" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgaud" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgexplan" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="task" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tasksummary" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="taskprerequisites" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="taskrelated" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="qandaset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="qandadiv" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="qandaentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="question" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="answer" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="label" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="procedure" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="step" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="substeps" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="stepalternatives" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sidebarinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sidebar" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="abstract" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="authorblurb" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="personblurb" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="blockquote" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="attribution" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bridgehead" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="remark" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="epigraph" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="footnote" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="highlights" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="formalpara" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="para" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="simpara" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="caution" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="important" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="note" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tip" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="warning" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glosslist" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glossentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glossdef" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glosssee" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glossseealso" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="itemizedlist" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="orderedlist" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="listitem" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="segmentedlist" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="segtitle" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="seglistitem" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="seg" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="simplelist" type="liste">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="member" type="item">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="variablelist" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="varlistentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="term" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="calloutlist" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="callout" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="example" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="informalexample" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="programlistingco" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+<PARAMETRE nom="police" valeur="Monospaced"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="areaspec" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="area" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="areaset" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="programlisting" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="literallayout" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="screenco" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="screen" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="screenshot" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="screeninfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="figure" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="informalfigure" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="graphicco" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="graphic" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="fileref"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="inlinegraphic" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="mediaobject" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="inlinemediaobject" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="videoobject" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="audioobject" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="imageobject" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="textobject" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="objectinfo" type="zone"/>
+<AFFICHAGE_ELEMENT element="videodata" type="vide"/>
+<AFFICHAGE_ELEMENT element="audiodata" type="vide"/>
+<AFFICHAGE_ELEMENT element="imagedata" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="fileref"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="textdata" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="mediaobjectco" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="imageobjectco" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="equation" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="informalequation" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="inlineequation" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="alt" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="mathphrase" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="informaltable" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="caption" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="synopsis" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="cmdsynopsis" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="arg" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="group" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sbr" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="synopfragmentref" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="synopfragment" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="funcsynopsis" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="funcsynopsisinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="funcprototype" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="funcdef" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="void" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="varargs" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="paramdef" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="funcparams" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="classsynopsis" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="classsynopsisinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="ooclass" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="oointerface" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="ooexception" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="modifier" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="interfacename" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="exceptionname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="fieldsynopsis" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="initializer" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="constructorsynopsis" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="destructorsynopsis" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="methodsynopsis" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="methodname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="methodparam" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="ackno" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="address" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="street" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="pob" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="postcode" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="city" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="state" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="country" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="phone" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="fax" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="otheraddr" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="affiliation" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="shortaffil" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="jobtitle" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="orgdiv" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="artpagenums" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="personname" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="author" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="authorgroup" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="collab" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="collabname" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="authorinitials" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="confgroup" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="confdates" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="conftitle" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="confnum" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="confsponsor" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="contractnum" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="contractsponsor" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="copyright" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="year" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="holder" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="corpauthor" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="corpcredit" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="corpname" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="date" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="edition" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="editor" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="isbn" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="issn" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="biblioid" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="citebiblioid" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliosource" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliorelation" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliocoverage" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="invpartnumber" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="issuenum" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="legalnotice" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="modespec" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="orgname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="othercredit" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="pagenums" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="contrib" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="firstname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="honorific" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="lineage" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="othername" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="surname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="printhistory" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="productname" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="productnumber" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="pubdate" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="publisher" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="publishername" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="pubsnumber" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="releaseinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="revhistory" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="revision" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="revnumber" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="revremark" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="revdescription" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="seriesvolnums" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="volumenum" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="accel" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="action" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="application" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="classname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="package" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="co" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="coref" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="command" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="computeroutput" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+<PARAMETRE nom="police" valeur="Monospaced"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="database" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="email" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="envar" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="errorcode" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="errorname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="errortext" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="errortype" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="filename" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="function" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="guibutton" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="guiicon" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="guilabel" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="guimenu" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="guimenuitem" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="guisubmenu" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="hardware" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="interface" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="keycap" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="keycode" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="keycombo" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="keysym" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="lineannotation" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="literal" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="code" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="constant" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="varname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="markup" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="medialabel" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="menuchoice" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="shortcut" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="mousebutton" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="msgtext" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="option" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="optional" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="parameter" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="prompt" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="property" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="replaceable" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="returnvalue" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sgmltag" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="structfield" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="structname" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="symbol" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="systemitem" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="uri" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="token" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="type" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="userinput" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="termdef" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="abbrev" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="acronym" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="citation" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="citerefentry" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refentrytitle" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="manvolnum" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="citetitle" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="emphasis" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+<PARAMETRE nom="style" valeur="ITALIQUE"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="foreignphrase" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glossterm" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="firstterm" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="phrase" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="quote" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="subscript" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+<PARAMETRE nom="style" valeur="INDICE"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="superscript" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+<PARAMETRE nom="style" valeur="EXPOSANT"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="trademark" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="wordasword" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="link" type="string">
+<PARAMETRE nom="titreAtt" valeur="linkend"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="olink" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="ulink" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="footnoteref" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="xref" type="vide">
+<PARAMETRE nom="titreAtt" valeur="linkend"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="biblioref" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="anchor" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="beginpage" type="vide">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="indexterm" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="primary" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="secondary" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tertiary" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="see" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="seealso" type="string">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="set" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="setinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="book" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bookinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="dedication" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="colophon" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="toc" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tocfront" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tocentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tocpart" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tocchap" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="toclevel1" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="toclevel2" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="toclevel3" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="toclevel4" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="toclevel5" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tocback" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="lot" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="lotentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="appendix" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="chapter" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="part" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="preface" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="reference" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="partintro" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="appendixinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliographyinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="chapterinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glossaryinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="indexinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="setindexinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="partinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="prefaceinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refentryinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsectioninfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsect1info" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsect2info" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsect3info" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsynopsisdivinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="referenceinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect1info" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect2info" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect3info" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect4info" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect5info" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="section" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sectioninfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect1" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect2" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect3" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect4" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sect5" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="simplesect" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliography" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="bibliodiv" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glossary" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="glossdiv" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="index" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="setindex" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="indexdiv" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="indexentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="primaryie" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="secondaryie" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="tertiaryie" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="seeie" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="seealsoie" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refentry" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refmeta" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refmiscinfo" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refnamediv" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refdescriptor" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refname" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refpurpose" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refclass" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsynopsisdiv" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsection" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsect1" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsect2" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="refsect3" type="zone">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="article" type="division">
+<PARAMETRE nom="titreAtt" valeur="id"/>
+</AFFICHAGE_ELEMENT>
+</AFFICHAGE_NOEUDS>
+
+<EXPORTS>
+<EXPORT nom="HTML" sortie="HTML">
+<FICHIER_XSL nom="docbook-xsl-1.73.2/html/docbook.xsl"/>
+</EXPORT>
+<EXPORT nom="PDF" sortie="PDF">
+<FICHIER_XSL nom="docbook-xsl-1.73.2/fo/docbook.xsl"/>
+</EXPORT>
+</EXPORTS>
+
+<STRINGS langue="en">
+<DESCRIPTION_CONFIG>Docbook 4.5</DESCRIPTION_CONFIG>
+
+<STRINGS_MENU menu="menu-divisions">
+<TITRE>Divisions</TITRE>
+<STRINGS_MENU menu="menu-titles">
+<TITRE>Titles</TITRE>
+</STRINGS_MENU>
+</STRINGS_MENU>
+
+<STRINGS_MENU menu="menu-sections">
+<TITRE>Sections</TITRE>
+</STRINGS_MENU>
+
+<STRINGS_MENU menu="menu-navigation">
+<TITRE>Navigation</TITRE>
+<STRINGS_MENU menu="menu-toc">
+<TITRE>Table of Contents</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-lot">
+<TITRE>List of Titles</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-index">
+<TITRE>Index</TITRE>
+</STRINGS_MENU>
+</STRINGS_MENU>
+
+<STRINGS_MENU menu="menu-metadata">
+<TITRE>Metadata</TITRE>
+<STRINGS_MENU menu="menu-division-information">
+<TITRE>Divisions</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-section-information">
+<TITRE>Sections</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-subjects">
+<TITRE>Subjects</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-keywords">
+<TITRE>Keywords</TITRE>
+</STRINGS_MENU>
+</STRINGS_MENU>
+
+<STRINGS_MENU menu="menu-block">
+<TITRE>Block elements</TITRE>
+<STRINGS_MENU menu="menu-paragraphs">
+<TITRE>Paragraphs</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-lists">
+<TITRE>Lists</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-annotations">
+<TITRE>Annotations</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-admonitions">
+<TITRE>Admonitions</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-line-specific-environments">
+<TITRE>Line-specific environments</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-examples">
+<TITRE>Examples</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-tables">
+<TITRE>Tables</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-figures">
+<TITRE>Figures</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-objects">
+<TITRE>Objects</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-equations">
+<TITRE>Equations</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-faq">
+<TITRE>Questions and Answers</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-messages">
+<TITRE>Messages</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-tasks">
+<TITRE>Tasks</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-misc">
+<TITRE>Misc</TITRE>
+</STRINGS_MENU>
+</STRINGS_MENU>
+
+<STRINGS_MENU menu="menu-inline">
+<TITRE>Inline elements</TITRE>
+<STRINGS_MENU menu="menu-traditional">
+<TITRE>Traditional</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-cross-references">
+<TITRE>Cross-references</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-markup">
+<TITRE>Markup</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-mathematics">
+<TITRE>Mathematics</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-user-interfaces">
+<TITRE>User interfaces</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-operating-systems">
+<TITRE>Operating systems</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-general-purpose">
+<TITRE>General purpose</TITRE>
+</STRINGS_MENU>
+</STRINGS_MENU>
+
+<STRINGS_MENU menu="menu-reference-page">
+<TITRE>Reference page</TITRE>
+</STRINGS_MENU>
+
+<STRINGS_MENU menu="menu-bibliography">
+<TITRE>Bibliography</TITRE>
+<STRINGS_MENU menu="menu-identities">
+<TITRE>Identities</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-addresses">
+<TITRE>Addresses</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-conferences">
+<TITRE>Conferences</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-bibliographic-references">
+<TITRE>Bibliographic references</TITRE>
+</STRINGS_MENU>
+</STRINGS_MENU>
+
+<STRINGS_MENU menu="menu-programming">
+<TITRE>Programming</TITRE>
+<STRINGS_MENU menu="menu-functions">
+<TITRE>Functions</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-classes">
+<TITRE>Classes</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-synopsis">
+<TITRE>Synopsis</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-errors">
+<TITRE>Errors</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="menu-procedures">
+<TITRE>Procedures</TITRE>
+</STRINGS_MENU>
+</STRINGS_MENU>
+
+
+<STRINGS_ELEMENT element="colgroup">
+<TITRE>colgroup</TITRE>
+<DOCUMENTATION>
+A group of columns in an HTML table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="col">
+<TITRE>col</TITRE>
+<DOCUMENTATION>
+Specifications for a column in an HTML table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tr">
+<TITRE>tr</TITRE>
+<DOCUMENTATION>
+A row in an HTML table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="th">
+<TITRE>th</TITRE>
+<DOCUMENTATION>
+A table header entry in an HTML table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="td">
+<TITRE>td</TITRE>
+<DOCUMENTATION>
+A table ntry in an HTML table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="table">
+<TITRE>table</TITRE>
+<DOCUMENTATION>
+A formal table in a document
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tgroup">
+<TITRE>tgroup</TITRE>
+<DOCUMENTATION>
+A wrapper for the main content of a table, or part of a table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="colspec">
+<TITRE>colspec</TITRE>
+<DOCUMENTATION>
+Specifications for a column in a table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="spanspec">
+<TITRE>spanspec</TITRE>
+<DOCUMENTATION>
+Formatting information for a spanned column in a table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="thead">
+<TITRE>thead</TITRE>
+<DOCUMENTATION>
+A table header consisting of one or more rows. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tfoot">
+<TITRE>tfoot</TITRE>
+<DOCUMENTATION>
+A table footer consisting of one or more rows. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tbody">
+<TITRE>tbody</TITRE>
+<DOCUMENTATION>
+A wrapper for the rows of a table or informal table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="row">
+<TITRE>row</TITRE>
+<DOCUMENTATION>
+A row in a table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="entrytbl">
+<TITRE>entrytbl</TITRE>
+<DOCUMENTATION>
+A subtable appearing in place of an Entry in a table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="entry">
+<TITRE>entry</TITRE>
+<DOCUMENTATION>
+A cell in a table. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="title">
+<TITRE>title</TITRE>
+<DOCUMENTATION>
+The text of the title of a section of a document or of a formal block-level element. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="titleabbrev">
+<TITRE>titleabbrev</TITRE>
+<DOCUMENTATION>
+The abbreviation of a Title. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subtitle">
+<TITRE>subtitle</TITRE>
+<DOCUMENTATION>
+The subtitle of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliolist">
+<TITRE>bibliolist</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="biblioentry">
+<TITRE>biblioentry</TITRE>
+<DOCUMENTATION>
+An entry in a Bibliography. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomixed">
+<TITRE>bibliomixed</TITRE>
+<DOCUMENTATION>
+An entry in a Bibliography. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="articleinfo">
+<TITRE>articleinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for an Article. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="biblioset">
+<TITRE>biblioset</TITRE>
+<DOCUMENTATION>
+A "raw" container for related bibliographic information. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomset">
+<TITRE>bibliomset</TITRE>
+<DOCUMENTATION>
+A "cooked" container for related bibliographic information. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomisc">
+<TITRE>bibliomisc</TITRE>
+<DOCUMENTATION>
+Untyped bibliographic information. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subjectset">
+<TITRE>subjectset</TITRE>
+<DOCUMENTATION>
+A set of terms describing the subject matter of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subject">
+<TITRE>subject</TITRE>
+<DOCUMENTATION>
+One of a group of terms describing the subject matter of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subjectterm">
+<TITRE>subjectterm</TITRE>
+<DOCUMENTATION>
+A term in a group of terms describing the subject matter of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keywordset">
+<TITRE>keywordset</TITRE>
+<DOCUMENTATION>
+A set of keywords describing the content of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keyword">
+<TITRE>keyword</TITRE>
+<DOCUMENTATION>
+One of a set of keywords describing the content of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="itermset">
+<TITRE>itermset</TITRE>
+<DOCUMENTATION>
+A set of index terms in the meta-information of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="blockinfo">
+<TITRE>blockinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a block element. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgset">
+<TITRE>msgset</TITRE>
+<DOCUMENTATION>
+A detailed set of messages, usually error messages
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgentry">
+<TITRE>msgentry</TITRE>
+<DOCUMENTATION>
+A wrapper for an entry in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="simplemsgentry">
+<TITRE>simplemsgentry</TITRE>
+<DOCUMENTATION>
+A wrapper for a simpler entry in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msg">
+<TITRE>msg</TITRE>
+<DOCUMENTATION>
+A message in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgmain">
+<TITRE>msgmain</TITRE>
+<DOCUMENTATION>
+The primary component of a message in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgsub">
+<TITRE>msgsub</TITRE>
+<DOCUMENTATION>
+A subcomponent of a message in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgrel">
+<TITRE>msgrel</TITRE>
+<DOCUMENTATION>
+A related component of a message in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msginfo">
+<TITRE>msginfo</TITRE>
+<DOCUMENTATION>
+Information about a message in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msglevel">
+<TITRE>msglevel</TITRE>
+<DOCUMENTATION>
+The level of importance or severity of a message in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgorig">
+<TITRE>msgorig</TITRE>
+<DOCUMENTATION>
+The origin of a message in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgaud">
+<TITRE>msgaud</TITRE>
+<DOCUMENTATION>
+The audience to which a message in a message set is relevant. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgexplan">
+<TITRE>msgexplan</TITRE>
+<DOCUMENTATION>
+Explanatory material relating to a message in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="task">
+<TITRE>task</TITRE>
+<DOCUMENTATION>
+A task to be completed
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tasksummary">
+<TITRE>tasksummary</TITRE>
+<DOCUMENTATION>
+A summary of a task. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="taskprerequisites">
+<TITRE>taskprerequisites</TITRE>
+<DOCUMENTATION>
+The prerequisites for a task. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="taskrelated">
+<TITRE>taskrelated</TITRE>
+<DOCUMENTATION>
+Information related to a task. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="qandaset">
+<TITRE>qandaset</TITRE>
+<DOCUMENTATION>
+A question-and-answer set
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="qandadiv">
+<TITRE>qandadiv</TITRE>
+<DOCUMENTATION>
+A titled division in a QandASet. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="qandaentry">
+<TITRE>qandaentry</TITRE>
+<DOCUMENTATION>
+A question/answer set within a QandASet. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="question">
+<TITRE>question</TITRE>
+<DOCUMENTATION>
+A question in a QandASet. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="answer">
+<TITRE>answer</TITRE>
+<DOCUMENTATION>
+An answer to a question posed in a QandASet. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="label">
+<TITRE>label</TITRE>
+<DOCUMENTATION>
+A label on a Question or Answer. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="procedure">
+<TITRE>procedure</TITRE>
+<DOCUMENTATION>
+A list of operations to be performed in a well-defined sequence
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="step">
+<TITRE>step</TITRE>
+<DOCUMENTATION>
+A unit of action in a procedure. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="substeps">
+<TITRE>substeps</TITRE>
+<DOCUMENTATION>
+A wrapper for steps that occur within steps in a procedure. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="stepalternatives">
+<TITRE>stepalternatives</TITRE>
+<DOCUMENTATION>
+Alternative steps in a procedure. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sidebarinfo">
+<TITRE>sidebarinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Sidebar. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sidebar">
+<TITRE>sidebar</TITRE>
+<DOCUMENTATION>
+A portion of a document that is isolated from the main narrative flow
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="abstract">
+<TITRE>abstract</TITRE>
+<DOCUMENTATION>
+A summary. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="authorblurb">
+<TITRE>authorblurb</TITRE>
+<DOCUMENTATION>
+A short description or note about an author. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="personblurb">
+<TITRE>personblurb</TITRE>
+<DOCUMENTATION>
+A short description or note about a person. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="blockquote">
+<TITRE>blockquote</TITRE>
+<DOCUMENTATION>
+A quotation set off from the main text
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="attribution">
+<TITRE>attribution</TITRE>
+<DOCUMENTATION>
+The source of a block quote or epigraph. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bridgehead">
+<TITRE>bridgehead</TITRE>
+<DOCUMENTATION>
+A free-floating heading. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="remark">
+<TITRE>remark</TITRE>
+<DOCUMENTATION>
+A remark (or comment) intended for presentation in a draft manuscript. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="epigraph">
+<TITRE>epigraph</TITRE>
+<DOCUMENTATION>
+A short inscription at the beginning of a document or component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="footnote">
+<TITRE>footnote</TITRE>
+<DOCUMENTATION>
+A footnote
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="highlights">
+<TITRE>highlights</TITRE>
+<DOCUMENTATION>
+A summary of the main points of the discussed component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="formalpara">
+<TITRE>formalpara</TITRE>
+<DOCUMENTATION>
+A paragraph with a title
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="para">
+<TITRE>para</TITRE>
+<DOCUMENTATION>
+A paragraph
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="simpara">
+<TITRE>simpara</TITRE>
+<DOCUMENTATION>
+A paragraph that contains only text and inline markup, no block elements
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="caution">
+<TITRE>caution</TITRE>
+<DOCUMENTATION>
+A note of caution
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="important">
+<TITRE>important</TITRE>
+<DOCUMENTATION>
+An admonition set off from the text
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="note">
+<TITRE>note</TITRE>
+<DOCUMENTATION>
+A message set off from the text
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tip">
+<TITRE>tip</TITRE>
+<DOCUMENTATION>
+A suggestion to the user, set off from the text
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="warning">
+<TITRE>warning</TITRE>
+<DOCUMENTATION>
+An admonition set off from the text
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glosslist">
+<TITRE>glosslist</TITRE>
+<DOCUMENTATION>
+A wrapper for a set of GlossEntrys
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glossentry">
+<TITRE>glossentry</TITRE>
+<DOCUMENTATION>
+An entry in a Glossary or GlossList. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glossdef">
+<TITRE>glossdef</TITRE>
+<DOCUMENTATION>
+A definition in a GlossEntry. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glosssee">
+<TITRE>glosssee</TITRE>
+<DOCUMENTATION>
+A cross-reference from one GlossEntry to another. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glossseealso">
+<TITRE>glossseealso</TITRE>
+<DOCUMENTATION>
+A cross-reference from one GlossEntry to another. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="itemizedlist">
+<TITRE>itemizedlist</TITRE>
+<DOCUMENTATION>
+A list in which each entry is marked with a bullet or other dingbat
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="orderedlist">
+<TITRE>orderedlist</TITRE>
+<DOCUMENTATION>
+A list in which each entry is marked with a sequentially incremented label
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="listitem">
+<TITRE>listitem</TITRE>
+<DOCUMENTATION>
+A wrapper for the elements of a list item. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="segmentedlist">
+<TITRE>segmentedlist</TITRE>
+<DOCUMENTATION>
+A segmented list, a list of sets of elements
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="segtitle">
+<TITRE>segtitle</TITRE>
+<DOCUMENTATION>
+The title of an element of a list item in a segmented list. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="seglistitem">
+<TITRE>seglistitem</TITRE>
+<DOCUMENTATION>
+A list item in a segmented list. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="seg">
+<TITRE>seg</TITRE>
+<DOCUMENTATION>
+An element of a list item in a segmented list. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="simplelist">
+<TITRE>simplelist</TITRE>
+<DOCUMENTATION>
+An undecorated list of single words or short phrases
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="member">
+<TITRE>member</TITRE>
+<DOCUMENTATION>
+An element of a simple list. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="variablelist">
+<TITRE>variablelist</TITRE>
+<DOCUMENTATION>
+A list in which each entry is composed of a set of one or more terms and an associated description
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="varlistentry">
+<TITRE>varlistentry</TITRE>
+<DOCUMENTATION>
+A wrapper for a set of terms and the associated description in a variable list. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="term">
+<TITRE>term</TITRE>
+<DOCUMENTATION>
+The word or phrase being defined or described in a variable list. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="calloutlist">
+<TITRE>calloutlist</TITRE>
+<DOCUMENTATION>
+A list of Callouts
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="callout">
+<TITRE>callout</TITRE>
+<DOCUMENTATION>
+A "called out" description of a marked Area. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="example">
+<TITRE>example</TITRE>
+<DOCUMENTATION>
+A formal example, with a title
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="informalexample">
+<TITRE>informalexample</TITRE>
+<DOCUMENTATION>
+A displayed example without a title
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="programlistingco">
+<TITRE>programlistingco</TITRE>
+<DOCUMENTATION>
+A program listing with associated areas used in callouts
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="areaspec">
+<TITRE>areaspec</TITRE>
+<DOCUMENTATION>
+A collection of regions in a graphic or code example. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="area">
+<TITRE>area</TITRE>
+<DOCUMENTATION>
+A region defined for a Callout in a graphic or code example. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="areaset">
+<TITRE>areaset</TITRE>
+<DOCUMENTATION>
+A set of related areas in a graphic or code example. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="programlisting">
+<TITRE>programlisting</TITRE>
+<DOCUMENTATION>
+A literal listing of all or part of a program
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="literallayout">
+<TITRE>literallayout</TITRE>
+<DOCUMENTATION>
+A block of text in which line breaks and white space are to be reproduced faithfully
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="screenco">
+<TITRE>screenco</TITRE>
+<DOCUMENTATION>
+A screen with associated areas used in callouts
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="screen">
+<TITRE>screen</TITRE>
+<DOCUMENTATION>
+Text that a user sees or might see on a computer screen
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="screenshot">
+<TITRE>screenshot</TITRE>
+<DOCUMENTATION>
+A representation of what the user sees or might see on a computer screen
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="screeninfo">
+<TITRE>screeninfo</TITRE>
+<DOCUMENTATION>
+Information about how a screen shot was produced. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="figure">
+<TITRE>figure</TITRE>
+<DOCUMENTATION>
+A formal figure, generally an illustration, with a title
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="informalfigure">
+<TITRE>informalfigure</TITRE>
+<DOCUMENTATION>
+A untitled figure
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="graphicco">
+<TITRE>graphicco</TITRE>
+<DOCUMENTATION>
+A graphic that contains callout areas
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="graphic">
+<TITRE>graphic</TITRE>
+<DOCUMENTATION>
+A displayed graphical object (not an inline)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="inlinegraphic">
+<TITRE>inlinegraphic</TITRE>
+<DOCUMENTATION>
+An object containing or pointing to graphical data that will be rendered inline
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="mediaobject">
+<TITRE>mediaobject</TITRE>
+<DOCUMENTATION>
+A displayed media object (video, audio, image, etc.)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="inlinemediaobject">
+<TITRE>inlinemediaobject</TITRE>
+<DOCUMENTATION>
+An inline media object (video, audio, image, and so on)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="videoobject">
+<TITRE>videoobject</TITRE>
+<DOCUMENTATION>
+A wrapper for video data and its associated meta-information
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="audioobject">
+<TITRE>audioobject</TITRE>
+<DOCUMENTATION>
+A wrapper for audio data and its associated meta-information
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="imageobject">
+<TITRE>imageobject</TITRE>
+<DOCUMENTATION>
+A wrapper for image data and its associated meta-information
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="textobject">
+<TITRE>textobject</TITRE>
+<DOCUMENTATION>
+A wrapper for a text description of an object and its associated meta-information
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="objectinfo">
+<TITRE>objectinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for an object. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="videodata">
+<TITRE>videodata</TITRE>
+<DOCUMENTATION>
+Pointer to external video data. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="audiodata">
+<TITRE>audiodata</TITRE>
+<DOCUMENTATION>
+Pointer to external audio data. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="imagedata">
+<TITRE>imagedata</TITRE>
+<DOCUMENTATION>
+Pointer to external image data. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="textdata">
+<TITRE>textdata</TITRE>
+<DOCUMENTATION>
+Pointer to external text data. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="mediaobjectco">
+<TITRE>mediaobjectco</TITRE>
+<DOCUMENTATION>
+A media object that contains callouts
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="imageobjectco">
+<TITRE>imageobjectco</TITRE>
+<DOCUMENTATION>
+A wrapper for an image object with callouts
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="equation">
+<TITRE>equation</TITRE>
+<DOCUMENTATION>
+A displayed mathematical equation
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="informalequation">
+<TITRE>informalequation</TITRE>
+<DOCUMENTATION>
+A displayed mathematical equation without a title
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="inlineequation">
+<TITRE>inlineequation</TITRE>
+<DOCUMENTATION>
+A mathematical equation or expression occurring inline
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="alt">
+<TITRE>alt</TITRE>
+<DOCUMENTATION>
+Text representation for a graphical element. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="mathphrase">
+<TITRE>mathphrase</TITRE>
+<DOCUMENTATION>
+A mathematical phrase, an expression that can be represented with ordinary text and a small amount of markup. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="informaltable">
+<TITRE>informaltable</TITRE>
+<DOCUMENTATION>
+A table without a title
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="caption">
+<TITRE>caption</TITRE>
+<DOCUMENTATION>
+A caption. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="synopsis">
+<TITRE>synopsis</TITRE>
+<DOCUMENTATION>
+A general-purpose element for representing the syntax of commands or functions
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="cmdsynopsis">
+<TITRE>cmdsynopsis</TITRE>
+<DOCUMENTATION>
+A syntax summary for a software command
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="arg">
+<TITRE>arg</TITRE>
+<DOCUMENTATION>
+An argument in a CmdSynopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="group">
+<TITRE>group</TITRE>
+<DOCUMENTATION>
+A group of elements in a CmdSynopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sbr">
+<TITRE>sbr</TITRE>
+<DOCUMENTATION>
+An explicit line break in a command synopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="synopfragmentref">
+<TITRE>synopfragmentref</TITRE>
+<DOCUMENTATION>
+A reference to a fragment of a command synopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="synopfragment">
+<TITRE>synopfragment</TITRE>
+<DOCUMENTATION>
+A portion of a CmdSynopsis broken out from the main body of the synopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="funcsynopsis">
+<TITRE>funcsynopsis</TITRE>
+<DOCUMENTATION>
+The syntax summary for a function definition
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="funcsynopsisinfo">
+<TITRE>funcsynopsisinfo</TITRE>
+<DOCUMENTATION>
+Information supplementing the FuncDefs of a FuncSynopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="funcprototype">
+<TITRE>funcprototype</TITRE>
+<DOCUMENTATION>
+The prototype of a function. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="funcdef">
+<TITRE>funcdef</TITRE>
+<DOCUMENTATION>
+A function (subroutine) name and its return type. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="void">
+<TITRE>void</TITRE>
+<DOCUMENTATION>
+An empty element in a function synopsis indicating that the function in question takes no arguments. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="varargs">
+<TITRE>varargs</TITRE>
+<DOCUMENTATION>
+An empty element in a function synopsis indicating a variable number of arguments. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="paramdef">
+<TITRE>paramdef</TITRE>
+<DOCUMENTATION>
+Information about a function parameter in a programming language. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="funcparams">
+<TITRE>funcparams</TITRE>
+<DOCUMENTATION>
+Parameters for a function referenced through a function pointer in a synopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="classsynopsis">
+<TITRE>classsynopsis</TITRE>
+<DOCUMENTATION>
+The syntax summary for a class definition
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="classsynopsisinfo">
+<TITRE>classsynopsisinfo</TITRE>
+<DOCUMENTATION>
+Information supplementing the contents of a ClassSynopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ooclass">
+<TITRE>ooclass</TITRE>
+<DOCUMENTATION>
+A class in an object-oriented programming language
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="oointerface">
+<TITRE>oointerface</TITRE>
+<DOCUMENTATION>
+An interface in an object-oriented programming language
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ooexception">
+<TITRE>ooexception</TITRE>
+<DOCUMENTATION>
+An exception in an object-oriented programming language
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="modifier">
+<TITRE>modifier</TITRE>
+<DOCUMENTATION>
+Modifiers in a synopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="interfacename">
+<TITRE>interfacename</TITRE>
+<DOCUMENTATION>
+The name of an interface
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="exceptionname">
+<TITRE>exceptionname</TITRE>
+<DOCUMENTATION>
+The name of an exception
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="fieldsynopsis">
+<TITRE>fieldsynopsis</TITRE>
+<DOCUMENTATION>
+The name of a field in a class definition
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="initializer">
+<TITRE>initializer</TITRE>
+<DOCUMENTATION>
+The initializer for a FieldSynopsis. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="constructorsynopsis">
+<TITRE>constructorsynopsis</TITRE>
+<DOCUMENTATION>
+A syntax summary for a constructor
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="destructorsynopsis">
+<TITRE>destructorsynopsis</TITRE>
+<DOCUMENTATION>
+A syntax summary for a destructor
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="methodsynopsis">
+<TITRE>methodsynopsis</TITRE>
+<DOCUMENTATION>
+A syntax summary for a method
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="methodname">
+<TITRE>methodname</TITRE>
+<DOCUMENTATION>
+The name of a method
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="methodparam">
+<TITRE>methodparam</TITRE>
+<DOCUMENTATION>
+Parameters to a method. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ackno">
+<TITRE>ackno</TITRE>
+<DOCUMENTATION>
+Acknowledgements in an Article. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="address">
+<TITRE>address</TITRE>
+<DOCUMENTATION>
+A real-world address, generally a postal address
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="street">
+<TITRE>street</TITRE>
+<DOCUMENTATION>
+A street address in an address. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="pob">
+<TITRE>pob</TITRE>
+<DOCUMENTATION>
+A post office box in an address. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="postcode">
+<TITRE>postcode</TITRE>
+<DOCUMENTATION>
+A postal code in an address. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="city">
+<TITRE>city</TITRE>
+<DOCUMENTATION>
+The name of a city in an address. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="state">
+<TITRE>state</TITRE>
+<DOCUMENTATION>
+A state or province in an address. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="country">
+<TITRE>country</TITRE>
+<DOCUMENTATION>
+The name of a country. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="phone">
+<TITRE>phone</TITRE>
+<DOCUMENTATION>
+A telephone number. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="fax">
+<TITRE>fax</TITRE>
+<DOCUMENTATION>
+A fax number. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="otheraddr">
+<TITRE>otheraddr</TITRE>
+<DOCUMENTATION>
+Uncategorized information in address. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="affiliation">
+<TITRE>affiliation</TITRE>
+<DOCUMENTATION>
+The institutional affiliation of an individual. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="shortaffil">
+<TITRE>shortaffil</TITRE>
+<DOCUMENTATION>
+A brief description of an affiliation. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="jobtitle">
+<TITRE>jobtitle</TITRE>
+<DOCUMENTATION>
+The title of an individual in an organization. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="orgdiv">
+<TITRE>orgdiv</TITRE>
+<DOCUMENTATION>
+A division of an organization. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="artpagenums">
+<TITRE>artpagenums</TITRE>
+<DOCUMENTATION>
+The page numbers of an article as published. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="personname">
+<TITRE>personname</TITRE>
+<DOCUMENTATION>
+The personal name of an individual
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="author">
+<TITRE>author</TITRE>
+<DOCUMENTATION>
+The name of an individual author
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="authorgroup">
+<TITRE>authorgroup</TITRE>
+<DOCUMENTATION>
+Wrapper for author information when a document has multiple authors or collabarators. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="collab">
+<TITRE>collab</TITRE>
+<DOCUMENTATION>
+Identifies a collaborator. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="collabname">
+<TITRE>collabname</TITRE>
+<DOCUMENTATION>
+The name of a collaborator. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="authorinitials">
+<TITRE>authorinitials</TITRE>
+<DOCUMENTATION>
+The initials or other short identifier for an author
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="confgroup">
+<TITRE>confgroup</TITRE>
+<DOCUMENTATION>
+A wrapper for document meta-information about a conference. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="confdates">
+<TITRE>confdates</TITRE>
+<DOCUMENTATION>
+The dates of a conference for which a document was written. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="conftitle">
+<TITRE>conftitle</TITRE>
+<DOCUMENTATION>
+The title of a conference for which a document was written. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="confnum">
+<TITRE>confnum</TITRE>
+<DOCUMENTATION>
+An identifier, frequently numerical, associated with a conference for which a document was written. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="confsponsor">
+<TITRE>confsponsor</TITRE>
+<DOCUMENTATION>
+The sponsor of a conference for which a document was written. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="contractnum">
+<TITRE>contractnum</TITRE>
+<DOCUMENTATION>
+The contract number of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="contractsponsor">
+<TITRE>contractsponsor</TITRE>
+<DOCUMENTATION>
+The sponsor of a contract. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="copyright">
+<TITRE>copyright</TITRE>
+<DOCUMENTATION>
+Copyright information about a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="year">
+<TITRE>year</TITRE>
+<DOCUMENTATION>
+The year of publication of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="holder">
+<TITRE>holder</TITRE>
+<DOCUMENTATION>
+The name of the individual or organization that holds a copyright. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="corpauthor">
+<TITRE>corpauthor</TITRE>
+<DOCUMENTATION>
+A corporate author, as opposed to an individual
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="corpcredit">
+<TITRE>corpcredit</TITRE>
+<DOCUMENTATION>
+A corporation or organization credited in a document
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="corpname">
+<TITRE>corpname</TITRE>
+<DOCUMENTATION>
+The name of a corporation. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="date">
+<TITRE>date</TITRE>
+<DOCUMENTATION>
+The date of publication or revision of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="edition">
+<TITRE>edition</TITRE>
+<DOCUMENTATION>
+The name or number of an edition of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="editor">
+<TITRE>editor</TITRE>
+<DOCUMENTATION>
+The name of the editor of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="isbn">
+<TITRE>isbn</TITRE>
+<DOCUMENTATION>
+The International Standard Book Number of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="issn">
+<TITRE>issn</TITRE>
+<DOCUMENTATION>
+The International Standard Serial Number of a periodical. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="biblioid">
+<TITRE>biblioid</TITRE>
+<DOCUMENTATION>
+An identifier for a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="citebiblioid">
+<TITRE>citebiblioid</TITRE>
+<DOCUMENTATION>
+A citation of a bibliographic identifier
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliosource">
+<TITRE>bibliosource</TITRE>
+<DOCUMENTATION>
+The source of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliorelation">
+<TITRE>bibliorelation</TITRE>
+<DOCUMENTATION>
+The relationship of a document to another. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliocoverage">
+<TITRE>bibliocoverage</TITRE>
+<DOCUMENTATION>
+The spatial or temporal coverage of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="invpartnumber">
+<TITRE>invpartnumber</TITRE>
+<DOCUMENTATION>
+An inventory part number. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="issuenum">
+<TITRE>issuenum</TITRE>
+<DOCUMENTATION>
+The number of an issue of a journal. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="legalnotice">
+<TITRE>legalnotice</TITRE>
+<DOCUMENTATION>
+A statement of legal obligations or requirements. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="modespec">
+<TITRE>modespec</TITRE>
+<DOCUMENTATION>
+Application-specific information necessary for the completion of an OLink
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="orgname">
+<TITRE>orgname</TITRE>
+<DOCUMENTATION>
+The name of an organization other than a corporation
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="othercredit">
+<TITRE>othercredit</TITRE>
+<DOCUMENTATION>
+A person or entity, other than an author or editor, credited in a document
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="pagenums">
+<TITRE>pagenums</TITRE>
+<DOCUMENTATION>
+The numbers of the pages in a book, for use in a bibliographic entry. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="contrib">
+<TITRE>contrib</TITRE>
+<DOCUMENTATION>
+A summary of the contributions made to a document by a credited source. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="firstname">
+<TITRE>firstname</TITRE>
+<DOCUMENTATION>
+The first name of a person. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="honorific">
+<TITRE>honorific</TITRE>
+<DOCUMENTATION>
+The title of a person. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lineage">
+<TITRE>lineage</TITRE>
+<DOCUMENTATION>
+The portion of a person's name indicating a relationship to ancestors. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="othername">
+<TITRE>othername</TITRE>
+<DOCUMENTATION>
+A component of a persons name that is not a first name, surname, or lineage. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="surname">
+<TITRE>surname</TITRE>
+<DOCUMENTATION>
+A family name; in western cultures the last name. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="printhistory">
+<TITRE>printhistory</TITRE>
+<DOCUMENTATION>
+The printing history of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="productname">
+<TITRE>productname</TITRE>
+<DOCUMENTATION>
+The formal name of a product
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="productnumber">
+<TITRE>productnumber</TITRE>
+<DOCUMENTATION>
+A number assigned to a product
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="pubdate">
+<TITRE>pubdate</TITRE>
+<DOCUMENTATION>
+The date of publication of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="publisher">
+<TITRE>publisher</TITRE>
+<DOCUMENTATION>
+The publisher of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="publishername">
+<TITRE>publishername</TITRE>
+<DOCUMENTATION>
+The name of the publisher of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="pubsnumber">
+<TITRE>pubsnumber</TITRE>
+<DOCUMENTATION>
+A number assigned to a publication other than an ISBN or ISSN or inventory part number. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="releaseinfo">
+<TITRE>releaseinfo</TITRE>
+<DOCUMENTATION>
+Information about a particular release of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revhistory">
+<TITRE>revhistory</TITRE>
+<DOCUMENTATION>
+A history of the revisions to a document
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revision">
+<TITRE>revision</TITRE>
+<DOCUMENTATION>
+An entry describing a single revision in the history of the revisions to a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revnumber">
+<TITRE>revnumber</TITRE>
+<DOCUMENTATION>
+A document revision number. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revremark">
+<TITRE>revremark</TITRE>
+<DOCUMENTATION>
+A description of a revision to a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revdescription">
+<TITRE>revdescription</TITRE>
+<DOCUMENTATION>
+A extended description of a revision to a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="seriesvolnums">
+<TITRE>seriesvolnums</TITRE>
+<DOCUMENTATION>
+Numbers of the volumes in a series of books. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="volumenum">
+<TITRE>volumenum</TITRE>
+<DOCUMENTATION>
+The volume number of a document in a set (as of books in a set or articles in a journal). 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="accel">
+<TITRE>accel</TITRE>
+<DOCUMENTATION>
+A graphical user interface (GUI) keyboard shortcut. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="action">
+<TITRE>action</TITRE>
+<DOCUMENTATION>
+A response to a user event
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="application">
+<TITRE>application</TITRE>
+<DOCUMENTATION>
+The name of a software program
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="classname">
+<TITRE>classname</TITRE>
+<DOCUMENTATION>
+The name of a class, in the object-oriented programming sense
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="package">
+<TITRE>package</TITRE>
+<DOCUMENTATION>
+A package
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="co">
+<TITRE>co</TITRE>
+<DOCUMENTATION>
+The location of a callout embedded in text. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="coref">
+<TITRE>coref</TITRE>
+<DOCUMENTATION>
+A cross reference to a co. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="command">
+<TITRE>command</TITRE>
+<DOCUMENTATION>
+The name of an executable program or other software command
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="computeroutput">
+<TITRE>computeroutput</TITRE>
+<DOCUMENTATION>
+Data, generally text, displayed or presented by a computer
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="database">
+<TITRE>database</TITRE>
+<DOCUMENTATION>
+The name of a database, or part of a database
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="email">
+<TITRE>email</TITRE>
+<DOCUMENTATION>
+An email address
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="envar">
+<TITRE>envar</TITRE>
+<DOCUMENTATION>
+A software environment variable
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="errorcode">
+<TITRE>errorcode</TITRE>
+<DOCUMENTATION>
+An error code
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="errorname">
+<TITRE>errorname</TITRE>
+<DOCUMENTATION>
+An error name
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="errortext">
+<TITRE>errortext</TITRE>
+<DOCUMENTATION>
+An error message
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="errortype">
+<TITRE>errortype</TITRE>
+<DOCUMENTATION>
+The classification of an error message
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="filename">
+<TITRE>filename</TITRE>
+<DOCUMENTATION>
+The name of a file
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="function">
+<TITRE>function</TITRE>
+<DOCUMENTATION>
+The name of a function or subroutine, as in a programming language
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="guibutton">
+<TITRE>guibutton</TITRE>
+<DOCUMENTATION>
+The text on a button in a GUI
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="guiicon">
+<TITRE>guiicon</TITRE>
+<DOCUMENTATION>
+Graphic and/or text appearing as a icon in a GUI
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="guilabel">
+<TITRE>guilabel</TITRE>
+<DOCUMENTATION>
+The text of a label in a GUI
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="guimenu">
+<TITRE>guimenu</TITRE>
+<DOCUMENTATION>
+The name of a menu in a GUI
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="guimenuitem">
+<TITRE>guimenuitem</TITRE>
+<DOCUMENTATION>
+The name of a terminal menu item in a GUI
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="guisubmenu">
+<TITRE>guisubmenu</TITRE>
+<DOCUMENTATION>
+The name of a submenu in a GUI
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="hardware">
+<TITRE>hardware</TITRE>
+<DOCUMENTATION>
+A physical part of a computer system
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="interface">
+<TITRE>interface</TITRE>
+<DOCUMENTATION>
+An element of a GUI
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keycap">
+<TITRE>keycap</TITRE>
+<DOCUMENTATION>
+The text printed on a key on a keyboard
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keycode">
+<TITRE>keycode</TITRE>
+<DOCUMENTATION>
+The internal, frequently numeric, identifier for a key on a keyboard
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keycombo">
+<TITRE>keycombo</TITRE>
+<DOCUMENTATION>
+A combination of input actions
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keysym">
+<TITRE>keysym</TITRE>
+<DOCUMENTATION>
+The symbolic name of a key on a keyboard
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lineannotation">
+<TITRE>lineannotation</TITRE>
+<DOCUMENTATION>
+A comment on a line in a verbatim listing. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="literal">
+<TITRE>literal</TITRE>
+<DOCUMENTATION>
+Inline text that is some literal value
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="code">
+<TITRE>code</TITRE>
+<DOCUMENTATION>
+An inline code fragment
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="constant">
+<TITRE>constant</TITRE>
+<DOCUMENTATION>
+A programming or system constant
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="varname">
+<TITRE>varname</TITRE>
+<DOCUMENTATION>
+The name of a variable
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="markup">
+<TITRE>markup</TITRE>
+<DOCUMENTATION>
+A string of formatting markup in text that is to be represented literally
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="medialabel">
+<TITRE>medialabel</TITRE>
+<DOCUMENTATION>
+A name that identifies the physical medium on which some information resides
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="menuchoice">
+<TITRE>menuchoice</TITRE>
+<DOCUMENTATION>
+A selection or series of selections from a menu
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="shortcut">
+<TITRE>shortcut</TITRE>
+<DOCUMENTATION>
+A key combination for an action that is also accessible through a menu. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="mousebutton">
+<TITRE>mousebutton</TITRE>
+<DOCUMENTATION>
+The conventional name of a mouse button
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="msgtext">
+<TITRE>msgtext</TITRE>
+<DOCUMENTATION>
+The actual text of a message component in a message set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="option">
+<TITRE>option</TITRE>
+<DOCUMENTATION>
+An option for a software command
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="optional">
+<TITRE>optional</TITRE>
+<DOCUMENTATION>
+Optional information
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="parameter">
+<TITRE>parameter</TITRE>
+<DOCUMENTATION>
+A value or a symbolic reference to a value
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="prompt">
+<TITRE>prompt</TITRE>
+<DOCUMENTATION>
+A character or string indicating the start of an input field in a computer display
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="property">
+<TITRE>property</TITRE>
+<DOCUMENTATION>
+A unit of data associated with some part of a computer system
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="replaceable">
+<TITRE>replaceable</TITRE>
+<DOCUMENTATION>
+Content that may or must be replaced by the user
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="returnvalue">
+<TITRE>returnvalue</TITRE>
+<DOCUMENTATION>
+The value returned by a function
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sgmltag">
+<TITRE>sgmltag</TITRE>
+<DOCUMENTATION>
+A component of SGML markup
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="structfield">
+<TITRE>structfield</TITRE>
+<DOCUMENTATION>
+A field in a structure (in the programming language sense)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="structname">
+<TITRE>structname</TITRE>
+<DOCUMENTATION>
+The name of a structure (in the programming language sense)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="symbol">
+<TITRE>symbol</TITRE>
+<DOCUMENTATION>
+A name that is replaced by a value before processing
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="systemitem">
+<TITRE>systemitem</TITRE>
+<DOCUMENTATION>
+A system-related item or term
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="uri">
+<TITRE>uri</TITRE>
+<DOCUMENTATION>
+A Uniform Resource Identifier
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="token">
+<TITRE>token</TITRE>
+<DOCUMENTATION>
+A unit of information
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="type">
+<TITRE>type</TITRE>
+<DOCUMENTATION>
+The classification of a value
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="userinput">
+<TITRE>userinput</TITRE>
+<DOCUMENTATION>
+Data entered by the user
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="termdef">
+<TITRE>termdef</TITRE>
+<DOCUMENTATION>
+An inline term definition
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="abbrev">
+<TITRE>abbrev</TITRE>
+<DOCUMENTATION>
+An abbreviation, especially one followed by a period
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="acronym">
+<TITRE>acronym</TITRE>
+<DOCUMENTATION>
+An often pronounceable word made from the initial (or selected) letters of a name or phrase
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="citation">
+<TITRE>citation</TITRE>
+<DOCUMENTATION>
+An inline bibliographic reference to another published work
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="citerefentry">
+<TITRE>citerefentry</TITRE>
+<DOCUMENTATION>
+A citation to a reference page
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refentrytitle">
+<TITRE>refentrytitle</TITRE>
+<DOCUMENTATION>
+The title of a reference page. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="manvolnum">
+<TITRE>manvolnum</TITRE>
+<DOCUMENTATION>
+A reference volume number. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="citetitle">
+<TITRE>citetitle</TITRE>
+<DOCUMENTATION>
+The title of a cited work
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="emphasis">
+<TITRE>emphasis</TITRE>
+<DOCUMENTATION>
+Emphasized text
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="foreignphrase">
+<TITRE>foreignphrase</TITRE>
+<DOCUMENTATION>
+A word or phrase in a language other than the primary language of the document
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glossterm">
+<TITRE>glossterm</TITRE>
+<DOCUMENTATION>
+A glossary term
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="firstterm">
+<TITRE>firstterm</TITRE>
+<DOCUMENTATION>
+The first occurrence of a term
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="phrase">
+<TITRE>phrase</TITRE>
+<DOCUMENTATION>
+A span of text
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="quote">
+<TITRE>quote</TITRE>
+<DOCUMENTATION>
+An inline quotation
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subscript">
+<TITRE>subscript</TITRE>
+<DOCUMENTATION>
+A subscript (as in H{^2}O, the molecular formula for water). 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="superscript">
+<TITRE>superscript</TITRE>
+<DOCUMENTATION>
+A superscript (as in x^2, the mathematical notation for x multiplied by itself). 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="trademark">
+<TITRE>trademark</TITRE>
+<DOCUMENTATION>
+A trademark
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="wordasword">
+<TITRE>wordasword</TITRE>
+<DOCUMENTATION>
+A word meant specifically as a word and not representing anything else
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="link">
+<TITRE>link</TITRE>
+<DOCUMENTATION>
+A hypertext link
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="olink">
+<TITRE>olink</TITRE>
+<DOCUMENTATION>
+A link that addresses its target indirectly, through an entity
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ulink">
+<TITRE>ulink</TITRE>
+<DOCUMENTATION>
+A link that addresses its target by means of a URL (Uniform Resource Locator)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="footnoteref">
+<TITRE>footnoteref</TITRE>
+<DOCUMENTATION>
+A cross reference to a footnote (a footnote mark)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="xref">
+<TITRE>xref</TITRE>
+<DOCUMENTATION>
+A cross reference to another part of the document
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="biblioref">
+<TITRE>biblioref</TITRE>
+<DOCUMENTATION>
+A cross reference to a bibliographic entry
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="anchor">
+<TITRE>anchor</TITRE>
+<DOCUMENTATION>
+A spot in the document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="beginpage">
+<TITRE>beginpage</TITRE>
+<DOCUMENTATION>
+The location of a page break in a print version of the document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="indexterm">
+<TITRE>indexterm</TITRE>
+<DOCUMENTATION>
+A wrapper for terms to be indexed
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="primary">
+<TITRE>primary</TITRE>
+<DOCUMENTATION>
+The primary word or phrase under which an index term should be sorted. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="secondary">
+<TITRE>secondary</TITRE>
+<DOCUMENTATION>
+A secondary word or phrase in an index term. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tertiary">
+<TITRE>tertiary</TITRE>
+<DOCUMENTATION>
+A tertiary word or phrase in an index term. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="see">
+<TITRE>see</TITRE>
+<DOCUMENTATION>
+Part of an index term directing the reader instead to another entry in the index. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="seealso">
+<TITRE>seealso</TITRE>
+<DOCUMENTATION>
+Part of an index term directing the reader also to another entry in the index. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="set">
+<TITRE>set</TITRE>
+<DOCUMENTATION>
+A collection of books. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="setinfo">
+<TITRE>setinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Set. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="book">
+<TITRE>book</TITRE>
+<DOCUMENTATION>
+A book
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bookinfo">
+<TITRE>bookinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Book. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="dedication">
+<TITRE>dedication</TITRE>
+<DOCUMENTATION>
+A wrapper for the dedication section of a book. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="colophon">
+<TITRE>colophon</TITRE>
+<DOCUMENTATION>
+Text at the back of a book describing facts about its production. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="toc">
+<TITRE>toc</TITRE>
+<DOCUMENTATION>
+A table of contents. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tocfront">
+<TITRE>tocfront</TITRE>
+<DOCUMENTATION>
+An entry in a table of contents for a front matter component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tocentry">
+<TITRE>tocentry</TITRE>
+<DOCUMENTATION>
+A component title in a table of contents. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tocpart">
+<TITRE>tocpart</TITRE>
+<DOCUMENTATION>
+An entry in a table of contents for a part of a book. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tocchap">
+<TITRE>tocchap</TITRE>
+<DOCUMENTATION>
+An entry in a table of contents for a component in the body of a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="toclevel1">
+<TITRE>toclevel1</TITRE>
+<DOCUMENTATION>
+A top-level entry within a table of contents entry for a chapter-like component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="toclevel2">
+<TITRE>toclevel2</TITRE>
+<DOCUMENTATION>
+A second-level entry within a table of contents entry for a chapter-like component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="toclevel3">
+<TITRE>toclevel3</TITRE>
+<DOCUMENTATION>
+A third-level entry within a table of contents entry for a chapter-like component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="toclevel4">
+<TITRE>toclevel4</TITRE>
+<DOCUMENTATION>
+A fourth-level entry within a table of contents entry for a chapter-like component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="toclevel5">
+<TITRE>toclevel5</TITRE>
+<DOCUMENTATION>
+A fifth-level entry within a table of contents entry for a chapter-like component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tocback">
+<TITRE>tocback</TITRE>
+<DOCUMENTATION>
+An entry in a table of contents for a back matter component. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lot">
+<TITRE>lot</TITRE>
+<DOCUMENTATION>
+A list of the titles of formal objects (as tables or figures) in a document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lotentry">
+<TITRE>lotentry</TITRE>
+<DOCUMENTATION>
+An entry in a list of titles. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="appendix">
+<TITRE>appendix</TITRE>
+<DOCUMENTATION>
+An appendix in a Book or Article
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="chapter">
+<TITRE>chapter</TITRE>
+<DOCUMENTATION>
+A chapter, as of a book
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="part">
+<TITRE>part</TITRE>
+<DOCUMENTATION>
+A division in a book. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="preface">
+<TITRE>preface</TITRE>
+<DOCUMENTATION>
+Introductory matter preceding the first chapter of a book. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="reference">
+<TITRE>reference</TITRE>
+<DOCUMENTATION>
+A collection of reference entries. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="partintro">
+<TITRE>partintro</TITRE>
+<DOCUMENTATION>
+An introduction to the contents of a part. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="appendixinfo">
+<TITRE>appendixinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for an Appendix. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliographyinfo">
+<TITRE>bibliographyinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Bibliography. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="chapterinfo">
+<TITRE>chapterinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Chapter. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glossaryinfo">
+<TITRE>glossaryinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Glossary. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="indexinfo">
+<TITRE>indexinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for an Index. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="setindexinfo">
+<TITRE>setindexinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a SetIndex. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="partinfo">
+<TITRE>partinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Part. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="prefaceinfo">
+<TITRE>prefaceinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Preface. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refentryinfo">
+<TITRE>refentryinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Refentry. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsectioninfo">
+<TITRE>refsectioninfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a refsection. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsect1info">
+<TITRE>refsect1info</TITRE>
+<DOCUMENTATION>
+Meta-information for a RefSect1. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsect2info">
+<TITRE>refsect2info</TITRE>
+<DOCUMENTATION>
+Meta-information for a RefSect2. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsect3info">
+<TITRE>refsect3info</TITRE>
+<DOCUMENTATION>
+Meta-information for a RefSect3. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsynopsisdivinfo">
+<TITRE>refsynopsisdivinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a RefSynopsisDiv. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="referenceinfo">
+<TITRE>referenceinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a Reference. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect1info">
+<TITRE>sect1info</TITRE>
+<DOCUMENTATION>
+Meta-information for a Sect1. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect2info">
+<TITRE>sect2info</TITRE>
+<DOCUMENTATION>
+Meta-information for a Sect2. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect3info">
+<TITRE>sect3info</TITRE>
+<DOCUMENTATION>
+Meta-information for a Sect3. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect4info">
+<TITRE>sect4info</TITRE>
+<DOCUMENTATION>
+Meta-information for a Sect4. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect5info">
+<TITRE>sect5info</TITRE>
+<DOCUMENTATION>
+Meta-information for a Sect5. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="section">
+<TITRE>section</TITRE>
+<DOCUMENTATION>
+A recursive section
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sectioninfo">
+<TITRE>sectioninfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a recursive section. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect1">
+<TITRE>sect1</TITRE>
+<DOCUMENTATION>
+A top-level section of document. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect2">
+<TITRE>sect2</TITRE>
+<DOCUMENTATION>
+A subsection within a Sect1. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect3">
+<TITRE>sect3</TITRE>
+<DOCUMENTATION>
+A subsection within a Sect2. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect4">
+<TITRE>sect4</TITRE>
+<DOCUMENTATION>
+A subsection within a Sect3. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sect5">
+<TITRE>sect5</TITRE>
+<DOCUMENTATION>
+A subsection within a Sect4. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="simplesect">
+<TITRE>simplesect</TITRE>
+<DOCUMENTATION>
+A section of a document with no subdivisions. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliography">
+<TITRE>bibliography</TITRE>
+<DOCUMENTATION>
+A bibliography. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliodiv">
+<TITRE>bibliodiv</TITRE>
+<DOCUMENTATION>
+A section of a Bibliography. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glossary">
+<TITRE>glossary</TITRE>
+<DOCUMENTATION>
+A glossary. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="glossdiv">
+<TITRE>glossdiv</TITRE>
+<DOCUMENTATION>
+A division in a Glossary. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="index">
+<TITRE>index</TITRE>
+<DOCUMENTATION>
+An index. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="setindex">
+<TITRE>setindex</TITRE>
+<DOCUMENTATION>
+An index to a set of books. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="indexdiv">
+<TITRE>indexdiv</TITRE>
+<DOCUMENTATION>
+A division in an index. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="indexentry">
+<TITRE>indexentry</TITRE>
+<DOCUMENTATION>
+An entry in an index. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="primaryie">
+<TITRE>primaryie</TITRE>
+<DOCUMENTATION>
+A primary term in an index entry, not in the text. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="secondaryie">
+<TITRE>secondaryie</TITRE>
+<DOCUMENTATION>
+A secondary term in an index entry, rather than in the text. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tertiaryie">
+<TITRE>tertiaryie</TITRE>
+<DOCUMENTATION>
+A tertiary term in an index entry, rather than in the text. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="seeie">
+<TITRE>seeie</TITRE>
+<DOCUMENTATION>
+A See entry in an index, rather than in the text. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="seealsoie">
+<TITRE>seealsoie</TITRE>
+<DOCUMENTATION>
+A See also entry in an index, rather than in the text. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refentry">
+<TITRE>refentry</TITRE>
+<DOCUMENTATION>
+A reference page (originally a UNIX man-style reference page)
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refmeta">
+<TITRE>refmeta</TITRE>
+<DOCUMENTATION>
+Meta-information for a reference entry. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refmiscinfo">
+<TITRE>refmiscinfo</TITRE>
+<DOCUMENTATION>
+Meta-information for a reference entry other than the title and volume number. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refnamediv">
+<TITRE>refnamediv</TITRE>
+<DOCUMENTATION>
+The name, purpose, and classification of a reference page. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refdescriptor">
+<TITRE>refdescriptor</TITRE>
+<DOCUMENTATION>
+A description of the topic of a reference page. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refname">
+<TITRE>refname</TITRE>
+<DOCUMENTATION>
+The name of (one of) the subject(s) of a reference page. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refpurpose">
+<TITRE>refpurpose</TITRE>
+<DOCUMENTATION>
+A short (one sentence) synopsis of the topic of a reference page. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refclass">
+<TITRE>refclass</TITRE>
+<DOCUMENTATION>
+The scope or other indication of applicability of a reference entry. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsynopsisdiv">
+<TITRE>refsynopsisdiv</TITRE>
+<DOCUMENTATION>
+A syntactic synopsis of the subject of the reference page. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsection">
+<TITRE>refsection</TITRE>
+<DOCUMENTATION>
+A recursive section in a refentry. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsect1">
+<TITRE>refsect1</TITRE>
+<DOCUMENTATION>
+A major subsection of a reference entry. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsect2">
+<TITRE>refsect2</TITRE>
+<DOCUMENTATION>
+A subsection of a RefSect1. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="refsect3">
+<TITRE>refsect3</TITRE>
+<DOCUMENTATION>
+A subsection of a RefSect2. 
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="article">
+<TITRE>article</TITRE>
+<DOCUMENTATION>
+An article
+</DOCUMENTATION>
+</STRINGS_ELEMENT>
+
+<STRINGS_EXPORT export="PDF">
+<TITRE>PDF Export...</TITRE>
+</STRINGS_EXPORT>
+</STRINGS>
+</CONFIG_JAXE>

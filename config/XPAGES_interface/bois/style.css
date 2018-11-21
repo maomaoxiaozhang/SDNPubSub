@@ -1,0 +1,615 @@
+/* Feuille de style CSS pour XPAGES - thème "parchemin" */
+
+
+body {
+    font-family : "Times New Roman", Times, serif;
+    background-color: #FFFFFF;
+}
+	
+.page {
+    background-image: url(fond.jpg);
+    padding: 5px;
+    margin: 0px;
+}
+
+.zone_logo {
+    margin-left: 10px;
+    float: right;
+}
+
+.titre_site_1 {
+    font-family : Arial, Helvetica, sans-serif;
+    font-size: 140%;
+    font-weight: bold;
+    font-style: italic;
+    color: #100020;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.titre_site_2 {
+    font-family : Arial, Helvetica, sans-serif;
+    font-size: 140%;
+    font-weight: bold;
+    font-style: italic;
+    color: #FFFFF0;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.zone_rubriques {
+    margin-top: 2em;
+    margin-left: 220px;
+    text-align: center;	
+}
+
+.table_rubriques {
+    background-image: url(blanc_transparent.png);
+    margin-left:auto;
+    margin-right:auto;
+    border-spacing: 5px;
+}
+
+.rubrique {
+    border: 1px solid  #753500;
+    margin: 3px;
+    width: auto;
+    background-color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 75%;
+    font-weight: bold;
+    text-align: center;	
+}
+
+.rubrique:hover {
+    background-color: #F6F4B9;
+}
+
+.rubriquesel {
+    border: 1px solid  #753500;
+    margin: 3px;
+    width: auto;
+    background-color: #753500;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 75%;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;	
+}
+
+.rubrique a {
+    color: #753500;
+    text-decoration: none;
+    display: block;
+}
+
+.zone_titre {
+    margin-left: 220px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.zone_titre_centre {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    text-align: center;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.zone_titre_centre table td {
+    padding: 0px;
+}
+
+.zone_titre table {
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.zone_titre table td {
+    padding: 0px;
+}
+
+.zone_titre_centre table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.icone_page {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+h1 {
+    color: #753500;
+    background-image: url(blanc_transparent.png);
+    font-family : Arial, Helvetica, sans-serif;
+    font-variant: small-caps;
+    font-size: 150%;
+    padding: 3px;
+    margin: 0px;
+    text-align: center;
+}
+
+.zone_mininav {
+    width: 205px;
+    /* background-color: #EAE8F5; */
+    background-image: url(blanc_transparent.png);
+    border: 1px solid #000000;
+    margin-bottom: 5px;
+}
+
+.zone_minifleches {
+    width: 205px;
+    /* background-color: #EAE8F5; */
+    background-image: url(blanc_transparent.png);
+    border: 1px solid #000000;
+    margin-bottom: 5px;
+}
+
+/* sommaire */
+.zone_sommaire {
+    /* float: left; pose des pb pour des clear dans zone_contenu, donc on utilise position absolute a la place */
+    /* margin-top: 5px; */
+    position: absolute;
+    top: 49px;
+    left: 8px;
+    width: 220px;
+}
+
+.sommaire {
+    font-family : Arial, Helvetica, sans-serif;
+    /*background-color: #EAE8F5;*/
+    background-image: url(blanc_transparent.png);
+    border: 1px solid #000000;
+    width: 205px;
+    padding-top: 2px;
+    padding-left: 1px;
+    padding-bottom: 2px;
+    text-align: left;
+}
+
+.divsommaire {
+    padding-top: 2px;
+    padding-left: 6px;
+    padding-right: 4px;
+    padding-bottom: 2px;
+}
+
+.sommaire2 {
+    font-family : Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 90%;
+    font-weight: bold;
+    color: #753500;
+}
+.sommaire2select {
+    text-decoration: none;
+    font-size: 100%;
+    font-weight: bold;
+    color: #753500;
+    background-color: #F6F4B9;
+}
+
+.sommaire3 {
+    font-family : Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 90%;
+    color: #753500;
+}
+
+.sommairepage {
+    font-family : Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 83%;
+    color: #753500;
+}
+
+:hover.sommaire2 {
+    color: #D08570;
+}
+:hover.sommaire3 {
+    color: #D08570;
+}
+:hover.sommairepage {
+    color: #D08570;
+}
+
+.fondsel1sommaire {
+    background-color: #F6F4E7;
+}
+.fondsel2sommaire {
+    background-color: #F6F4B9;
+    text-decoration: none;
+}
+
+
+/* corps */
+
+.zone_contenu {
+    margin-left: 220px;
+    padding: 1em;
+    /* background-image: url(fond2.jpg); */
+    /* background-repeat: no-repeat; */
+    /* la transparence ne marche pas sur IE, mais évite d'avoir à faire une deuxième image */
+    background-image: url(blanc_transparent.png);
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+.zone_contenu_entree {
+    margin-left: 75px;
+    margin-right: 75px;
+    padding: 1em;
+    background-image: url(blanc_transparent.png);
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+.zone_contenu_sommaire {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 1em;
+    background-image: url(blanc_transparent.png);
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+.zone_contenu_glossaire {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 1em;
+    background-image: url(blanc_transparent.png);
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+.auteurs {
+    text-align: right;
+    font-size: 80%;
+    margin-bottom: 0.5em;
+}
+
+.zone_figure {
+    float: right;
+    clear: right;
+    width: 308px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.cadre_zone_figure {
+    padding: 3px;
+    border: solid black 1px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.cadre_figure_texte {
+    width: 520px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    border: solid black 1px;
+    text-align: center;
+    background-color: #FFFFFF;
+    clear: right;
+}
+
+.cadre_applet_texte {
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    border: solid black 1px;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+.titrefigure {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.zone_texte {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.zone_liens {
+    width: 100%; /* pour eviter un bug de IE */
+}
+
+.section_normale {
+    margin-bottom: 1.5em;
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+.section_cadre {
+    background-color: #F5FFF0;
+    border: ridge #FFF0F0;
+    padding: 0em 0.5em 0.5em 0.5em;
+    margin-bottom: 1em;
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+.introduction {
+    background-color: #FFFDF2;
+    border: ridge #FFF0F0;
+    padding: 0em 0.7em 0.7em 0.7em;
+    margin-bottom: 1em;
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+.conclusion {
+    background-color: #FFFDF2;
+    border: ridge #FFF0F0;
+    padding: 0em 0.7em 0.7em 0.7em;
+    margin-bottom: 1em;
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+.exercice, .qcm {
+    background-color: #FFFDF2;
+    border: solid thin black;
+    padding: 0em 0.7em 0.7em 0.7em;
+    margin-bottom: 1em;
+    zoom: 100%; /* pour eviter un bug de IE */
+}
+
+p {
+    text-indent: 1em;
+    text-align: justify;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.iconeimage {
+    clear: right;
+    padding: 2px;
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+    border-width: medium;
+    border-style: solid;
+/*    border-style: outset;*/
+    border-bottom-color: #555555;
+    border-right-color: #666666;
+    border-left-color: #DDDDDD;
+    border-top-color: #EEEEEE;
+    background-color: #CCCCCC;
+}
+
+:hover.iconeimage {
+/*    border-style: inset;*/
+    border-top-color: #555555;
+    border-left-color: #666666;
+    border-right-color: #DDDDDD;
+    border-bottom-color: #EEEEEE;
+}
+
+.legende {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 83%;
+    font-weight: bold;
+    color: #753500;
+    text-decoration: none;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+} 
+
+.credit {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70%;
+    text-align: right;
+    margin-top: 0.5em;
+}
+
+.glossaire {
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    color: #753500;
+} 
+
+table.tableau {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    border: 1px solid #A0A0A0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+table.tableau td, table.tableau th {
+    padding: 2px;
+    border: 1px solid #A0A0A0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+
+table.tableau th {
+    background-color: #FFECE0;
+    font-weight: bold;
+}
+
+table.tableau td.tableaux1 {
+    background-color: #FFF9E5;
+}
+
+table.tableau td.tableaux2 {
+    background-color: #FFF5E0;
+}
+
+caption {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #753500;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 115%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h5 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+img.maths {
+    vertical-align: middle;
+}
+
+.spacer {
+    clear : both;
+}
+
+ul {
+    text-indent: 0em;
+    padding-left: 1em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+a.lien {
+    color: #A03000;
+}
+
+a.lien:visited {
+    color: #702000;
+}
+
+a.lien:active {
+    background-color: #F6F4B9;
+}
+
+a.lienimage {
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    color: #006030;
+}
+
+div#imagettes {
+    text-align: right;
+}
+
+img.icone_section {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+a.lienaide {
+    font-size: 75%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #804020;
+    text-decoration: none ;
+    border-left: 2px solid #B0B0B0;
+    border-right: 2px solid #505050;
+    border-bottom: 2px solid #505050;
+    border-top: 2px solid #B0B0B0;
+    padding: 2px;
+    margin-right:10px;
+}
+
+a.liensolution {
+    font-size: 75%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #903000;
+    text-decoration: none ;
+    border-left: 2px solid #B0B0B0;
+    border-right: 2px solid #505050;
+    border-bottom: 2px solid #505050;
+    border-top: 2px solid #B0B0B0;
+    padding: 2px;
+}
+
+a.selectionlien {
+    background-color: #D0FFC0;
+    border-left:2px solid #505050;
+    border-right:2px solid #B0B0B0;
+    border-bottom:2px solid #B0B0B0;
+    border-top:2px solid #505050;
+    padding: 2px;
+}
+
+div.contenu-aide-solution {
+    padding-left:1em;
+    padding-right:1em;
+    border-left:1px solid #333;
+    border-right:1px solid #333;
+    border-bottom:1px solid #333;
+    border-top:1px solid #333;
+    margin: 1em;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+div.questionqcm
+{
+    background-color: #FFF9E5;
+    padding: 5px;
+    margin-bottom: 0.5em;
+}
+
+span.reptexte
+{
+    font-family: sans-serif;
+    font-size: 80%;
+}
+
+.commentaire {
+    font-weight: bold;
+    font-style: italic;
+    color: #FF0000;
+}
+
+pre {
+    background-color: #EAFFDA;
+    padding: 4px;
+}
+
+span.code {
+    font-family: monospace;
+}
+
+@font-face { 
+    font-family: 'STIXSubset-Regular';
+    src: url('../symboles/STIXSubset-Regular.eot');
+    src: local('STIXSubset-Regular'), url('../symboles/STIXSubset-Regular.ttf') format('truetype');
+}
+
+span.symbole {
+    font-family: STIXSubset-Regular, "Times New Roman", Times, serif;
+}

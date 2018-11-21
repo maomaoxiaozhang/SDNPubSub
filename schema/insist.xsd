@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/xsd/" targetNamespace="http://www.example.org/xsd/">
+  <topic xmlns="" name="all:Test:soundArray" type="tns:ComplexType"/>
+
+  <values xmlns="" name="http://www.test.org/Class/Individual/sa">
+    <target1 type="int">1</target1>
+<target2 type="int">1</target2>
+<target3 type="int">1</target3>
+<target4 type="int">1</target4>
+    
+</values>
+ 
+
+
+</schema>

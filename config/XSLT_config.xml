@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><CONFIG_JAXE>
+<LANGAGE>
+<FICHIER_SCHEMA nom="XSLT.xsd"/>
+<RACINE element="stylesheet"/>
+<AUTRE_CONFIG nom="XHTML_config.xml"/>
+</LANGAGE>
+
+<ENREGISTREMENT>
+<PREFIXE_ESPACE prefixe="xsl" uri="http://www.w3.org/1999/XSL/Transform"/>
+</ENREGISTREMENT>
+
+<MENUS>
+<MENU nom="racine">
+<MENU_INSERTION nom="import" type_noeud="element"/>
+<MENU_INSERTION nom="include" type_noeud="element"/>
+<MENU_INSERTION nom="strip-space" type_noeud="element"/>
+<MENU_INSERTION nom="preserve-space" type_noeud="element"/>
+<MENU_INSERTION nom="output" type_noeud="element"/>
+<MENU_INSERTION nom="key" type_noeud="element"/>
+<MENU_INSERTION nom="decimal-format" type_noeud="element"/>
+<MENU_INSERTION nom="attribute-set" type_noeud="element"/>
+<MENU_INSERTION nom="variable" type_noeud="element"/>
+<MENU_INSERTION nom="param" type_noeud="element"/>
+<MENU_INSERTION nom="template" type_noeud="element"/>
+<MENU_INSERTION nom="namespace-alias" type_noeud="element"/>
+</MENU>
+<MENU nom="elements">
+<MENU_INSERTION nom="element" type_noeud="element"/>
+<MENU_INSERTION nom="attribute" type_noeud="element"/>
+<MENU_INSERTION nom="text" type_noeud="element"/>
+<MENU_INSERTION nom="comment" type_noeud="element"/>
+<MENU_INSERTION nom="processing-instruction" type_noeud="element"/>
+</MENU>
+<MENU nom="instructions">
+<MENU_INSERTION nom="value-of" type_noeud="element"/>
+<MENU_INSERTION nom="apply-templates" type_noeud="element"/>
+<MENU_INSERTION nom="call-template" type_noeud="element"/>
+<MENU_INSERTION nom="with-param" type_noeud="element"/>
+<MENU_INSERTION nom="for-each" type_noeud="element"/>
+<MENU_INSERTION nom="variable" type_noeud="element"/>
+<MENU_INSERTION nom="sort" type_noeud="element"/>
+<MENU_INSERTION nom="copy-of" type_noeud="element"/>
+<MENU_INSERTION nom="apply-imports" type_noeud="element"/>
+<MENU_INSERTION nom="number" type_noeud="element"/>
+<MENU_INSERTION nom="copy" type_noeud="element"/>
+<MENU_INSERTION nom="message" type_noeud="element"/>
+</MENU>
+<MENU nom="branchements">
+<MENU_INSERTION nom="if" type_noeud="element"/>
+<MENU_INSERTION nom="choose" type_noeud="element"/>
+<MENU_INSERTION nom="when" type_noeud="element"/>
+<MENU_INSERTION nom="otherwise" type_noeud="element"/>
+<MENU_INSERTION nom="fallback" type_noeud="element"/>
+</MENU>
+</MENUS>
+
+<AFFICHAGE_NOEUDS>
+<AFFICHAGE_ELEMENT element="stylesheet" type="division">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="import" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="include" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="strip-space" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="preserve-space" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="output" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="key" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="decimal-format" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="attribute-set" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="variable" type="string">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="param" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="template" type="division">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="namespace-alias" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="element" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="attribute" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="text" type="string">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="comment" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="processing-instruction" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="value-of" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="apply-templates" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="call-template" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="with-param" type="string">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="for-each" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="sort" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="copy-of" type="string">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="apply-imports" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="number" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="copy" type="vide">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="message" type="string">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="if" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="choose" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="when" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="otherwise" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="fallback" type="zone">
+<PARAMETRE nom="attributsVisibles" valeur="true"/>
+</AFFICHAGE_ELEMENT>
+</AFFICHAGE_NOEUDS>
+
+<STRINGS langue="en">
+<DESCRIPTION_CONFIG>XSLT</DESCRIPTION_CONFIG>
+
+<STRINGS_MENU menu="racine">
+<TITRE>Root</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="elements">
+<TITRE>XML Element</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="instructions">
+<TITRE>XSLT Instructions</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="branchements">
+<TITRE>Branching</TITRE>
+</STRINGS_MENU>
+</STRINGS>
+
+<STRINGS langue="fr">
+<DESCRIPTION_CONFIG>XSLT</DESCRIPTION_CONFIG>
+
+<STRINGS_MENU menu="racine">
+<TITRE>Racine</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="elements">
+<TITRE>Eléments XML</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="instructions">
+<TITRE>Instructions XSLT</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="branchements">
+<TITRE>Branchements</TITRE>
+</STRINGS_MENU>
+</STRINGS>
+
+</CONFIG_JAXE>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/xsd/" targetNamespace="http://www.example.org/xsd/">
+  <topic xmlns="" name="all:Test:tempAndhum" type="tns:ComplexType"/>
+
+  <values xmlns="" name="temp1">
+    <temp type="int"/>
+    <credibility1 type="double"/>   
+</values>
+<values xmlns="" name="hum1">
+    <hum type="int"/>
+    <credibility2 type="double"/>   
+</values>
+
+ </schema>

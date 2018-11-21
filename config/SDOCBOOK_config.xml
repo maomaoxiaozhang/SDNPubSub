@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><CONFIG_JAXE>
+<LANGAGE>
+<FICHIER_SCHEMA nom="sdocbook.xsd"/>
+<RACINE element="article"/>
+</LANGAGE>
+
+<MENUS>
+<MENU nom="organisation">
+<MENU_INSERTION nom="article" type_noeud="element"/>
+<MENU_INSERTION nom="section" type_noeud="element"/>
+<MENU_INSERTION nom="para" raccourci="P" type_noeud="element"/>
+<MENU_INSERTION nom="title" type_noeud="element"/>
+<MENU_INSERTION nom="subtitle" type_noeud="element"/>
+<MENU_INSERTION nom="titleabbrev" type_noeud="element"/>
+<MENU_INSERTION nom="articleinfo" type_noeud="element"/>
+<MENU_INSERTION nom="sectioninfo" type_noeud="element"/>
+<MENU_INSERTION nom="appendix" type_noeud="element"/>
+<MENU_INSERTION nom="bibliography" type_noeud="element"/>
+<MENU_INSERTION nom="bibliodiv" type_noeud="element"/>
+<MENU_INSERTION nom="bibliomixed" type_noeud="element"/>
+<MENU_INSERTION nom="bibliomset" type_noeud="element"/>
+<MENU_INSERTION nom="bibliomisc" type_noeud="element"/>
+</MENU>
+<MENU nom="biblio">
+<MENU_INSERTION nom="legalnotice" type_noeud="element"/>
+<MENU_INSERTION nom="copyright" type_noeud="element"/>
+<MENU_INSERTION nom="year" type_noeud="element"/>
+<MENU_INSERTION nom="holder" type_noeud="element"/>
+<MENU_INSERTION nom="subjectset" type_noeud="element"/>
+<MENU_INSERTION nom="subject" type_noeud="element"/>
+<MENU_INSERTION nom="subjectterm" type_noeud="element"/>
+<MENU_INSERTION nom="keywordset" type_noeud="element"/>
+<MENU_INSERTION nom="keyword" type_noeud="element"/>
+<MENU_INSERTION nom="abbrev" type_noeud="element"/>
+<MENU_INSERTION nom="abstract" type_noeud="element"/>
+<MENU_INSERTION nom="date" type_noeud="element"/>
+<MENU_INSERTION nom="pubdate" type_noeud="element"/>
+<MENU_INSERTION nom="edition" type_noeud="element"/>
+<MENU_INSERTION nom="editor" type_noeud="element"/>
+<MENU_INSERTION nom="publishername" type_noeud="element"/>
+<MENU_INSERTION nom="releaseinfo" type_noeud="element"/>
+<MENU_INSERTION nom="revhistory" type_noeud="element"/>
+<MENU_INSERTION nom="revision" type_noeud="element"/>
+<MENU_INSERTION nom="revremark" type_noeud="element"/>
+<MENU_INSERTION nom="revdescription" type_noeud="element"/>
+<MENU_INSERTION nom="revnumber" type_noeud="element"/>
+<MENU_INSERTION nom="issuenum" type_noeud="element"/>
+<MENU_INSERTION nom="volumenum" type_noeud="element"/>
+<MENU_INSERTION nom="othercredit" type_noeud="element"/>
+<MENU_INSERTION nom="citetitle" type_noeud="element"/>
+<MENU_INSERTION nom="trademark" type_noeud="element"/>
+<MENU_INSERTION nom="bibliomisc" type_noeud="element"/>
+</MENU>
+<MENU nom="auteurs">
+<MENU_INSERTION nom="authorgroup" type_noeud="element"/>
+<MENU_INSERTION nom="author" type_noeud="element"/>
+<MENU_INSERTION nom="corpauthor" type_noeud="element"/>
+<MENU_INSERTION nom="honorific" type_noeud="element"/>
+<MENU_INSERTION nom="firstname" type_noeud="element"/>
+<MENU_INSERTION nom="surname" type_noeud="element"/>
+<MENU_INSERTION nom="authorinitials" type_noeud="element"/>
+<MENU_INSERTION nom="lineage" type_noeud="element"/>
+<MENU_INSERTION nom="othername" type_noeud="element"/>
+<MENU_INSERTION nom="affiliation" type_noeud="element"/>
+<MENU_INSERTION nom="jobtitle" type_noeud="element"/>
+<MENU_INSERTION nom="orgname" type_noeud="element"/>
+<MENU_INSERTION nom="authorblurb" type_noeud="element"/>
+</MENU>
+<MENU nom="tableaux">
+<MENU_INSERTION nom="itemizedlist" type_noeud="element"/>
+<MENU_INSERTION nom="orderedlist" type_noeud="element"/>
+<MENU_INSERTION nom="variablelist" type_noeud="element"/>
+<MENU_INSERTION nom="varlistentry" type_noeud="element"/>
+<MENU_INSERTION nom="title" type_noeud="element"/>
+<MENU_INSERTION nom="listitem" type_noeud="element"/>
+<MENU_INSERTION nom="term" type_noeud="element"/>
+<MENU_INSERTION nom="table" type_noeud="element"/>
+<MENU_INSERTION nom="informaltable" type_noeud="element"/>
+<MENU_INSERTION nom="mediaobject" type_noeud="element"/>
+<MENU_INSERTION nom="tgroup" type_noeud="element"/>
+<MENU_INSERTION nom="colspec" type_noeud="element"/>
+<MENU_INSERTION nom="thead" type_noeud="element"/>
+<MENU_INSERTION nom="tfoot" type_noeud="element"/>
+<MENU_INSERTION nom="tbody" type_noeud="element"/>
+<MENU_INSERTION nom="row" type_noeud="element"/>
+<MENU_INSERTION nom="entry" type_noeud="element"/>
+</MENU>
+<MENU nom="multimedia">
+<MENU_INSERTION nom="figure" type_noeud="element"/>
+<MENU_INSERTION nom="mediaobject" type_noeud="element"/>
+<MENU_INSERTION nom="objectinfo" type_noeud="element"/>
+<MENU_INSERTION nom="caption" type_noeud="element"/>
+<MENU_INSERTION nom="imageobject" type_noeud="element"/>
+<MENU_INSERTION nom="imagedata" type_noeud="element"/>
+<MENU_INSERTION nom="videoobject" type_noeud="element"/>
+<MENU_INSERTION nom="videodata" type_noeud="element"/>
+<MENU_INSERTION nom="audioobject" type_noeud="element"/>
+<MENU_INSERTION nom="audiodata" type_noeud="element"/>
+<MENU_INSERTION nom="textobject" type_noeud="element"/>
+</MENU>
+<MENU nom="texte">
+<MENU_INSERTION nom="title" type_noeud="element"/>
+<MENU_INSERTION nom="phrase" type_noeud="element"/>
+<MENU_INSERTION nom="blockquote" type_noeud="element"/>
+<MENU_INSERTION nom="epigraph" type_noeud="element"/>
+<MENU_INSERTION nom="acronym" type_noeud="element"/>
+<MENU_INSERTION nom="attribution" type_noeud="element"/>
+<MENU_INSERTION nom="note" type_noeud="element"/>
+<MENU_INSERTION nom="example" type_noeud="element"/>
+<MENU_INSERTION nom="emphasis" type_noeud="element"/>
+<MENU_INSERTION nom="quote" type_noeud="element"/>
+<MENU_INSERTION nom="link" type_noeud="element"/>
+<MENU_INSERTION nom="ulink" type_noeud="element"/>
+<MENU_INSERTION nom="xref" type_noeud="element"/>
+<MENU_INSERTION nom="email" type_noeud="element"/>
+<MENU_INSERTION nom="filename" type_noeud="element"/>
+<MENU_INSERTION nom="footnote" type_noeud="element"/>
+<MENU_INSERTION nom="footnoteref" type_noeud="element"/>
+<MENU_INSERTION nom="replaceable" type_noeud="element"/>
+<MENU_INSERTION nom="inlinemediaobject" type_noeud="element"/>
+<MENU_INSERTION nom="sidebar" type_noeud="element"/>
+<MENU_INSERTION nom="literal" type_noeud="element"/>
+<MENU_INSERTION nom="literallayout" type_noeud="element"/>
+<MENU_INSERTION nom="lineannotation" type_noeud="element"/>
+</MENU>
+<MENU nom="informatique">
+<MENU_INSERTION nom="programlisting" type_noeud="element"/>
+<MENU_INSERTION nom="command" type_noeud="element"/>
+<MENU_INSERTION nom="option" type_noeud="element"/>
+<MENU_INSERTION nom="systemitem" type_noeud="element"/>
+<MENU_INSERTION nom="userinput" type_noeud="element"/>
+<MENU_INSERTION nom="computeroutput" type_noeud="element"/>
+</MENU>
+</MENUS>
+
+<AFFICHAGE_NOEUDS>
+<AFFICHAGE_ELEMENT element="article" type="division"/>
+<AFFICHAGE_ELEMENT element="section" type="division"/>
+<AFFICHAGE_ELEMENT element="para" type="zone"/>
+<AFFICHAGE_ELEMENT element="title" type="string">
+<PARAMETRE nom="style" valeur="GRAS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="subtitle" type="string"/>
+<AFFICHAGE_ELEMENT element="titleabbrev" type="string"/>
+<AFFICHAGE_ELEMENT element="articleinfo" type="zone"/>
+<AFFICHAGE_ELEMENT element="sectioninfo" type="zone"/>
+<AFFICHAGE_ELEMENT element="appendix" type="zone"/>
+<AFFICHAGE_ELEMENT element="bibliography" type="zone"/>
+<AFFICHAGE_ELEMENT element="bibliodiv" type="zone"/>
+<AFFICHAGE_ELEMENT element="bibliomixed" type="zone"/>
+<AFFICHAGE_ELEMENT element="bibliomset" type="zone"/>
+<AFFICHAGE_ELEMENT element="bibliomisc" type="zone"/>
+<AFFICHAGE_ELEMENT element="legalnotice" type="zone"/>
+<AFFICHAGE_ELEMENT element="copyright" type="zone"/>
+<AFFICHAGE_ELEMENT element="year" type="string"/>
+<AFFICHAGE_ELEMENT element="holder" type="string"/>
+<AFFICHAGE_ELEMENT element="subjectset" type="zone"/>
+<AFFICHAGE_ELEMENT element="subject" type="zone"/>
+<AFFICHAGE_ELEMENT element="subjectterm" type="string"/>
+<AFFICHAGE_ELEMENT element="keywordset" type="zone"/>
+<AFFICHAGE_ELEMENT element="keyword" type="string"/>
+<AFFICHAGE_ELEMENT element="abbrev" type="string"/>
+<AFFICHAGE_ELEMENT element="abstract" type="zone"/>
+<AFFICHAGE_ELEMENT element="date" type="string"/>
+<AFFICHAGE_ELEMENT element="pubdate" type="string"/>
+<AFFICHAGE_ELEMENT element="edition" type="string"/>
+<AFFICHAGE_ELEMENT element="editor" type="string"/>
+<AFFICHAGE_ELEMENT element="publishername" type="string"/>
+<AFFICHAGE_ELEMENT element="releaseinfo" type="zone"/>
+<AFFICHAGE_ELEMENT element="revhistory" type="zone"/>
+<AFFICHAGE_ELEMENT element="revision" type="zone"/>
+<AFFICHAGE_ELEMENT element="revremark" type="string"/>
+<AFFICHAGE_ELEMENT element="revdescription" type="zone"/>
+<AFFICHAGE_ELEMENT element="revnumber" type="string"/>
+<AFFICHAGE_ELEMENT element="issuenum" type="string"/>
+<AFFICHAGE_ELEMENT element="volumenum" type="string"/>
+<AFFICHAGE_ELEMENT element="othercredit" type="string"/>
+<AFFICHAGE_ELEMENT element="citetitle" type="string"/>
+<AFFICHAGE_ELEMENT element="trademark" type="string"/>
+<AFFICHAGE_ELEMENT element="authorgroup" type="zone"/>
+<AFFICHAGE_ELEMENT element="author" type="zone"/>
+<AFFICHAGE_ELEMENT element="corpauthor" type="string"/>
+<AFFICHAGE_ELEMENT element="honorific" type="string"/>
+<AFFICHAGE_ELEMENT element="firstname" type="string"/>
+<AFFICHAGE_ELEMENT element="surname" type="string"/>
+<AFFICHAGE_ELEMENT element="authorinitials" type="string"/>
+<AFFICHAGE_ELEMENT element="lineage" type="string"/>
+<AFFICHAGE_ELEMENT element="othername" type="string"/>
+<AFFICHAGE_ELEMENT element="affiliation" type="zone"/>
+<AFFICHAGE_ELEMENT element="jobtitle" type="string"/>
+<AFFICHAGE_ELEMENT element="orgname" type="string"/>
+<AFFICHAGE_ELEMENT element="authorblurb" type="zone"/>
+<AFFICHAGE_ELEMENT element="itemizedlist" type="liste">
+<PARAMETRE nom="typeListe" valeur="POINTS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="orderedlist" type="liste">
+<PARAMETRE nom="typeListe" valeur="NUMEROS"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="variablelist" type="zone"/>
+<AFFICHAGE_ELEMENT element="varlistentry" type="zone"/>
+<AFFICHAGE_ELEMENT element="listitem" type="item"/>
+<AFFICHAGE_ELEMENT element="term" type="zone"/>
+<AFFICHAGE_ELEMENT element="table" type="zone"/>
+<AFFICHAGE_ELEMENT element="informaltable" type="zone"/>
+<AFFICHAGE_ELEMENT element="mediaobject" type="zone"/>
+<AFFICHAGE_ELEMENT element="tgroup" type="zone"/>
+<AFFICHAGE_ELEMENT element="colspec" type="vide"/>
+<AFFICHAGE_ELEMENT element="thead" type="zone"/>
+<AFFICHAGE_ELEMENT element="tfoot" type="zone"/>
+<AFFICHAGE_ELEMENT element="tbody" type="tabletexte">
+<PARAMETRE nom="trTag" valeur="row"/>
+<PARAMETRE nom="tdTag" valeur="entry"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="row" type="zone"/>
+<AFFICHAGE_ELEMENT element="entry" type="string"/>
+<AFFICHAGE_ELEMENT element="figure" type="zone"/>
+<AFFICHAGE_ELEMENT element="objectinfo" type="zone"/>
+<AFFICHAGE_ELEMENT element="caption" type="zone"/>
+<AFFICHAGE_ELEMENT element="imageobject" type="zone"/>
+<AFFICHAGE_ELEMENT element="imagedata" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="fileref"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="videoobject" type="zone"/>
+<AFFICHAGE_ELEMENT element="videodata" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="fileref"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="audioobject" type="zone"/>
+<AFFICHAGE_ELEMENT element="audiodata" type="fichier">
+<PARAMETRE nom="srcAtt" valeur="fileref"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="textobject" type="zone"/>
+<AFFICHAGE_ELEMENT element="phrase" type="string"/>
+<AFFICHAGE_ELEMENT element="blockquote" type="zone"/>
+<AFFICHAGE_ELEMENT element="epigraph" type="string"/>
+<AFFICHAGE_ELEMENT element="acronym" type="string"/>
+<AFFICHAGE_ELEMENT element="attribution" type="string"/>
+<AFFICHAGE_ELEMENT element="note" type="zone"/>
+<AFFICHAGE_ELEMENT element="example" type="zone"/>
+<AFFICHAGE_ELEMENT element="emphasis" type="string">
+<PARAMETRE nom="style" valeur="ITALIQUE"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="quote" type="string"/>
+<AFFICHAGE_ELEMENT element="link" type="string"/>
+<AFFICHAGE_ELEMENT element="ulink" type="string"/>
+<AFFICHAGE_ELEMENT element="xref" type="vide"/>
+<AFFICHAGE_ELEMENT element="email" type="string"/>
+<AFFICHAGE_ELEMENT element="filename" type="string"/>
+<AFFICHAGE_ELEMENT element="footnote" type="string"/>
+<AFFICHAGE_ELEMENT element="footnoteref" type="vide"/>
+<AFFICHAGE_ELEMENT element="replaceable" type="string"/>
+<AFFICHAGE_ELEMENT element="inlinemediaobject" type="zone"/>
+<AFFICHAGE_ELEMENT element="sidebar" type="zone"/>
+<AFFICHAGE_ELEMENT element="literal" type="zone"/>
+<AFFICHAGE_ELEMENT element="literallayout" type="zone"/>
+<AFFICHAGE_ELEMENT element="lineannotation" type="string"/>
+<AFFICHAGE_ELEMENT element="programlisting" type="zone">
+<PARAMETRE nom="police" valeur="Monospaced"/>
+</AFFICHAGE_ELEMENT>
+<AFFICHAGE_ELEMENT element="command" type="string"/>
+<AFFICHAGE_ELEMENT element="option" type="string"/>
+<AFFICHAGE_ELEMENT element="systemitem" type="string"/>
+<AFFICHAGE_ELEMENT element="userinput" type="zone"/>
+<AFFICHAGE_ELEMENT element="computeroutput" type="zone">
+<PARAMETRE nom="police" valeur="Monospaced"/>
+</AFFICHAGE_ELEMENT>
+</AFFICHAGE_NOEUDS>
+
+<EXPORTS>
+<EXPORT nom="HTML" sortie="HTML">
+<FICHIER_XSL nom="docbook-xsl-1.73.2/html/docbook.xsl"/>
+</EXPORT>
+<EXPORT nom="Export PDF..." sortie="PDF">
+<FICHIER_XSL nom="docbook-xsl-1.73.2/fo/docbook.xsl"/>
+</EXPORT>
+</EXPORTS>
+
+
+<STRINGS langue="en">
+<DESCRIPTION_CONFIG>Simplified Docbook article</DESCRIPTION_CONFIG>
+
+<STRINGS_MENU menu="organisation">
+<TITRE>Organisation</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="biblio">
+<TITRE>Biblio elem.</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="auteurs">
+<TITRE>Authors</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="tableaux">
+<TITRE>Lists and Tables</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="multimedia">
+<TITRE>Multimedia</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="texte">
+<TITRE>Text</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="informatique">
+<TITRE>Computer Science</TITRE>
+</STRINGS_MENU>
+
+<STRINGS_ELEMENT element="article">
+<TITRE>Article</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="section">
+<TITRE>Section</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="para">
+<TITRE>Paragraph</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="title">
+<TITRE>Title</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subtitle">
+<TITRE>Subtitle</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="titleabbrev">
+<TITRE>Abbr. title</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="articleinfo">
+<TITRE>Article meta</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sectioninfo">
+<TITRE>Section meta</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="appendix">
+<TITRE>Appendix</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliography">
+<TITRE>Bibliography</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliodiv">
+<TITRE>Biblio division</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomixed">
+<TITRE>Biblio mix</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomset">
+<TITRE>Biblio set</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomisc">
+<TITRE>Biblio misc</TITRE>
+</STRINGS_ELEMENT>
+
+
+<STRINGS_ELEMENT element="legalnotice">
+<TITRE>Legal notice</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="copyright">
+<TITRE>Copyright</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="year">
+<TITRE>Year</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="holder">
+<TITRE>Holder</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subjectset">
+<TITRE>Subject set</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subject">
+<TITRE>Subject</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subjectterm">
+<TITRE>Subject term</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keywordset">
+<TITRE>Keyword set</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keyword">
+<TITRE>Keyword</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="abbrev">
+<TITRE>Abbreviation</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="abstract">
+<TITRE>Abstract</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="date">
+<TITRE>Date</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="pubdate">
+<TITRE>Publication date</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="edition">
+<TITRE>Edition</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="editor">
+<TITRE>Editor</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="publishername">
+<TITRE>Publisher name</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="releaseinfo">
+<TITRE>Release info</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revhistory">
+<TITRE>Revision history</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revision">
+<TITRE>Revision</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revremark">
+<TITRE>Revision remark</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revdescription">
+<TITRE>Revision description</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revnumber">
+<TITRE>Revision number</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="issuenum">
+<TITRE>Issue number</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="volumenum">
+<TITRE>Volume number</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="othercredit">
+<TITRE>Other credit</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="citetitle">
+<TITRE>Cite title</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="trademark">
+<TITRE>Trademark</TITRE>
+</STRINGS_ELEMENT>
+
+
+<STRINGS_ELEMENT element="authorgroup">
+<TITRE>Author group</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="author">
+<TITRE>Author</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="corpauthor">
+<TITRE>Corp. author</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="honorific">
+<TITRE>Honorific</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="firstname">
+<TITRE>Firstname</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="surname">
+<TITRE>Surname</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="authorinitials">
+<TITRE>Initials</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lineage">
+<TITRE>Lineage</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="othername">
+<TITRE>Other name</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="affiliation">
+<TITRE>Affiliation</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="jobtitle">
+<TITRE>Job title</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="orgname">
+<TITRE>Org. name</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="authorblurb">
+<TITRE>Author blurb</TITRE>
+</STRINGS_ELEMENT>
+
+
+<STRINGS_ELEMENT element="itemizedlist">
+<TITRE>Itemized list</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="orderedlist">
+<TITRE>Ordered list</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="variablelist">
+<TITRE>Variable list</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="varlistentry">
+<TITRE>Variable list entry</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="listitem">
+<TITRE>List element</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="term">
+<TITRE>Term</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="table">
+<TITRE>Table</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="informaltable">
+<TITRE>Informal table</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="mediaobject">
+<TITRE>Media object</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tgroup">
+<TITRE>Table group</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="colspec">
+<TITRE>Column spec.</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="thead">
+<TITRE>Table header</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tfoot">
+<TITRE>Table footer</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tbody">
+<TITRE>Table body</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="row">
+<TITRE>Row</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="entry">
+<TITRE>Entry</TITRE>
+</STRINGS_ELEMENT>
+
+
+<STRINGS_ELEMENT element="figure">
+<TITRE>Figure</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="objectinfo">
+<TITRE>Object info</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="caption">
+<TITRE>Caption</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="imageobject">
+<TITRE>Image object</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="imagedata">
+<TITRE>Image data</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="videoobject">
+<TITRE>Video object</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="videodata">
+<TITRE>Video data</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="audioobject">
+<TITRE>Audio object</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="audiodata">
+<TITRE>Audio data</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="textobject">
+<TITRE>Text object</TITRE>
+</STRINGS_ELEMENT>
+
+
+<STRINGS_ELEMENT element="phrase">
+<TITRE>Phrase</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="blockquote">
+<TITRE>Block quote</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="epigraph">
+<TITRE>Epigraph</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="acronym">
+<TITRE>Acronym</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="attribution">
+<TITRE>Attribution</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="note">
+<TITRE>Note</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="example">
+<TITRE>Example</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="emphasis">
+<TITRE>Emphasis</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="quote">
+<TITRE>Quote</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="link">
+<TITRE>Link</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ulink">
+<TITRE>Ulink</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="xref">
+<TITRE>X ref</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="email">
+<TITRE>Email</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="filename">
+<TITRE>File name</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="footnote">
+<TITRE>Footnote</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="footnoteref">
+<TITRE>Footnote reference</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="replaceable">
+<TITRE>Replaceable</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="inlinemediaobject">
+<TITRE>Inline media object</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sidebar">
+<TITRE>Sidebar</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="literal">
+<TITRE>Literal</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="literallayout">
+<TITRE>Literal layout</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lineannotation">
+<TITRE>Line annotation</TITRE>
+</STRINGS_ELEMENT>
+
+
+<STRINGS_ELEMENT element="programlisting">
+<TITRE>Program listing</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="command">
+<TITRE>Command</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="option">
+<TITRE>Command Option</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="systemitem">
+<TITRE>System item</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="userinput">
+<TITRE>User input</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="computeroutput">
+<TITRE>Computer Output</TITRE>
+</STRINGS_ELEMENT>
+
+</STRINGS>
+
+
+<STRINGS langue="fr">
+<DESCRIPTION_CONFIG>Article avec Docbook simplifié</DESCRIPTION_CONFIG>
+
+<STRINGS_MENU menu="organisation">
+<TITRE>Organisation</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="biblio">
+<TITRE>Eléments biblio.</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="auteurs">
+<TITRE>Auteurs</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="tableaux">
+<TITRE>Listes/Tableaux</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="multimedia">
+<TITRE>Multimédia</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="texte">
+<TITRE>Texte</TITRE>
+</STRINGS_MENU>
+<STRINGS_MENU menu="informatique">
+<TITRE>Informatique</TITRE>
+</STRINGS_MENU>
+
+<STRINGS_ELEMENT element="article">
+<TITRE>Article</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="section">
+<TITRE>Section</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="para">
+<TITRE>Paragraphe</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="title">
+<TITRE>Titre</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subtitle">
+<TITRE>Sous-titre</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="titleabbrev">
+<TITRE>Titre abrégé</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="articleinfo">
+<TITRE>Méta / article</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sectioninfo">
+<TITRE>Méta / Section</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="appendix">
+<TITRE>Annexe</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliography">
+<TITRE>Bibliographie</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliodiv">
+<TITRE>Division biblio</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomixed">
+<TITRE>Mélange biblio</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomset">
+<TITRE>Ensemble biblio</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="bibliomisc">
+<TITRE>Divers biblio</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="legalnotice">
+<TITRE>Notice légale</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="copyright">
+<TITRE>Copyright</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="year">
+<TITRE>Année</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="holder">
+<TITRE>Détenteur</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subjectset">
+<TITRE>Sujets</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subject">
+<TITRE>Sujet</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="subjectterm">
+<TITRE>Terme</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keywordset">
+<TITRE>Mots-clés</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="keyword">
+<TITRE>Mot-clé</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="abbrev">
+<TITRE>Abbréviation</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="abstract">
+<TITRE>Résumé</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="date">
+<TITRE>Date</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="pubdate">
+<TITRE>Date de publication</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="edition">
+<TITRE>Edition</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="editor">
+<TITRE>Editeur</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="publishername">
+<TITRE>Société publiant</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="releaseinfo">
+<TITRE>Info release</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revhistory">
+<TITRE>Historique révisions</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revision">
+<TITRE>Révision</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revremark">
+<TITRE>Remaque révision</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revdescription">
+<TITRE>Description révision</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="revnumber">
+<TITRE>Numéro révision</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="issuenum">
+<TITRE>Numéro périodique</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="volumenum">
+<TITRE>Numéro volume</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="othercredit">
+<TITRE>Autre crédit</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="citetitle">
+<TITRE>Titre &#339;uvre citée</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="trademark">
+<TITRE>Trademark</TITRE>
+</STRINGS_ELEMENT>
+
+
+<STRINGS_ELEMENT element="authorgroup">
+<TITRE>Groupe de collaborateurs</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="author">
+<TITRE>Auteur</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="corpauthor">
+<TITRE>Société auteur</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="honorific">
+<TITRE>Titre honorifique</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="firstname">
+<TITRE>Prénom</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="surname">
+<TITRE>Nom de famille</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="authorinitials">
+<TITRE>Initiales</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lineage">
+<TITRE>Lignée</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="othername">
+<TITRE>Autre nom</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="affiliation">
+<TITRE>Affiliation</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="jobtitle">
+<TITRE>Titre travail</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="orgname">
+<TITRE>Nom organisation</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="authorblurb">
+<TITRE>Blurb de l'auteur</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="itemizedlist">
+<TITRE>Liste à puces</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="orderedlist">
+<TITRE>Liste ordonnée</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="variablelist">
+<TITRE>Liste variable</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="varlistentry">
+<TITRE>Elément de liste variable</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="listitem">
+<TITRE>Elément de liste</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="term">
+<TITRE>Terme</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="table">
+<TITRE>Tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="informaltable">
+<TITRE>Tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="mediaobject">
+<TITRE>Object média</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tgroup">
+<TITRE>Portion tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="colspec">
+<TITRE>Spéc. colonne</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="thead">
+<TITRE>Entête de tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tfoot">
+<TITRE>Pied de tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="tbody">
+<TITRE>Corps de tableau</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="row">
+<TITRE>Ligne</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="entry">
+<TITRE>Cellule</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="figure">
+<TITRE>Figure</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="objectinfo">
+<TITRE>Info objet</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="caption">
+<TITRE>Légende</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="imageobject">
+<TITRE>Image</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="imagedata">
+<TITRE>Données image</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="videoobject">
+<TITRE>Vidéo</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="videodata">
+<TITRE>Données vidéo</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="audioobject">
+<TITRE>Audio</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="audiodata">
+<TITRE>Données audio</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="textobject">
+<TITRE>Texte</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="phrase">
+<TITRE>Phrase</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="blockquote">
+<TITRE>Citation</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="epigraph">
+<TITRE>Courte citation</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="acronym">
+<TITRE>Acronyme</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="attribution">
+<TITRE>Attribution</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="note">
+<TITRE>Note</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="example">
+<TITRE>Exemple</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="emphasis">
+<TITRE>Emphase</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="quote">
+<TITRE>Quotation</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="link">
+<TITRE>Lien</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="ulink">
+<TITRE>Lien externe</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="xref">
+<TITRE>Réf. croisée</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="email">
+<TITRE>Email</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="filename">
+<TITRE>Nom de fichier</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="footnote">
+<TITRE>Note de bas de page</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="footnoteref">
+<TITRE>Référence note</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="replaceable">
+<TITRE>Remplaçable</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="inlinemediaobject">
+<TITRE>Média</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="sidebar">
+<TITRE>Encart</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="literal">
+<TITRE>Littéral</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="literallayout">
+<TITRE>Verbatim</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="lineannotation">
+<TITRE>Note ligne</TITRE>
+</STRINGS_ELEMENT>
+
+<STRINGS_ELEMENT element="programlisting">
+<TITRE>Listing programme</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="command">
+<TITRE>Commande</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="option">
+<TITRE>Option de commande</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="systemitem">
+<TITRE>Elément système</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="userinput">
+<TITRE>Entrées utilisateur</TITRE>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="computeroutput">
+<TITRE>Sortie ordinateur</TITRE>
+</STRINGS_ELEMENT>
+
+</STRINGS>
+
+</CONFIG_JAXE>
