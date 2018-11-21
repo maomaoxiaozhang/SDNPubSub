@@ -5,6 +5,7 @@ import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.device.Queue;
 import edu.bupt.wangfu.info.device.Switch;
 import edu.bupt.wangfu.info.message.admin.GroupMessage;
+import edu.bupt.wangfu.module.queueMgr.QueueMgr;
 import edu.bupt.wangfu.module.switchMgr.odl.OvsProcess;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
@@ -23,6 +24,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+
+import static edu.bupt.wangfu.module.queueMgr.util.GetInfo.getQueueInfo;
 
 /**
  * 控制器入口程序，主要负责监听：
@@ -59,10 +62,12 @@ public class ControllerStart {
     private ControllerInit controllerInit;
 
     //本地发布订阅信息
-    LocalSubPub localSubPub = new LocalSubPub();
+    @Autowired
+    LocalSubPub localSubPub;
 
     //全局发布订阅信息
-    GlobalSubPub globalSubPub = new GlobalSubPub();
+    @Autowired
+    GlobalSubPub globalSubPub;
 
     @Autowired
     EncodeTopicTree encodeTopicTree;
@@ -72,6 +77,9 @@ public class ControllerStart {
 
     @Autowired
     OvsProcess ovsProcess;
+
+    @Autowired
+    QueueMgr queueMgr;
 
     public class GroupTask extends TimerTask{
 
@@ -96,32 +104,6 @@ public class ControllerStart {
         }
     }
 
-    //获取端口对应的队列情况，每个端口包含三个队列
-    public Map<Integer, List<Queue>> getQueueInfo(String str, int port) {
-        List<Queue> queueList = new LinkedList<>();
-        Map<Integer, List<Queue>> queueMap = new HashMap<>();
-        String[] strings = str.split("burst");
-        for (int i = 1; i < strings.length; i++) {
-            Queue queue = new Queue();
-            String[] temp = strings[i].split("\n\t");
-            long max_rate = Long.parseLong(temp[1].split(": ")[1]);
-            long min_rate = Long.parseLong(temp[2].split(": ")[1]);
-            long packets = Long.parseLong(temp[4].split(": ")[1]);
-            long bytes = Long.parseLong(temp[5].split(": ")[1]);
-            long errors = Long.parseLong(temp[6].split("\n")[0].split(": ")[1]);
-//            System.out.println(i + "\t" +  max_rate + "\t" + min_rate + "\t" + packets + "\t" + bytes + "\t" + errors);
-            queue.setId(i-1);
-            queue.setPort(port);
-            queue.setPackets(packets);
-            queue.setBytes(bytes);
-            queue.setErrors(errors);
-            queue.setBrandWidth(max_rate);
-            queueList.add(queue);
-        }
-        queueMap.put(port, queueList);
-        return queueMap;
-    }
-
     public void start() {
         //初始化集群，流表预下发
         controllerInit.init();
@@ -134,6 +116,8 @@ public class ControllerStart {
         topoMgr.start();
         //启动wsn监听，接收集群内的发布订阅情况
         new Thread(wsnListener, "wsnListener").start();
+        //启动队列管理
+        queueMgr.start();
     }
 
     public static void main(String[] args) {

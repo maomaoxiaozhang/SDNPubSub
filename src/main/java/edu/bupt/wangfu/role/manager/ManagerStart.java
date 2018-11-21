@@ -5,6 +5,7 @@ import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.message.admin.EncodeTopicTreeMsg;
 import edu.bupt.wangfu.module.managerMgr.ManagerMgr;
 import edu.bupt.wangfu.module.managerMgr.listener.ManagerWsnListener;
+import edu.bupt.wangfu.module.queueMgr.QueueMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
 import edu.bupt.wangfu.module.topologyMgr.TopoMgr;
@@ -66,6 +67,9 @@ public class ManagerStart {
     @Autowired
     WsnTopicTask wsnTopicTask;
 
+    @Autowired
+    QueueMgr queueMgr;
+
     public void start() {
         //集群初始化，流表预下发
         managerInit.init();
@@ -82,6 +86,8 @@ public class ManagerStart {
         new Thread(managerAdminListener, "ManagerAdminListener").start();
         //启动管理员模块、ui界面
         managerMgr.start();
+        //启动队列管理
+        queueMgr.start();
     }
 
     public class ControllerTopicTask extends TimerTask {

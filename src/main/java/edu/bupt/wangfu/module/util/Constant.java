@@ -44,9 +44,6 @@ public class Constant {
     //取消订阅
     public static final String CAL_SUBSCRIBE = "cal_subscribe";
 
-    //用户配置
-    public static final String CONFIG = "config";
-
     //未识别
     public static final String UNKNOWN = "unknown";
 
@@ -88,4 +85,31 @@ public class Constant {
     public static final String sendAddr = "http://192.168.10.101:9018/wsn-publish";
 
     public static final String sendTopic = "spark";
+
+    public static final long QUEUE_PERIOD = 1000L;
+
+    //默认时延
+    public static final long DELAY = 1000L;
+
+    //默认丢包率
+    public static final double LOST_RATE = 20.0;
+
+    public static double Wq = 0.75;// 平均队列长度权值
+    public static double ThresholdA = 60;//队列A的时延阈值
+    public static double ThresholdB = 60;//队列B的时延阈值
+    public static double ThresholdC = 60;//队列C的时延阈值
+    public static long aWidth;//A队列的初始带宽
+    public static long bWidth;//B队列的初始带宽
+    public static long cWidth;//C队列的初始带宽
+    public static long nowWidthA;//A队列的当前带宽速率
+    public static long nowWidthB;//B队列的当前带宽速率
+    public static long nowWidthC;//C队列的当前带宽速率
+    public static long portWidth;//某个端口的qos带宽
+    public static int minWidthA;
+    public static int minWidthB;
+    public static int minWidthC;
+    // 队列带宽调整权值
+    public static double Wa;
+    public static double Wb;
+    public static double Wc;
 }

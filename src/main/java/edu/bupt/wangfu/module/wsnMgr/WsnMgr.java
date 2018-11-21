@@ -6,8 +6,10 @@ import edu.bupt.wangfu.info.device.User;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.module.util.store.LocalSubPub;
+import edu.bupt.wangfu.module.wsnMgr.pro_con.AllConsumers;
+import edu.bupt.wangfu.module.wsnMgr.pro_con.Consumer;
+import edu.bupt.wangfu.module.wsnMgr.pro_con.Task;
 import edu.bupt.wangfu.module.wsnMgr.util.WsnReceive;
-import edu.bupt.wangfu.module.wsnMgr.util.soap.SendWSNCommandWSSyn;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.PublishNotificationProcessImpl;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.WsnNotificationProcessImpl;
 import lombok.Data;
@@ -21,8 +23,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import static edu.bupt.wangfu.module.util.Constant.PUBLISH;
 import static edu.bupt.wangfu.module.util.Constant.publishAddr;
@@ -45,11 +46,18 @@ import static edu.bupt.wangfu.module.util.Constant.wsnAddr;
  *     发布：
  *          1. 注册：向控制器发送发布注册请求，由控制器下发主题路径
  *          2. 传输：向用户主题地址发送数据
+ *
+ *      发布注册、订阅、用户配置 -- wsnAddr，使用线程池管理接收消息后发布的线程；同时在本地保存
+ *                           主题线程的监听，取消订阅后直接关闭线程
+ *      发布消息 -- 单独的 PublishAddr，防止发布消息过多造成负载过大
  * </p>
  *
- * 发布注册、订阅、用户配置 -- wsnAddr，使用线程池管理接收消息后发布的线程；同时在本地保存
- *                             主题线程的监听，取消订阅后直接关闭线程
- * 发布消息 -- 单独的 PublishAddr，防止发布消息过多造成负载过大
+ * 技术演变：由于消息的发送量过大，如果每个消息到来时单开线程处理，对机器负载压力过大
+ *      1. 消息 --> 线程
+ *      2. 消息 --> 线程池，方便管理工作者线程的生命周期
+ *      3. 生产者消费者模型，针对用户构建线程，消息封装为任务存在阻塞队列中
+ *          registerSub : 新用户生成对应的消费者并保存在 allConsumers
+ *          addListener、MessageReceiver : 添加对应主题的监听，消息到来时封装为任务推入对应消费者的阻塞队列中
  *
  * @see WsnReceive
  */
@@ -57,13 +65,11 @@ import static edu.bupt.wangfu.module.util.Constant.wsnAddr;
 @Data
 @Component
 public class WsnMgr {
-    LocalSubPub localSubPub = new LocalSubPub();
+    @Autowired
+    LocalSubPub localSubPub;
 
     //编码主题树，接收自控制器
     EncodeTopicTree encodeTopicTree = new EncodeTopicTree();
-
-    //预生成线程池，减少运行时工作者线程新建、销毁代价
-    public static final ExecutorService threadPool = Executors.newCachedThreadPool();
 
     @Autowired
     WsnReceive wsnReceive;
@@ -80,6 +86,9 @@ public class WsnMgr {
     //针对主题的监听
     Map<String, Thread> topicListeners = new HashMap<>();
 
+    @Autowired
+    AllConsumers allConsumers;
+
     public void start() {
         new Thread(wsnReceive, "wsnReceive监听").start();
         //开启发布订阅注册服务
@@ -90,12 +99,18 @@ public class WsnMgr {
 
     /**
      * 根据用户信息更新本地订阅表
+     * 如果是新用户则生成用户对应的消费者，并保存起来
      */
     public void registerSub(User user, String topic) {
         Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
         List<String> subList = localSubMap.get(user);
         if (subList == null) {
+            //当前用户未注册，则添加至本地订阅表，并生成新的消费者
             subList = new LinkedList<>();
+            Consumer consumer = new Consumer();
+            consumer.setUser(user);
+            consumer.setQueue(new LinkedBlockingQueue<>());
+            allConsumers.getConsumerMap().put(user, consumer);
         }
         if (!subList.contains(topic)) {
             subList.add(topic);
@@ -146,38 +161,6 @@ public class WsnMgr {
         }
     }
 
-    public class MessageReceiver implements Runnable{
-        String topic;
-        int topicPort;
-        String address;
-
-        @Override
-        public void run() {
-            System.out.println("监听新主题：" + topic + "\t地址：" + address);
-            MultiHandler handler = new MultiHandler(topicPort, address);
-            Object msg = handler.v6Receive();
-            onMsgReceive(msg);
-        }
-
-        /**
-         * 收到主题消息，分发给订阅该主题的用户
-         * 采用线程池的方式，多线程传输减少阻塞
-         */
-        public void onMsgReceive(Object msg) {
-            System.out.println("收到主题 " + topic + " 消息：" + msg);
-            Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
-            for (User user : localSubMap.keySet()) {
-                if (localSubMap.get(user).contains(topic)) {
-                    threadPool.execute(() -> {
-                        String userAddress = user.getAddress();
-                        SendWSNCommandWSSyn send = new SendWSNCommandWSSyn("", userAddress);
-                        send.notify(topic, String.valueOf(msg));
-                    });
-                }
-            }
-        }
-    }
-
     //发布注册
     public String registerPub(User user, String topic) {
         Map<User, List<String>> localPubMap = localSubPub.getLocalPubMap();
@@ -224,6 +207,45 @@ public class WsnMgr {
             }
         }
         return null;
+    }
+
+    public class MessageReceiver implements Runnable{
+
+        String topic;
+
+        int topicPort;
+
+        String address;
+
+        @Override
+        public void run() {
+            System.out.println("监听新主题：" + topic + "\t地址：" + address);
+            MultiHandler handler = new MultiHandler(topicPort, address);
+            Object msg = handler.v6Receive();
+            onMsgReceive(msg);
+        }
+
+        /**
+         * 收到主题消息，分发给订阅该主题的用户
+         * 采用线程池的方式，多线程传输减少阻塞
+         */
+        public void onMsgReceive(Object msg) {
+            System.out.println("收到主题 " + topic + " 消息：" + msg);
+            Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
+            for (User user : localSubMap.keySet()) {
+                if (localSubMap.get(user).contains(topic)) {
+                    Consumer consumer = allConsumers.getConsumerMap().get(user);
+                    Task task = new Task();
+                    task.setTopic(topic);
+                    task.setMsg(msg);
+                    try {
+                        consumer.getQueue().put(task);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {

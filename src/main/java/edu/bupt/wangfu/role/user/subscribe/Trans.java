@@ -25,8 +25,7 @@ public class Trans {
 		UserNotificationProcessImpl implementor = new UserNotificationProcessImpl();
 		// 开启接收服务
 		Endpoint endpint = Endpoint.publish(receiveAddr, implementor);
-		receive.subscribe(id, receiveTopic, receiveAddr);
-//		receive.config(id, receiveTopic, 1000L, 80.8);
+		receive.subscribe(id, receiveTopic);
 	}
 
 	public void sendMethod(String mes) {
