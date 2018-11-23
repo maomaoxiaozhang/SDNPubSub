@@ -20,19 +20,20 @@ import java.util.Timer;
 
 
 public class Start {
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) throws NoSuchMethodException {
+        Start start = new Start();
+        start.help();
+    }
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(ControllerConfig.class);
-//        TopicTreeMgr topicTreeMgr = (TopicTreeMgr) context.getBean("topicTreeMgr");
-//        topicTreeMgr.buildTopicTree();
-//        System.out.println(topicTreeMgr.getEncodeTopicTree());
-//        TopoMgr topoMgr = (TopoMgr) context.getBean("topoMgr");
-//        topoMgr.start();
-        Controller controller = (Controller) context.getBean("controller");
-        System.out.println(controller.getLocalGroupName());
-
-//        String str = "1234";
-//        System.out.println(str.substring(0, 4));
+    public void help() {
+        try {
+            while (true) {
+                System.out.println("1");
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
