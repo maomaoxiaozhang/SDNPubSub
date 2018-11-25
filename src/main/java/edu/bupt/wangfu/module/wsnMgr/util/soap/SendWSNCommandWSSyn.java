@@ -97,7 +97,7 @@ public class SendWSNCommandWSSyn {
 		return statusCode;
 	}
 
-	public int register(String id, String topic){
+	public int register(String id, String topic, String sendAddress){
 		String content = "";
 		content += "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
 		content += "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:org=\"http://edu.bupt.wangfu.module.wsnMgr.util.soap\">";
@@ -110,6 +110,7 @@ public class SendWSNCommandWSSyn {
 		content += EscapeSequenceGenerate(" <wsa:Address>");
 		content += EscapeSequenceGenerate("<id>" + id + "</id>");
 		content += EscapeSequenceGenerate("<topic>" + topic + "</topic>");
+		content += EscapeSequenceGenerate("<userAddress>" + sendAddress + "</userAddress>");
 		content += EscapeSequenceGenerate("</wsa:Address>");
 		content += EscapeSequenceGenerate("</wsnt:ConsumerReference>");
 		content += EscapeSequenceGenerate("<wsnt:Filter>");

@@ -88,7 +88,7 @@ public class Constant {
 
     public static final String receiveTopic = "spark";
 
-    public static final String sendAddr = "http://192.168.10.101:9018/wsn-publish";
+    public static final String sendAddr = "http://192.168.10.101:9018/wsn-send";
 
     public static final String sendTopic = "spark";
 
