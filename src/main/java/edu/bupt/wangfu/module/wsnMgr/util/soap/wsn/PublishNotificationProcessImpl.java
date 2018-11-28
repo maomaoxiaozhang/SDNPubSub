@@ -1,5 +1,6 @@
 package edu.bupt.wangfu.module.wsnMgr.util.soap.wsn;
 
+
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.module.wsnMgr.WsnMgr;
@@ -16,7 +17,7 @@ import javax.jws.WebService;
 @WebService(endpointInterface= "edu.bupt.wangfu.module.wsnMgr.util.soap.INotificationProcess",
         serviceName="WsnNotificationProcessImpl")
 @Component
-public class PublishNotificationProcessImpl implements INotificationProcess{
+public class PublishNotificationProcessImpl implements INotificationProcess {
     @Autowired
     Controller controller;
 

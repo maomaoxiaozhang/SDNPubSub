@@ -80,7 +80,7 @@ public class TopicTreeUI {
     }
 
 
-    private void frame_init() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException, NamingException {
+    private void frame_init() throws NamingException {
         TTFrame.setLayout(new BorderLayout());
         TTFrame.setSize(new Dimension(600, 520));
         TTFrame.setPreferredSize(new Dimension(600, 520));
@@ -774,15 +774,15 @@ public class TopicTreeUI {
         close_button.setToolTipText("刷新主题树");
         close_button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    ui.topicTreeUI.lu = new LdapUtil();
-                    ui.topicTreeUI.lu.connectLdap();
-                    ui.topicTreeUI.reload_LibTrees();
-                    PSManagerUI.topicTreeM.invalidate();
-                } catch (NamingException e1) {
-
-                    e1.printStackTrace();
-                }
+//                try {
+//                    ui.topicTreeUI.lu = new LdapUtil();
+//                    ui.topicTreeUI.lu.connectLdap();
+//                    ui.topicTreeUI.reload_LibTrees();
+//                    PSManagerUI.topicTreeM.invalidate();
+//                } catch (NamingException e1) {
+//
+//                    e1.printStackTrace();
+//                }
             }
         });
         TTToolBar.add(close_button);

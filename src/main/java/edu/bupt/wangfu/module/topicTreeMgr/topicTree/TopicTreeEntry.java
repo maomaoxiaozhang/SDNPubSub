@@ -2,7 +2,6 @@ package edu.bupt.wangfu.module.topicTreeMgr.topicTree;
 
 import lombok.Data;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,11 +19,10 @@ public class TopicTreeEntry {
 
     @Override
     public String toString() {
-        return "TopicTreeEntry{" +
-                "topic='" + topic + '\'' +
-                '}';
+        return topic;
     }
 
     public List<TopicTreeEntry> childList;
+    public String path;
 
 }

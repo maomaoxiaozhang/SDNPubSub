@@ -7,12 +7,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.dom4j.*;
+import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 public class XSDUtil {
 
-    public XSDNode connectXSD(String xsd)throws Exception{
+    public XSDNode readXSDRoot(String xsd)throws Exception{
         XSDNode xsdNode = new XSDNode();
         SAXReader saxReader = new SAXReader();
         Document doc = null;
@@ -24,7 +25,7 @@ public class XSDUtil {
             description+=element.attribute(i).getName()+"="+element.attributeValue( element.attribute( i ).getQName() )+" ";
         }
         xsdNode.setDescription(description);
-        xsdNode.setPath(element.getName());
+        xsdNode.setPath("");
         readXSD(element,xsdNode);
         return xsdNode;
     }
@@ -42,7 +43,23 @@ public class XSDUtil {
                     description+=ele.attribute(i).getName()+"="+ele.attributeValue( ele.attribute( i ).getQName() )+" ";
                 }
                 node.setDescription(description);
-                node.setPath(xsdNode.getPath()+"/"+ele.getName());
+                if(ele.getQualifiedName().equals( "xs:element" )) {
+                    if(xsdNode.getPath().equals( "" )){
+                        node.setPath(ele.getQualifiedName()+"[@name=\"" + ele.attributeValue( "name" ) + "\"]");
+                    }
+                    else{
+                        node.setPath(xsdNode.getPath()+"/"+ele.getQualifiedName()+"[@name=\"" + ele.attributeValue( "name" ) + "\"]");
+                    }
+                }
+                else{
+                    if(xsdNode.getPath().equals( "" )){
+                        node.setPath(ele.getQualifiedName());
+                    }
+                    else{
+                        node.setPath(xsdNode.getPath()+"/"+ele.getQualifiedName());
+                    }
+
+                }
                 readXSD(ele, node);
                 subs.add(node);
             }
@@ -50,40 +67,86 @@ public class XSDUtil {
         }
     }
 
-    public void addNewTag(XSDNode xsdNode, String xsd,String name) throws DocumentException, IOException {
-        String[] paths = xsdNode.getPath().split( "/" );
-        //System.out.println(paths);
+    public void modify(String xsd,XSDNode node,String attr,String value) throws DocumentException, IOException {
         SAXReader saxReader = new SAXReader();
         Document doc = null;
-        doc = saxReader.read( xsd );
+        doc = saxReader.read(xsd);
         Element element = doc.getRootElement();
-        for(int i = 1;i<paths.length;i++){
-            element = element.element(paths[i]);
-        }
-        element.addElement(name);
+        Element targetElement = (Element)element.selectSingleNode(node.getPath());
+        targetElement.attribute( attr ).setValue( value );
         XMLWriter xmlWriter = new XMLWriter(new FileWriter(xsd)); //dom4j提供了专门写入文件的对象XMLWriter
         xmlWriter.write(doc);
         xmlWriter.close();
     }
 
+    public void addTag(String xsd,XSDNode node,XSDNode newNode) throws DocumentException, IOException {
+        SAXReader saxReader = new SAXReader();
+        Document doc = null;
+        doc = saxReader.read( xsd );
+        Element element = doc.getRootElement();
+        Element targetElement = null;
+        if(node.getPath().equals( "" )) targetElement = element;
+        else targetElement= (Element)element.selectSingleNode(node.getPath());
+        Element newElement=targetElement.addElement(newNode.getTagType());
+        if(newNode.getName() != ""){
+            newElement.addAttribute( "name",newNode.getName() );
+        }
+        if(newNode.getType() != ""){
+            newElement.addAttribute( "type",newNode.getType() );
+        }
+        OutputFormat outputFormat = OutputFormat.createPrettyPrint();
+        outputFormat.setIndent(true); //设置是否缩进
+        outputFormat.setIndent("    "); //以四个空格方式实现缩进
+        outputFormat.setNewlines(true); //设置是否换行
+        XMLWriter xmlWriter = new XMLWriter(new FileWriter(xsd),outputFormat); //dom4j提供了专门写入文件的对象XMLWriter
+        xmlWriter.write(doc);
+        xmlWriter.close();
 
+    }
+
+
+    public void deleteTag(String xsd,XSDNode node) throws DocumentException, IOException {
+        SAXReader saxReader = new SAXReader();
+        Document doc = null;
+        doc = saxReader.read(xsd);
+        Element element = doc.getRootElement();
+        Element targetElement = (Element)element.selectSingleNode(node.getPath());
+        String parentPath = "";
+        String[] paths = node.getPath().split( "/" );
+        for(int i = 0;i<paths.length-1;i++){
+            if(i==0) parentPath+=paths[i];
+            else parentPath+="/"+paths[i];
+        }
+        if(parentPath.equals( "" )){
+            element.remove( targetElement );
+        }
+        else{
+            Element parentElement = (Element)element.selectSingleNode(parentPath);
+            parentElement.remove( targetElement);
+        }
+        XMLWriter xmlWriter = new XMLWriter(new FileWriter(xsd)); //dom4j提供了专门写入文件的对象XMLWriter
+        xmlWriter.write(doc);
+        xmlWriter.close();
+
+    }
 
     public static void main(String[] args) {
         XSDNode node = new XSDNode();
-        node.setPath("schema/element/complexType/sequence");
+//        node.setPath("xs:element[@name=\"test\"]/xs:complexType/xs:sequence");
+//        XSDNode newNode = new XSDNode();
+//        newNode.setTagType( "xs:element" );
+//        newNode.setName( "test" );
+//        newNode.setType( "xs:string" );
+        node.setPath("xs:element[@name=\"test1\"]");
         try {
             //String realPath = XSDUtil.class.getResource("/").getPath();
             XSDUtil xsdUtil = new XSDUtil();
-            xsdUtil.addNewTag(node,"./schema/test.xsd","xs:element");
-            //XSDNode xsdNode = xsdUtil.connectXSD("./schema/test.xsd" );
+            xsdUtil.deleteTag( "./schema/test.xsd",node);
+            //xsdUtil.addTag("./schema/test.xsd",node,newNode);
+            //xsdUtil.addTreeTag( "./schema/test.xsd",newNode );
+            //xsdUtil.rename("./schema/test.xsd",node,"from1");
+            //XSDNode xsdNode = xsdUtil.readXSDRoot("./schema/test.xsd" );
             //System.out.println(xsdNode);
-//            for(Element ele : elements){
-//                System.out.println(ele);
-//            }
-//            List<XSDNode> nodes = xsdReader.paserXSD("./schema/test.xsd");
-//            for (XSDNode node : nodes) {
-//                System.out.println(node.getUnboundedXpath());
-//            }
         } catch (Exception ex){
             ex.printStackTrace();
         }

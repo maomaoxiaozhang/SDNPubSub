@@ -14,7 +14,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
-import javax.naming.NamingException;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -49,7 +48,8 @@ public class PSManagerUI {
     @Autowired
     AllGroups allGroups;
 
-    public static TopicTreeUI topicTreeUI = null;
+    //public static TopicTreeUI topicTreeUI = null;
+    public static TopicTreeUI1 topicTreeUI1 = null;
     public static SchemaUI schemaUI=null;
     public static PolicyUtil util = null;
     private String currentGroup;
@@ -58,6 +58,7 @@ public class PSManagerUI {
 
     public static Dimension screenSize;
     public static JPanel topicTreeM;// 主题树管理
+    public static JPanel topicTreeM1;// 主题树管理
     public static JPanel schemaM;// 主题树管理
 
     public JTabbedPane visualManagement;// "可视化管理"
@@ -148,7 +149,8 @@ public class PSManagerUI {
 
     public void start() {
 
-        topicTreeUI = new TopicTreeUI(this);
+        //topicTreeUI = new TopicTreeUI(this);
+        topicTreeUI1 = new TopicTreeUI1(this);
         schemaUI = new SchemaUI(this);
         util = new PolicyUtil();
         JFrame.setDefaultLookAndFeelDecorated(true);
@@ -256,7 +258,6 @@ public class PSManagerUI {
         JLabel repAddrC = new JLabel("控制器地址",SwingConstants.CENTER);
         repAddrC.setBounds(0,20,100,30);
         basicConfC.add(repAddrC);
-
 
         controllerAddrInput = new JTextField();
         controllerAddrInput.setEditable(false);
@@ -472,11 +473,20 @@ public class PSManagerUI {
 //        visualManagement.addTab("", new ImageIcon("./img/topoManage.png"), topoManage, null);
 
         //主题树
-        topicTreeM = new JPanel();
-        visualManagement.addTab("", new ImageIcon("./img/TopicTree.png"), topicTreeM, null);
+//        topicTreeM = new JPanel();
+//        visualManagement.addTab("", new ImageIcon("./img/TopicTree.png"), topicTreeM, null);
+//
+//        try {
+//            topicTreeM.add(topicTreeUI.getTreeInstance());
+//        } catch (Exception e1) {
+//            e1.printStackTrace();
+//        }
 
+        //主题树
+        topicTreeM1 = new JPanel();
+        visualManagement.addTab("", new ImageIcon("./img/TopicTree.png"), topicTreeM1, null);
         try {
-            topicTreeM.add(topicTreeUI.getTreeInstance());
+            topicTreeM1.add(topicTreeUI1.getTreeInstance());
         } catch (Exception e1) {
             e1.printStackTrace();
         }
@@ -502,7 +512,7 @@ public class PSManagerUI {
         newPolicy.add(editPolicy, BorderLayout.CENTER);
         editPolicy.setLayout(null);
 
-        Enumeration trees = topicTreeUI.lib_root.children();
+        Enumeration trees = topicTreeUI1.lib_root.children();
         Vector<DefaultMutableTreeNode> treesNames = new Vector<>();
         DefaultMutableTreeNode defaultChose = new DefaultMutableTreeNode("All");
 
@@ -1207,7 +1217,7 @@ public class PSManagerUI {
 
     public void reflashJtreeRoot() {
 
-        Enumeration trees = topicTreeUI.lib_root.children();
+        Enumeration trees = topicTreeUI1.lib_root.children();
         Vector<DefaultMutableTreeNode> treesNames = new Vector<>();
         DefaultMutableTreeNode defaultChose = new DefaultMutableTreeNode("All");
 
