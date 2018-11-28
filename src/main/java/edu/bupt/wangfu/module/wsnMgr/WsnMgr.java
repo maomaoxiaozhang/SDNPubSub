@@ -9,6 +9,7 @@ import edu.bupt.wangfu.module.util.store.LocalSubPub;
 import edu.bupt.wangfu.module.wsnMgr.pro_con.AllConsumers;
 import edu.bupt.wangfu.module.wsnMgr.pro_con.Consumer;
 import edu.bupt.wangfu.module.wsnMgr.pro_con.Task;
+import edu.bupt.wangfu.module.wsnMgr.pro_con.TaskQueue;
 import edu.bupt.wangfu.module.wsnMgr.util.WsnReceive;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.PublishNotificationProcessImpl;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.WsnNotificationProcessImpl;
@@ -28,6 +29,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import static edu.bupt.wangfu.module.util.Constant.PUBLISH;
 import static edu.bupt.wangfu.module.util.Constant.publishAddr;
 import static edu.bupt.wangfu.module.util.Constant.wsnAddr;
+import static edu.bupt.wangfu.module.wsnMgr.util.GenPubAddress.getPubAddress;
 
 /**
  * 在用户端使用
@@ -78,9 +80,6 @@ public class WsnMgr {
     WsnNotificationProcessImpl wsnNotificationProcess;
 
     @Autowired
-    PublishNotificationProcessImpl publishNotificationProcess;
-
-    @Autowired
     Controller controller;
 
     //针对主题的监听
@@ -89,12 +88,13 @@ public class WsnMgr {
     @Autowired
     AllConsumers allConsumers;
 
+    @Autowired
+    TaskQueue taskQueue;
+
     public void start() {
         new Thread(wsnReceive, "wsnReceive监听").start();
         //开启发布订阅注册服务
         Endpoint endpint = Endpoint.publish(wsnAddr, wsnNotificationProcess);
-        //开启发布消息接收服务
-        Endpoint point = Endpoint.publish(publishAddr, publishNotificationProcess);
     }
 
     /**
@@ -165,6 +165,7 @@ public class WsnMgr {
     public String registerPub(User user, String topic) {
         Map<User, List<String>> localPubMap = localSubPub.getLocalPubMap();
         String address = encodeTopicTree.getAddress(topic);
+        String publishAddress  = getPubAddress(localPubMap.keySet(), user);
         if (address == null || address.equals("")) {
             System.out.println("主题 " + topic + " 对应的编码不存在，注册失败！");
         }else {
@@ -183,8 +184,14 @@ public class WsnMgr {
             }else {
                 System.out.println(topic + " 该主题已注册，请勿重复发布");
             }
+
+            if (!publishAddress.equals("")) {
+                System.out.println("新增发布监听: " + publishAddress);
+                PublishNotificationProcessImpl impl = new PublishNotificationProcessImpl(encodeTopicTree, controller);
+                Endpoint.publish(publishAddress, impl);
+            }
         }
-        return address;
+        return publishAddress;
     }
 
     /**
@@ -221,8 +228,10 @@ public class WsnMgr {
         public void run() {
             System.out.println("监听新主题：" + topic + "\t地址：" + address);
             MultiHandler handler = new MultiHandler(topicPort, address);
-            Object msg = handler.v6Receive();
-            onMsgReceive(msg);
+            while (true) {
+                Object msg = handler.v6Receive();
+                onMsgReceive(msg);
+            }
         }
 
         /**
@@ -231,20 +240,10 @@ public class WsnMgr {
          */
         public void onMsgReceive(Object msg) {
             System.out.println("收到主题 " + topic + " 消息：" + msg);
-            Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
-            for (User user : localSubMap.keySet()) {
-                if (localSubMap.get(user).contains(topic)) {
-                    Consumer consumer = allConsumers.getConsumerMap().get(user);
-                    Task task = new Task();
-                    task.setTopic(topic);
-                    task.setMsg(msg);
-                    try {
-                        consumer.getQueue().put(task);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+            Task task = new Task();
+            task.setTopic(topic);
+            task.setMsg(msg);
+            taskQueue.put(task);
         }
     }
 

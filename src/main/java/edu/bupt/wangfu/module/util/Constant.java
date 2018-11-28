@@ -74,18 +74,25 @@ public class Constant {
 
     public static final String INIT_QUEUES = "ovs-vsctl -- set port ge-1/1/%d qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 -- --id=@q1 create queue other-config:min-rate=30000000 other-config:max-rate=30000000  -- --id=@q2 create queue other-config:min-rate=10000000 other-config:max-rate=10000000";
 
+    //wsn服务地址
     public static final String wsnAddr = "http://192.168.10.101:9010/wsn-core";
 
-    public static final String publishAddr = "http://192.168.10.101:9012/wsn-publish";
+    //wsn消息接收地址
+    public static final String publishAddr = "http://192.168.10.101:%d/wsn-publish";
 
+    //消息接收端口，从10000开始，预先保留200个
+    public static int publishPort = 10000;
+
+    //订阅地址
     public static final String receiveAddr = "http://192.168.10.101:9016/wsn-subscribe";
 
     public static final String receiveTopic = "spark";
 
-    public static final String sendAddr = "http://192.168.10.101:9018/wsn-publish";
+    public static final String sendAddr = "http://192.168.10.101:9018/wsn-send";
 
     public static final String sendTopic = "spark";
 
+    //队列调度间隔
     public static final long QUEUE_PERIOD = 1000L;
 
     //默认时延

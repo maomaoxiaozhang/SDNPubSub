@@ -69,7 +69,7 @@ public class SendWSNCommand {
         content += EscapeSequenceGenerate(" <wsa:Address>");
         content += EscapeSequenceGenerate("<id>" + id + "</id>");
         content += EscapeSequenceGenerate("<topic>" + topic + "</topic>");
-        content += EscapeSequenceGenerate("<receiveAddress>" + receiveAddress + "</receiveAddress>");
+        content += EscapeSequenceGenerate("<userAddress>" + receiveAddress + "</userAddress>");
         content += EscapeSequenceGenerate("<delay>" + delay + "</delay>");
         content += EscapeSequenceGenerate("<lostRate>" + lostRate + "</lostRate>");
         content += EscapeSequenceGenerate("</wsa:Address>");

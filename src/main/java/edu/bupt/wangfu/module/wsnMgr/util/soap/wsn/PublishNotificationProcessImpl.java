@@ -1,7 +1,7 @@
 package edu.bupt.wangfu.module.wsnMgr.util.soap.wsn;
 
-
 import edu.bupt.wangfu.info.device.Controller;
+import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.module.wsnMgr.WsnMgr;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.INotificationProcess;
@@ -16,14 +16,19 @@ import javax.jws.WebService;
  */
 @WebService(endpointInterface= "edu.bupt.wangfu.module.wsnMgr.util.soap.INotificationProcess",
         serviceName="WsnNotificationProcessImpl")
-@Component
-public class PublishNotificationProcessImpl implements INotificationProcess {
-    @Autowired
+public class PublishNotificationProcessImpl implements INotificationProcess{
+
+    public PublishNotificationProcessImpl() {
+    }
+
+    EncodeTopicTree encodeTopicTree;
+
     Controller controller;
 
-    @Autowired
-    @Lazy
-    WsnMgr wsnMgr;
+    public PublishNotificationProcessImpl(EncodeTopicTree encodeTopicTree, Controller controller) {
+        this.encodeTopicTree = encodeTopicTree;
+        this.controller = controller;
+    }
 
     //发布
     @Override
@@ -31,7 +36,7 @@ public class PublishNotificationProcessImpl implements INotificationProcess {
         String message = splitString(notification, "<message>", "</message>");
         String topic = splitString(notification, "<topic>", "</topic>");
         //发布主题已经注册，直接传输message
-        String encodeAddress = wsnMgr.getEncodeTopicTree().getAddress(topic);
+        String encodeAddress = encodeTopicTree.getAddress(topic);
         if (encodeAddress == null) {
             System.out.println("该主题未找到编码，无法传输！");
         }else {

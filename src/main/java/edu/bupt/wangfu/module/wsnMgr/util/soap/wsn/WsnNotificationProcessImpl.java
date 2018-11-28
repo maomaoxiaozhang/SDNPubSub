@@ -43,6 +43,7 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
         String id, topic, message, encodeAddress, userAddress;
         id = splitString(notification, "<id>", "</id>");
         topic = splitString(notification, "<topic>", "</topic>");
+        userAddress = splitString(notification, "<userAddress>", "</userAddress>");
         long delay;
         double lostRate;
         User user;
@@ -53,7 +54,6 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
                 if (user == null) {
                     user = new User();
                     user.setId(id);
-                    userAddress = splitString(notification, "<receiveAddress>", "</receiveAddress>");
                     user.setAddress(userAddress);
                 }
                 //wsn 开启新的监听
@@ -74,7 +74,10 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
                 user = new User();
                 user.setId(id);
                 //注册发布信息
-                wsnMgr.registerPub(user, topic);
+                String publishAddress = wsnMgr.registerPub(user, topic);
+                if (!publishAddress.equals("")) {
+                    send2user(userAddress, publishAddress);
+                }
                 break;
             default:
                 System.out.println("未识别消息类别！");
@@ -112,6 +115,13 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
         msg.setUser(user);
         MultiHandler handler = new MultiHandler(wsnPort, address);
         handler.v6Send(msg);
+    }
+
+    //直接发送给用户
+    public void send2user(String sendAddress, String msg) {
+        MultiHandler handler = new MultiHandler(0, sendAddress);
+        handler.v6Send(msg);
+        System.out.println("向用户发发布地址：" + msg);
     }
 
 
