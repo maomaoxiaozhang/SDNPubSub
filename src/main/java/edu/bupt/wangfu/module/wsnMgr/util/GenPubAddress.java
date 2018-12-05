@@ -1,9 +1,7 @@
 package edu.bupt.wangfu.module.wsnMgr.util;
 
 import edu.bupt.wangfu.info.device.User;
-import edu.bupt.wangfu.module.wsnMgr.pro_con.Consumer;
 
-import java.util.Map;
 import java.util.Set;
 
 import static edu.bupt.wangfu.module.util.Constant.publishAddr;
