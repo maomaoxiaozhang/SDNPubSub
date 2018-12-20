@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <all>
-    <test>
-        <a1>
-            <a11/>
-        </a1>
-        <a2/>
-        <a3/>
-    </test>
-    <test2>
-        <b1/>
-        <b2/>
-        <b3/>
-    </test2>
-    <test4>
-        <c1/>
-        <c2>
-            <c21/>
-            <c22/>
-        </c2>
-        <c3/>
-    </test4>
+    <layer-1 name="test1">
+        <layer-2 name="test1-1">
+            <layer-3 name="test1-1-1">
+                <layer-4 name="newTopic"/>
+            </layer-3>
+        </layer-2>
+        <layer-2 name="test1-2">
+            <layer-3 name="test1-1-2"/>
+        </layer-2>
+    </layer-1>;
+    <layer-1 name="test2">
+        <layer-2 name="test2-1"/>
+        <layer-2 name="test2-2">
+            <layer-3 name="test2-2-1"/>
+        </layer-2>
+    </layer-1>
+    <layer-1 name="test3">
+        <layer-2 name="test1-1"/>
+        <layer-2 name="test3-2">
+            <layer-3 name="test1-1-1"/>
+        </layer-2>
+    </layer-1>
+    <layer-1 name="test4"/>
 </all>

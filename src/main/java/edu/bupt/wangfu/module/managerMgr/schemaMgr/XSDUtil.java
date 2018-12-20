@@ -111,23 +111,10 @@ public class XSDUtil {
         doc = saxReader.read(xsd);
         Element element = doc.getRootElement();
         Element targetElement = (Element)element.selectSingleNode(node.getPath());
-        String parentPath = "";
-        String[] paths = node.getPath().split( "/" );
-        for(int i = 0;i<paths.length-1;i++){
-            if(i==0) parentPath+=paths[i];
-            else parentPath+="/"+paths[i];
-        }
-        if(parentPath.equals( "" )){
-            element.remove( targetElement );
-        }
-        else{
-            Element parentElement = (Element)element.selectSingleNode(parentPath);
-            parentElement.remove( targetElement);
-        }
+        targetElement.getParent().remove( targetElement );
         XMLWriter xmlWriter = new XMLWriter(new FileWriter(xsd)); //dom4j提供了专门写入文件的对象XMLWriter
         xmlWriter.write(doc);
         xmlWriter.close();
-
     }
 
     public static void main(String[] args) {

@@ -12,8 +12,6 @@ import javax.jws.WebService;
 @WebService(endpointInterface= "edu.bupt.wangfu.module.wsnMgr.util.soap.INotificationProcess",
         serviceName="NotificationProcessImpl")
 public class SendNotificationProcessImpl implements INotificationProcess {
-
-
     @Override
     public void notificationProcess(String notification) {
         Trans.publishAddress = notification;

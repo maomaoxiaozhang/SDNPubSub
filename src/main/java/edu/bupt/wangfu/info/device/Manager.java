@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Data
 @Component
@@ -54,6 +55,15 @@ public class Manager{
 
     @Value("${groups:#{null}}")
     private Map<String, Controller> groups;
+
+    @Value("${subTable:#{null}}")
+    private ConcurrentHashMap<String, HashMap<String, HashMap<String, Double>>> subTable;// 订阅表，<主题<集群<推送地址，时延约束>>>
+
+    @Value("${constraintTable:#{null}}")
+    private ConcurrentHashMap<String, HashMap<Integer, Double>> constraintTable; // 管理员计算的约束，（集群，优先级，约束）
+
+    @Value("${nodeMinDelay:0.3}")
+    private double nodeMinDelay ; // 节点时延下限
 
 
 }

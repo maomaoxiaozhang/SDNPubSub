@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><policyList>
-    
-    
-<policy><targetTopic>all:C</targetTopic><targetGroup><group>G1</group><group>G2</group></targetGroup></policy><policy><targetTopic>all:E</targetTopic><targetGroup><group>G1</group><group>G2</group></targetGroup></policy></policyList>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<policyList>
+    <policy>
+        <targetTopic>all:C</targetTopic>
+        <targetGroup>
+            <group>G1</group>
+            <group>G2</group>
+        </targetGroup>
+    </policy>
+    <policy>
+        <targetTopic>all:E</targetTopic>
+        <targetGroup>
+            <group>G1</group>
+            <group>G2</group>
+        </targetGroup>
+    </policy>
+</policyList>
