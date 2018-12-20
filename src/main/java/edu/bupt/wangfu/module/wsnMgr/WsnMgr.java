@@ -6,10 +6,7 @@ import edu.bupt.wangfu.info.device.User;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.module.util.store.LocalSubPub;
-import edu.bupt.wangfu.module.wsnMgr.pro_con.AllConsumers;
-import edu.bupt.wangfu.module.wsnMgr.pro_con.Consumer;
-import edu.bupt.wangfu.module.wsnMgr.pro_con.Task;
-import edu.bupt.wangfu.module.wsnMgr.pro_con.TaskQueue;
+import edu.bupt.wangfu.module.wsnMgr.reactor.*;
 import edu.bupt.wangfu.module.wsnMgr.util.WsnReceive;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.PublishNotificationProcessImpl;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.wsn.WsnNotificationProcessImpl;
@@ -27,7 +24,6 @@ import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import static edu.bupt.wangfu.module.util.Constant.PUBLISH;
-import static edu.bupt.wangfu.module.util.Constant.publishAddr;
 import static edu.bupt.wangfu.module.util.Constant.wsnAddr;
 import static edu.bupt.wangfu.module.wsnMgr.util.GenPubAddress.getPubAddress;
 
@@ -86,10 +82,10 @@ public class WsnMgr {
     Map<String, Thread> topicListeners = new HashMap<>();
 
     @Autowired
-    AllConsumers allConsumers;
+    Dispatcher dispatcher;
 
     @Autowired
-    TaskQueue taskQueue;
+    Selector selector;
 
     public void start() {
         new Thread(wsnReceive, "wsnReceive监听").start();
@@ -105,12 +101,10 @@ public class WsnMgr {
         Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
         List<String> subList = localSubMap.get(user);
         if (subList == null) {
-            //当前用户未注册，则添加至本地订阅表，并生成新的消费者
+            //当前用户未注册，则添加至本地订阅表，并生成新的handle
             subList = new LinkedList<>();
-            Consumer consumer = new Consumer();
-            consumer.setUser(user);
-            consumer.setQueue(new LinkedBlockingQueue<>());
-            allConsumers.getConsumerMap().put(user, consumer);
+            Handle handle = new UserHandle(user);
+            dispatcher.registerHandle(user, handle);
         }
         if (!subList.contains(topic)) {
             subList.add(topic);
@@ -188,7 +182,7 @@ public class WsnMgr {
             if (!publishAddress.equals("")) {
                 System.out.println("新增发布监听: " + publishAddress);
                 PublishNotificationProcessImpl impl = new PublishNotificationProcessImpl(encodeTopicTree, controller);
-                Endpoint.publish(publishAddress, impl);
+                Endpoint endpoint = Endpoint.publish(publishAddress, impl);
             }
         }
         return publishAddress;
@@ -243,7 +237,7 @@ public class WsnMgr {
             Task task = new Task();
             task.setTopic(topic);
             task.setMsg(msg);
-            taskQueue.put(task);
+            selector.addTask(task);
         }
     }
 

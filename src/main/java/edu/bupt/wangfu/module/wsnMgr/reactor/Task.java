@@ -1,4 +1,4 @@
-package edu.bupt.wangfu.module.wsnMgr.pro_con;
+package edu.bupt.wangfu.module.wsnMgr.reactor;
 
 import lombok.Data;
 
