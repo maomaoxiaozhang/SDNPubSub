@@ -7,12 +7,15 @@ import edu.bupt.wangfu.module.managerMgr.policyMgr.PolicyUtil;
 import edu.bupt.wangfu.module.managerMgr.util.AllGroups;
 import edu.bupt.wangfu.module.managerMgr.util.Policy;
 import edu.bupt.wangfu.module.managerMgr.util.PolicyMap;
+import edu.bupt.wangfu.module.topicMgr.ldap.webService.TopicRequestProcessImpl;
+import edu.bupt.wangfu.module.topicMgr.ldap.webService.TopicWSMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.topologyMgr.TopoMgr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
+import org.xml.sax.SAXException;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -22,17 +25,22 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
 @Component
 public class PSManagerUI {
+    @Autowired
+    TopicWSMgr topicWSMgr;
+
     @Autowired
     TopicTreeMgr topicTreeMgr;
 
@@ -69,7 +77,7 @@ public class PSManagerUI {
     public JComboBox comboBox_3;
     public JComboBox comboBox_4;
     public JComboBox comboBox_5;
-    private JFrame frame;// 主窗口
+    public JFrame frame;// 主窗口
     private JTabbedPane topTabbedPane;// 顶层tab窗体，分为图形化管理，控制台，系统设置等
     private JPanel groupsMgmt;// 集群信息管理
     private JScrollPane allGroupsScrollPane;// 所有集群 可滚动窗口容器
@@ -153,6 +161,16 @@ public class PSManagerUI {
         topicTreeUI1 = new TopicTreeUI1(this);
         schemaUI = new SchemaUI(this);
         util = new PolicyUtil();
+        try {
+            policyMap.setPolicyMap(util.readXMLFile());
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+        topicWSMgr.start();
         JFrame.setDefaultLookAndFeelDecorated(true);
         /**
          * com.jtattoo.plaf.aluminium.AluminiumLookAndFeel 椭圆按钮+翠绿色按钮背景+金属质感
@@ -772,15 +790,6 @@ public class PSManagerUI {
                 Policy currentPolicy = new Policy();
                 List<String> currentChosenTargetGroups = new ArrayList<>();
 
-                for (int i = 0; i < fbdnGroupsPanel.getComponentCount(); i++) {
-                    JCheckBox topicsChoosed = (JCheckBox) fbdnGroupsPanel.getComponent(i);
-                    if (topicsChoosed.isSelected()) {
-                        currentChosenTargetGroups.add(topicsChoosed.getText());
-                    }
-                }
-
-                currentPolicy.setTargetGroups(currentChosenTargetGroups);
-
                 // 获得主题树中选中主题
                 String selectedTopic = comboBox.getSelectedItem().toString();
                 for (int i = 0; i < topicsPanel.getComponentCount(); i++) {
@@ -791,19 +800,60 @@ public class PSManagerUI {
                         break;
                 }
                 currentPolicy.setTargetTopic(selectedTopic);
+                //获得选中的集群
+                for (int i = 0; i < fbdnGroupsPanel.getComponentCount(); i++) {
+                    JCheckBox topicsChoosed = (JCheckBox) fbdnGroupsPanel.getComponent(i);
+                    if (topicsChoosed.isSelected()) {
+                        currentChosenTargetGroups.add(topicsChoosed.getText());
+                    }
+                }
+                currentPolicy.setTargetGroups(currentChosenTargetGroups);
                 // 使策略生效
                 if (selectedTopic == null) {
                     JOptionPane.showMessageDialog(null, "请选择主题!");
-                } else if (selectedTopic != null) {
+                }
+                else if (selectedTopic != null) {
                     policyMap.getPolicyMap().put(selectedTopic,currentPolicy);
-                    try {
-                        util.updateXMLFile(policyMap.getPolicyMap());
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
+                    if(policyMap.getPolicyMap().containsKey(selectedTopic)){
+                        if(currentPolicy.getTargetGroups().size() == 0){
+                            try {
+                                util.deletePolicy(currentPolicy);
+                            } catch (ParserConfigurationException e1) {
+                                e1.printStackTrace();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            } catch (SAXException e1) {
+                                e1.printStackTrace();
+                            }
+                        }
+                        else{
+                            try {
+                                util.modifypolicy( currentPolicy );
+                            } catch (ParserConfigurationException e1) {
+                                e1.printStackTrace();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            } catch (SAXException e1) {
+                                e1.printStackTrace();
+                            }
+                        }
+
+                    }
+                    else{
+                        try {
+                            util.addNewPolicy( currentPolicy );
+                        } catch (ParserConfigurationException e1) {
+                            e1.printStackTrace();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        } catch (SAXException e1) {
+                            e1.printStackTrace();
+                        }
                     }
                     currentPolicyReflash.doClick();
                     JOptionPane.showMessageDialog(null, "策略设置成功!");
-                } else
+                }
+                else
                     JOptionPane.showMessageDialog(null, "请确认所选的主题是否正确!");
             }
         });

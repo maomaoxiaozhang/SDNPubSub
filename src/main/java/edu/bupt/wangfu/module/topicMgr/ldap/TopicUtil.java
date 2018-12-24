@@ -17,14 +17,22 @@ import java.util.Iterator;
 public class TopicUtil {
     private static final String TOPIC = "./topicMsg.xml";
 
+    public String readAll() throws DocumentException {
+        SAXReader saxReader = new SAXReader();
+        Document doc = null;
+        doc = saxReader.read( TOPIC );
+        return doc.asXML();
+    }
+
     public TopicTreeEntry readRoot() throws DocumentException {
         TopicTreeEntry root = new TopicTreeEntry();
         SAXReader saxReader = new SAXReader();
         Document doc = null;
         doc = saxReader.read( TOPIC );
         Element element = doc.getRootElement();
-        root.setTopic(element.getQualifiedName());
-        root.setPath(element.getQualifiedName());
+        root.setTopic( "all");
+        root.setLayer( 0 );
+        root.setPath(element.getPath());
         readTopic(element,root);
         return root;
     }
@@ -36,8 +44,9 @@ public class TopicUtil {
             while (subElement.hasNext()) {
                 Element ele = (Element) subElement.next();
                 TopicTreeEntry node = new TopicTreeEntry();
-                node.setTopic(ele.getQualifiedName());
-                node.setPath(root.getPath()+"/"+ele.getQualifiedName());
+                node.setTopic(ele.attributeValue( "name" ));
+                node.setPath(ele.getPath());
+                node.setLayer(root.getLayer()+1);
                 node.setParent(root);
                 readTopic(ele, node);
                 subs.add(node);
@@ -45,32 +54,39 @@ public class TopicUtil {
             root.setChildList(subs);
         }
     }
+    public void searchTopic(TopicTreeEntry node) throws DocumentException {
+        SAXReader saxReader = new SAXReader();
+        Document doc = null;
+        doc = saxReader.read(TOPIC);
+        Element element = doc.getRootElement();
+        System.out.println(element.getPath());
+        Element targetElement = (Element)element.selectSingleNode(node.getPath());
+        System.out.println( targetElement.toString() );
+//        targetElement.getParent().remove( targetElement );
+    }
 
     public void renameTopic(TopicTreeEntry node,String name) throws DocumentException, IOException{
-        String[] paths = node .getPath().split( "/" );
         SAXReader saxReader = new SAXReader();
         Document doc = null;
         doc = saxReader.read( TOPIC );
         Element element = doc.getRootElement();
-        for(int i = 1;i<paths.length;i++){
-            element = element.element(paths[i]);
-        }
-        element.setName(name);
+        Element targetElement = (Element)element.selectSingleNode(node.getPath());
+        targetElement.attribute( "name" ).setValue( name );
         XMLWriter xmlWriter = new XMLWriter(new FileWriter(TOPIC)); //dom4j提供了专门写入文件的对象XMLWriter
         xmlWriter.write(doc);
         xmlWriter.close();
     }
 
     public void addTopic(TopicTreeEntry node,String name) throws DocumentException, IOException {
-        String[] paths = node .getPath().split( "/" );
         SAXReader saxReader = new SAXReader();
         Document doc = null;
         doc = saxReader.read( TOPIC );
         Element element = doc.getRootElement();
-        for(int i = 1;i<paths.length;i++){
-            element = element.element(paths[i]);
-        }
-        element.addElement( name );
+        Element targetElement = (Element)element.selectSingleNode(node.getPath());
+        String layer = targetElement.getQualifiedName();
+        String newLayer = "layer-"+(Integer.parseInt(layer.split( "-" )[1])+1);
+        Element newElement = targetElement.addElement(newLayer);
+        newElement.addAttribute( "name",name );
         OutputFormat outputFormat = OutputFormat.createPrettyPrint();
         outputFormat.setIndent(true); //设置是否缩进
         outputFormat.setIndent("    "); //以四个空格方式实现缩进
@@ -78,7 +94,6 @@ public class TopicUtil {
         XMLWriter xmlWriter = new XMLWriter(new FileWriter(TOPIC),outputFormat); //dom4j提供了专门写入文件的对象XMLWriter
         xmlWriter.write(doc);
         xmlWriter.close();
-
     }
 
     public void addNewTree(String name) throws DocumentException, IOException {
@@ -86,7 +101,8 @@ public class TopicUtil {
         Document doc = null;
         doc = saxReader.read( TOPIC );
         Element element = doc.getRootElement();
-        element.addElement( name );
+        Element newElement=element.addElement( "layer-1" );
+        newElement.addAttribute( "name",name );
         OutputFormat outputFormat = OutputFormat.createPrettyPrint();
         outputFormat.setIndent(true); //设置是否缩进
         outputFormat.setIndent("    "); //以四个空格方式实现缩进
@@ -97,33 +113,28 @@ public class TopicUtil {
     }
 
     public void deleteTopic(TopicTreeEntry node) throws DocumentException, IOException {
-        String[] paths = node .getPath().split( "/" );
         SAXReader saxReader = new SAXReader();
         Document doc = null;
         doc = saxReader.read(TOPIC);
         Element element = doc.getRootElement();
-        Element prevent = null;
-        for(int i = 1;i<paths.length;i++){
-            prevent= element;
-            element = element.element(paths[i]);
-        }
-        prevent.remove( element );
+        Element targetElement = (Element)element.selectSingleNode(node.getPath());
+        targetElement.getParent().remove( targetElement );
         XMLWriter xmlWriter = new XMLWriter(new FileWriter(TOPIC)); //dom4j提供了专门写入文件的对象XMLWriter
         xmlWriter.write(doc);
         xmlWriter.close();
-
     }
 
 
     public static void main(String[] args) {
         TopicTreeEntry root = new TopicTreeEntry();
         TopicTreeEntry node = new TopicTreeEntry();
-        node.setPath("all/test3");
+        node.setPath("/all/layer-1[@name=\"test1\"]/layer-2[@name=\"test1-1\"]/layer-3[@name=\"test1-1-1\"]");
         try {
             TopicUtil topicUtil = new TopicUtil();
-            topicUtil.renameTopic( node,"test4" );
-            root = topicUtil.readRoot();
-            System.out.println(root);
+            topicUtil.addTopic( node,"newnew" );
+//            topicUtil.renameTopic( node,"test4" );
+//            root = topicUtil.readRoot();
+//            System.out.println(root);
         } catch (Exception ex){
             ex.printStackTrace();
         }
