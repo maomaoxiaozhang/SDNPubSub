@@ -1,5 +1,6 @@
 package edu.bupt.wangfu.module.wsnMgr.reactor;
 
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.BlockingQueue;
@@ -10,6 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * 经过两次阻塞队列，转换了消息类型
  */
 @Component
+@Data
 public class Selector {
     BlockingQueue<Task> taskQueue = new LinkedBlockingQueue<>();
 

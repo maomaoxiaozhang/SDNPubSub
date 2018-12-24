@@ -2,6 +2,7 @@ package edu.bupt.wangfu.module.wsnMgr.reactor;
 
 import edu.bupt.wangfu.info.device.User;
 import edu.bupt.wangfu.module.util.store.LocalSubPub;
+import edu.bupt.wangfu.module.wsnMgr.util.LoadBalance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,8 +11,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 分派器，负责分发任务给具体执行handle
+ * 分派器，负责分发任务给具体执行handle，当判断负载均衡策略允许时分派任务
  * 注册handle --> 回调使用
+ *
+ * @see LoadBalance
  */
 @Component
 public class Dispatcher {
@@ -48,6 +51,8 @@ public class Dispatcher {
         Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
         for (User user : localSubMap.keySet()) {
             if (localSubMap.get(user).contains(topic)) {
+                //负载均衡处理机制
+                LoadBalance.balance(handleMap, selector);
                 Handle handle = handleMap.get(user);
                 handle.handle(task);
             }
