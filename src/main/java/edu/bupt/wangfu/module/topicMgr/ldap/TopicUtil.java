@@ -13,6 +13,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TopicUtil {
     private static final String TOPIC = "./topicMsg.xml";
@@ -35,6 +37,22 @@ public class TopicUtil {
         root.setPath(element.getPath());
         readTopic(element,root);
         return root;
+    }
+
+    public static List<TopicTreeEntry> getAllNodes(TopicTreeEntry root) {
+        List<TopicTreeEntry> allNodes = new LinkedList<>();
+        if (root != null) {
+            LinkedList<TopicTreeEntry> queue = new LinkedList<>();
+            queue.offerLast(root);
+            while (!queue.isEmpty()) {
+                root = queue.pollFirst();
+                for (TopicTreeEntry entry : root.childList) {
+                    queue.offerLast(entry);
+                    allNodes.add(entry);
+                }
+            }
+        }
+        return allNodes;
     }
 
     public void readTopic(Element element,TopicTreeEntry root){

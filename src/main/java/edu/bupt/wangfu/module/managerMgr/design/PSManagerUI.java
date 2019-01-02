@@ -38,8 +38,6 @@ import java.util.List;
 
 @Component
 public class PSManagerUI {
-    @Autowired
-    TopicWSMgr topicWSMgr;
 
     @Autowired
     TopicTreeMgr topicTreeMgr;
@@ -170,7 +168,6 @@ public class PSManagerUI {
         } catch (SAXException e) {
             e.printStackTrace();
         }
-        topicWSMgr.start();
         JFrame.setDefaultLookAndFeelDecorated(true);
         /**
          * com.jtattoo.plaf.aluminium.AluminiumLookAndFeel 椭圆按钮+翠绿色按钮背景+金属质感

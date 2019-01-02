@@ -22,9 +22,9 @@ public class WsnTopicTask extends TimerTask {
         int wsnPort = controller.getWsnPort();
         String address = controller.getWsnV6Addr();
         MultiHandler handler = new MultiHandler(wsnPort, address);
-        System.out.println("向wsnReceiver发送消息");
         TopicEncodeMsg msg = new TopicEncodeMsg();
         msg.setTopicTree(encodeTopicTree);
         handler.v6Send(msg);
+        System.out.println("向wsnReceiver发送消息，大小：" + encodeTopicTree.getSize());
     }
 }

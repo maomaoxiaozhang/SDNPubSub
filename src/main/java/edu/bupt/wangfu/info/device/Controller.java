@@ -17,7 +17,7 @@ import java.util.*;
 @PropertySource("classpath:/controller.properties")
 public class Controller extends DevInfo{
 
-    @Value("${GroupControllerAddr:192.168.10.101}")
+    @Value("${GroupControllerAddr:192.168.10.100}")
     private String GroupControllerAddr;
 
     //保存管理员所在集群名
@@ -38,17 +38,17 @@ public class Controller extends DevInfo{
     @Value("${localAddr:FF0E:0000:0000:0000:0001:2345:6792:abcd}")
     private String localAddr;
 
+    //管理员交互地址，用于接收集群信息、集群时延请求、主题树、带宽分配信息等
     @Value("${adminV6Addr:FF0E:0000:0000:0000:0001:2345:6789:ABCD}")
     private String adminV6Addr;
 
+    //系统地址，用于使用ospf拓扑发现时接收hello、rehello、finalhello消息
     @Value("${sysV6Addr:FF0E:0000:0000:0000:0001:2345:6790:ABCD}")
     private String sysV6Addr;
 
+    //wsn地址，用于接收本地控制器下发的主题编码消息
     @Value("${sysV6Addr:FF0E:0000:0000:0000:0001:2345:6791:ABCD}")
     private String wsnV6Addr;
-
-    @Value("${wsnAddr:http://192.168.10.101:9010/wsn-core}")
-    private String wsnAddr;
 
     @Value("${adminPort:30001}")
     private int adminPort;

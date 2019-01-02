@@ -7,6 +7,7 @@ import lombok.Data;
  */
 @Data
 public class GroupRequestMsg extends AdminMessage{
+    //集群名
     String group;
 
     //主题

@@ -9,12 +9,14 @@ import edu.bupt.wangfu.module.queueMgr.QueueMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
 import edu.bupt.wangfu.module.topologyMgr.TopoMgr;
+import edu.bupt.wangfu.module.util.Constant;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.role.controller.listener.AdminListener;
 import edu.bupt.wangfu.module.managerMgr.listener.ManagerAdminListener;
 import edu.bupt.wangfu.role.manager.util.ManagerInit;
 import edu.bupt.wangfu.role.controller.listener.WsnListener;
 import edu.bupt.wangfu.role.util.WsnTopicTask;
+import edu.bupt.wangfu.test.PropertiesTest;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -23,6 +25,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 控制器入口程序，主要负责：
@@ -40,6 +44,9 @@ import java.util.TimerTask;
 @Component
 @Data
 public class ManagerStart {
+    //采用线程池管理线程的生命周期
+    private static ExecutorService exec = Executors.newCachedThreadPool();
+
     @Autowired
     ManagerInit managerInit;
 
@@ -71,6 +78,8 @@ public class ManagerStart {
     QueueMgr queueMgr;
 
     public void start() {
+        //更新constant 类中的属性值
+        PropertiesTest.refreshPro();
         //集群初始化，流表预下发
         managerInit.init();
         //生成编码主题树
@@ -81,13 +90,13 @@ public class ManagerStart {
         new Timer().schedule(wsnTopicTask, 1000, 15000);
         topoMgr.start();
         //启动wsn监听，接收集群内的发布订阅情况
-        new Thread(managerWsnListener, "ManagerWsnListener").start();
+        exec.execute(managerWsnListener);
         //启动admin监听，接收各集群上报的信息
-        new Thread(managerAdminListener, "ManagerAdminListener").start();
+        exec.execute(managerAdminListener);
         //启动管理员模块、ui界面
         managerMgr.start();
         //启动队列管理
-        queueMgr.start();
+        queueMgr.start(exec);
     }
 
     public class ControllerTopicTask extends TimerTask {
@@ -97,10 +106,10 @@ public class ManagerStart {
             int adminPort = controller.getAdminPort();
             String address = controller.getAdminV6Addr();
             MultiHandler handler = new MultiHandler(adminPort, address);
-            System.out.println("向controller发送编码主题树");
             EncodeTopicTreeMsg msg = new EncodeTopicTreeMsg();
             msg.setEncodeTopicTree(encodeTopicTree);
             handler.v6Send(msg);
+            System.out.println("向controller发送编码主题树，大小：" + encodeTopicTree.getSize());
         }
     }
 

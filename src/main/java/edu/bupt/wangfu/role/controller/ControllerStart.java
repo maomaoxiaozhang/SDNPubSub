@@ -17,13 +17,17 @@ import edu.bupt.wangfu.role.controller.listener.AdminListener;
 import edu.bupt.wangfu.role.controller.listener.WsnListener;
 import edu.bupt.wangfu.role.controller.util.ControllerInit;
 import edu.bupt.wangfu.role.util.WsnTopicTask;
+import edu.bupt.wangfu.test.PropertiesTest;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static edu.bupt.wangfu.module.queueMgr.util.GetInfo.getQueueInfo;
 
@@ -43,9 +47,9 @@ import static edu.bupt.wangfu.module.queueMgr.util.GetInfo.getQueueInfo;
 @Component
 @Data
 public class ControllerStart {
-    //测试使用，激活ldap
-    @Autowired
-    TopicTreeMgr topicTreeMgr;
+    //采用线程池管理线程的生命周期
+    private static ExecutorService exec = Executors.newCachedThreadPool();
+
     @Autowired
     Controller controller;
 
@@ -105,19 +109,21 @@ public class ControllerStart {
     }
 
     public void start() {
+        //更新constant 类中的属性值
+        PropertiesTest.refreshPro();
         //初始化集群，流表预下发
         controllerInit.init();
         //启动管理消息监听，接收主题树
-        new Thread(adminListener, "adminListener").start();
+        exec.execute(adminListener);
         //时间驱动，定时向wsn更新主题树
         new Timer().schedule(wsnTopicTask, 1000, 15000);
         //时间驱动，定时向管理员发送集群内信息
         new Timer().schedule(new GroupTask(), 1000, 20000);
         topoMgr.start();
         //启动wsn监听，接收集群内的发布订阅情况
-        new Thread(wsnListener, "wsnListener").start();
+        exec.execute(wsnListener);
         //启动队列管理
-        queueMgr.start();
+        queueMgr.start(exec);
     }
 
     public static void main(String[] args) {

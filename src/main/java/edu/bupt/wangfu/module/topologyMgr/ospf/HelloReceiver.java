@@ -251,7 +251,7 @@ public class HelloReceiver implements Runnable {
     public void update(HelloMsg msg) {
         //更新localLsa、lsdb
         String neiGroupName = msg.getLocalGroupName();
-        int distance = DISTANCE;
+        int distance = Integer.parseInt(DISTANCE);
         Lsa neiLsa = msg.getLsa();
         neiLsa.getDist2NbrGrps().put(controller.getLocalGroupName(), distance);
         lsdb.getLSDB().put(neiGroupName, neiLsa);

@@ -3,7 +3,10 @@ package edu.bupt.wangfu.module.queueMgr.util;
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.device.Queue;
 import edu.bupt.wangfu.info.device.Switch;
+import edu.bupt.wangfu.info.message.admin.GroupRequestMsg;
+import edu.bupt.wangfu.info.message.wsn.UserRequestMsg;
 import edu.bupt.wangfu.module.switchMgr.odl.OvsProcess;
+import edu.bupt.wangfu.module.util.MultiHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -38,7 +41,7 @@ public class QueueAdjust implements Runnable{
 
     @Override
     public void run() {
-        new Timer().schedule(new RefreshQueue(), 0, QUEUE_PERIOD);
+        new Timer().schedule(new RefreshQueue(), 1000, Long.parseLong(QUEUE_PERIOD));
         System.out.println("队列调整定时任务启动，刷新频率为" + QUEUE_PERIOD + "豪秒/次");
     }
 
@@ -203,7 +206,9 @@ public class QueueAdjust implements Runnable{
             ovsProcess.remoteExecuteCommand(cmds);
 
             // 向管理员反馈
-//            DelayFeedback.feedbackToAdmin(delay7/10, delay6/10, delay5/10);
+            send2manager(delay7/10);
+            send2manager(delay6/10);
+            send2manager(delay5/10);
         }
 
         // 获取队列拥塞程度
@@ -239,5 +244,21 @@ public class QueueAdjust implements Runnable{
             avg /= data.size();
             return avg;
         }
+    }
+
+    /**
+     * 将队列分析得到的时延需求上报给管理员
+     */
+    public void send2manager(double delay) {
+        GroupRequestMsg groupRequestMsg = new GroupRequestMsg();
+        groupRequestMsg.setGroup(controller.getLocalGroupName());
+        groupRequestMsg.setDelay((long) delay);
+        //采用默认丢包率
+        groupRequestMsg.setLostRate(Double.parseDouble(LOST_RATE));
+        groupRequestMsg.setTopic("All");
+        int port = controller.getAdminPort();
+        String address = controller.getAdminV6Addr();
+        MultiHandler handler = new MultiHandler(port, address);
+        handler.v6Send(groupRequestMsg);
     }
 }

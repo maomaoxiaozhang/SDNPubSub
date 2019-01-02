@@ -168,4 +168,18 @@ public class RouteMgr {
             }
         }
     }
+
+    /**
+     * 根据集群名返回节点
+     * @param group
+     * @return
+     */
+    public Node getNode(String group) {
+        for (Node node : allNodes) {
+            if (node.getName().equals(group)) {
+                return node;
+            }
+        }
+        return null;
+    }
 }

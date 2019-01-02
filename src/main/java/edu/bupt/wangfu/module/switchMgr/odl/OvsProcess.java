@@ -126,6 +126,11 @@ public class OvsProcess {
         return remoteExecuteCommand(cmd);
     }
 
+    public String dumpPorts() {
+        String cmd = "ovs-ofctl dump-ports br0";
+        return remoteExecuteCommand(cmd);
+    }
+
     /**
      * 初始化队列，默认分配带宽，比例为6:3:1
      * @param port

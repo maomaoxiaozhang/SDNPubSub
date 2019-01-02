@@ -79,6 +79,7 @@ public class WsnListener implements Runnable{
             }else if (msg instanceof UserRequestMsg) {
                 //用户时延带宽请求，通过管理路径向管理员上报
                 UserRequestMsg userRequestMsg = (UserRequestMsg) msg;
+                System.out.println("收到本集群发来的用户请求：" + userRequestMsg);
                 send2manager(userRequestMsg);
             }
         }

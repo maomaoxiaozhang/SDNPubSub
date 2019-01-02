@@ -1,5 +1,6 @@
-package edu.bupt.wangfu;
+package edu.bupt.wangfu.test;
 
+import edu.bupt.wangfu.Start;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

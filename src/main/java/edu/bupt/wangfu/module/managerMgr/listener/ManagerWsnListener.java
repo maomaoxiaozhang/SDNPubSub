@@ -8,6 +8,7 @@ import edu.bupt.wangfu.info.message.system.HelloMsg;
 import edu.bupt.wangfu.info.message.wsn.SubPubMsg;
 import edu.bupt.wangfu.info.message.wsn.WsnMessage;
 import edu.bupt.wangfu.module.routeMgr.RouteMgr;
+import edu.bupt.wangfu.module.routeMgr.algorithm.Dijkstra;
 import edu.bupt.wangfu.module.routeMgr.util.BuildTopology;
 import edu.bupt.wangfu.module.routeMgr.util.Node;
 import edu.bupt.wangfu.module.routeMgr.util.RouteUtil;
@@ -79,8 +80,7 @@ public class ManagerWsnListener implements Runnable{
             }else if (msg instanceof UserRequestMsg) {
                 //用户时延带宽请求，这里就无需上报给管理员了
                 UserRequestMsg userRequestMsg = (UserRequestMsg) msg;
-                System.out.println(userRequestMsg);
-
+                System.out.println("收到本集群发来的用户请求：" + userRequestMsg);
             }
         }
     }

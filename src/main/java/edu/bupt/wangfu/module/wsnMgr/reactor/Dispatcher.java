@@ -35,10 +35,6 @@ public class Dispatcher {
         handleMap.remove(user);
     }
 
-    public Dispatcher() {
-        handleEvents();
-    }
-
     public void handleEvents() {
         while (true) {
             Task task = selector.select();
@@ -49,10 +45,10 @@ public class Dispatcher {
     public void dispatch(Task task) {
         String topic = task.getTopic();
         Map<User, List<String>> localSubMap = localSubPub.getLocalSubMap();
+        //总队列负载均衡处理机制
+        LoadBalance.dispatcherBalance(handleMap);
         for (User user : localSubMap.keySet()) {
             if (localSubMap.get(user).contains(topic)) {
-                //负载均衡处理机制
-                LoadBalance.balance(handleMap, selector);
                 Handle handle = handleMap.get(user);
                 handle.handle(task);
             }

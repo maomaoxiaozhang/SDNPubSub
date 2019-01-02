@@ -4,6 +4,8 @@ import edu.bupt.wangfu.module.queueMgr.util.QueueAdjust;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.ExecutorService;
+
 /**
  * 队列管理，分为两部分：
  *      1. 本地带宽调整
@@ -27,7 +29,8 @@ public class QueueMgr {
     @Autowired
     QueueAdjust queueAdjust;
 
-    public void start() {
-        new Thread(queueAdjust, "queueAdjust").start();
+    public void start(ExecutorService exec) {
+        exec.execute(queueAdjust);
+        exec.shutdown();
     }
 }

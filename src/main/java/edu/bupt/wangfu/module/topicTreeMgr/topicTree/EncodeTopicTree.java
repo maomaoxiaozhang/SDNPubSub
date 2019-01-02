@@ -54,4 +54,9 @@ public class EncodeTopicTree implements Serializable{
         }
         return "";
     }
+
+    //获取当前主题树的所有节点个数
+    public int getSize() {
+        return nodes.size();
+    }
 }

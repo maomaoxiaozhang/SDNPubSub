@@ -32,7 +32,6 @@ public class ControllerInit {
     public void init() {
         //测试使用，添加虚拟交换机
         Switch sw = new Switch();
-//        sw.setId("8888888");
         sw.setId("66666666666");
         sw.setAddress(SWITCH_ADDRESS);
         sw.setUserName("admin");
@@ -48,6 +47,7 @@ public class ControllerInit {
         sw.setPorts(ports);
         Map<String, String> outPorts = new HashMap<>();
         outPorts.put("1", "1");
+        outPorts.put("8", "8");
         sw.setOutPorts(outPorts);
         Map<String, Switch> switchMap = new HashMap<>();
         switchMap.put(sw.getId(), sw);

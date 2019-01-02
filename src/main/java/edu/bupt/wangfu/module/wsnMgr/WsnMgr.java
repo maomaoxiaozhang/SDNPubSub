@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import static edu.bupt.wangfu.module.util.Constant.PUBLISH;
@@ -63,6 +65,8 @@ import static edu.bupt.wangfu.module.wsnMgr.util.GenPubAddress.getPubAddress;
 @Data
 @Component
 public class WsnMgr {
+    private static ExecutorService userExec = Executors.newCachedThreadPool();
+
     @Autowired
     LocalSubPub localSubPub;
 
@@ -91,6 +95,7 @@ public class WsnMgr {
         new Thread(wsnReceive, "wsnReceive监听").start();
         //开启发布订阅注册服务
         Endpoint endpint = Endpoint.publish(wsnAddr, wsnNotificationProcess);
+        dispatcher.handleEvents();
     }
 
     /**
@@ -105,6 +110,7 @@ public class WsnMgr {
             subList = new LinkedList<>();
             Handle handle = new UserHandle(user);
             dispatcher.registerHandle(user, handle);
+            userExec.execute(handle);
         }
         if (!subList.contains(topic)) {
             subList.add(topic);

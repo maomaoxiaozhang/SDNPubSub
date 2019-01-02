@@ -6,7 +6,7 @@ import lombok.Data;
  * 保存队列信息
  */
 @Data
-public class Queue {
+public class Queue extends DevInfo {
 
     //队列id
     int id;

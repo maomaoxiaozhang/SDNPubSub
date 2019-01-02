@@ -45,7 +45,7 @@ public class SendWSNCommand {
      * @return
      */
     public String subscribe(String id, String topic) {
-        return subscribe(id, topic, localServiceAddr, DELAY, LOST_RATE);
+        return subscribe(id, topic, localServiceAddr, Long.parseLong(DELAY), Double.parseDouble(LOST_RATE));
     }
 
     /**

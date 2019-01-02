@@ -113,6 +113,7 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
         msg.setDelay(delay);
         msg.setLostRate(lostRate);
         msg.setUser(user);
+        msg.setGroup(controller.getLocalGroupName());
         MultiHandler handler = new MultiHandler(wsnPort, address);
         handler.v6Send(msg);
     }

@@ -12,6 +12,9 @@ public class UserRequestMsg extends WsnMessage {
     //用户
     User user;
 
+    //用户所在集群
+    String group;
+
     //主题
     String topic;
 

@@ -1,18 +1,19 @@
 package edu.bupt.wangfu.module.topicTreeMgr;
 
-import edu.bupt.wangfu.module.topicMgr.ldap.LdapUtil;
-import edu.bupt.wangfu.module.topicMgr.ldap.TopicEntry;
+import edu.bupt.wangfu.module.topicMgr.ldap.TopicUtil;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTreeEntry;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.EncodeTopicTree;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.TopicTreeEntry;
 import edu.bupt.wangfu.module.topicTreeMgr.topicTree.TopicTree;
 import edu.bupt.wangfu.module.topicTreeMgr.util.EncodeUtil;
 import lombok.Data;
+import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.naming.NamingException;
 import java.util.List;
+
+import static edu.bupt.wangfu.module.topicMgr.ldap.TopicUtil.getAllNodes;
 
 /**
  * <p>
@@ -46,15 +47,12 @@ public class TopicTreeMgr {
      * 主题树、编码主题树的构建，将ldap返回的结果转换成代码识别的主题树结构
      */
     public void buildTopicTree() {
-        LdapUtil util = new LdapUtil();
+        TopicUtil util = new TopicUtil();
         try {
-            util.connectLdap();
-            List<TopicTreeEntry> nodes = util.getAllChildrens(
-                    new TopicEntry("all", "1",
-                            "ou=all_test,dc=wsn,dc=com", null));
-            TopicTreeEntry root = (nodes.size() == 0 ? null : nodes.get(0));
-            topicTree.setNodes(nodes);
+            TopicTreeEntry root = util.readRoot();
+            List<TopicTreeEntry> allNodes = getAllNodes(root);
             topicTree.setRoot(root);
+            topicTree.setNodes(allNodes);
             if (root != null) {
                 EncodeTopicTreeEntry encodeRoot = new EncodeTopicTreeEntry();
                 encodeRoot.setTopic(root.getTopic());
@@ -63,7 +61,7 @@ public class TopicTreeMgr {
                 encodeTopicTree.setNodes(encodeNodes);
                 encodeTopicTree.setRoot(encodeNodes.get(0));
             }
-        } catch (NamingException e) {
+        } catch (DocumentException e) {
             e.printStackTrace();
         }
     }

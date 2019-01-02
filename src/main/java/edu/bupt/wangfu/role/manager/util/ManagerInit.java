@@ -33,21 +33,19 @@ public class ManagerInit {
         //测试使用，添加虚拟交换机
         Switch sw = new Switch();
         sw.setId("8888888");
-//        sw.setId("66666666666");
         sw.setAddress(SWITCH_ADDRESS);
         sw.setUserName("admin");
         sw.setPassword("pica8");
         Set<String> ports = new HashSet<>();
         ports.add("1");
-        ports.add("2");
-        ports.add("3");
-        ports.add("4");
         ports.add("5");
         ports.add("6");
         ports.add("8");
+        ports.add("9");
         sw.setPorts(ports);
         Map<String, String> outPorts = new HashMap<>();
         outPorts.put("1", "1");
+        outPorts.put("8", "8");
         sw.setOutPorts(outPorts);
         Map<String, Switch> switchMap = new HashMap<>();
         switchMap.put(sw.getId(), sw);

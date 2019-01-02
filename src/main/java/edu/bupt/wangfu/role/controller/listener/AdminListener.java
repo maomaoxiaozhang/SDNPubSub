@@ -87,6 +87,15 @@ public class AdminListener implements Runnable{
         int queue = feedBackMsg.getQueue();
         double bind = feedBackMsg.getBind();
 
-        //to-do
+        //当前带宽满足需求
+        if (bind < controller.getOutSwitches().get(controller.getLocalSwtId()).getQueueMap().get(queue).get(queue).getBrandWidth()) {
+            //undo
+        }else {
+            //下发新的带宽分配结果
+            ovsProcess.addFlow(String.format("ovs-vsctl -- set port ge-1/1/%s qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT " +
+                    "queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 " +
+                    "-- --id=@q1 create queue other-config:min-rate=%d other-config:max-rate=%d  -- --id=@q2 create " +
+                    "queue other-config:min-rate=10000000 other-config:max-rate=10000000", bind));
+        }
     }
 }
