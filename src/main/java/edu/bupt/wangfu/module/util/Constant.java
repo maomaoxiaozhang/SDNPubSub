@@ -75,28 +75,28 @@ public class Constant {
     public static String INIT_QUEUES = "ovs-vsctl -- set port ge-1/1/%d qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 -- --id=@q1 create queue other-config:min-rate=30000000 other-config:max-rate=30000000  -- --id=@q2 create queue other-config:min-rate=10000000 other-config:max-rate=10000000";
 
     //wsn服务地址
-    public static String wsnAddr = "http://192.168.10.101:9010/wsn-core";
+    public static String wsnAddr = "http://192.168.100.100:9010/wsn-core";
 
     //wsn消息接收地址
-    public static String publishAddr = "http://192.168.10.101:%d/wsn-publish";
+    public static String publishAddr = "http://192.168.100.100:%d/wsn-publish";
 
     //消息接收端口，从10000开始，预先保留200个
     public static int publishPort = 10000;
 
     //订阅地址
-    public static String receiveAddr = "http://192.168.10.101:9016/wsn-subscribe";
+    public static String receiveAddr = "http://192.168.100.100:9016/wsn-subscribe";
 
-    public static String receiveTopic = "spark";
+    public static String receiveTopic = "test1";
 
-    public static String sendAddr = "http://192.168.10.101:9018/wsn-send";
+    public static String sendAddr = "http://192.168.100.100:9018/wsn-send";
 
-    public static String sendTopic = "spark";
+    public static String sendTopic = "test1";
 
     //队列调度间隔
-    public static String QUEUE_PERIOD = "100000L";
+    public static String QUEUE_PERIOD = "100000";
 
     //默认时延
-    public static String DELAY = "1000L";
+    public static String DELAY = "1000";
 
     //默认丢包率
     public static String LOST_RATE = "20.0";
@@ -112,6 +112,9 @@ public class Constant {
 
     //尾丢弃策略，抛弃子队列任务最大数量
     public static String drop = "5";
+
+    //传输视频名称
+    public static String FILE = "movie.Mjpeg";
 
     public static double Wq = 0.75;// 平均队列长度权值
     public static double ThresholdA = 60;//队列A的时延阈值

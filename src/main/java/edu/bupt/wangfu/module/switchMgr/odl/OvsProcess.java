@@ -36,6 +36,7 @@ import static edu.bupt.wangfu.module.util.Constant.*;
  *              ovs-ofctl add-flow br0 priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s,actions=output:%s
  *          删除：
  *              ovs-ofctl del-flows br0 in_port=%s,dl_type=0x86DD,ipv6_dst=%s,out_port=%s
+ *              ovs-ofctl del-flows br0 flow_id=1
  *          查看流表：
  *              ovs-ofctl dump-flows br0
  *          查看队列：
@@ -144,7 +145,7 @@ public class OvsProcess {
     public synchronized void getInAndOutRate(Queue queue) {
         queue.setLastInRate(queue.getInRate());
         queue.setLastOutRate(queue.getOutRate());
-        String cmd = "/ovs/bin/ovs-ofctl dump-flows br0 && /ovs/bin/ovs-appctl qos/show " + queue.getPort() ;
+        String cmd = "/ovs/bin/ovs-ofctl dump-flows br0 && /ovs/bin/ovs-appctl qos/show ge-1/1/" + queue.getPort() ;
         String res = remoteExecuteCommand(cmd);
         queue.setInRate(getInRate(queue, res));
         queue.setOutRate(getOutRate(queue, res));

@@ -66,6 +66,7 @@ public class HelloReceiver implements Runnable {
      */
     public void onMsgReceive(HelloMsg msg) {
         if (!msg.getStartGroup().equals(controller.getLocalGroupName())) {
+//            System.out.println(msg);
             //第一次握手，收到 Hello 消息，返回 ReHello
             if (msg.getEndGroup() == null && msg.getState() == State.down && msg.getType().equals(HELLO)) {
                 if (isNew(msg.getStartGroup(), routeMgr.getAllNodes()) && isValid(msg.getSendTime(), HELLO)) {
@@ -95,6 +96,8 @@ public class HelloReceiver implements Runnable {
                 System.out.println("收到心跳消息");
                 onHeartReceive(msg);
             }
+        }else {
+            System.out.println("收到本地消息，暂不处理！");
         }
     }
 
@@ -167,6 +170,8 @@ public class HelloReceiver implements Runnable {
             MultiHandler handler = new MultiHandler(controller.getSysPort(), controller.getSysV6Addr());
             final_hello.setSendTime(System.currentTimeMillis());
             handler.v6Send(final_hello);
+            //下发管理路径流表
+            addAdminFlow(out);
         }
     }
 
@@ -177,6 +182,8 @@ public class HelloReceiver implements Runnable {
         //收到Final_Hello 消息需要下发对应的流表
         Flow flow = RouteUtil.downSysRtFlows(controller, controller.getLocalSwtId(),
                 String.valueOf(controller.getSwitchPort()), out, controller.getSysV6Addr(), ovsProcess);
+        //下发管理路径流表
+        addAdminFlow(out);
     }
 
     //收到LSDB 广播消息，该集群新增订阅，需要重新计算该主题的组播路径
@@ -285,5 +292,14 @@ public class HelloReceiver implements Runnable {
             }
         }
         return true;
+    }
+
+    /**
+     * 添加管理路径流表，便于下发、接收管理员消息
+     * @param port
+     */
+    public void addAdminFlow(String port) {
+        ovsProcess.addFlow(String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%s",
+                PRIORITY, controller.getSwitchPort(), controller.getAdminV6Addr(), port));
     }
 }

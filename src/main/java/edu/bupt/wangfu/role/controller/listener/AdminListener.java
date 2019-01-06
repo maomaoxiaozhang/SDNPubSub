@@ -52,9 +52,10 @@ public class AdminListener implements Runnable{
     private void onMsgReceive(Object msg) {
         if (msg instanceof AdminMessage) {
             if (msg instanceof EncodeTopicTreeMsg) {
-                System.out.println("EncodeTopicTreeMsg");
+                System.out.println("EncodeTopicTreeMsg: " + msg);
                 EncodeTopicTree encodeTopicTree = ((EncodeTopicTreeMsg) msg).getEncodeTopicTree();
-                controllerStart.setEncodeTopicTree(encodeTopicTree);
+                controllerStart.getEncodeTopicTree().setRoot(encodeTopicTree.getRoot());
+                controllerStart.getEncodeTopicTree().setNodes(encodeTopicTree.getNodes());
 
                 //事件驱动，发送接收到的主题树编码
                 int wsnPort = controller.getWsnPort();

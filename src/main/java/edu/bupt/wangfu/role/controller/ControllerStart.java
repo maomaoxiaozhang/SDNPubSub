@@ -4,6 +4,7 @@ import edu.bupt.wangfu.config.ControllerConfig;
 import edu.bupt.wangfu.info.device.Controller;
 import edu.bupt.wangfu.info.device.Queue;
 import edu.bupt.wangfu.info.device.Switch;
+import edu.bupt.wangfu.info.device.User;
 import edu.bupt.wangfu.info.message.admin.GroupMessage;
 import edu.bupt.wangfu.module.queueMgr.QueueMgr;
 import edu.bupt.wangfu.module.switchMgr.odl.OvsProcess;
@@ -104,6 +105,22 @@ public class ControllerStart {
                 }
             }
             msg.setSwitchMap(controller.getSwitches());
+            Set<String> subTopics = new HashSet<>();
+            for (User user : localSubPub.getLocalSubMap().keySet()) {
+                List<String> list = localSubPub.getLocalSubMap().get(user);
+                for (String str : list) {
+                    subTopics.add(str);
+                }
+            }
+            msg.setSubTopics(subTopics);
+            Set<String> pubTopics = new HashSet<>();
+            for (User user : localSubPub.getLocalPubMap().keySet()) {
+                List<String> list = localSubPub.getLocalPubMap().get(user);
+                for (String str : list) {
+                    pubTopics.add(str);
+                }
+            }
+            msg.setPubTopics(pubTopics);
             handler.v6Send(msg);
         }
     }

@@ -64,6 +64,8 @@ public class ControllerInit {
             for (String port : swt.getOutPorts().values()) {
                 ovsProcess.addFlow(String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%d",
                         PRIORITY, port, controller.getSysV6Addr(), swtPort));
+                ovsProcess.addFlow(String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%d",
+                        PRIORITY, port, controller.getAdminV6Addr(), swtPort));
             }
         }
     }

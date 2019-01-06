@@ -12,5 +12,5 @@ import java.util.Map;
 @Component
 public class AllGroups {
     //key——集群名，value——GroupMessage集群信息
-    Map<String, GroupMessage> allGroups;
+    Map<String, GroupMessage> allGroups = new HashMap<>();
 }

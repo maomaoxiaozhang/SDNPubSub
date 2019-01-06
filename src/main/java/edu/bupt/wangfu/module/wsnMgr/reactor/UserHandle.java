@@ -22,7 +22,11 @@ public class UserHandle extends Handle{
 
     @Override
     public void handle(Task task) {
-        taskQueue.offer(task);
+        try {
+            taskQueue.put(task);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -30,7 +34,12 @@ public class UserHandle extends Handle{
         while (!Thread.interrupted()) {
             //子队列负载均衡策略，防止因单个任务超时导致队列溢出
             LoadBalance.userBalance(this);
-            Task task = taskQueue.poll();
+            Task task = null;
+            try {
+                task = taskQueue.take();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             String topic = task.getTopic();
             Object msg = task.getMsg();
             send.notify(topic, String.valueOf(msg));

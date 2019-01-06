@@ -22,8 +22,7 @@ public class VideoStream {
     // getnextframe
     //returns the next frame as an array of byte and the size of the frame
     //-----------------------------------
-    public int getnextframe(byte[] frame) throws Exception
-    {
+    public int getnextframe(byte[] frame) throws Exception {
         int length = 0;
         String length_string;
         byte[] frame_length = new byte[5];

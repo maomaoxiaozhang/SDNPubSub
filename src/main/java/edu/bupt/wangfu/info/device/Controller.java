@@ -32,7 +32,7 @@ public class Controller extends DevInfo{
     private String role;
 
     @Value("${hostList:#{null}}")
-    private List<Host> hostList;
+    private List<Host> hostList = new LinkedList<>();
 
     //本地集群地址
     @Value("${localAddr:FF0E:0000:0000:0000:0001:2345:6792:abcd}")
@@ -68,11 +68,11 @@ public class Controller extends DevInfo{
 
     //本地交换机，key是swtId
     @Value("${switches:#{null}}")
-    private Map<String, Switch> switches;
+    private Map<String, Switch> switches = new HashMap<>();
 
     //本地拥有对外端口的交换机，key是交换机id，value是对应的交换机
     @Value("${outSwitches:#{null}}")
-    private Map<String, Switch> outSwitches;
+    private Map<String, Switch> outSwitches = new HashMap<>();
 
     //Hello 消息有效时间
     @Value("${HelloAliveTime:300000}")

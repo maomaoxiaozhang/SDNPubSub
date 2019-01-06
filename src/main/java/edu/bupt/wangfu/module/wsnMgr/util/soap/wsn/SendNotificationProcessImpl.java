@@ -14,6 +14,14 @@ import javax.jws.WebService;
 public class SendNotificationProcessImpl implements INotificationProcess {
     @Override
     public void notificationProcess(String notification) {
-        Trans.publishAddress = notification;
+        Trans.publishAddress = splitString(notification, "<message>", "</message>");
+        System.out.println("注册成功，返回发布地址：" + Trans.publishAddress);
+    }
+
+    public String splitString(String string, String start, String end)
+    {
+        int from = string.indexOf(start) + start.length();
+        int to = string.indexOf(end);
+        return string.substring(from, to);
     }
 }
