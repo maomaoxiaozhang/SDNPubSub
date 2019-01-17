@@ -7,6 +7,8 @@ import edu.bupt.wangfu.info.message.wsn.SubPubMsg;
 import edu.bupt.wangfu.module.util.MultiHandler;
 import edu.bupt.wangfu.module.wsnMgr.WsnMgr;
 import edu.bupt.wangfu.module.wsnMgr.util.soap.INotificationProcess;
+import edu.bupt.wangfu.module.wsnMgr.util.soap.SendWSNCommand;
+import edu.bupt.wangfu.module.wsnMgr.util.soap.SendWSNCommandWSSyn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -120,8 +122,8 @@ public class WsnNotificationProcessImpl implements INotificationProcess{
 
     //直接发送给用户
     public void send2user(String sendAddress, String msg) {
-        MultiHandler handler = new MultiHandler(0, sendAddress);
-        handler.v6Send(msg);
+        SendWSNCommandWSSyn commandWSSyn = new SendWSNCommandWSSyn("", sendAddress);
+        commandWSSyn.notify("publish-address", msg);
         System.out.println("向用户发发布地址：" + msg);
     }
 

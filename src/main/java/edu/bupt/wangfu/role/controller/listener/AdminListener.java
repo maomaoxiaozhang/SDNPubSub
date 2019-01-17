@@ -52,9 +52,10 @@ public class AdminListener implements Runnable{
     private void onMsgReceive(Object msg) {
         if (msg instanceof AdminMessage) {
             if (msg instanceof EncodeTopicTreeMsg) {
-                System.out.println("EncodeTopicTreeMsg");
+                System.out.println("EncodeTopicTreeMsg: " + msg);
                 EncodeTopicTree encodeTopicTree = ((EncodeTopicTreeMsg) msg).getEncodeTopicTree();
-                controllerStart.setEncodeTopicTree(encodeTopicTree);
+                controllerStart.getEncodeTopicTree().setRoot(encodeTopicTree.getRoot());
+                controllerStart.getEncodeTopicTree().setNodes(encodeTopicTree.getNodes());
 
                 //事件驱动，发送接收到的主题树编码
                 int wsnPort = controller.getWsnPort();
@@ -92,7 +93,7 @@ public class AdminListener implements Runnable{
             //undo
         }else {
             //下发新的带宽分配结果
-            ovsProcess.addFlow(String.format("ovs-vsctl -- set port ge-1/1/%s qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT " +
+            ovsProcess.executeFlow(String.format("ovs-vsctl -- set port ge-1/1/%s qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT " +
                     "queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 " +
                     "-- --id=@q1 create queue other-config:min-rate=%d other-config:max-rate=%d  -- --id=@q2 create " +
                     "queue other-config:min-rate=10000000 other-config:max-rate=10000000", bind));

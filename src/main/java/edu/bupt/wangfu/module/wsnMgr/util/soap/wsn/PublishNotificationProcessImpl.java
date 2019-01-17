@@ -56,6 +56,6 @@ public class PublishNotificationProcessImpl implements INotificationProcess{
         int port = controller.getTopicPort();
         MultiHandler handler = new MultiHandler(port, address);
         handler.v6Send(msg);
-        System.out.println("向用户发消息：" + msg);
+//        System.out.println("向用户发消息：" + msg);
     }
 }

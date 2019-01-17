@@ -105,6 +105,7 @@ public class WsnListener implements Runnable{
         List<String> pubList = controllerStart.getGlobalSubPub().getGlobalPubMap().get(groupName);
         switch (type) {
             case PUBLISH:
+                controller.getHostList().add(user);
                 topicList = localPubMap.get(user);
                 if (topicList == null) {
                     topicList = new LinkedList<>();
@@ -130,13 +131,18 @@ public class WsnListener implements Runnable{
                     routeMgr.getAllPubNodes().put(topic, pubNodes);
 
                     //下发主题路径
-                    set.addAll(routeMgr.getAllPubNodes().get(topic));
-                    set.addAll(routeMgr.getAllSubNodes().get(topic));
+                    if (routeMgr.getAllSubNodes().get(topic) != null) {
+                        set.addAll(routeMgr.getAllSubNodes().get(topic));
+                    }
+                    if (routeMgr.getAllPubNodes().get(topic) != null) {
+                        set.addAll(routeMgr.getAllPubNodes().get(topic));
+                    }
                     RouteUtil.downTopicRtFlows(routeMgr.getAllNodes(), set,
                             controller, encodeAddress, ovsProcess);
                 }
                 break;
             case SUBSCRIBE:
+                controller.getHostList().add(user);
                 topicList = localSubMap.get(user);
                 if (topicList == null) {
                     topicList = new LinkedList<>();
@@ -148,10 +154,6 @@ public class WsnListener implements Runnable{
                     System.out.println("集群 " + groupName + " 新增订阅：user -- " + user.getAddress() + "\ttopic: " + topic);
                     topicList.add(topic);
                     localSubMap.put(user, topicList);
-//                    for (User user1 : controllerStart.getLocalSubPub().getLocalSubMap().keySet()) {
-//                        System.out.println("user: " + user.getAddress() + "\ttopicList: " +
-//                                controllerStart.getLocalSubPub().getLocalSubMap().get(user1));
-//                    }
                     List<String> subTopics = localLsa.getSubTopics();
                     subTopics.add(topic);
                     sendLsa(topic, encodeAddress);

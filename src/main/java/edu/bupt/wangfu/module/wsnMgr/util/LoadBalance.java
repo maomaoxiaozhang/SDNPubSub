@@ -36,8 +36,9 @@ public class LoadBalance {
         }
         //若阻塞子队列数超过阈值，则主队列暂停分发任务
         if (blockNum > handleMap.size() * Double.parseDouble(threshold)) {
+            System.out.println("执行dispatcher负载均衡策略");
             try {
-                TimeUnit.MILLISECONDS.sleep(1000);
+                TimeUnit.MILLISECONDS.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -50,6 +51,7 @@ public class LoadBalance {
      */
     public static void userBalance(Handle handle) {
         if (isBlock(handle)) {
+            System.out.println("执行消费者负载均衡策略，对阻塞任务尾丢弃");
             for (int i = 0; i < Integer.parseInt(drop) && !handle.taskQueue.isEmpty(); i++) {
                 handle.taskQueue.poll();
             }

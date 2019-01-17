@@ -53,7 +53,7 @@ public class ManagerAdminListener implements Runnable{
     private void onMsgReceive(Object msg) {
         if (msg instanceof AdminMessage) {
             if (msg instanceof GroupMessage) {
-                System.out.println("GroupMessage");
+                System.out.println("GroupMessage: " + msg);
                 GroupMessage message = (GroupMessage)msg;
                 String groupName = message.getGroupName();
                 allGroups.getAllGroups().put(groupName, message);

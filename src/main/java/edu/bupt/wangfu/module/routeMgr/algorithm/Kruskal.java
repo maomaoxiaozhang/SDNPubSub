@@ -37,9 +37,13 @@ public class Kruskal {
                     loca_2 = j;
                 }
             }
-            if (loca_1 == loca_2) {
+            if (loca_1 == loca_2 || (loca_1 == -1 && loca_2 == -2)) {
                 //属于一个连通分量，舍去这条边
-            } else if ((loca_1 == -1 && loca_2 != -2) || (loca_1 != -1 && loca_2 == -2)){
+            } else if (loca_1 == -1 && loca_2 != -2) {
+                sets.get(loca_2).add(edgeStart);
+                g.add(ed);
+            } else if (loca_1 != -1 && loca_2 == -2) {
+                sets.get(loca_1).add(edgeFinish);
                 g.add(ed);
             } else{
 //                System.out.println("选择边：" + edgeStart + "  ->  " + edgeFinish + "  长度为：" + edgeValue);

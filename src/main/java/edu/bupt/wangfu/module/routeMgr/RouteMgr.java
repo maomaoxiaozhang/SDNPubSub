@@ -102,6 +102,7 @@ public class RouteMgr {
      * 每个节点只需要下发与自己关联的流表即可
      */
     public void buildAdminTree() {
+//        System.out.println("构建管理路径");
         adminPath = Dijkstra.dijkstra(root, allNodes);
         for (String groupName : adminPath.keySet()) {
             List<String> path = adminPath.get(groupName);
@@ -167,6 +168,10 @@ public class RouteMgr {
                 }
             }
         }
+//        System.out.println("=============\n根节点: " + controller.getLocalGroupName());
+//        System.out.println("当前节点：G1\t到达该节点的路径：[G1]");
+//        System.out.println("当前节点：G3\t到达该节点的路径：[G1--G3]");
+//        System.out.println("=============");
     }
 
     /**
