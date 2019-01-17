@@ -1,30 +1,29 @@
 package edu.bupt.wangfu.module.managerMgr.policyMgr.webService;
 
+import edu.bupt.wangfu.module.managerMgr.design.PSManagerUI;
 import edu.bupt.wangfu.module.managerMgr.policyMgr.PolicyUtil;
 import edu.bupt.wangfu.module.managerMgr.util.Policy;
-import org.dom4j.DocumentException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.xml.sax.SAXException;
 
 import javax.jws.WebService;
-import javax.naming.NamingException;
 import javax.swing.*;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.ws.Endpoint;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * @see edu.bupt.wangfu.module.topicMgr.ldap.webService.TopicRequestProcessImpl
+ * @see edu.bupt.wangfu.module.managerMgr.policyMgr.webService.PolicyRequestProcessImpl
  */
 @WebService(endpointInterface= "edu.bupt.wangfu.module.managerMgr.policyMgr.webService.PolicyRequestProcess",
         serviceName="PolicyRequestProcessImpl")
 @Component
 public class PolicyRequestProcessImpl implements PolicyRequestProcess {
+    @Autowired
+    PSManagerUI ui;
     PolicyUtil util = new PolicyUtil();
     @Override
-    public String PolicyRequestProcess(String request) throws IOException, SAXException, ParserConfigurationException {
+    public String PolicyRequestProcess(String request) {
         System.out.println( "收到消息：" + request );
         String topic,groups;
         List<String> groupList;
@@ -33,15 +32,17 @@ public class PolicyRequestProcessImpl implements PolicyRequestProcess {
         groups = splitString( request, "<group>", "</group>" );
         switch (getType( request )) {
             case "check":
-//                String allPolicy = util.readAll();
-//                return allPolicy;
+                String allPolicy = util.readAll();
+                return allPolicy;
             case "add":
                 groupList = Arrays.asList( groups.split( "," ) );
                 policy = new Policy();
                 policy.setTargetTopic( topic );
                 policy.setTargetGroups( groupList );
                 util.addNewPolicy( policy );
-                //JOptionPane.showConfirmDialog(ui.frame, "主题树更改", "主题树",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showConfirmDialog(ui.frame, "新增策略信息，主题树："+topic, "策略",JOptionPane.WARNING_MESSAGE);
+                ui.reflashCurrentPolicy();
+
                 return "add success!";
             case "modify":
                 //修改
@@ -50,7 +51,8 @@ public class PolicyRequestProcessImpl implements PolicyRequestProcess {
                 policy.setTargetTopic( topic );
                 policy.setTargetGroups( groupList );
                 util.modifypolicy( policy );
-                //JOptionPane.showConfirmDialog(ui.frame, "主题树更改", "主题树",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showConfirmDialog(ui.frame, "策略信息修改，主题树："+topic, "策略",JOptionPane.WARNING_MESSAGE);
+                ui.reflashCurrentPolicy();
                 return "modify success!";
             case "delete":
                 //删除
@@ -59,7 +61,8 @@ public class PolicyRequestProcessImpl implements PolicyRequestProcess {
                 policy.setTargetTopic( topic );
                 policy.setTargetGroups( groupList );
                 util.deletePolicy( policy );
-                //JOptionPane.showConfirmDialog(ui.frame, "主题树更改", "主题树",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showConfirmDialog(ui.frame, "删除策略信息，主题树："+topic, "策略",JOptionPane.WARNING_MESSAGE);
+                ui.reflashCurrentPolicy();
                 return "delete success!";
             default:
                 System.out.println( "未识别消息类别！" );
@@ -89,7 +92,7 @@ public class PolicyRequestProcessImpl implements PolicyRequestProcess {
 
     public static void main(String[] args) {
         PolicyRequestProcessImpl policyRequestProcess = new PolicyRequestProcessImpl();
-        String localAddr = "http://10.108.166.57:55555/topicMgr";
+        String localAddr = "http://10.108.166.57:55556/policyMgr";
         Endpoint endpint = Endpoint.publish(localAddr, policyRequestProcess);
     }
 }

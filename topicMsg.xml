@@ -4,7 +4,6 @@
     <layer-1 name="test1">
         <layer-2 name="test1-1">
             <layer-3 name="test1-1-1">
-                <layer-4 name="newTopic"/>
             </layer-3>
         </layer-2>
         <layer-2 name="test1-2">

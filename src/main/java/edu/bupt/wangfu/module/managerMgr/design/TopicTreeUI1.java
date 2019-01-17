@@ -93,7 +93,7 @@ public class TopicTreeUI1 {
         topicUtil = new TopicUtil();
 
         OPFrame_init();//增加、修改主题的对话框初始化
-        MenuBar_init();//菜单栏初始化
+        //MenuBar_init();//菜单栏初始化
         ToolBar_init();//工具栏初始化
         PopMenu_init();//右键菜单初始化
         LibTree_init();//左侧树结构初始化
@@ -317,53 +317,53 @@ public class TopicTreeUI1 {
     }
 
     //菜单栏初始化
-    private void MenuBar_init() {
-        TTMenuBar = new JMenuBar();
-        JMenu file = new JMenu("菜单");
-
-        JMenuItem open_menu = new JMenuItem("打开", newtreeimage);
-        file.add(open_menu);
-
-        JMenuItem save_menu = new JMenuItem("保存", saveimage);
-        file.add(save_menu);
-
-        JMenu tree = new JMenu("主题树");
-
-        JMenuItem add_menu = new JMenuItem("新建", addimage);
-        add_menu.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                addJFrame.setVisible(true);
-            }
-        });
-        tree.add(add_menu);
-
-        JMenuItem delete_menu = new JMenuItem("删除", deleteimage);
-        delete_menu.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    delete_node_from_tree();
-                } catch (NamingException e1) {
-                    e1.printStackTrace();
-                } catch (DocumentException e1) {
-                    e1.printStackTrace();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-        tree.add(delete_menu);
-
-        JMenuItem modify_menu = new JMenuItem("修改", modifyimage);
-        modify_menu.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                editingJFrame.setVisible( true );
-            }
-        });
-        tree.add(modify_menu);
-
-        TTMenuBar.add(file);
-        TTMenuBar.add(tree);
-    }
+//    private void MenuBar_init() {
+//        TTMenuBar = new JMenuBar();
+//        JMenu file = new JMenu("菜单");
+//
+//        JMenuItem open_menu = new JMenuItem("打开", newtreeimage);
+//        file.add(open_menu);
+//
+//        JMenuItem save_menu = new JMenuItem("保存", saveimage);
+//        file.add(save_menu);
+//
+//        JMenu tree = new JMenu("主题树");
+//
+//        JMenuItem add_menu = new JMenuItem("新建", addimage);
+//        add_menu.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                addJFrame.setVisible(true);
+//            }
+//        });
+//        tree.add(add_menu);
+//
+//        JMenuItem delete_menu = new JMenuItem("删除", deleteimage);
+//        delete_menu.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                try {
+//                    delete_node_from_tree();
+//                } catch (NamingException e1) {
+//                    e1.printStackTrace();
+//                } catch (DocumentException e1) {
+//                    e1.printStackTrace();
+//                } catch (IOException e1) {
+//                    e1.printStackTrace();
+//                }
+//            }
+//        });
+//        tree.add(delete_menu);
+//
+//        JMenuItem modify_menu = new JMenuItem("修改", modifyimage);
+//        modify_menu.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                editingJFrame.setVisible( true );
+//            }
+//        });
+//        tree.add(modify_menu);
+//
+//        TTMenuBar.add(file);
+//        TTMenuBar.add(tree);
+//    }
 
     //工具栏初始化
     private void ToolBar_init()  {
@@ -507,7 +507,7 @@ public class TopicTreeUI1 {
 
         LibTree.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent evt) {
-                if (evt.getButton() == 1) {
+                if (evt.getButton() == MouseEvent.BUTTON1) {
                     TreePath path = LibTree.getPathForLocation( evt.getX(), evt.getY() );
                     if (path != null) {
                         LibTree.setSelectionPath( path );
@@ -529,38 +529,14 @@ public class TopicTreeUI1 {
                         }
                     }
                 }
-            }
-        });
-
-        LibTree.addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent evt) {
-                if (evt.getButton() == 3) {
+                if (evt.getButton() == MouseEvent.BUTTON3) {
                     TreePath path = LibTree.getPathForLocation(evt.getX(), evt.getY());
-                    if (path != null) {
-                        LibTree.setSelectionPath(path);
-                        DefaultMutableTreeNode chosen_node = (DefaultMutableTreeNode) LibTree.getLastSelectedPathComponent();
-                        System.out.println("chosen_node  " + chosen_node);
-                        TopicTreeEntry tempentry = (TopicTreeEntry) chosen_node.getUserObject();
-                        if (tempentry != null) {
-                            root.removeAllChildren();
-                            root.setUserObject(tempentry);
-                            TTTree.setRootVisible(false);
-                            try {
-                                reload_TTTree(root);
-                            } catch (NamingException e) {
-                                e.printStackTrace();
-                            }
-                            LibTree.setSelectionPath(path);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "");
-                        }
-                    }
-                    TreePath path2 = LibTree.getPathForLocation(evt.getX(), evt.getY());
-                    LibTree.setSelectionPath(path2);
+                    LibTree.setSelectionPath(path);
                     popMenu.show(LibTree, evt.getX(), evt.getY());
                 }
             }
         });
+
         JScrollPane TreePane = new JScrollPane(LibTree);
         TreePane.setBounds(30, 30, 300, 500);
         TreePane.setPreferredSize(new Dimension(150, 500));
@@ -585,7 +561,6 @@ public class TopicTreeUI1 {
 
             public void mouseClicked(MouseEvent e) {
                 if(e.getClickCount()==1){//点击几次，这里是双击事件
-
                     TreePath path = LibTreeForSchema.getPathForLocation(e.getX(), e.getY());
                     LibTreeForSchema.setSelectionPath(path);
                     DefaultMutableTreeNode chosenSchema = (DefaultMutableTreeNode)LibTreeForSchema.getLastSelectedPathComponent();
@@ -604,10 +579,6 @@ public class TopicTreeUI1 {
                     }
 
                 }
-            }
-
-            public void mousePressed(MouseEvent evt) {
-
             }
         });
     }
@@ -654,38 +625,41 @@ public class TopicTreeUI1 {
 
     protected void rename_node(String newName) throws IOException, DocumentException, NamingException {
         JTree tempTree = TTTree;
-        DefaultMutableTreeNode treeNode = (DefaultMutableTreeNode) TTTree.getLastSelectedPathComponent();
-        if (treeNode == null) {
-            treeNode = (DefaultMutableTreeNode) LibTree.getLastSelectedPathComponent();
+        DefaultMutableTreeNode tempNode = (DefaultMutableTreeNode) TTTree.getLastSelectedPathComponent();
+        if (tempNode == null) {
+            tempNode = (DefaultMutableTreeNode) LibTree.getLastSelectedPathComponent();
             tempTree = LibTree;
         }
-        if (treeNode != null && !newName.equals("")) {
-            TopicTreeEntry tempentry = (TopicTreeEntry) treeNode.getUserObject();
+        else if (tempNode == null)
+            JOptionPane.showMessageDialog(null, "请选中要修改的主题");
+        if (tempNode != null && !newName.equals("")) {
+            TopicTreeEntry tempentry = (TopicTreeEntry) tempNode.getUserObject();
             topicUtil.renameTopic(tempentry, newName);
             reload_LibTrees();
-            treeNode.setUserObject(tempentry);
+            tempNode.setUserObject(tempentry);
             if (tempTree == TTTree) {
-                reload_TTTree(treeNode);
+                reload_TTTree(tempNode);
             }
         }
         ui.reflashJtreeRoot();
     }
 
     protected void delete_node_from_tree() throws NamingException, IOException, DocumentException {
-        JTree temptree = TTTree;
-        DefaultMutableTreeNode temp_node = (DefaultMutableTreeNode) TTTree.getLastSelectedPathComponent();
-        if (temp_node == null) {
-            temp_node = (DefaultMutableTreeNode) LibTree.getLastSelectedPathComponent();
-            temptree = LibTree;
+        JTree tempTree = TTTree;
+        DefaultMutableTreeNode tempNode = (DefaultMutableTreeNode) TTTree.getLastSelectedPathComponent();
+        if (tempNode == null) {
+            tempNode = (DefaultMutableTreeNode) LibTree.getLastSelectedPathComponent();
+            tempTree = LibTree;
         }
-        if (temp_node == null)
-            return;
-        TopicTreeEntry tempEntry = (TopicTreeEntry) temp_node.getUserObject();
+        if (tempNode == null)
+            JOptionPane.showMessageDialog(null, "请选中要修改的主题");
+        TopicTreeEntry tempEntry = (TopicTreeEntry) tempNode.getUserObject();
         topicUtil.deleteTopic(tempEntry);
         reload_LibTrees();
-        temp_node.setUserObject(tempEntry);
-        if (temptree == TTTree) {
-            reload_TTTree(temp_node);
+        tempNode.setUserObject(tempEntry);
+        if (tempTree
+                == TTTree) {
+            reload_TTTree(tempNode);
         }
         //下发新的主题树
         ui.reflashJtreeRoot();
@@ -698,13 +672,17 @@ public class TopicTreeUI1 {
             tempTree = LibTree;
             tempNode = (DefaultMutableTreeNode) LibTree.getLastSelectedPathComponent();
         }
-        TopicTreeEntry temptopic = (TopicTreeEntry) tempNode.getUserObject();
-        topicUtil.addTopic( temptopic, name);
-        reload_LibTrees();
-        tempNode.setUserObject(temptopic);
-        if (tempTree == TTTree) {
-            reload_TTTree(tempNode);
+        if (tempNode == null)
+            JOptionPane.showMessageDialog(null, "请选中要修改的主题");
+        if (tempNode != null && !name.equals("")) {
+            TopicTreeEntry temptopic = (TopicTreeEntry) tempNode.getUserObject();
+            topicUtil.addTopic( temptopic, name);
+            reload_LibTrees();
+            tempNode.setUserObject(temptopic);
+            if (tempTree == TTTree) {
+                reload_TTTree(tempNode);
 
+            }
         }
         ui.reflashJtreeRoot();
     }

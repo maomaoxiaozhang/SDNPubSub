@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.jws.WebService;
 import javax.naming.NamingException;
 import javax.swing.*;
+import javax.xml.ws.Endpoint;
 import java.io.IOException;
 
 /**
@@ -21,8 +22,8 @@ import java.io.IOException;
 public class TopicRequestProcessImpl implements TopicRequestProcess {
     @Autowired
     PSManagerUI ui;
-    TopicUtil topicUtil;
 
+    TopicUtil topicUtil;
     @Override
     public String TopicRequestProcess(String request) {
         System.out.println( "收到消息：" + request );
@@ -122,6 +123,12 @@ public class TopicRequestProcessImpl implements TopicRequestProcess {
             return "modify";
         }
         return "unknown";
+    }
+
+    public static void main(String[] args) {
+        TopicRequestProcessImpl policyRequestProcess = new TopicRequestProcessImpl();
+        String localAddr = "http://10.108.166.57:55555/topicMgr";
+        Endpoint endpint = Endpoint.publish(localAddr, policyRequestProcess);
     }
 }
 

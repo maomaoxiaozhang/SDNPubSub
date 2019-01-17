@@ -14,4 +14,11 @@
             <group>G2</group>
         </targetGroup>
     </policy>
+<policy>
+        <targetTopic>all:test</targetTopic>
+        <targetGroup>
+            <group>G1</group>
+            <group>G2</group>
+        </targetGroup>
+    </policy>
 </policyList>

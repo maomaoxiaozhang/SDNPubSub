@@ -4,13 +4,13 @@ import edu.bupt.wangfu.config.ControllerConfig;
 import edu.bupt.wangfu.info.device.*;
 import edu.bupt.wangfu.info.message.admin.LookUpMsg;
 import edu.bupt.wangfu.module.managerMgr.policyMgr.PolicyUtil;
+import edu.bupt.wangfu.module.managerMgr.policyMgr.webService.PolicyWSMgr;
+import edu.bupt.wangfu.module.managerMgr.schemaMgr.webService.SchemaWSMgr;
 import edu.bupt.wangfu.module.managerMgr.util.AllGroups;
 import edu.bupt.wangfu.module.managerMgr.util.Policy;
 import edu.bupt.wangfu.module.managerMgr.util.PolicyMap;
-import edu.bupt.wangfu.module.topicMgr.ldap.webService.TopicRequestProcessImpl;
 import edu.bupt.wangfu.module.topicMgr.ldap.webService.TopicWSMgr;
 import edu.bupt.wangfu.module.topicTreeMgr.TopicTreeMgr;
-import edu.bupt.wangfu.module.topologyMgr.TopoMgr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -26,6 +26,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,9 +44,6 @@ public class PSManagerUI {
     TopicTreeMgr topicTreeMgr;
 
     @Autowired
-    TopoMgr topomgr;
-
-    @Autowired
     Controller ctl;
 
     @Autowired
@@ -53,6 +51,9 @@ public class PSManagerUI {
 
     @Autowired
     AllGroups allGroups;
+
+    @Autowired
+    TopicWSMgr schemaWSMgr;
 
     //public static TopicTreeUI topicTreeUI = null;
     public static TopicTreeUI1 topicTreeUI1 = null;
@@ -159,15 +160,8 @@ public class PSManagerUI {
         topicTreeUI1 = new TopicTreeUI1(this);
         schemaUI = new SchemaUI(this);
         util = new PolicyUtil();
-        try {
-            policyMap.setPolicyMap(util.readXMLFile());
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }
+        policyMap.setPolicyMap(util.readXMLFile());
+        schemaWSMgr.start();
         JFrame.setDefaultLookAndFeelDecorated(true);
         /**
          * com.jtattoo.plaf.aluminium.AluminiumLookAndFeel 椭圆按钮+翠绿色按钮背景+金属质感
@@ -276,7 +270,6 @@ public class PSManagerUI {
 
         controllerAddrInput = new JTextField();
         controllerAddrInput.setEditable(false);
-        controllerAddrInput.setEnabled(false);
         controllerAddrInput.setOpaque(false);
         controllerAddrInput.setToolTipText("系统运行时不得更改");
         controllerAddrInput.setBounds(150,20,150,30);
@@ -290,7 +283,6 @@ public class PSManagerUI {
 
         switchSizeInput = new JTextField();
         switchSizeInput.setEditable(false);
-        switchSizeInput.setEnabled(false);
         switchSizeInput.setOpaque(false);
         switchSizeInput.setToolTipText("系统运行时不得更改");
         switchSizeInput.setBounds(150,60,150,30);
@@ -304,7 +296,6 @@ public class PSManagerUI {
 
         hostSizeInput = new JTextField();
         hostSizeInput.setEditable(false);
-        hostSizeInput.setEnabled(false);
         hostSizeInput.setOpaque(false);
         hostSizeInput.setToolTipText("系统运行时不得更改");
         hostSizeInput.setBounds(150,100,150,30);
@@ -454,20 +445,25 @@ public class PSManagerUI {
                     JOptionPane.showMessageDialog(null, "输入为空！请输入要查询的集群名称或代表ip");
                 } else {
                     DefaultTableModel searchSubsModel;
-                    List<String> sercherSubs =topomgr.getLsdb().getLSDB().get(searchInput).getSubTopics();
-                    String[] columnNames = {"集群" + currentGroup + "成员" + searchInput + "的订阅"};
-                    String[][] searchSubInfo;
-                    if (sercherSubs != null && sercherSubs.size() > 0) {
-                        searchSubInfo = new String[sercherSubs.size()][1];
-                        for (int i = 0; i < sercherSubs.size(); i ++) {
-                            searchSubInfo[i][0] = sercherSubs.get(i);
+                    if(allGroups.getAllGroups().get( searchInput ) != null){
+                        Set<String> sercherSubs =allGroups.getAllGroups().get( searchInput ).getSubTopics();
+                        String[] columnNames = {"集群" + currentGroup + "成员" + searchInput + "的订阅"};
+                        String[][] searchSubInfo;
+                        if (sercherSubs != null && sercherSubs.size() > 0) {
+                            searchSubInfo = new String[sercherSubs.size()][1];
+                            int  i = 0;
+                            for (String sub : sercherSubs) {
+                                searchSubInfo[i][0] = sub;
+                                i++;
+                            }
+                            searchSubsModel = new DefaultTableModel(searchSubInfo,columnNames);
+                            subsTable.removeAll();
+                            subsTable.setModel(searchSubsModel);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "此成员无订阅信息");
                         }
-                        searchSubsModel = new DefaultTableModel(searchSubInfo,columnNames);
-                        subsTable.removeAll();
-                        subsTable.setModel(searchSubsModel);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "此成员无订阅信息");
                     }
+
                 }
             }
         });
@@ -813,39 +809,14 @@ public class PSManagerUI {
                     policyMap.getPolicyMap().put(selectedTopic,currentPolicy);
                     if(policyMap.getPolicyMap().containsKey(selectedTopic)){
                         if(currentPolicy.getTargetGroups().size() == 0){
-                            try {
-                                util.deletePolicy(currentPolicy);
-                            } catch (ParserConfigurationException e1) {
-                                e1.printStackTrace();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            } catch (SAXException e1) {
-                                e1.printStackTrace();
-                            }
+                            util.deletePolicy(currentPolicy);
                         }
                         else{
-                            try {
-                                util.modifypolicy( currentPolicy );
-                            } catch (ParserConfigurationException e1) {
-                                e1.printStackTrace();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            } catch (SAXException e1) {
-                                e1.printStackTrace();
-                            }
+                            util.modifypolicy( currentPolicy );
                         }
-
                     }
                     else{
-                        try {
-                            util.addNewPolicy( currentPolicy );
-                        } catch (ParserConfigurationException e1) {
-                            e1.printStackTrace();
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        } catch (SAXException e1) {
-                            e1.printStackTrace();
-                        }
+                        util.addNewPolicy( currentPolicy );
                     }
                     currentPolicyReflash.doClick();
                     JOptionPane.showMessageDialog(null, "策略设置成功!");
@@ -973,7 +944,7 @@ public class PSManagerUI {
                 wq.setText("0.4");
             }
         });
-        /*JButton modefy = new JButton("点击修改");
+        JButton modefy = new JButton("点击修改");
         modefy.setBounds(314,157,313,23);
         modefy.addActionListener(new ActionListener() {
             @Override
@@ -982,13 +953,13 @@ public class PSManagerUI {
                 String odlpwdstr = odlpwd.getText();
                 String groupmountstr = groupmount.getText();
                 String wqstr = wq.getText();
-                MsgSdnConfig msgSdnConfig = new MsgSdnConfig(odlstr,odlpwdstr,Integer.parseInt(groupmountstr),
-                        Double.parseDouble(wqstr));
-                if (new SdnConfig().bloodMsgSdnConfig(msgSdnConfig)) {
-                    JOptionPane.showMessageDialog(null, "设置成功!");
-                }else {
-                    JOptionPane.showMessageDialog(null, "未检测到配置变化，请重新设置!");
-                }
+//                MsgSdnConfig msgSdnConfig = new MsgSdnConfig(odlstr,odlpwdstr,Integer.parseInt(groupmountstr),
+//                        Double.parseDouble(wqstr));
+//                if (new SdnConfig().bloodMsgSdnConfig(msgSdnConfig)) {
+//                    JOptionPane.showMessageDialog(null, "设置成功!");
+//                }else {
+//                    JOptionPane.showMessageDialog(null, "未检测到配置变化，请重新设置!");
+//                }
                 System.out.println(odlstr + " " + odlpwdstr + " " + groupmountstr + " " + wqstr);
             }
         });
@@ -1002,7 +973,7 @@ public class PSManagerUI {
 
         sdnConfig.add(ctrlp);
         sdnConfig.add(swchp);
-        sdnConfig.add(hstp);*/
+        sdnConfig.add(hstp);
 
         // 流量管理
         final JPanel flowManage = new JPanel();
@@ -1084,12 +1055,9 @@ public class PSManagerUI {
                 if (portName.getItemCount() > 0) {
                     portName.removeAllItems();// 先清除
                 }
-
                 portName.addItem(defaultC);
                 portName.setSelectedIndex(0);
-
                 if (switchName.getSelectedIndex() != 0) {
-
                     String tempSwitch = (String) switchName.getSelectedItem();
                     if (tempSwitch != null) {
                         Set<String> ports = allGroups.getAllGroups().get(groupName.getSelectedItem()).getController()
@@ -1099,8 +1067,6 @@ public class PSManagerUI {
                         }
                     }
                 }
-
-
             }
         });
 
@@ -1249,7 +1215,8 @@ public class PSManagerUI {
     }
 
     // 刷新显示当前策略信息
-    public void reflashCurrentPolicy() {
+    public void reflashCurrentPolicy(){
+        policyMap.setPolicyMap( util.readXMLFile() );
         DefaultTableModel tableModel = (DefaultTableModel) policyTable.getModel();
         while (tableModel.getRowCount() > 0) {
             tableModel.removeRow(0);
@@ -1259,7 +1226,7 @@ public class PSManagerUI {
                     aPolicyList.getTargetTopic(),
                     aPolicyList.getTargetGroups().toString()});
         }
-        policyTable.invalidate();
+        policyTable.repaint();
     }
 
     public void reflashJtreeRoot() {
@@ -1360,18 +1327,14 @@ public class PSManagerUI {
         if (fbdnGroupsPanel != null) fbdnGroupsPanel.removeAll();
 
         if (allGroups.getAllGroups() != null && !allGroups.getAllGroups().isEmpty()) {
-
             for (final String groupName : allGroups.getAllGroups().keySet()) { // 遍历当前所有集群
                 final JButton groupButton = new JButton(groupName);
-                currentGroup = groupName;
                 groupButton.setToolTipText(groupName);
-
                 groupButton.setPreferredSize(new Dimension(80, 80));
                 groupButton.setHorizontalTextPosition(SwingConstants.CENTER);
                 groupButton.setVerticalTextPosition(SwingConstants.BOTTOM);
                 allGroupsPane.add(groupButton);
                 groupButton.setIcon(new ImageIcon("./img/group.png"));
-
                 final JFrame groupFlow = new JFrame();
                 final JPopupMenu groupPopupMenu = new JPopupMenu();//集群按钮右键菜单
                 final JMenuItem groupFlowInfoItem = new JMenuItem("群内流量");
@@ -1379,6 +1342,7 @@ public class PSManagerUI {
                 groupButton.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
                         if (e.getButton() == MouseEvent.BUTTON1) {
+                            currentGroup = groupButton.getText();
                             // 移除跨级信息
                             subsTable.removeAll();
                             ports.removeAll();
@@ -1408,8 +1372,16 @@ public class PSManagerUI {
                                     controllerConf.removeAll();
                                 }
                                 controllerAddrInput.setText(allGroups.getAllGroups().get(currentGroup).getController().getLocalAddr());
-                                switchSizeInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getSwitches().size());
-                                hostSizeInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getHostList().size());
+                                if(allGroups.getAllGroups().get(currentGroup).getController().getSwitches() == null){
+                                    switchSizeInput.setText("0");
+                                }else{
+                                    switchSizeInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getSwitches().size());
+                                }
+                                if (allGroups.getAllGroups().get( currentGroup ).getController().getHostList() == null) {
+                                    hostSizeInput.setText("0");
+                                }else{
+                                    hostSizeInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getHostList().size());
+                                }
                                 lostThresholdInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getLoseThreshold());
                                 scanPeriodInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getScanPeriod());
                                 sendPeriodInput.setText(""+allGroups.getAllGroups().get(currentGroup).getController().getSendPeriod());
@@ -1420,61 +1392,61 @@ public class PSManagerUI {
                                 switchMapLabel.setText("集群" + currentGroup + "交换机");
 
                                 //获取集群所有交换机和群内拓扑
-                                final Map<String, Switch> groupSwitchMap = allGroups.getAllGroups().get(currentGroup)
-                                        .getController().getSwitches();
+                                final Map<String, Switch> groupSwitchMap = allGroups.getAllGroups().get(currentGroup).getController().getSwitches();
                                 //globalUtil.getTopology(groupController);
                                 //groupSubs = adminMgr.getGroupSubscriptions(currentGroup); // 获取集群订阅，必须放在获取拓扑之后
 
-                                for (final String switchName : groupSwitchMap.keySet()) {
-                                    final JButton groupSwitchButton = new JButton("*" + switchName.substring(switchName.length() - 3));
-                                    groupSwitchButton.setToolTipText("Group " + currentGroup + "'s Switch:" + switchName);
-                                    groupSwitchButton.setPreferredSize(new Dimension(50, 50));
-                                    groupSwitchButton.setHorizontalTextPosition(SwingConstants.CENTER);
-                                    groupSwitchButton.setVerticalTextPosition(SwingConstants.BOTTOM);
-                                    groupSwitchButton.setIcon(new ImageIcon("./img/switch.png"));
-                                    switchMapPanel.add(groupSwitchButton);
-                                    //groupSwitchButton.setToolTipText("点击左键查询交换机下主机，右键查看设备信息");
-                                    //final Controller finalGroupController = manager.getGroups().get(currentGroup);
+                                if(!groupSwitchMap.isEmpty()){
+                                    for (final String switchName : groupSwitchMap.keySet()) {
+                                        final JButton groupSwitchButton = new JButton("*" + switchName.substring(switchName.length() - 3));
+                                        groupSwitchButton.setToolTipText("Group " + currentGroup + "'s Switch:" + switchName);
+                                        groupSwitchButton.setPreferredSize(new Dimension(50, 50));
+                                        groupSwitchButton.setHorizontalTextPosition(SwingConstants.CENTER);
+                                        groupSwitchButton.setVerticalTextPosition(SwingConstants.BOTTOM);
+                                        groupSwitchButton.setIcon(new ImageIcon("./img/switch.png"));
+                                        switchMapPanel.add(groupSwitchButton);
+                                        //groupSwitchButton.setToolTipText("点击左键查询交换机下主机，右键查看设备信息");
+                                        //final Controller finalGroupController = manager.getGroups().get(currentGroup);
 
-                                    final JFrame flowInfo = new JFrame();
-                                    final JPopupMenu switchPopupMenu = new JPopupMenu(); //交换机按钮右键菜单
-                                    final JMenuItem portInfoMenu = new JMenuItem("端口信息"),
-                                            flowInfoMenu = new JMenuItem("流量信息");
-                                    switchPopupMenu.add(portInfoMenu);
-                                    switchPopupMenu.add(flowInfoMenu);
-                                    groupSwitchButton.addMouseListener(new MouseAdapter() {
-                                        @Override
-                                        public void mouseClicked(MouseEvent e) {
-                                            if (e.getButton() == MouseEvent.BUTTON1) {
-                                                if (switchHostPanel != null)
-                                                    switchHostPanel.removeAll();
-                                                if (queues != null)
-                                                    queues.removeAll();
-                                                switchHostScrollPane.repaint();
-                                                switchHostLabel.setText("交换机" + groupSwitchButton.getText() + "下主机");
-                                                List<Host> wsnHostMap = allGroups.getAllGroups().get(currentGroup)
-                                                        .getController().getHostList();
-                                                for (final Host host : wsnHostMap) {
-                                                    final String memAddr = host.getIp();
-                                                    final JButton hostButton = new JButton(memAddr);
-                                                    hostButton.setToolTipText(memAddr);
-                                                    switchHostPanel.add(hostButton);
-                                                    hostButton.setIcon(new ImageIcon("./img/rep.png"));
-                                                   //hostButton.setToolTipText("点击左键查询该成员订阅，右键查看主机信息");
+                                        final JFrame flowInfo = new JFrame();
+                                        final JPopupMenu switchPopupMenu = new JPopupMenu(); //交换机按钮右键菜单
+                                        final JMenuItem portInfoMenu = new JMenuItem("端口信息"),
+                                                flowInfoMenu = new JMenuItem("流量信息");
+                                        switchPopupMenu.add(portInfoMenu);
+                                        switchPopupMenu.add(flowInfoMenu);
+                                        groupSwitchButton.addMouseListener(new MouseAdapter() {
+                                            @Override
+                                            public void mouseClicked(MouseEvent e) {
+                                                if (e.getButton() == MouseEvent.BUTTON1) {
+                                                    if (switchHostPanel != null)
+                                                        switchHostPanel.removeAll();
+                                                    if (queues != null)
+                                                        queues.removeAll();
+                                                    switchHostScrollPane.repaint();
+                                                    switchHostLabel.setText("交换机" + groupSwitchButton.getText() + "下主机");
+                                                    List<Host> wsnHostMap = allGroups.getAllGroups().get(currentGroup)
+                                                            .getController().getHostList();
+                                                    for (final Host host : wsnHostMap) {
+                                                        final String memAddr = host.getIp();
+                                                        final JButton hostButton = new JButton(memAddr);
+                                                        hostButton.setToolTipText(memAddr);
+                                                        switchHostPanel.add(hostButton);
+                                                        hostButton.setIcon(new ImageIcon("./img/rep.png"));
+                                                        //hostButton.setToolTipText("点击左键查询该成员订阅，右键查看主机信息");
 
-                                                    // 显示主机详细信息
-                                                    hostButton.addMouseListener(new MouseAdapter() {
-                                                        @Override
-                                                        public void mouseClicked(MouseEvent e) {
-                                                            if (e.getButton() == MouseEvent.BUTTON3) {
-                                                                JFrame f = new JFrame();
-                                                                LookUpMsg lookUpMsg = new LookUpMsg();
-                                                                Host host = new Host();
-                                                                f.setTitle("设备信息");
-                                                                f.setBounds(e.getXOnScreen(), e.getYOnScreen(), 230, 280);
-                                                                f.setVisible(true);
-                                                                JTextArea t = new JTextArea();
-                                                                String excpDes = "暂无";
+                                                        // 显示主机详细信息
+                                                        hostButton.addMouseListener(new MouseAdapter() {
+                                                            @Override
+                                                            public void mouseClicked(MouseEvent e) {
+                                                                if (e.getButton() == MouseEvent.BUTTON3) {
+                                                                    JFrame f = new JFrame();
+                                                                    LookUpMsg lookUpMsg = new LookUpMsg();
+                                                                    Host host = new Host();
+                                                                    f.setTitle("设备信息");
+                                                                    f.setBounds(e.getXOnScreen(), e.getYOnScreen(), 230, 280);
+                                                                    f.setVisible(true);
+                                                                    JTextArea t = new JTextArea();
+                                                                    String excpDes = "暂无";
 //                                                                for (MsgException excp : msgExceptions) {
 //                                                                    if (excp.groupName.equals(currentGroup) &&
 //                                                                            excp.switchID.equals(groupSwitchButton.getText()) &&
@@ -1486,38 +1458,38 @@ public class PSManagerUI {
 //                                                                        break;
 //                                                                    }
 //                                                                }
-                                                                t.setText("设备描述：" + host.getSysInfo() + "\r\n"
-                                                                        + "设备名称：" + host.getSysName() + "\r\n"
-                                                                        + "IP地址：" + host.getIp() + "\r\n"
-                                                                        + "MAC地址：" + host.getMac() + "\r\n"
-                                                                        + "系统内存(KB)：" + host.getSysMemory() + "\r\n"
-                                                                        + "CPU利用率(%)：" + host.getCpuRate() + "\r\n"
-                                                                        + "网络接口数：" + host.getIfNum() + "\r\n"
-                                                                        + "交换机连接端口：" + host.getPort() + "\r\n"
-                                                                        + "最后发现时间：" + host.getLastSeen() + "\r\n"
-                                                                        + "设备异常：" + excpDes);
-                                                                t.setEditable(false);
-                                                                t.setOpaque(false);
-                                                                t.setLineWrap(true);
-                                                                f.add(t);
+                                                                    t.setText("设备描述：" + host.getSysInfo() + "\r\n"
+                                                                            + "设备名称：" + host.getSysName() + "\r\n"
+                                                                            + "IP地址：" + host.getIp() + "\r\n"
+                                                                            + "MAC地址：" + host.getMac() + "\r\n"
+                                                                            + "系统内存(KB)：" + host.getSysMemory() + "\r\n"
+                                                                            + "CPU利用率(%)：" + host.getCpuRate() + "\r\n"
+                                                                            + "网络接口数：" + host.getIfNum() + "\r\n"
+                                                                            + "交换机连接端口：" + host.getPort() + "\r\n"
+                                                                            + "最后发现时间：" + host.getLastSeen() + "\r\n"
+                                                                            + "设备异常：" + excpDes);
+                                                                    t.setEditable(false);
+                                                                    t.setOpaque(false);
+                                                                    t.setLineWrap(true);
+                                                                    f.add(t);
+                                                                }
                                                             }
-                                                        }
-                                                    });
+                                                        });
+                                                    }
                                                 }
-                                            }
-                                            if (e.getButton() == MouseEvent.BUTTON3) {
-                                                switchPopupMenu.show(groupSwitchButton,e.getX(),e.getY());
-                                                portInfoMenu.addActionListener(new ActionListener() {
-                                                    @Override
-                                                    public void actionPerformed(ActionEvent e) {
-                                                        //加载交换机端口信息
-                                                        if (ports != null)
-                                                            ports.removeAll();
-                                                        String[] pHeader = {"端口名称", "端口ID", "所属交换机", "进端口数据(Byte)", "出端口数据(Byte)"};
-                                                        Set<String> pList = allGroups.getAllGroups().get(currentGroup)
-                                                                .getController().getSwitches().get(switchName).getPorts();
-                                                        Object[][] pInfo = new Object[pList.size()][5];
-                                                        int pindex = 0;
+                                                if (e.getButton() == MouseEvent.BUTTON3) {
+                                                    switchPopupMenu.show(groupSwitchButton,e.getX(),e.getY());
+                                                    portInfoMenu.addActionListener(new ActionListener() {
+                                                        @Override
+                                                        public void actionPerformed(ActionEvent e) {
+                                                            //加载交换机端口信息
+                                                            if (ports != null)
+                                                                ports.removeAll();
+                                                            String[] pHeader = {"端口名称", "端口ID", "所属交换机", "进端口数据(Byte)", "出端口数据(Byte)"};
+                                                            Set<String> pList = allGroups.getAllGroups().get(currentGroup)
+                                                                    .getController().getSwitches().get(switchName).getPorts();
+                                                            Object[][] pInfo = new Object[pList.size()][5];
+                                                            int pindex = 0;
                                                         /*final Port[] pArray = new Port[pList.size()];
                                                         for (final Port p : pList) { // 遍历每个端口
                                                             pInfo[pindex][0] = p.getPortName();
@@ -1528,32 +1500,32 @@ public class PSManagerUI {
                                                             pArray[pindex] = p;
                                                             pindex++;
                                                         }*/
-                                                        portTable = new JTable(pInfo, pHeader) {
-                                                            public boolean isCellEditable(int row, int column) {
-                                                                return false; //表格不允许被编辑
-                                                            }
-                                                        };
-                                                        portTable.setPreferredScrollableViewportSize(new Dimension(620, 220));
-                                                        FitTableColumns(portTable); // 列宽自适应
-                                                        portTable.setRowHeight(23); // 行高
-                                                        DefaultTableCellRenderer r = new DefaultTableCellRenderer();
-                                                        r.setHorizontalAlignment(JLabel.CENTER);
-                                                        portTable.setDefaultRenderer(Object.class, r); // 文字居中
-                                                        JScrollPane pScrollPane = new JScrollPane(portTable);
-                                                        ports.add(pScrollPane, BorderLayout.CENTER);
+                                                            portTable = new JTable(pInfo, pHeader) {
+                                                                public boolean isCellEditable(int row, int column) {
+                                                                    return false; //表格不允许被编辑
+                                                                }
+                                                            };
+                                                            portTable.setPreferredScrollableViewportSize(new Dimension(620, 220));
+                                                            FitTableColumns(portTable); // 列宽自适应
+                                                            portTable.setRowHeight(23); // 行高
+                                                            DefaultTableCellRenderer r = new DefaultTableCellRenderer();
+                                                            r.setHorizontalAlignment(JLabel.CENTER);
+                                                            portTable.setDefaultRenderer(Object.class, r); // 文字居中
+                                                            JScrollPane pScrollPane = new JScrollPane(portTable);
+                                                            ports.add(pScrollPane, BorderLayout.CENTER);
 
-                                                        //添加行响应事件获取端口上的队列
-                                                        portTable.addMouseListener(new MouseAdapter() {
-                                                            public void mouseClicked(MouseEvent e) {
-                                                                int row = portTable.getSelectedRow();
-                                                                // 加载队列信息
-                                                                if (queues != null)
-                                                                    queues.removeAll();
-                                                                String[] qHeader = {"队列名称", "所属端口", "进队列数据(Byte)", "出队列数据(Byte)", "当前队列长度", "队列带宽"};
+                                                            //添加行响应事件获取端口上的队列
+                                                            portTable.addMouseListener(new MouseAdapter() {
+                                                                public void mouseClicked(MouseEvent e) {
+                                                                    int row = portTable.getSelectedRow();
+                                                                    // 加载队列信息
+                                                                    if (queues != null)
+                                                                        queues.removeAll();
+                                                                    String[] qHeader = {"队列名称", "所属端口", "进队列数据(Byte)", "出队列数据(Byte)", "当前队列长度", "队列带宽"};
 //                                                                Map<Integer, java.util.List<String>> qList = allGroups.getAllGroups().get(currentGroup)
 //                                                                        .getController().getSwitches().get(switchName).getQueues();
 //                                                                Object[][] qInfo = new Object[qList.size()][6];
-                                                                int qindex = 0;
+                                                                    int qindex = 0;
                                                                 /*for (Queue q : qList) { // 遍历端口上每个队列
                                                                     qInfo[qindex][0] = q.getQueueName();
                                                                     qInfo[qindex][1] = q.getPortId();
@@ -1568,25 +1540,25 @@ public class PSManagerUI {
 //                                                                        return false; //表格不允许被编辑
 //                                                                    }
 //                                                                };
-                                                                queueTable.setPreferredScrollableViewportSize(new Dimension(620, 220));
-                                                                FitTableColumns(queueTable); // 列宽自适应
-                                                                queueTable.setRowHeight(23); // 行高
-                                                                DefaultTableCellRenderer r = new DefaultTableCellRenderer();
-                                                                r.setHorizontalAlignment(JLabel.CENTER);
-                                                                queueTable.setDefaultRenderer(Object.class, r); // 文字居中
-                                                                JScrollPane qScrollPane = new JScrollPane(queueTable);
-                                                                queues.add(qScrollPane, BorderLayout.CENTER);
+                                                                    queueTable.setPreferredScrollableViewportSize(new Dimension(620, 220));
+                                                                    FitTableColumns(queueTable); // 列宽自适应
+                                                                    queueTable.setRowHeight(23); // 行高
+                                                                    DefaultTableCellRenderer r = new DefaultTableCellRenderer();
+                                                                    r.setHorizontalAlignment(JLabel.CENTER);
+                                                                    queueTable.setDefaultRenderer(Object.class, r); // 文字居中
+                                                                    JScrollPane qScrollPane = new JScrollPane(queueTable);
+                                                                    queues.add(qScrollPane, BorderLayout.CENTER);
 
-                                                                groupsInfoTabbedPane.setSelectedIndex(4);
-                                                            }
+                                                                    groupsInfoTabbedPane.setSelectedIndex(4);
+                                                                }
 
-                                                        });
-                                                        groupsInfoTabbedPane.setSelectedIndex(3);
-                                                    }
-                                                });
-                                                flowInfoMenu.addMouseListener(new MouseAdapter() {
-                                                    @Override
-                                                    public void mouseClicked(MouseEvent e) {
+                                                            });
+                                                            groupsInfoTabbedPane.setSelectedIndex(3);
+                                                        }
+                                                    });
+                                                    flowInfoMenu.addMouseListener(new MouseAdapter() {
+                                                        @Override
+                                                        public void mouseClicked(MouseEvent e) {
 
                                                        /* FlowInfoShow flowInfoShow = new FlowInfoShow();// 柱状图的panel
                                                         flowInfoShow.setTitle("流量统计柱形图");
@@ -1620,21 +1592,23 @@ public class PSManagerUI {
                                                             scollpane.setViewportView(flowInfoShow.createHistogramPanel());
                                                             scollpane.updateUI();
                                                         }catch ( Exception exp ) { exp.printStackTrace(); }*/
-                                                    }
-                                                });
+                                                        }
+                                                    });
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
+                                    }
                                 }
                             }
-
                             //加载集群订阅信息
-                            //ArrayList<String> subers = new ArrayList<>();//所有订阅用户地址
-                            if (topomgr.getLsdb().getLSDB().get(currentGroup).getSubTopics() != null) {
-                                int count = topomgr.getLsdb().getLSDB().get(currentGroup).getSubTopics().size();
+                            Set<String> subs = allGroups.getAllGroups().get( currentGroup ).getSubTopics();
+                            if(subs != null){
+                                int count = subs.size();
                                 String[][] groupSubData = new String[count][1];
-                                for (int i = 0; i < count; i ++) {
-                                    groupSubData[i][1] =  topomgr.getLsdb().getLSDB().get(currentGroup).getSubTopics().get(i);
+                                int i = 0;
+                                for (String sub:subs ) {
+                                    groupSubData[i][1] =  sub;
+                                    i++;
                                 }
                                 String[] columnNames = {"集群" + currentGroup + "的所有订阅"};
                                 groupSubsModel = new DefaultTableModel(groupSubData, columnNames);
