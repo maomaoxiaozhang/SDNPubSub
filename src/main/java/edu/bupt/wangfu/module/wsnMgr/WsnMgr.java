@@ -239,7 +239,7 @@ public class WsnMgr {
          * 采用线程池的方式，多线程传输减少阻塞
          */
         public void onMsgReceive(Object msg) {
-            System.out.println("收到主题 " + topic + " 消息：" + msg);
+//            System.out.println("收到主题 " + topic + " 消息：" + msg);
             Task task = new Task();
             task.setTopic(topic);
             task.setMsg(msg);

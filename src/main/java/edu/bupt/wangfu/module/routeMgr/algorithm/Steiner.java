@@ -96,6 +96,10 @@ public class Steiner {
     }
 
     public static Set<Edge> steiner(Set<Node> allNodes, Set<Node> select){
+        if (select.size() <= 1)  {
+            System.out.println("只有一个节点，无需下发流表");
+            return new HashSet<>();
+        }
         int max = Integer.MAX_VALUE;
         int dist[][] = new int[allNodes.size()][allNodes.size()];
         Dijkstra dijkstra = new Dijkstra();
@@ -125,8 +129,10 @@ public class Steiner {
         for(int i = 0; i < dist.length; i++)
             for(int j = 0; j < dist.length; j++)
                 for(int k = 0; k < dist.length; k++)
-                    if(dist[i][j] > dist[i][k] + dist[k][j])
+                    if((dist[i][k] != Integer.MAX_VALUE && dist[k][j] != Integer.MAX_VALUE) &&
+                            (dist[i][j] == Integer.MAX_VALUE || dist[i][j] > dist[i][k] + dist[k][j])) {
                         dist[i][j] = dist[i][k] + dist[k][j];
+                    }
 
         /*      第二步，求D的最小生成树*/
 
@@ -152,6 +158,7 @@ public class Steiner {
                 G2.add(BuildTopology.find(no, allNodes));
             }
         }
+        select.addAll(G2);
 
         /*		第三步，求扩展子图G2的最小生成树*/
 

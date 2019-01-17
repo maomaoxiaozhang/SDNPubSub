@@ -148,57 +148,63 @@ public class RouteUtil {
         String groupName = controller.getLocalGroupName();
         String in = String.valueOf(controller.getSwitchPort());
         List<Flow> flowList = new LinkedList<>();
+        System.out.println(controller.getPort2nei());
+        edgeSet.forEach(System.out::println);
         for (Edge edge : edgeSet) {
             if (edge.getStartNode().getName().equals(groupName)) {
                 List<String>  portList = controller.getPort2nei().get(edge.getEndNode().getName());
-                for (String out : portList) {
-                    int flowCount = controller.getFlowCount();
-                    controller.setFlowCount(++flowCount);
-                    Flow flow = new Flow();
-                    flow.setIn(in);
-                    flow.setOut(out);
-                    flow.setFlow_id(flowCount);
-                    flow.setPriority(PRIORITY);
-                    flow.setV6(address + "/" + "128");
-                    FlowUtil.downFlow(flow, ADD, ovsProcess);
-                    flowList.add(flow);
+                if (portList != null) {
+                    for (String out : portList) {
+                        int flowCount = controller.getFlowCount();
+                        controller.setFlowCount(++flowCount);
+                        Flow flow = new Flow();
+                        flow.setIn(in);
+                        flow.setOut(out);
+                        flow.setFlow_id(flowCount);
+                        flow.setPriority(PRIORITY);
+                        flow.setV6(address);
+                        FlowUtil.downFlow(flow, ADD, ovsProcess);
+                        flowList.add(flow);
 
-                    flowCount = controller.getFlowCount();
-                    controller.setFlowCount(++flowCount);
-                    flow = new Flow();
-                    flow.setIn(out);
-                    flow.setOut(in);
-                    flow.setFlow_id(flowCount);
-                    flow.setPriority(PRIORITY);
-                    flow.setV6(address + "/" + "128");
-                    FlowUtil.downFlow(flow, ADD, ovsProcess);
-                    flowList.add(flow);
+                        flowCount = controller.getFlowCount();
+                        controller.setFlowCount(++flowCount);
+                        flow = new Flow();
+                        flow.setIn(out);
+                        flow.setOut(in);
+                        flow.setFlow_id(flowCount);
+                        flow.setPriority(PRIORITY);
+                        flow.setV6(address);
+                        FlowUtil.downFlow(flow, ADD, ovsProcess);
+                        flowList.add(flow);
+                    }
                 }
             }
             if (edge.getEndNode().getName().equals(groupName)) {
                 List<String>  portList = controller.getPort2nei().get(edge.getStartNode().getName());
-                for (String out : portList) {
-                    int flowCount = controller.getFlowCount();
-                    controller.setFlowCount(++flowCount);
-                    Flow flow = new Flow();
-                    flow.setIn(in);
-                    flow.setOut(out);
-                    flow.setFlow_id(flowCount);
-                    flow.setPriority(PRIORITY);
-                    flow.setV6(address + "/" + "128");
-                    FlowUtil.downFlow(flow, ADD, ovsProcess);
-                    flowList.add(flow);
+                if (portList != null) {
+                    for (String out : portList) {
+                        int flowCount = controller.getFlowCount();
+                        controller.setFlowCount(++flowCount);
+                        Flow flow = new Flow();
+                        flow.setIn(in);
+                        flow.setOut(out);
+                        flow.setFlow_id(flowCount);
+                        flow.setPriority(PRIORITY);
+                        flow.setV6(address);
+                        FlowUtil.downFlow(flow, ADD, ovsProcess);
+                        flowList.add(flow);
 
-                    flowCount = controller.getFlowCount();
-                    controller.setFlowCount(++flowCount);
-                    flow = new Flow();
-                    flow.setIn(out);
-                    flow.setOut(in);
-                    flow.setFlow_id(flowCount);
-                    flow.setPriority(PRIORITY);
-                    flow.setV6(address + "/" + "128");
-                    FlowUtil.downFlow(flow, ADD, ovsProcess);
-                    flowList.add(flow);
+                        flowCount = controller.getFlowCount();
+                        controller.setFlowCount(++flowCount);
+                        flow = new Flow();
+                        flow.setIn(out);
+                        flow.setOut(in);
+                        flow.setFlow_id(flowCount);
+                        flow.setPriority(PRIORITY);
+                        flow.setV6(address);
+                        FlowUtil.downFlow(flow, ADD, ovsProcess);
+                        flowList.add(flow);
+                    }
                 }
             }
         }

@@ -128,6 +128,7 @@ public class TopicUtil {
         XMLWriter xmlWriter = new XMLWriter(new FileWriter(TOPIC),outputFormat); //dom4j提供了专门写入文件的对象XMLWriter
         xmlWriter.write(doc);
         xmlWriter.close();
+        System.out.println("更新后的主题树：\n" + this.readAll());
     }
 
     public void deleteTopic(TopicTreeEntry node) throws DocumentException, IOException {

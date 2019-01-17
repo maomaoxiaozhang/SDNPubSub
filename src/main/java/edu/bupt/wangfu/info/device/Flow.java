@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import static edu.bupt.wangfu.module.util.Constant.PRIORITY;
 import static edu.bupt.wangfu.module.util.Constant.TABLE_ID;
+import static edu.bupt.wangfu.module.util.Constant.threshold;
 
 /**
  * 流表项信息
@@ -13,8 +14,6 @@ import static edu.bupt.wangfu.module.util.Constant.TABLE_ID;
  * @author caoming
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Flow extends DevInfo{
     //流表项id
     private int flow_id;
@@ -32,6 +31,16 @@ public class Flow extends DevInfo{
     private String v4_dst;
     private String v6;
 
+    public Flow() {
+    }
+
+    public Flow(String priority, String in, String out, String v6) {
+        this.priority = priority;
+        this.in = in;
+        this.out = out;
+        this.v6 = v6;
+    }
+
     public String toStringOutput() {
         return String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s,actions=output:%s",
                 PRIORITY, in, v6, out);
@@ -47,5 +56,13 @@ public class Flow extends DevInfo{
 
     public String toStringDelete() {
         return String.format("table=%s,dl_type=%s,in_port=%s,ipv6_dst=%s,out_port=%s", TABLE_ID, "0x86DD", in, v6, out);
+    }
+
+    public boolean isSame(Flow other) {
+        if (priority.equals(other.priority) && in.equals(other.in) &&
+                v6.equals(other.v6) && !out.equals(other.out)) {
+            return true;
+        }
+        return false;
     }
 }

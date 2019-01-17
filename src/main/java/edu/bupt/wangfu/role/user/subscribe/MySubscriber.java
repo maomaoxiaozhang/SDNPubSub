@@ -9,11 +9,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Scanner;
 
 public class MySubscriber {
-    JFrame f = new JFrame("Server");
+//    public static String sendStartTime = null;
+//    public static String sendEndTime = null;
+//    public static long receiveStartTime = 0L;
+//    public static long receiveEndTime = 0L;
+    public static int num = 0;
+    public static boolean flag = true;
+    public static java.util.List<Long> sendTimeList = new LinkedList<>();
+    public static java.util.List<Long> receiveTimeList = new LinkedList<>();
+    JFrame f = new JFrame("Client");
 
     JButton setupButton = new JButton("Setup");
+    JButton resetButton = new JButton("Reset");
 
     JPanel buttonPanel = new JPanel();
     JPanel mainPanel = new JPanel();
@@ -37,7 +48,9 @@ public class MySubscriber {
         //Buttons
         buttonPanel.setLayout(new GridLayout(1,0));
         buttonPanel.add(setupButton);
+        buttonPanel.add(resetButton);
         setupButton.addActionListener(new setupButtonListener());
+        setupButton.addActionListener(new resetButtonListener());
 
         //frame layout
         mainPanel.setLayout(null);
@@ -64,6 +77,12 @@ public class MySubscriber {
         f.getContentPane().add(mainPanel, BorderLayout.CENTER);
         f.setSize(new Dimension(380,420));
         f.setVisible(true);
+
+        Scanner in = new Scanner(System.in);
+        while (in.hasNext()) {
+            num = in.nextInt();
+            System.out.println("num: " + num);
+        }
     }
 
     class setupButtonListener implements ActionListener {
@@ -73,6 +92,17 @@ public class MySubscriber {
             if (trans == null) {
                 trans = new Trans();
             }
+        }
+    }
+
+    class resetButtonListener implements ActionListener {
+
+        public synchronized void actionPerformed(ActionEvent e){
+            System.out.println("Reset Button pressed !");
+            num = 0;
+            flag = true;
+            sendTimeList = new LinkedList<>();
+            receiveTimeList = new LinkedList<>();
         }
     }
 

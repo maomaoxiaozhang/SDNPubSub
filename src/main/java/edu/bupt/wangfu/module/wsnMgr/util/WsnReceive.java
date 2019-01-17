@@ -54,6 +54,7 @@ public class WsnReceive implements Runnable{
             if (msg instanceof TopicEncodeMsg) {
                 TopicEncodeMsg encodeMsg = (TopicEncodeMsg) msg;
                 wsnMgr.setEncodeTopicTree(encodeMsg.getTopicTree());
+//                System.out.println("主题树：\n" + msg);
             }
         }
     }

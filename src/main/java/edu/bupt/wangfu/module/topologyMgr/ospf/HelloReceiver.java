@@ -5,6 +5,7 @@ import edu.bupt.wangfu.info.device.Flow;
 import edu.bupt.wangfu.info.device.Switch;
 import edu.bupt.wangfu.info.message.system.HelloMsg;
 import edu.bupt.wangfu.module.routeMgr.RouteMgr;
+import edu.bupt.wangfu.module.routeMgr.util.AllFlows;
 import edu.bupt.wangfu.module.routeMgr.util.Node;
 import edu.bupt.wangfu.module.routeMgr.util.RouteUtil;
 import edu.bupt.wangfu.module.switchMgr.odl.OvsProcess;
@@ -45,6 +46,9 @@ public class HelloReceiver implements Runnable {
 
     @Autowired
     Lsa localLsa;
+
+    @Autowired
+    AllFlows allFlows;
 
     @Override
     public void run() {
@@ -299,7 +303,8 @@ public class HelloReceiver implements Runnable {
      * @param port
      */
     public void addAdminFlow(String port) {
-        ovsProcess.addFlow(String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%s",
-                PRIORITY, controller.getSwitchPort(), controller.getAdminV6Addr(), port));
+        Flow flow = new Flow(PRIORITY, String.valueOf(controller.getSwitchPort()), port,
+                controller.getAdminV6Addr());
+        ovsProcess.addFlow(flow);
     }
 }

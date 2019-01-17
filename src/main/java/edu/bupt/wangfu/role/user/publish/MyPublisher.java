@@ -10,10 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Scanner;
 
 import static edu.bupt.wangfu.module.util.Constant.FILE;
 
 public class MyPublisher {
+    int num = 0;
     JFrame f = new JFrame("Server");
     JButton setupButton = new JButton("Setup");
     JButton textButton = new JButton("Text");
@@ -79,6 +81,12 @@ public class MyPublisher {
         f.getContentPane().add(mainPanel, BorderLayout.CENTER);
         f.setSize(new Dimension(380,420));
         f.setVisible(true);
+
+        Scanner in = new Scanner(System.in);
+        while (in.hasNext()) {
+            num = in.nextInt();
+            System.out.println("num: " + num);
+        }
     }
 
     class setupButtonListener implements ActionListener {
@@ -98,7 +106,7 @@ public class MyPublisher {
             if (trans == null) {
                 System.out.println("请先注册用户！");
             }else {
-                trans.sendMethod(count++ + " text transmitted");
+                trans.sendTest(num);
             }
         }
     }

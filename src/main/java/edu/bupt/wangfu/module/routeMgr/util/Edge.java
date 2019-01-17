@@ -54,4 +54,12 @@ public class Edge implements Comparable{
 			return -1;
 	}
 
+	@Override
+	public String toString() {
+		return "Edge{" +
+				"length=" + length +
+				", startNode=" + startNode +
+				", endNode=" + endNode +
+				'}';
+	}
 }

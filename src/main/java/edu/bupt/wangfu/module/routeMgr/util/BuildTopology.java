@@ -47,6 +47,11 @@ public class BuildTopology {
             int distance = neighbors.get(group);
 
             Node other = find(group, nodes);
+            if (other == null) {
+                other = new Node();
+                other.setName(group);
+
+            }
             Neighbor neighbor = new Neighbor();
             neighbor.setName(other.getName());
             neighbor.setDistance(distance);
@@ -68,6 +73,7 @@ public class BuildTopology {
             edge.setEndNode(node);
             edge.setLength(distance);
             edges.add(edge);
+//            nodes.add(other);
         }
         nodes.add(node);
         return nodes;

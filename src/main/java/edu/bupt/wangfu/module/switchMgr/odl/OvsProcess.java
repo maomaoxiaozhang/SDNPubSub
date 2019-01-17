@@ -5,8 +5,10 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import edu.bupt.wangfu.info.device.Controller;
+import edu.bupt.wangfu.info.device.Flow;
 import edu.bupt.wangfu.info.device.Queue;
 import edu.bupt.wangfu.info.device.Switch;
+import edu.bupt.wangfu.module.routeMgr.util.AllFlows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +30,10 @@ import static edu.bupt.wangfu.module.util.Constant.*;
  *      ovs-ofctl dump-flows br0
  *      查看队列：
  *      ovs-appctl qos/show ge-1/1/5
+ *      查看端口开启情况：
+ *      ovs-ofctl dump-ports br0
+ *      开启端口：
+ *      ovs-vsctl add-port br0 ge-1/1/1
  *      添加队列：
  *      ovs-vsctl -- set port ge-1/1/2 qos=@newqos -- --id=@newqos create qos type=PRONTO_STRICT queues=0=@q0,1=@q1,2=@q2 -- --id=@q0 create queue other-config:min-rate=60000000 other-config:max-rate=60000000 -- --id=@q1 create queue other-config:min-rate=30000000 other-config:max-rate=30000000  -- --id=@q2 create queue other-config:min-rate=10000000 other-config:max-rate=10000000
  *
@@ -50,10 +56,11 @@ public class OvsProcess {
     @Autowired
     Controller controller;
 
+    @Autowired
+    AllFlows allFlows;
+
     private Session session;
     private ChannelExec channel;
-
-
 
     public void init() {
         try {
@@ -103,10 +110,25 @@ public class OvsProcess {
         return sb.toString();
     }
 
-    //添加流表
-    public void addFlow(String body) {
+    //执行流表
+    public void executeFlow(String body) {
         String cmd = ADD_FLOW + body;
         remoteExecuteCommand(cmd);
+    }
+
+    //添加流表
+    public void addFlow(Flow flow) {
+        allFlows.getFlowList().add(flow);
+        StringBuilder sb = new StringBuilder(flow.getOut());
+        for (Flow other : allFlows.getFlowList()) {
+            if (other.isSame(flow)) {
+                sb.append("," + other.getOut());
+            }
+        }
+        String cmd = ADD_FLOW + String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%s",
+                PRIORITY, flow.getIn(), flow.getV6(), sb);
+        remoteExecuteCommand(cmd);
+//        System.out.println("当前所有流表：\n" + allFlows.getFlowList());
     }
 
     //删除所有流表

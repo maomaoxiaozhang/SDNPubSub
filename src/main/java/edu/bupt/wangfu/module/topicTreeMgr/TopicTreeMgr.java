@@ -64,5 +64,6 @@ public class TopicTreeMgr {
         } catch (DocumentException e) {
             e.printStackTrace();
         }
+//        System.out.println("主题树获取结果：\n" + encodeTopicTree);
     }
 }

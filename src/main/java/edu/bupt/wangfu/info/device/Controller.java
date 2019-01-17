@@ -17,7 +17,7 @@ import java.util.*;
 @PropertySource("classpath:/controller.properties")
 public class Controller extends DevInfo{
 
-    @Value("${GroupControllerAddr:192.168.10.100}")
+    @Value("${GroupControllerAddr:192.168.100.100}")
     private String GroupControllerAddr;
 
     //保存管理员所在集群名

@@ -1,7 +1,9 @@
 package edu.bupt.wangfu.role.controller.util;
 
 import edu.bupt.wangfu.info.device.Controller;
+import edu.bupt.wangfu.info.device.Flow;
 import edu.bupt.wangfu.info.device.Switch;
+import edu.bupt.wangfu.module.routeMgr.util.AllFlows;
 import edu.bupt.wangfu.module.switchMgr.odl.OvsProcess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,6 +27,9 @@ public class ControllerInit {
 
     @Autowired
     Controller controller;
+
+    @Autowired
+    AllFlows allFlows;
 
     /**
      * 流表预下发（所有对外端口进 -> 控制器所在交换机端口）
@@ -62,10 +67,10 @@ public class ControllerInit {
         int swtPort = controller.getSwitchPort();
         for (Switch swt : controller.getOutSwitches().values()) {
             for (String port : swt.getOutPorts().values()) {
-                ovsProcess.addFlow(String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%d",
-                        PRIORITY, port, controller.getSysV6Addr(), swtPort));
-                ovsProcess.addFlow(String.format("priority=%s,in_port=%s,dl_type=0x86DD,ipv6_dst=%s/128,actions=output:%d",
-                        PRIORITY, port, controller.getAdminV6Addr(), swtPort));
+                Flow flow = new Flow(PRIORITY, port, String.valueOf(swtPort), controller.getSysV6Addr());
+                ovsProcess.addFlow(flow);
+                flow = new Flow(PRIORITY, port, String.valueOf(swtPort), controller.getAdminV6Addr());
+                ovsProcess.addFlow(flow);
             }
         }
     }

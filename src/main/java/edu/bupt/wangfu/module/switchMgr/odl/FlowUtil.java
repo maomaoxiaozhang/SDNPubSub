@@ -91,7 +91,7 @@ public class FlowUtil {
         }
         switch (action) {
             case ADD:
-                ovsProcess.addFlow(flow.toStringOutput());
+                ovsProcess.addFlow(flow);
                 break;
             case DELETE:
                 ovsProcess.deleteFlows(flow.toStringDelete());

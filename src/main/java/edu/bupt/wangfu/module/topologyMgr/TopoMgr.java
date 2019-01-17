@@ -87,7 +87,7 @@ public class TopoMgr{
         preStart();
         new Thread(helloReceiver, "拓扑发现").start();
         HeartTask heartTask = new HeartTask();
-        new Timer().schedule(heartTask, 100, 200000);
+        new Timer().schedule(heartTask, 100, 20000);
     }
 
     //心跳任务，定时向所有对外端口发送hello消息

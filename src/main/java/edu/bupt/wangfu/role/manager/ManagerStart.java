@@ -114,6 +114,7 @@ public class ManagerStart {
             for (Switch swt : controller.getOutSwitches().values()) {
                 for (String port : swt.getOutPorts().values()) {
                     String str = ovsProcess.dumpQueues(Integer.parseInt(port));
+//                    System.out.println(str);
                     Map<Integer, List<Queue>> queueMap = getQueueInfo(str, Integer.parseInt(port));
                     swt.getQueueMap().putAll(queueMap);
                 }
@@ -137,6 +138,11 @@ public class ManagerStart {
             msg.setPubTopics(pubTopics);
             allGroups.getAllGroups().put(controller.getLocalGroupName(), msg);
             ui.reloadAllGroup();
+//            System.out.println("====================");
+//            System.out.println("下发主题路径");
+//            System.out.println("主题：test1\t路径：G1--G2");
+//        System.out.println("主题：test1\t路径：G1--G2，G1--G3");
+//            System.out.println("====================");
         }
     }
 

@@ -1471,8 +1471,8 @@ public class PSManagerUI {
                                                                 public void mouseClicked(MouseEvent e) {
                                                                     if (e.getButton() == MouseEvent.BUTTON3) {
                                                                         JFrame f = new JFrame();
-                                                                        LookUpMsg lookUpMsg = new LookUpMsg();
-                                                                        Host host = new Host();
+//                                                                        LookUpMsg lookUpMsg = new LookUpMsg();
+//                                                                        Host host = new Host();
                                                                         f.setTitle("设备信息");
                                                                         f.setBounds(e.getXOnScreen(), e.getYOnScreen(), 230, 280);
                                                                         f.setVisible(true);
