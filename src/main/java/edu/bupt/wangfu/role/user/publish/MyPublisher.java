@@ -106,7 +106,7 @@ public class MyPublisher {
             if (trans == null) {
                 System.out.println("请先注册用户！");
             }else {
-                trans.sendTest(num);
+                trans.sendTestWithSleep(num);
             }
         }
     }
