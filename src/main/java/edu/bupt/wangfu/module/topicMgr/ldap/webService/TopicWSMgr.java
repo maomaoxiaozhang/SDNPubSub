@@ -15,11 +15,9 @@ public class TopicWSMgr {
         Endpoint endpint = Endpoint.publish(localAddr, topicRequestProcess);
     }
 
-    public static void main(String[] args) {
-        //ApplicationContext context = new AnnotationConfigApplicationContext(ControllerConfig.class);
-        //TopicWSMgr topicWSMgr = (WsnMgr) context.getBean("topicWSMgr");
-        TopicWSMgr topicWSMgr = new TopicWSMgr();
-        topicWSMgr.start();
-    }
+//    public static void main(String[] args) {
+//        TopicWSMgr topicWSMgr = new TopicWSMgr();
+//        topicWSMgr.start();
+//    }
 }
 

@@ -17,8 +17,8 @@ public class XSDNode {
     private String path;
 
 
-//    @Override
-//    public String toString(){
-//        return getDescription();
-//    }
+    @Override
+    public String toString(){
+        return getDescription();
+    }
 }

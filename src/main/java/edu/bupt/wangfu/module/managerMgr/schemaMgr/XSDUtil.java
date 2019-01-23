@@ -67,6 +67,13 @@ public class XSDUtil {
         }
     }
 
+    public String readAll(String xsd) throws DocumentException {
+        SAXReader saxReader = new SAXReader();
+        Document doc = null;
+        doc = saxReader.read( xsd );
+        return doc.asXML();
+    }
+
     public void modify(String xsd,XSDNode node,String attr,String value) throws DocumentException, IOException {
         SAXReader saxReader = new SAXReader();
         Document doc = null;

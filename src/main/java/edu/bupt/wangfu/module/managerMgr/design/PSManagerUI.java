@@ -156,15 +156,7 @@ public class PSManagerUI {
         topicTreeUI1 = new TopicTreeUI1(this);
         schemaUI = new SchemaUI(this);
         util = new PolicyUtil();
-        try {
-            policyMap.setPolicyMap(util.readXMLFile());
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }
+        policyMap.setPolicyMap(util.readXMLFile());
         JFrame.setDefaultLookAndFeelDecorated(true);
         /**
          * com.jtattoo.plaf.aluminium.AluminiumLookAndFeel 椭圆按钮+翠绿色按钮背景+金属质感
@@ -812,39 +804,15 @@ public class PSManagerUI {
                     policyMap.getPolicyMap().put(selectedTopic,currentPolicy);
                     if(policyMap.getPolicyMap().containsKey(selectedTopic)){
                         if(currentPolicy.getTargetGroups().size() == 0){
-                            try {
-                                util.deletePolicy(currentPolicy);
-                            } catch (ParserConfigurationException e1) {
-                                e1.printStackTrace();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            } catch (SAXException e1) {
-                                e1.printStackTrace();
-                            }
+                            util.deletePolicy(currentPolicy);
                         }
                         else{
-                            try {
-                                util.modifypolicy( currentPolicy );
-                            } catch (ParserConfigurationException e1) {
-                                e1.printStackTrace();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            } catch (SAXException e1) {
-                                e1.printStackTrace();
-                            }
+                            util.modifypolicy( currentPolicy );
                         }
 
                     }
                     else{
-                        try {
-                            util.addNewPolicy( currentPolicy );
-                        } catch (ParserConfigurationException e1) {
-                            e1.printStackTrace();
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        } catch (SAXException e1) {
-                            e1.printStackTrace();
-                        }
+                        util.addNewPolicy( currentPolicy );
                     }
                     currentPolicyReflash.doClick();
                     JOptionPane.showMessageDialog(null, "策略设置成功!");
@@ -1169,7 +1137,7 @@ public class PSManagerUI {
         }
         visualManagement.addTab("", new ImageIcon("./img/shcemaM.png"), schemaM, null);
 
-		//控制台
+        //控制台
         consol = new JPanel();
         topTabbedPane.addTab("控制台", null, consol, null);
         consol.setLayout(new GridLayout(0, 1, 0, 0));
