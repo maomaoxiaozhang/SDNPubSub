@@ -154,19 +154,19 @@ public class ManagerStart {
         //生成编码主题树
         topicTreeMgr.buildTopicTree();
         //时间驱动，定时向控制器发送编码主题树
-        new Timer().schedule(new ControllerTopicTask(), 1000, 20000);
+//        new Timer().schedule(new ControllerTopicTask(), 1000, 20000);
         //时间驱动，定时向wsn发送编码主题树
         new Timer().schedule(wsnTopicTask, 1000, 15000);
-        topoMgr.start();
+//        topoMgr.start();
         //启动wsn监听，接收集群内的发布订阅情况
         exec.execute(managerWsnListener);
         //启动admin监听，接收各集群上报的信息
         exec.execute(managerAdminListener);
         //时间驱动，启动管理员模块、ui界面
-        new Timer().schedule(new GroupTask(), 1000, 20000);
-        managerMgr.start();
+//        new Timer().schedule(new GroupTask(), 1000, 20000);
+//        managerMgr.start();
         //启动队列管理
-        queueMgr.start(exec);
+//        queueMgr.start(exec);
     }
 
     public class ControllerTopicTask extends TimerTask {

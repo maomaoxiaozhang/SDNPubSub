@@ -43,29 +43,29 @@ public class UserNotificationProcessImpl implements INotificationProcess {
             MySubscriber.fsynch.addFrame(toolkit.createImage(payload, 0, payload_length), seqNb);
         }else {
             //文本消息
-//            System.out.println("收到订阅主题 " + topic + " 文本消息：" + msg);
+            System.out.println("收到订阅主题 " + topic + " 文本消息：" + msg);
             String[] strings = msg.split(":");
-            int id = Integer.parseInt(strings[0]);
-            if (id <= MySubscriber.num) {
-                MySubscriber.sendTimeList.add(Long.valueOf(strings[1]));
-                MySubscriber.receiveTimeList.add(System.currentTimeMillis());
-            }else {
-                if (MySubscriber.flag){
-                    int count = MySubscriber.sendTimeList.size();
-                    long delay = 0L;
-                    for (int i = 0; i < count; i++) {
-                        delay += (MySubscriber.receiveTimeList.get(i) - MySubscriber.sendTimeList.get(i));
-                    }
-                    MySubscriber.flag = false;
-                    if (count == 0) {
-                        System.out.println("not yet!");
-                    }else {
-                        System.out.println("发包总数：" + MySubscriber.num + " 接收总数：" + count + " 总时延：" + delay + " 平均时延：" + delay/count);
-                    }
-                }else {
-                    //nothing
-                }
-            }
+//            int id = Integer.parseInt(strings[0]);
+//            if (id <= MySubscriber.num) {
+//                MySubscriber.sendTimeList.add(Long.valueOf(strings[1]));
+//                MySubscriber.receiveTimeList.add(System.currentTimeMillis());
+//            }else {
+//                if (MySubscriber.flag){
+//                    int count = MySubscriber.sendTimeList.size();
+//                    long delay = 0L;
+//                    for (int i = 0; i < count; i++) {
+//                        delay += (MySubscriber.receiveTimeList.get(i) - MySubscriber.sendTimeList.get(i));
+//                    }
+//                    MySubscriber.flag = false;
+//                    if (count == 0) {
+//                        System.out.println("not yet!");
+//                    }else {
+//                        System.out.println("发包总数：" + MySubscriber.num + " 接收总数：" + count + " 总时延：" + delay + " 平均时延：" + delay/count);
+//                    }
+//                }else {
+//                    //nothing
+//                }
+//            }
         }
     }
 

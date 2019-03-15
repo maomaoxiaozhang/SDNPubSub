@@ -60,16 +60,16 @@ public class ManagerInit {
         controller.setOutSwitches(outSwitchMap);
         controller.setLocalSwtId(sw.getId());
 
-        ovsProcess.init();
-        System.out.println("流表预下发：");
-        int swtPort = controller.getSwitchPort();
-        for (Switch swt : controller.getOutSwitches().values()) {
-            for (String port : swt.getOutPorts().values()) {
-                Flow flow = new Flow(PRIORITY, port, String.valueOf(swtPort), controller.getSysV6Addr());
-                ovsProcess.addFlow(flow);
-                flow = new Flow(PRIORITY, port, String.valueOf(swtPort), controller.getAdminV6Addr());
-                ovsProcess.addFlow(flow);
-            }
-        }
+//        ovsProcess.init();
+//        System.out.println("流表预下发：");
+//        int swtPort = controller.getSwitchPort();
+//        for (Switch swt : controller.getOutSwitches().values()) {
+//            for (String port : swt.getOutPorts().values()) {
+//                Flow flow = new Flow(PRIORITY, port, String.valueOf(swtPort), controller.getSysV6Addr());
+//                ovsProcess.addFlow(flow);
+//                flow = new Flow(PRIORITY, port, String.valueOf(swtPort), controller.getAdminV6Addr());
+//                ovsProcess.addFlow(flow);
+//            }
+//        }
     }
 }

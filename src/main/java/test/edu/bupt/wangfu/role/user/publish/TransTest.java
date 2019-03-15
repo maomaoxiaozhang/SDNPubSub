@@ -1,6 +1,7 @@
 package test.edu.bupt.wangfu.role.user.publish; 
 
 import edu.bupt.wangfu.role.user.publish.Trans;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After; 
@@ -40,8 +41,8 @@ public class TransTest {
     @Test
     public void testSendTest() throws Exception {
         //TODO: Test goes here...
-        Trans trans = new Trans();
-        trans.sendTest(3);
+        Assert.assertEquals(1+1, 3);
+        System.out.println("lalala");
     }
 
 
