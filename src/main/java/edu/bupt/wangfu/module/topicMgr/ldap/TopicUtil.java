@@ -16,8 +16,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import static edu.bupt.wangfu.module.util.Constant.TOPIC;
+
 public class TopicUtil {
-    private static final String TOPIC = "./topicMsg.xml";
 
     public String readAll() throws DocumentException {
         SAXReader saxReader = new SAXReader();
@@ -26,17 +27,21 @@ public class TopicUtil {
         return doc.asXML();
     }
 
-    public TopicTreeEntry readRoot() throws DocumentException {
+    public TopicTreeEntry readRoot(String path) throws DocumentException {
         TopicTreeEntry root = new TopicTreeEntry();
         SAXReader saxReader = new SAXReader();
         Document doc = null;
-        doc = saxReader.read( TOPIC );
+        doc = saxReader.read(path);
         Element element = doc.getRootElement();
         root.setTopic( "all");
         root.setLayer( 0 );
         root.setPath(element.getPath());
         readTopic(element,root);
         return root;
+    }
+
+    public TopicTreeEntry readRoot() throws DocumentException {
+        return readRoot(TOPIC);
     }
 
     public static List<TopicTreeEntry> getAllNodes(TopicTreeEntry root) {

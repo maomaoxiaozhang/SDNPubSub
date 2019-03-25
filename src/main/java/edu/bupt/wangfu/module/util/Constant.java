@@ -4,6 +4,9 @@ package edu.bupt.wangfu.module.util;
  * 申明全局常量
  */
 public class Constant {
+    //主题树存储路径
+    public static String TOPIC = "./topicMsg.xml";
+
     //Hello 消息类型
     public static final String HELLO = "hello";
 

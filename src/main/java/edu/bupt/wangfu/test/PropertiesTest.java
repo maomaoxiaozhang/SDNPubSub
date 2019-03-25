@@ -12,7 +12,7 @@ import java.util.Properties;
  */
 public class PropertiesTest {
 
-    public static final String file = "src/main/resources/constant.properties";
+    public static final String file = "D:\\Configuration\\properties.xml";
 
     //更新constant 类中的属性值
     public static void refreshPro() {
@@ -44,5 +44,6 @@ public class PropertiesTest {
 
     public static void main(String[] args) {
         refreshPro();
+        System.out.println(PropertiesTest.class.getResource("/topicMsg.xml").getPath());
     }
 }

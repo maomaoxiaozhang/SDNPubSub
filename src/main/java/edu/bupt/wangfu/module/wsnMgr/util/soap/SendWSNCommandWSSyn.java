@@ -88,7 +88,7 @@ public class SendWSNCommandWSSyn {
 		 content += EscapeSequenceGenerate("</wsnt:Filter>");
 		 content += EscapeSequenceGenerate("<wsnt:SubscriberAddress>");
 		 content += EscapeSequenceGenerate("</wsnt:SubscriberAddress>");
-		 content += EscapeSequenceGenerate("</wsnt:Subscribe>");
+//		 content += EscapeSequenceGenerate("</wsnt:Subscribe>");
 		 content += "</org:WsnProcess>";
 		 content += "</soapenv:Body>";
 		 content += "</soapenv:Envelope>";

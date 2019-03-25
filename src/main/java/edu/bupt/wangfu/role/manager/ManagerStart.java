@@ -148,7 +148,7 @@ public class ManagerStart {
 
     public void start() {
         //更新constant 类中的属性值
-        PropertiesTest.refreshPro();
+//        PropertiesTest.refreshPro();
         //集群初始化，流表预下发
         managerInit.init();
         //生成编码主题树
