@@ -253,8 +253,8 @@ public class SchemaUI {
         editconfirm.setBounds( 70, 110, 100, 30 );
         editconfirm.addActionListener( new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                String attr = attrArea.getText().trim();
-                String val = valueArea.getText().trim();
+                String attr = attrArea.getText();
+                String val = valueArea.getText();
                 try {
                     modify_node( attr,val );
                 } catch (Exception e) {
@@ -276,7 +276,8 @@ public class SchemaUI {
 
         newTagFrame.setBounds( screenSize.width / 2, screenSize.height / 2, 400, 250 );
         newTagFrame.setLayout( null );
-        JComboBox TagType = new JComboBox();
+        String[] type1 = {"xs:element","xs:complexType","xs:sequence"};
+        JComboBox TagType = new JComboBox(type1);
         TagType.setBounds(100,10,150,50);
         TagType.setBorder(BorderFactory.createTitledBorder("选择类型"));
         TagType.setEditable(true);
@@ -307,11 +308,12 @@ public class SchemaUI {
             public void actionPerformed(ActionEvent arg0) {
                 XSDNode newNode = new XSDNode();
                 String tagT = (String) TagType.getSelectedItem();
-                String typeS = attrArea.getText().trim();
-                String nameS = valueArea.getText().trim();
+                String typeS = typeArea.getText();
+                String nameS = nameArea.getText();
                 newNode.setTagType( tagT );
                 newNode.setName( nameS );
                 newNode.setType( typeS );
+//                System.out.println(newNode);
                 try {
                     add_node_to_tree( newNode );
                 } catch (Exception e) {
@@ -386,6 +388,7 @@ public class SchemaUI {
     protected void add_node_to_tree(XSDNode newNode) throws Exception {
         DefaultMutableTreeNode tempTreeNode = (DefaultMutableTreeNode) SchemaTree.getLastSelectedPathComponent();
         XSDNode tempNode = (XSDNode) tempTreeNode.getUserObject();
+        System.out.println(newNode);
         xsdUtil.addTag(xsd, tempNode, newNode);
         reload_Schema( xsd );
 //        tempNode.setUserObject(temptopic);

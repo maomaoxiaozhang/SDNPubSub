@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.dom4j.*;
+import org.dom4j.dom.DOMDocument;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
@@ -124,25 +125,34 @@ public class XSDUtil {
         xmlWriter.close();
     }
 
+    public void init(String xsd) throws DocumentException, IOException {
+//        SAXReader saxReader = new SAXReader();
+        Document doc = new DOMDocument(  );
+//        doc = saxReader.read(xsd);
+        Element newElement=doc.addElement("xs:schema");
+        newElement.addAttribute( "xmlns:xs","http://www.w3.org/2001/XMLSchema" );
+        XMLWriter xmlWriter = new XMLWriter(new FileWriter(xsd)); //dom4j提供了专门写入文件的对象XMLWriter
+        xmlWriter.write(doc);
+        xmlWriter.close();
+    }
+
     public static void main(String[] args) {
-        XSDNode node = new XSDNode();
-//        node.setPath("xs:element[@name=\"test\"]/xs:complexType/xs:sequence");
-//        XSDNode newNode = new XSDNode();
-//        newNode.setTagType( "xs:element" );
-//        newNode.setName( "test" );
-//        newNode.setType( "xs:string" );
-        node.setPath("xs:element[@name=\"test1\"]");
+//        XSDNode node = new XSDNode();
+//        node.setPath("xs:element[@name=\"note\"]/xs:complexType/xs:sequence/");
+//        node.setTagType( "xs:element" );
+//        node.setName( "new" );
+//        node.setType( "xs:string" );
         try {
-            //String realPath = XSDUtil.class.getResource("/").getPath();
             XSDUtil xsdUtil = new XSDUtil();
-            xsdUtil.deleteTag( "./schema/test.xsd",node);
-            //xsdUtil.addTag("./schema/test.xsd",node,newNode);
-            //xsdUtil.addTreeTag( "./schema/test.xsd",newNode );
-            //xsdUtil.rename("./schema/test.xsd",node,"from1");
-            //XSDNode xsdNode = xsdUtil.readXSDRoot("./schema/test.xsd" );
-            //System.out.println(xsdNode);
+            xsdUtil.init( "./schema/newTopic.xsd" );
+//            String res = xsdUtil.readAll("./schema/test1-1.xsd" );
+//            System.out.println( res );
+//            xsdUtil.deleteTag( "./schema/test1-1.xsd",node);
+//            xsdUtil.addTag( "./schema/test1-1.xsd",node,node );
+
         } catch (Exception ex){
             ex.printStackTrace();
         }
+
     }
 }

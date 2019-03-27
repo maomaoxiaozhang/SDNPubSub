@@ -113,10 +113,10 @@ public class ManagerStart {
             msg.setGroupName(controller.getLocalGroupName());
             for (Switch swt : controller.getOutSwitches().values()) {
                 for (String port : swt.getOutPorts().values()) {
-                    String str = ovsProcess.dumpQueues(Integer.parseInt(port));
+//                    String str = ovsProcess.dumpQueues(Integer.parseInt(port));
 //                    System.out.println(str);
-                    Map<Integer, List<Queue>> queueMap = getQueueInfo(str, Integer.parseInt(port));
-                    swt.getQueueMap().putAll(queueMap);
+//                    Map<Integer, List<Queue>> queueMap = getQueueInfo(str, Integer.parseInt(port));
+//                    swt.getQueueMap().putAll(queueMap);
                 }
             }
             msg.setSwitchMap(controller.getSwitches());
@@ -163,8 +163,8 @@ public class ManagerStart {
         //启动admin监听，接收各集群上报的信息
         exec.execute(managerAdminListener);
         //时间驱动，启动管理员模块、ui界面
-//        new Timer().schedule(new GroupTask(), 1000, 20000);
-//        managerMgr.start();
+        new Timer().schedule(new GroupTask(), 1000, 20000);
+        managerMgr.start();
         //启动队列管理
 //        queueMgr.start(exec);
     }

@@ -316,54 +316,6 @@ public class TopicTreeUI1 {
         popMenu.add(strategyItem);
     }
 
-    //菜单栏初始化
-//    private void MenuBar_init() {
-//        TTMenuBar = new JMenuBar();
-//        JMenu file = new JMenu("菜单");
-//
-//        JMenuItem open_menu = new JMenuItem("打开", newtreeimage);
-//        file.add(open_menu);
-//
-//        JMenuItem save_menu = new JMenuItem("保存", saveimage);
-//        file.add(save_menu);
-//
-//        JMenu tree = new JMenu("主题树");
-//
-//        JMenuItem add_menu = new JMenuItem("新建", addimage);
-//        add_menu.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                addJFrame.setVisible(true);
-//            }
-//        });
-//        tree.add(add_menu);
-//
-//        JMenuItem delete_menu = new JMenuItem("删除", deleteimage);
-//        delete_menu.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                try {
-//                    delete_node_from_tree();
-//                } catch (NamingException e1) {
-//                    e1.printStackTrace();
-//                } catch (DocumentException e1) {
-//                    e1.printStackTrace();
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                }
-//            }
-//        });
-//        tree.add(delete_menu);
-//
-//        JMenuItem modify_menu = new JMenuItem("修改", modifyimage);
-//        modify_menu.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                editingJFrame.setVisible( true );
-//            }
-//        });
-//        tree.add(modify_menu);
-//
-//        TTMenuBar.add(file);
-//        TTMenuBar.add(tree);
-//    }
 
     //工具栏初始化
     private void ToolBar_init()  {
@@ -499,11 +451,6 @@ public class TopicTreeUI1 {
         LibTree.setDragEnabled(true);
         LibTree.setDropMode(DropMode.ON_OR_INSERT);
         LibTree.getSelectionModel().setSelectionMode(TreeSelectionModel.CONTIGUOUS_TREE_SELECTION);
-//        try {
-//            LibTree.setTransferHandler(new TreeTransferHandler(lu, LibTree, TTTree));
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
 
         LibTree.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent evt) {
@@ -560,11 +507,12 @@ public class TopicTreeUI1 {
         LibTreeForSchema.addMouseListener(new MouseAdapter() {
 
             public void mouseClicked(MouseEvent e) {
-                if(e.getClickCount()==1){//点击几次，这里是双击事件
+                if(e.getClickCount()==2){//点击几次，这里是双击事件
                     TreePath path = LibTreeForSchema.getPathForLocation(e.getX(), e.getY());
                     LibTreeForSchema.setSelectionPath(path);
                     DefaultMutableTreeNode chosenSchema = (DefaultMutableTreeNode)LibTreeForSchema.getLastSelectedPathComponent();
-                    if(path!=null&&chosenSchema.isLeaf())
+//                    if(path!=null&&chosenSchema.isLeaf())
+                    if(path!=null)
                     {
                         File clickSchemaFile = new File("schema/"+chosenSchema.toString()+".xsd");
                         if(clickSchemaFile.exists()){

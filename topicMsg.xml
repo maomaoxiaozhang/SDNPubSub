@@ -3,10 +3,7 @@
 <all>
     <layer-1 name="test1">
         <layer-2 name="test1-1">
-            <layer-3 name="test1-1-1">
-                <layer-4 name="newTopic"/>
-                <layer-4 name="新建节点"/>
-            </layer-3>
+            <layer-3 name="test1-1-1"/>
         </layer-2>
         <layer-2 name="test1-2">
             <layer-3 name="test1-1-2"/>
@@ -25,4 +22,8 @@
         </layer-2>
     </layer-1>
     <layer-1 name="test4"/>
+    <layer-1 name="newTopic">
+        <layer-2 name="newTopic1"/>
+        <layer-2 name="newTopic2"/>
+    </layer-1>
 </all>

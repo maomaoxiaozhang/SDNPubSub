@@ -132,9 +132,4 @@ public class SchemaRequestProcessImpl implements SchemaRequestProcess {
         return "unknown";
     }
 
-    public static void main(String[] args) {
-        SchemaRequestProcessImpl schemaRequestProcess = new SchemaRequestProcessImpl();
-        String localAddr = "http://10.108.166.57:55557/schemaMgr";
-        Endpoint endpint = Endpoint.publish(localAddr, schemaRequestProcess);
-    }
 }
