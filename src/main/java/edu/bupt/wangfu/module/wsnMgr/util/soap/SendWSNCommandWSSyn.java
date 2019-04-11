@@ -88,7 +88,7 @@ public class SendWSNCommandWSSyn {
 		 content += EscapeSequenceGenerate("</wsnt:Filter>");
 		 content += EscapeSequenceGenerate("<wsnt:SubscriberAddress>");
 		 content += EscapeSequenceGenerate("</wsnt:SubscriberAddress>");
-//		 content += EscapeSequenceGenerate("</wsnt:Subscribe>");
+		 content += EscapeSequenceGenerate("</wsnt:Publish>");
 		 content += "</org:WsnProcess>";
 		 content += "</soapenv:Body>";
 		 content += "</soapenv:Envelope>";
@@ -120,7 +120,7 @@ public class SendWSNCommandWSSyn {
 		content += EscapeSequenceGenerate("</wsnt:Filter>");
 		content += EscapeSequenceGenerate("<wsnt:SubscriberAddress>");
 		content += EscapeSequenceGenerate("</wsnt:SubscriberAddress>");
-		content += EscapeSequenceGenerate("</wsnt:Subscribe>");
+		content += EscapeSequenceGenerate("</wsnt:Register>");
 		content += "</org:WsnProcess>";
 		content += "</soapenv:Body>";
 		content += "</soapenv:Envelope>";
@@ -150,7 +150,7 @@ public class SendWSNCommandWSSyn {
 		content += EscapeSequenceGenerate("</wsnt:Filter>");
 		content += EscapeSequenceGenerate("<wsnt:SubscriberAddress>");
 		content += EscapeSequenceGenerate("</wsnt:SubscriberAddress>");
-		content += EscapeSequenceGenerate("</wsnt:Subscribe>");
+		content += EscapeSequenceGenerate("</wsnt:Notify>");
 		content += "</org:WsnProcess>";
 		content += "</soapenv:Body>";
 		content += "</soapenv:Envelope>";
